@@ -18,3 +18,8 @@ build:
   
 before_build: 
   - ps: nuget restore IrisLib.csproj -PackagesDirectory .\packages
+  
+artifacts:
+  - path: .\bin\Release\IrisLib.dll
+  - path: .\bin\Release\IrisLib.pdb
+  - path: .\bin\Release\IrisLib.xml
