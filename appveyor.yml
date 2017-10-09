@@ -1,2 +1,20 @@
+#---------------------------------#
+#       build configuration       #
+#---------------------------------#
+
+# build platform, i.e. x86, x64, Any CPU. This setting is optional.
+platform: Any CPU
+
+# to add several platforms to build matrix:
+#platform:
+#  - x86
+#  - Any CPU
+
+# build Configuration, i.e. Debug, Release, etc.
+configuration: Release
+
 build:
-  project: IrisLib.csproj
+  project: IrisLib.sln
+  
+before_build: 
+  - ps: nuget IrisLib.sln
