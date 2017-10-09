@@ -30,7 +30,8 @@ deploy:
   provider: GitHub
   auth_token:
     secure: h35HOYAmD8a2JAykXLvuYNT+hbv0AzCRFECJuaUZn8t8wf2u7fsmP3VILAdIrdpN # your encrypted token from GitHub
-  artifact: .\bin\Release\IrisLib.dll            # upload all NuGet packages to release assets
+  artifact: 
+    - path: .\bin\Release\IrisLib.dll
   draft: false
   prerelease: false
   on:
