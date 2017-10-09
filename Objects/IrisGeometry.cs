@@ -6,19 +6,40 @@ using Newtonsoft.Json;
 
 namespace IrisLib
 {
+    /// <summary>
+    /// Class to store geometry information.
+    /// </summary>
     public class IrisGeometry : IrisElement, IEquatable<IrisGeometry>
     {
+        /// <summary>
+        /// Flag for vertex colors.
+        /// </summary>
         [JsonIgnore]
         public int VertexColors { get; private set; }
 
+        /// <summary>
+        /// Geometry data.
+        /// </summary>
         [JsonProperty("data")]
         public IrisGeometryData Data { get; private set; }
 
+        /// <summary>
+        /// Base constructor for IrisGeometry.
+        /// </summary>
         public IrisGeometry()
         {
             Type = "Geometry";
         }
 
+        /// <summary>
+        /// Constructor for IrisGeometry which takes vertices and other parameters to construct a variety of objects.
+        /// </summary>
+        /// <param name="_vertices"></param>
+        /// <param name="_normals"></param>
+        /// <param name="_textureCoordinates"></param>
+        /// <param name="_faces"></param>
+        /// <param name="_colors"></param>
+        /// <param name="includeNormals"></param>
         public IrisGeometry(List<float[]> _vertices = null, List<float[]> _normals = null, List<float[]> _textureCoordinates = null, List<int[]> _faces = null, List<System.Drawing.Color> _colors = null, bool includeNormals = false):this()
         {
             IrisGeometryFace face = new IrisGeometryFace
@@ -212,6 +233,11 @@ namespace IrisLib
 
         }
 
+        /// <summary>
+        /// Check if one IrisGeometry equals another.
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
         public bool Equals(IrisGeometry other)
         {
             if (other == null)
@@ -231,35 +257,91 @@ namespace IrisLib
         }
     }
 
+    /// <summary>
+    /// Geometry data.
+    /// </summary>
     public class IrisGeometryData
     {
+        /// <summary>
+        /// The list of vertices associated with this geometry.
+        /// </summary>
         [JsonProperty("vertices")]
         public IList<float> Vertices { get; set; }
 
+        /// <summary>
+        /// The list of normals associated with this geometry.
+        /// </summary>
         [JsonProperty("normals")]
         public IList<object> Normals { get; set; }
 
+        /// <summary>
+        /// The list of UVs associated with this geometry.
+        /// </summary>
         [JsonProperty("uvs")]
         public List<List<float>> Uvs { get; set; }
 
+        /// <summary>
+        /// The list of colors associated with this geometry.
+        /// </summary>
         [JsonProperty("colors")]
         public IList<int> Colors { get; set; }
 
+        /// <summary>
+        /// The faces associated with this geometry.
+        /// </summary>
         [JsonProperty("faces")]
         public IList<int> Faces { get; set; }
     }
 
+    /// <summary>
+    /// Class for storing geometry face data.
+    /// </summary>
     public class IrisGeometryFace
     {
+        /// <summary>
+        /// False for triangle, true for quad.
+        /// </summary>
         public bool Topology { get; set; } //false for triangle, true for quad
+
+        /// <summary>
+        /// 
+        /// </summary>
         public bool FaceMaterial { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public bool FaceUVs { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public bool FaceVertexUVs { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public bool FaceNormals { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public bool VertexNormals { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public bool FaceColor { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public bool VertexColors { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public byte GetFaceType()
         {
             bool[] faceBits = new bool[] { Topology, FaceMaterial, FaceUVs, FaceVertexUVs,
@@ -279,8 +361,16 @@ namespace IrisLib
         }
     }
 
+    /// <summary>
+    /// Simple collection class for creating lists of IrisGeometry.
+    /// </summary>
     public class IrisGeometryCollection : Collection<IrisGeometry>
     {
+        /// <summary>
+        /// Add a geometry to this collection if it does not already exist.
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
         public Guid AddIfNew(IrisGeometry item)
         {
             var q = from a in this
