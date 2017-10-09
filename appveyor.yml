@@ -21,3 +21,5 @@ before_build:
   
 artifacts:
   - path: .\bin\Release\IrisLib.dll
+  - path: .\bin\Release\IrisLib.pdb
+  - path: .\bin\Release\IrisLib.xml
