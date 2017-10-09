@@ -14,7 +14,7 @@ platform: Any CPU
 configuration: Release
 
 build:
-  project: IrisLib.sln
+  project: IrisLib.csproj
   
 before_build: 
-  - ps: nuget IrisLib.sln
+  - ps: nuget restore IrisLib.csproj
