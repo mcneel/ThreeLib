@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{47658F27-9658-4941-91CE-E767F8770641}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IrisLib</RootNamespace>
+    <AssemblyName>IrisLib</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\Iris\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Materials\IrisBasicMaterial.cs" />
+    <Compile Include="Materials\IrisImage.cs" />
+    <Compile Include="Materials\IrisLambertMaterial.cs" />
+    <Compile Include="Materials\IrisLineMaterial.cs" />
+    <Compile Include="Materials\IrisMaterial.cs" />
+    <Compile Include="Materials\IrisPhongMaterial.cs" />
+    <Compile Include="Materials\IrisPointCloudMaterial.cs" />
+    <Compile Include="Materials\IrisTexture.cs" />
+    <Compile Include="Objects\IrisElement.cs" />
+    <Compile Include="Objects\IrisFont.cs" />
+    <Compile Include="Objects\IrisGeometry.cs" />
+    <Compile Include="Objects\IrisGeometryBuffer.cs" />
+    <Compile Include="Objects\IrisGeometryText.cs" />
+    <Compile Include="Objects\IrisLayer.cs" />
+    <Compile Include="Objects\IrisObjectCPlane.cs" />
+    <Compile Include="Objects\IrisObjectCurve.cs" />
+    <Compile Include="Objects\IrisObjectDirectionalLight.cs" />
+    <Compile Include="Objects\IrisObjectGroup.cs" />
+    <Compile Include="Objects\IrisObjectLight.cs" />
+    <Compile Include="Objects\IrisObjectMesh.cs" />
+    <Compile Include="Objects\IrisObjectOrthographicCamera.cs" />
+    <Compile Include="Objects\IrisObjectPerspectiveCamera.cs" />
+    <Compile Include="Objects\IrisObjectPointLight.cs" />
+    <Compile Include="Objects\IrisObjectPoints.cs" />
+    <Compile Include="Objects\IrisObjectPosition.cs" />
+    <Compile Include="Objects\IrisObjectScene.cs" />
+    <Compile Include="Objects\IrisObjectSpotLight.cs" />
+    <Compile Include="Objects\IrisObjectTypeEnum.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\IrisClasses.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
