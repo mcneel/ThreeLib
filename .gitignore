@@ -4,3 +4,4 @@ obj/
 *.userprefs
 .vs/
 *.refsignored
+.gitattributes
