@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("IrisLib")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription(".net Class Library for creating Three.js compatible objects.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Robert McNeel & Associates")]
 [assembly: AssemblyProduct("IrisLib")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
