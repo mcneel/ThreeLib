@@ -31,7 +31,5 @@ deploy:
   provider: NuGet
   api_key:
     secure: EmdGz6NxrKEE9y1YFxLyYxhb4S31f1Bjq1lVSg6a4X37O6eb3QoA5kG0++XT1X/q
-  skip_symbols: false
-  symbol_server:           # remove to push symbols to SymbolSource.org
-  artifact: /.*\.nupkg/
+  artifact: .\IrisLib.nupkg
 
