@@ -2,6 +2,8 @@
 #       build configuration       #
 #---------------------------------#
 
+version: 1.0.{build}
+
 # build platform, i.e. x86, x64, Any CPU. This setting is optional.
 platform: Any CPU
 
@@ -13,14 +15,16 @@ platform: Any CPU
 # build Configuration, i.e. Debug, Release, etc.
 configuration: Release
 
+assembly_info: 
+  patch: true 
+  file: AssemblyInfo.* 
+  assembly_version: "{version}" 
+  assembly_file_version: "{version}" 
+  assembly_informational_version: "{version}"
+
 build:
   project: IrisLib.csproj
-  
-before_build: 
-  - ps: nuget restore IrisLib.csproj -PackagesDirectory .\packages
-  
-after_build:
-  - ps: nuget pack IrisLib.csproj -Version APPVEYOR_BUILD_VERSION
+  publish_nuget: true
   
 artifacts:
   - path: .\bin\Release\IrisLib.dll
