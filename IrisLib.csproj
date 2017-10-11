@@ -46,6 +46,7 @@
     <Compile Include="Materials\IrisMaterial.cs" />
     <Compile Include="Materials\IrisPhongMaterial.cs" />
     <Compile Include="Materials\IrisPointCloudMaterial.cs" />
+    <Compile Include="Materials\IrisStandardMaterial.cs" />
     <Compile Include="Materials\IrisTexture.cs" />
     <Compile Include="Objects\IrisElement.cs" />
     <Compile Include="Objects\IrisFont.cs" />
@@ -74,4 +75,12 @@
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
 </Project>
