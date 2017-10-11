@@ -20,13 +20,13 @@ before_build:
   - ps: nuget restore IrisLib.csproj -PackagesDirectory .\packages
   
 after_build:
-  - ps: nuget pack IrisLib.csproj Version APPVEYOR_BUILD_VERSION
+  - ps: nuget pack IrisLib.csproj -Version APPVEYOR_BUILD_VERSION
   
 artifacts:
   - path: .\bin\Release\IrisLib.dll
   - path: .\bin\Release\IrisLib.pdb
   - path: .\bin\Release\IrisLib.xml
-  - path: .\IrisLib.1.0.0.nupkg
+  - path: .\IrisLib.*\.nupkg
   
 deploy:
   provider: NuGet
