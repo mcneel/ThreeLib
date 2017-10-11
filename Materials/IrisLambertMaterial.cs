@@ -185,8 +185,16 @@ namespace IrisLib
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public class IrisLambertMaterialCollection : Collection<IrisLambertMaterial>
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
         public Guid AddIfNew(IrisLambertMaterial item)
         {
             var q = from a in this

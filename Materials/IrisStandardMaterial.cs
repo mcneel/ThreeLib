@@ -1,5 +1,8 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Collections.ObjectModel;
 
 namespace IrisLib
 {
@@ -102,6 +105,76 @@ namespace IrisLib
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="roughness"></param>
+        /// <param name="metalness"></param>
+        /// <param name="diffuseColor"></param>
+        /// <param name="ambientColor"></param>
+        /// <param name="emissionColor"></param>
+        /// <param name="transparency"></param>
+        /// <param name="name"></param>
+        /// <param name="textures"></param>
+        /// <param name="vertexColors"></param>
+        public IrisStandardMaterial(double roughness = 1.00, double metalness = 0.25, int? diffuseColor = null, int? ambientColor = null, int? emissionColor = null, double transparency = 0, string name = "", Dictionary<string, Guid> textures = null, int vertexColors = 0) : this()
+        {
+
+            bool transparent = false;
+            double opacity = 1.0;
+            int side = 2;
+            if (transparency > 0)
+            {
+                transparent = true;
+                opacity = 1 - transparency;
+                if (Math.Abs(opacity) < double.Epsilon) opacity = 0.01;
+            }
+
+            Guid bitmapId = Guid.Empty;
+            Guid bumpId = Guid.Empty;
+            Guid transparencyId = Guid.Empty;
+            Guid environmentId = Guid.Empty;
+
+            foreach (var texture in textures)
+            {
+                switch (texture.Key)
+                {
+                    case "bitmap":
+                        bitmapId = texture.Value;
+                        break;
+                    case "bump":
+                        bumpId = texture.Value;
+                        break;
+                    case "transparency":
+                        transparencyId = texture.Value;
+                        transparent = true;
+                        //_side = 2;
+                        break;
+                    case "environment":
+                        environmentId = texture.Value;
+                        break;
+                }
+
+            }
+
+            Name = name;
+            Color = diffuseColor.Value;
+            Ambient = ambientColor.Value;
+            Emissive = emissionColor.Value;
+
+            Opacity = opacity;
+
+            Transparent = transparent;
+            Side = side;
+            VertexColors = vertexColors;
+            Map = bitmapId;
+            BumpMap = bumpId;
+            AlphaMap = transparencyId;
+            EnvironmentMap = environmentId;
+            Roughness = roughness;
+            Metalness = metalness;
+        }
+
+        /// <summary>
         /// Creates an IrisStandardMaterial with some default settings.
         /// </summary>
         /// <returns></returns>
@@ -119,6 +192,8 @@ namespace IrisLib
 
             };
         }
+
+
 
         /// <summary>
         /// Test to see if this material is equal to another.
@@ -151,4 +226,35 @@ namespace IrisLib
         }
 
     }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public class IrisStandardMaterialCollection : Collection<IrisStandardMaterial>
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        public Guid AddIfNew(IrisStandardMaterial item)
+        {
+            var q = from a in this
+                    where a.Equals(item)
+                    select a.Uuid;
+
+            var enumerable = q as Guid[] ?? q.ToArray();
+            if (!enumerable.Any())
+            {
+                Add(item);
+                return item.Uuid;
+            }
+            else
+            {
+                return enumerable.Single();
+            }
+        }
+    }
+
+
 }

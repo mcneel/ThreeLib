@@ -65,6 +65,8 @@ namespace IrisLib
         private IrisLambertMaterialCollection lambertMaterialCollection;
         [JsonIgnore]
         private IrisBasicMaterialCollection basicMaterialCollection;
+        [JsonIgnore]
+        private IrisStandardMaterialCollection standardMaterialCollection;
 
         [JsonIgnore]
         private List<IrisObjectCPlane> planes;
@@ -91,12 +93,18 @@ namespace IrisLib
             phongMaterialCollection = new IrisPhongMaterialCollection();
             lambertMaterialCollection = new IrisLambertMaterialCollection();
             basicMaterialCollection = new IrisBasicMaterialCollection();
+            standardMaterialCollection = new IrisStandardMaterialCollection();
 
             planes = new List<IrisObjectCPlane>();
             layers = new IrisLayerCollection();
             positions = new List<IrisObjectPosition>();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="geometry"></param>
+        /// <param name="material"></param>
         public void AddObject(IrisGeometry geometry, IrisMaterial material) { }
 
         /// <summary>
@@ -120,6 +128,8 @@ namespace IrisLib
                 matId = phongMaterialCollection.AddIfNew(material as IrisPhongMaterial);
             else if (material is IrisLambertMaterial)
                 matId = lambertMaterialCollection.AddIfNew(material as IrisLambertMaterial);
+            else if (material is IrisStandardMaterial)
+                matId = standardMaterialCollection.AddIfNew(material as IrisStandardMaterial);
             else if (material == null)
             {
                 material = new IrisLambertMaterial();
@@ -280,6 +290,7 @@ namespace IrisLib
             Materials.AddRange(phongMaterialCollection);
             Materials.AddRange(lambertMaterialCollection);
             Materials.AddRange(basicMaterialCollection);
+            Materials.AddRange(standardMaterialCollection);
 
             @Object.WritePlanes(planes);
             @Object.WriteLayers(layers);
