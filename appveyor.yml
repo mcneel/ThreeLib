@@ -26,7 +26,7 @@ artifacts:
   - path: .\bin\Release\IrisLib.dll
   - path: .\bin\Release\IrisLib.pdb
   - path: .\bin\Release\IrisLib.xml
-  - path: /.*\.nupkg/
+  - path: .\IrisLib.1.0.0.nupkg
   
 deploy:
   provider: NuGet
