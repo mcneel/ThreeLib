@@ -24,10 +24,12 @@ assembly_info:
 
 build:
   project: IrisLib.csproj
-  publish_nuget: true
   
 before_build: 
   - ps: nuget restore IrisLib.csproj -PackagesDirectory .\packages
+    
+after_build:
+  - ps: nuget pack IrisLib.csproj -Version $env:appveyor_build_version
   
 artifacts:
   - path: .\bin\Release\IrisLib.dll
