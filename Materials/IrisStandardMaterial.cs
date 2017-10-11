@@ -12,85 +12,85 @@ namespace IrisLib
         /// Material name.
         /// </summary>
         [JsonProperty("name")]
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Material diffuse color.
         /// </summary>
         [JsonProperty("color", DefaultValueHandling = DefaultValueHandling.Include)]
-        public int Color { get; private set; }
+        public int Color { get; set; }
 
         /// <summary>
         /// Material roughness.
         /// </summary>
         [JsonProperty("roughness")]
-        public double Roughness { get; private set; }
+        public double Roughness { get; set; }
 
         /// <summary>
         /// Material metalness.
         /// </summary>
         [JsonProperty("metalness")]
-        public double Metalness { get; private set; }
+        public double Metalness { get; set; }
 
         /// <summary>
         /// Material ambient color.
         /// </summary>
         [JsonProperty("ambient")]
-        public int Ambient { get; private set; }
+        public int Ambient { get; set; }
 
         /// <summary>
         /// Material emissive color.
         /// </summary>
         [JsonProperty("emissive")]
-        public int Emissive { get; private set; }
+        public int Emissive { get; set; }
 
         /// <summary>
         /// Material opacity.
         /// </summary>
         [JsonProperty("opacity")]
-        public double Opacity { get; private set; }
+        public double Opacity { get; set; }
 
         /// <summary>
         /// Material transparency switch.
         /// </summary>
         [JsonProperty("transparent")]
-        public bool Transparent { get; private set; }
+        public bool Transparent { get; set; }
 
         /// <summary>
         /// Material vertex colors switch.
         /// </summary>
         [JsonProperty("vertexColors")]
-        public int VertexColors { get; private set; }
+        public int VertexColors { get; set; }
 
         /// <summary>
         /// Material side.
         /// </summary>
         [JsonProperty("side")]
-        public int Side { get; private set; }
+        public int Side { get; set; }
 
         /// <summary>
         /// Material diffuse map.
         /// </summary>
         [JsonProperty("map")]
-        public Guid Map { get; private set; }
+        public Guid Map { get; set; }
 
         /// <summary>
         /// Material bump map.
         /// </summary>
         [JsonProperty("bumpMap")]
-        public Guid BumpMap { get; private set; }
+        public Guid BumpMap { get; set; }
 
         /// <summary>
         /// Material alpha map.
         /// </summary>
         [JsonProperty("alphaMap")]
-        public Guid AlphaMap { get; private set; }
+        public Guid AlphaMap { get; set; }
 
         /// <summary>
         /// Material environment map.
         /// </summary>
         [JsonProperty("envMap")]
-        public Guid EnvironmentMap { get; private set; }
+        public Guid EnvironmentMap { get; set; }
 
         /// <summary>
         /// Base constructor.
