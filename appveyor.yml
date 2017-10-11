@@ -26,6 +26,9 @@ build:
   project: IrisLib.csproj
   publish_nuget: true
   
+before_build: 
+  - ps: nuget restore IrisLib.csproj -PackagesDirectory .\packages
+  
 artifacts:
   - path: .\bin\Release\IrisLib.dll
   - path: .\bin\Release\IrisLib.pdb
