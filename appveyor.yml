@@ -13,11 +13,6 @@ platform: Any CPU
 # build Configuration, i.e. Debug, Release, etc.
 configuration: Release
 
-assembly_info:
-  patch: true
-  file: AssemblyInfo.*
-  assembly_version: "{version}"
-
 build:
   project: IrisLib.csproj
   
@@ -25,7 +20,7 @@ before_build:
   - ps: nuget restore IrisLib.csproj -PackagesDirectory .\packages
   
 after_build:
-  - ps: nuget pack IrisLib.csproj
+  - ps: nuget pack IrisLib.csproj Version APPVEYOR_BUILD_VERSION
   
 artifacts:
   - path: .\bin\Release\IrisLib.dll
