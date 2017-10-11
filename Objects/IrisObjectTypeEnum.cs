@@ -4,12 +4,24 @@ using System.Reflection;
 
 namespace IrisLib 
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public enum IrisObjectTypeEnum 
     {
+        /// <summary>
+        /// 
+        /// </summary>
         [StringValueAttribute("PointCloud")]
         Points,
+        /// <summary>
+        /// 
+        /// </summary>
         [StringValueAttribute("Line")]
         Curve,
+        /// <summary>
+        /// 
+        /// </summary>
         [StringValueAttribute("Mesh")]
         Mesh
     }

@@ -4,30 +4,56 @@ using System.Drawing;
 
 namespace IrisLib
 {
-
+    /// <summary>
+    /// For creatig point lights. Analogous to PointLight:
+    /// https://threejs.org/docs/index.html#api/lights/PointLight
+    /// </summary>
     public class IrisObjectPointLight : IrisObjectLight
     {
-
+        /// <summary>
+        /// Object name.
+        /// </summary>
         [JsonProperty("name")]
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
+        /// <summary>
+        /// Light color.
+        /// </summary>
         [JsonProperty("color")]
-        public int Color { get; private set; }
+        public int Color { get; set; }
 
+        /// <summary>
+        /// Light intensity.
+        /// </summary>
         [JsonProperty("intensity")]
-        public double Intensity { get; private set; }
+        public double Intensity { get; set; }
 
+        /// <summary>
+        /// Light distance.
+        /// </summary>
         [JsonProperty("distance")]
-        public double Distance { get; private set; }
+        public double Distance { get; set; }
 
+        /// <summary>
+        /// Object orientation.
+        /// </summary>
         [JsonProperty("matrix")]
-        public IList<double> Matrix { get; private set; }
+        public IList<double> Matrix { get; set; }
 
+        /// <summary>
+        /// Base constructor.
+        /// </summary>
         public IrisObjectPointLight()
         {
             Type = "PointLight";
         }
 
+        /// <summary>
+        /// Extended constructor.
+        /// </summary>
+        /// <param name="position"></param>
+        /// <param name="intensity"></param>
+        /// <param name="diffuse"></param>
         public IrisObjectPointLight(double[] position, double intensity, Color diffuse)
         {
             double[] matrix = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, position[0], position[1], position[2], 1 };

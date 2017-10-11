@@ -7,7 +7,8 @@ using Newtonsoft.Json;
 namespace IrisLib
 {
     /// <summary>
-    /// Display properties for curves.
+    /// Display properties for curves. Analogous to:
+    /// https://threejs.org/docs/index.html#api/materials/LineBasicMaterial
     /// </summary>
     public class IrisLineMaterial : IrisMaterial, IEquatable<IrisLineMaterial>
     {
@@ -15,43 +16,43 @@ namespace IrisLib
         /// The material name.
         /// </summary>
         [JsonProperty("name")]
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// The material color.
         /// </summary>
         [JsonProperty("color", DefaultValueHandling = DefaultValueHandling.Include)]
-        public int Color { get; private set; }
+        public int Color { get; set; }
 
         /// <summary>
         /// The curve linewidth. Note: This is not yet supported in the Iris WebApp.
         /// </summary>
         [JsonProperty("linewidth")]
-        public double LineWidth { get; private set; }
+        public double LineWidth { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [JsonProperty("linecap")]
-        public string LineCap { get; private set; }
+        public string LineCap { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [JsonProperty("linejoin")]
-        public string LineJoin { get; private set; }
+        public string LineJoin { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [JsonProperty("vertexColors")]
-        public int VertexColors { get; private set; }
+        public int VertexColors { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [JsonProperty("fog")]
-        public bool Fog { get; private set; }
+        public bool Fog { get; set; }
 
         /// <summary>
         /// Constructor for IrisLineMaterial. This is analogous to Threejs LineBasicMaterial.

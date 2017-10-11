@@ -7,55 +7,121 @@ using Newtonsoft.Json;
 
 namespace IrisLib
 {
+    /// <summary>
+    /// Create a Phong material analogous to a MeshPhongMaterial
+    /// https://threejs.org/docs/index.html#api/materials/MeshPhongMaterial
+    /// </summary>
     public class IrisPhongMaterial : IrisMaterial, IEquatable<IrisPhongMaterial>
     {
+        /// <summary>
+        /// Material name.
+        /// </summary>
         [JsonProperty("name")]
         public string Name { get; private set; }
 
+        /// <summary>
+        /// Material diffuse color.
+        /// </summary>
         [JsonProperty("color", DefaultValueHandling = DefaultValueHandling.Include)]
         public int Color { get; private set; }
 
+        /// <summary>
+        /// Material ambient color.
+        /// </summary>
         [JsonProperty("ambient")]
         public int Ambient { get; private set; }
 
+        /// <summary>
+        /// Material emissive color.
+        /// </summary>
         [JsonProperty("emissive")]
         public int Emissive { get; private set; }
 
+        /// <summary>
+        /// Material specular color.
+        /// </summary>
         [JsonProperty("specular")]
         public int Specular { get; private set; }
 
+        /// <summary>
+        /// Material shininess.
+        /// </summary>
         [JsonProperty("shininess")]
         public double Shininess { get; private set; }
 
+        /// <summary>
+        /// Material opacity.
+        /// </summary>
         [JsonProperty("opacity")]
         public double Opacity { get; private set; }
 
+        /// <summary>
+        /// Material transparency flag.
+        /// </summary>
         [JsonProperty("transparent")]
         public bool Transparent { get; private set; }
 
+        /// <summary>
+        /// Material vertex colors flag.
+        /// </summary>
         [JsonProperty("vertexColors", DefaultValueHandling = DefaultValueHandling.Include)]
         public int VertexColors { get; private set; }
 
+        /// <summary>
+        /// Material side.
+        /// </summary>
         [JsonProperty("side")]
         public int Side { get; private set; }
 
+        /// <summary>
+        /// Material diffuse texture.
+        /// </summary>
         [JsonProperty("map")]
         public Guid Map { get; private set; }
 
+        /// <summary>
+        /// Material bump texture.
+        /// </summary>
         [JsonProperty("bumpMap")]
         public Guid BumpMap { get; private set; }
 
+        /// <summary>
+        /// Material alpha texture.
+        /// </summary>
         [JsonProperty("alphaMap")]
         public Guid AlphaMap { get; private set; }
 
+        /// <summary>
+        /// Material environment map.
+        /// </summary>
         [JsonProperty("envMap")]
         public Guid EnvironmentMap { get; private set; }
 
+        /// <summary>
+        /// Base constructor.
+        /// </summary>
         public IrisPhongMaterial()
         {
             Type = "MeshPhongMaterial";
         }
 
+        /// <summary>
+        /// Extended constructor.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="color"></param>
+        /// <param name="ambient"></param>
+        /// <param name="emissive"></param>
+        /// <param name="specular"></param>
+        /// <param name="shininess"></param>
+        /// <param name="opacity"></param>
+        /// <param name="transparent"></param>
+        /// <param name="vertexColors"></param>
+        /// <param name="side"></param>
+        /// <param name="map"></param>
+        /// <param name="bumpMap"></param>
+        /// <param name="alphaMap"></param>
+        /// <param name="environmentMap"></param>
         public IrisPhongMaterial(string name, int color, int ambient, int emissive, int specular, double shininess, double opacity, bool transparent, int vertexColors, int side, Guid map, Guid bumpMap, Guid alphaMap, Guid environmentMap)
             : this()
         {
@@ -76,6 +142,18 @@ namespace IrisLib
             EnvironmentMap = environmentMap;
         }
 
+        /// <summary>
+        /// Extended constructor.
+        /// </summary>
+        /// <param name="diffuseColor"></param>
+        /// <param name="ambientColor"></param>
+        /// <param name="emissiveColor"></param>
+        /// <param name="specularColor"></param>
+        /// <param name="shine"></param>
+        /// <param name="transparency"></param>
+        /// <param name="name"></param>
+        /// <param name="textures"></param>
+        /// <param name="vertexColors"></param>
         public IrisPhongMaterial(Color? diffuseColor = null, Color? ambientColor = null, Color? emissiveColor = null, Color? specularColor = null, double shine = 0, double transparency = 0, string name = null, Dictionary<string, Guid> textures = null, int vertexColors = 0) : this()
         {
             bool transparent = false;
@@ -134,6 +212,19 @@ namespace IrisLib
 
         }
 
+        /// <summary>
+        /// Extended constructor.
+        /// </summary>
+        /// <param name="diffuseColor"></param>
+        /// <param name="ambientColor"></param>
+        /// <param name="emissiveColor"></param>
+        /// <param name="specularColor"></param>
+        /// <param name="shine"></param>
+        /// <param name="transparency"></param>
+        /// <param name="name"></param>
+        /// <param name="textures"></param>
+        /// <param name="vertexColors"></param>
+        /// <param name="closed"></param>
         public IrisPhongMaterial(Color? diffuseColor = null, Color? ambientColor = null, Color? emissiveColor = null, Color? specularColor = null, double shine = 0, double transparency = 0, string name = null, Dictionary<string, Guid> textures = null, int vertexColors = 0, bool closed = false)
             : this()
         {
@@ -193,6 +284,11 @@ namespace IrisLib
             EnvironmentMap = environmentId;
         }
 
+        /// <summary>
+        /// Extended constructor.
+        /// </summary>
+        /// <param name="color"></param>
+        /// <param name="vertexColors"></param>
         public IrisPhongMaterial(Color color, int vertexColors) : this()
         {
             Color = IrisMethods.ColorToRGB(color);
@@ -201,6 +297,17 @@ namespace IrisLib
             VertexColors = vertexColors;
         }
 
+        /// <summary>
+        /// Extended constructor.
+        /// </summary>
+        /// <param name="diffuseColor"></param>
+        /// <param name="ambientColor"></param>
+        /// <param name="emissiveColor"></param>
+        /// <param name="specularColor"></param>
+        /// <param name="shine"></param>
+        /// <param name="transparency"></param>
+        /// <param name="name"></param>
+        /// <param name="vectorColors"></param>
         public IrisPhongMaterial(Color? diffuseColor = null, Color? ambientColor = null, Color? emissiveColor = null, Color? specularColor = null, double shine = 0, double transparency = 0, string name = null, int vectorColors = 0) : this()
         {
             bool transparent = false;
@@ -227,6 +334,18 @@ namespace IrisLib
             Side = side;
         }
 
+        /// <summary>
+        /// Extended constructor.
+        /// </summary>
+        /// <param name="diffuseColor"></param>
+        /// <param name="ambientColor"></param>
+        /// <param name="emissiveColor"></param>
+        /// <param name="specularColor"></param>
+        /// <param name="shine"></param>
+        /// <param name="transparency"></param>
+        /// <param name="name"></param>
+        /// <param name="vectorColors"></param>
+        /// <param name="closed"></param>
         public IrisPhongMaterial(Color? diffuseColor = null, Color? ambientColor = null, Color? emissiveColor = null, Color? specularColor = null, double shine = 0, double transparency = 0, string name = null, int vectorColors = 0, bool closed = false)
             : this()
         {
@@ -254,6 +373,11 @@ namespace IrisLib
             Side = side;
         }
 
+        /// <summary>
+        /// Check whether this material equals another.
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
         public bool Equals(IrisPhongMaterial other)
         {
             if (other == null)
@@ -280,8 +404,16 @@ namespace IrisLib
         }
     }
 
+    /// <summary>
+    /// Basic collection for storing materials.
+    /// </summary>
     public class IrisPhongMaterialCollection : Collection<IrisPhongMaterial>
     {
+        /// <summary>
+        /// Add a material to the collection if it is unique.
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
         public Guid AddIfNew(IrisPhongMaterial item)
         {
             var q = from a in this

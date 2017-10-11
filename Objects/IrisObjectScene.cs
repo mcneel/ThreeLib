@@ -112,6 +112,7 @@ namespace IrisLib
         /// </summary>
         /// <param name="geometry">The IrisGeometry object containing the mesh data.</param>
         /// <param name="material">The mesh object's material.</param>
+        /// <param name="id"></param>
         /// <param name="name">The mesh object's name.</param>
         /// <param name="layer">The mesh object's layer.</param>
         /// <param name="userDataObject">User Data attatched to the object.</param>
@@ -150,9 +151,11 @@ namespace IrisLib
         /// </summary>
         /// <param name="geometry"></param>
         /// <param name="material"></param>
+        /// <param name="id"></param>
         /// <param name="layer"></param>
         /// <param name="userDataObject"></param>
         /// <param name="userDataAttributes"></param>
+        /// <param name="userDataCurve"></param>
         public void AddCurveObject(IrisGeometry geometry, IrisLineMaterial material, Guid id, IrisLayer layer = null, NameValueCollection userDataObject = null, NameValueCollection userDataAttributes = null, Dictionary<string, object> userDataCurve = null)
         {
             if (geometry == null || geometry.Type != "Geometry") return;
@@ -228,6 +231,9 @@ namespace IrisLib
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void AddGroupObject() { }
 
         /// <summary>

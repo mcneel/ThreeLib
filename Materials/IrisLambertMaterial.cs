@@ -7,50 +7,97 @@ using Newtonsoft.Json;
 
 namespace IrisLib
 {
+    /// <summary>
+    /// For creating lambert materials. Analogous to:
+    /// https://threejs.org/docs/index.html#api/materials/MeshLambertMaterial
+    /// </summary>
     public class IrisLambertMaterial : IrisMaterial, IEquatable<IrisLambertMaterial>
     {
-
+        /// <summary>
+        /// Object name.
+        /// </summary>
         [JsonProperty("name")]
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
+        /// <summary>
+        /// Material diffuse color.
+        /// </summary>
         [JsonProperty("color", DefaultValueHandling = DefaultValueHandling.Include)]
-        public int Color { get; private set; }
+        public int Color { get; set; }
 
+        /// <summary>
+        /// Material ambient color.
+        /// </summary>
         [JsonProperty("ambient")]
-        public int Ambient { get; private set; }
+        public int Ambient { get; set; }
 
+        /// <summary>
+        /// Material emissive color.
+        /// </summary>
         [JsonProperty("emissive")]
-        public int Emissive { get; private set; }
+        public int Emissive { get; set; }
 
+        /// <summary>
+        /// Material opacity.
+        /// </summary>
         [JsonProperty("opacity")]
-        public double Opacity { get; private set; }
+        public double Opacity { get; set; }
 
+        /// <summary>
+        /// Material transparency flag.
+        /// </summary>
         [JsonProperty("transparent")]
-        public bool Transparent { get; private set; }
+        public bool Transparent { get; set; }
 
+        /// <summary>
+        /// Material vertex color flag.
+        /// </summary>
         [JsonProperty("vertexColors")]
-        public int VertexColors { get; private set; }
+        public int VertexColors { get; set; }
 
+        /// <summary>
+        /// Material side.
+        /// </summary>
         [JsonProperty("side")]
-        public int Side { get; private set; }
+        public int Side { get; set; }
 
+        /// <summary>
+        /// Material diffuse map.
+        /// </summary>
         [JsonProperty("map")]
-        public Guid Map { get; private set; }
+        public Guid Map { get; set; }
 
+        /// <summary>
+        /// Material bump map.
+        /// </summary>
         [JsonProperty("bumpMap")]
-        public Guid BumpMap { get; private set; }
+        public Guid BumpMap { get; set; }
 
+        /// <summary>
+        /// Material alpha map.
+        /// </summary>
         [JsonProperty("alphaMap")]
-        public Guid AlphaMap { get; private set; }
+        public Guid AlphaMap { get; set; }
 
+        /// <summary>
+        /// Material environment map.
+        /// </summary>
         [JsonProperty("envMap")]
-        public Guid EnvironmentMap { get; private set; }
+        public Guid EnvironmentMap { get; set; }
 
+        /// <summary>
+        /// Default constructor.
+        /// </summary>
         public IrisLambertMaterial()
         {
             Type = "MeshLambertMaterial";
         }
 
+        /// <summary>
+        /// Extended constructor.
+        /// </summary>
+        /// <param name="color"></param>
+        /// <param name="vertexColors"></param>
         public IrisLambertMaterial(Color color, int vertexColors) : this()
         {
             Color = IrisMethods.ColorToRGB(color);
@@ -58,6 +105,16 @@ namespace IrisLib
             VertexColors = vertexColors;
         }
 
+        /// <summary>
+        /// Extended constructor.
+        /// </summary>
+        /// <param name="diffuseColor"></param>
+        /// <param name="ambientColor"></param>
+        /// <param name="emissionColor"></param>
+        /// <param name="transparency"></param>
+        /// <param name="name"></param>
+        /// <param name="vertexColors"></param>
+        /// <param name="closed"></param>
         public IrisLambertMaterial(Color diffuseColor, Color ambientColor, Color emissionColor, double transparency, string name, int vertexColors, bool closed) : this()
         {
             bool transparent = false;
@@ -81,6 +138,16 @@ namespace IrisLib
             Side = side;
         }
 
+        /// <summary>
+        /// Extended constructor.
+        /// </summary>
+        /// <param name="diffuseColor"></param>
+        /// <param name="ambientColor"></param>
+        /// <param name="emissionColor"></param>
+        /// <param name="transparency"></param>
+        /// <param name="name"></param>
+        /// <param name="mapUuid"></param>
+        /// <param name="vertexColors"></param>
         public IrisLambertMaterial(Color diffuseColor, Color ambientColor, Color emissionColor, double transparency, string name, Guid mapUuid, int vertexColors) : this()
         {
             bool transparent = false;
@@ -103,6 +170,17 @@ namespace IrisLib
             Map = mapUuid;
         }
 
+        /// <summary>
+        /// Extended constructor.
+        /// </summary>
+        /// <param name="diffuseColor"></param>
+        /// <param name="ambientColor"></param>
+        /// <param name="emissionColor"></param>
+        /// <param name="transparency"></param>
+        /// <param name="name"></param>
+        /// <param name="textures"></param>
+        /// <param name="vertexColors"></param>
+        /// <param name="closed"></param>
         public IrisLambertMaterial(Color? diffuseColor = null, Color? ambientColor = null, Color? emissionColor = null, double transparency = 0, string name = "", Dictionary<string, Guid> textures = null, int vertexColors = 0, bool closed = false)
             : this()
         {
@@ -161,6 +239,11 @@ namespace IrisLib
             EnvironmentMap = environmentId;
         }
 
+        /// <summary>
+        /// Check if object equals another.
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
         public bool Equals(IrisLambertMaterial other)
         {
             if (other == null)
@@ -186,12 +269,12 @@ namespace IrisLib
     }
 
     /// <summary>
-    /// 
+    /// For collecting materials.
     /// </summary>
     public class IrisLambertMaterialCollection : Collection<IrisLambertMaterial>
     {
         /// <summary>
-        /// 
+        /// Add a material to the collection if it is unique.
         /// </summary>
         /// <param name="item"></param>
         /// <returns></returns>

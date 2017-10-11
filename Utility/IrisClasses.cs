@@ -13,12 +13,21 @@ namespace IrisLib
     /// </remarks>
     public class IrisMetadata 
     {
+        /// <summary>
+        /// 
+        /// </summary>
         [JsonProperty("version")]
         public double Version { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         [JsonProperty("type")]
         public string Type { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         [JsonProperty("generator")]
         public string Generator { get; set; }
     }
@@ -28,6 +37,9 @@ namespace IrisLib
     /// </summary>
     public class IrisUserData
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public List<Dictionary<string, object>> UserData { get; set; }
     }
 
@@ -38,6 +50,9 @@ namespace IrisLib
     /// </summary>
     public class IrisData 
     {
+        /// <summary>
+        /// Basic matrix as a float[].
+        /// </summary>
         public static float[] Matrix = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1 };
     }
 

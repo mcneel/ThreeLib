@@ -5,25 +5,47 @@ using System.Linq;
 
 namespace IrisLib
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class IrisBasicMaterial : IrisMaterial, IEquatable<IrisBasicMaterial>
     {
+        /// <summary>
+        /// 
+        /// </summary>
         [JsonProperty("name")]
         public string Name { get; private set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         [JsonProperty("color", DefaultValueHandling = DefaultValueHandling.Include)]
         public int Color { get; private set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public IrisBasicMaterial()
         {
             Type = "MeshBasicMaterial";
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="color"></param>
         public IrisBasicMaterial(string name, int color) : this()
         {
             Name = name;
             Color = color;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
         public bool Equals(IrisBasicMaterial other)
         {
             if (other == null)
@@ -38,8 +60,16 @@ namespace IrisLib
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public class IrisBasicMaterialCollection : Collection<IrisBasicMaterial>
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
         public Guid AddIfNew(IrisBasicMaterial item)
         {
             var q = from a in this
