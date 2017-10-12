@@ -59,7 +59,7 @@ namespace IrisLib
         public IrisPointCloudMaterial()
         {
             Type = "PointsMaterial";
-            Color = IrisMethods.ColorToRGB(System.Drawing.Color.White);
+            Color = 16777215;
             Size = 5;
             SizeAttenuation = false;
             VertexColors = 2;
@@ -93,7 +93,7 @@ namespace IrisLib
         /// <param name="texture"></param>
         public IrisPointCloudMaterial(Guid texture) : this()
         {
-            Color = IrisMethods.ColorToRGB(System.Drawing.Color.White);
+            Color = 16777215;
             Size = 5;
             SizeAttenuation = false;
             VertexColors = 2;

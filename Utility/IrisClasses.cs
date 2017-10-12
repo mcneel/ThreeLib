@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
-using System.Drawing;
 
 namespace IrisLib
 {
@@ -63,15 +62,6 @@ namespace IrisLib
     /// </summary>
     public class IrisMethods 
     {
-        /// <summary>
-        /// Convert a System.Drawing.Color to int.
-        /// </summary>
-        /// <param name="c">The color to convert.</param>
-        /// <returns>An int representation of the color.</returns>
-        public static int ColorToRGB(Color c)
-        {
-            return c.R * 256 * 256 + c.G * 256 + c.B;
-        }
 
         /// <summary>
         /// Encode a float to an int.

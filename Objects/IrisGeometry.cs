@@ -40,7 +40,7 @@ namespace IrisLib
         /// <param name="_faces"></param>
         /// <param name="_colors"></param>
         /// <param name="includeNormals"></param>
-        public IrisGeometry(List<float[]> _vertices = null, List<float[]> _normals = null, List<float[]> _textureCoordinates = null, List<int[]> _faces = null, List<System.Drawing.Color> _colors = null, bool includeNormals = false):this()
+        public IrisGeometry(List<float[]> _vertices = null, List<float[]> _normals = null, List<float[]> _textureCoordinates = null, List<int[]> _faces = null, List<int> _colors = null, bool includeNormals = false):this()
         {
             IrisGeometryFace face = new IrisGeometryFace
             {
@@ -141,9 +141,10 @@ namespace IrisLib
             {
                 VertexColors = 2;
                 face.VertexColors = true;
-                foreach (var color in _colors)
-                    colors.Add(IrisMethods.ColorToRGB(color));
+                
             }
+
+            colors = _colors;
 
             List<int> facesIndex = new List<int>();
 

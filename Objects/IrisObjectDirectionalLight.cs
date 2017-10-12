@@ -46,7 +46,7 @@ namespace IrisLib
         {
             Type = "DirectionalLight";
         }
-
+        /*
         /// <summary>
         /// Extended constructor.
         /// </summary>
@@ -85,6 +85,7 @@ namespace IrisLib
             Intensity = 0.4;
             Matrix = matrix;
         }
+        */
 
     }
 

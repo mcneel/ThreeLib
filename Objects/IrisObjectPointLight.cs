@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
-using System.Drawing;
 
 namespace IrisLib
 {
@@ -47,7 +46,7 @@ namespace IrisLib
         {
             Type = "PointLight";
         }
-
+        /*
         /// <summary>
         /// Extended constructor.
         /// </summary>
@@ -63,6 +62,8 @@ namespace IrisLib
             Distance = 100; //set this correctly
             Matrix = matrix;
         }
+
+    */
 
     }
 

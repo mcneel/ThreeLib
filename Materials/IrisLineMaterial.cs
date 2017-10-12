@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.Drawing;
 using System.Linq;
 using Newtonsoft.Json;
 
@@ -61,39 +60,7 @@ namespace IrisLib
         {
             Type = "LineBasicMaterial";
         }
-
-        /// <summary>
-        /// Create a new IrisLineMaterial with a speficied color and linewidth.
-        /// </summary>
-        /// <param name="color"></param>
-        /// <param name="linewidth">Not supported yet.</param>
-        public IrisLineMaterial(Color color, double linewidth) : this()
-        {
-            Color = IrisMethods.ColorToRGB(color);
-            LineWidth = linewidth;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="name"></param>
-        /// <param name="color"></param>
-        /// <param name="linewidth"></param>
-        /// <param name="linecap"></param>
-        /// <param name="linejoin"></param>
-        /// <param name="vertexColors"></param>
-        /// <param name="fog"></param>
-        public IrisLineMaterial(string name, int color, double linewidth, string linecap, string linejoin, int vertexColors, bool fog) : this()
-        {
-            Name = name;
-            Color = color;
-            LineWidth = linewidth;
-            LineCap = linecap;
-            LineJoin = linejoin;
-            VertexColors = vertexColors;
-            Fog = fog;
-        }
-
+        
         /// <summary>
         /// Check whether this equals an object of the same type.
         /// </summary>

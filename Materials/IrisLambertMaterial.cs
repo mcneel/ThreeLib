@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Drawing;
 using System.Linq;
 using Newtonsoft.Json;
 
@@ -94,151 +92,20 @@ namespace IrisLib
         }
 
         /// <summary>
-        /// Extended constructor.
+        /// Creates a default IrisLambertMaterial.
         /// </summary>
-        /// <param name="color"></param>
-        /// <param name="vertexColors"></param>
-        public IrisLambertMaterial(Color color, int vertexColors) : this()
+        /// <returns>An IrisLambertMaterial with default values.</returns>
+        public static IrisLambertMaterial Default()
         {
-            Color = IrisMethods.ColorToRGB(color);
-            Side = 2;
-            VertexColors = vertexColors;
-        }
-
-        /// <summary>
-        /// Extended constructor.
-        /// </summary>
-        /// <param name="diffuseColor"></param>
-        /// <param name="ambientColor"></param>
-        /// <param name="emissionColor"></param>
-        /// <param name="transparency"></param>
-        /// <param name="name"></param>
-        /// <param name="vertexColors"></param>
-        /// <param name="closed"></param>
-        public IrisLambertMaterial(Color diffuseColor, Color ambientColor, Color emissionColor, double transparency, string name, int vertexColors, bool closed) : this()
-        {
-            bool transparent = false;
-            double opacity = 1.0;
-            int side = 2;
-            if (transparency > 0)
+            return new IrisLambertMaterial()
             {
-                transparent = true;
-                opacity = 1 - transparency;
-                //if (closed)
-                // _side = 0;
-            }
-
-            Name = name;
-            Color = IrisMethods.ColorToRGB(diffuseColor);
-            Ambient = IrisMethods.ColorToRGB(ambientColor);
-            Emissive = IrisMethods.ColorToRGB(emissionColor);
-            Opacity = opacity;
-            Transparent = transparent;
-            VertexColors = vertexColors;
-            Side = side;
+                Color = 16777215,
+                Transparent = false,
+                Opacity = 1.00,
+                Emissive = 0
+            };
         }
-
-        /// <summary>
-        /// Extended constructor.
-        /// </summary>
-        /// <param name="diffuseColor"></param>
-        /// <param name="ambientColor"></param>
-        /// <param name="emissionColor"></param>
-        /// <param name="transparency"></param>
-        /// <param name="name"></param>
-        /// <param name="mapUuid"></param>
-        /// <param name="vertexColors"></param>
-        public IrisLambertMaterial(Color diffuseColor, Color ambientColor, Color emissionColor, double transparency, string name, Guid mapUuid, int vertexColors) : this()
-        {
-            bool transparent = false;
-            double opacity = 1.0;
-            int side = 2;
-            if (transparency > 0)
-            {
-                transparent = true;
-                opacity = 1 - transparency;
-            }
-
-            Name = name;
-            Color = IrisMethods.ColorToRGB(diffuseColor);
-            Ambient = IrisMethods.ColorToRGB(ambientColor);
-            Emissive = IrisMethods.ColorToRGB(emissionColor);
-            Opacity = opacity;
-            Transparent = transparent;
-            VertexColors = vertexColors;
-            Side = side;
-            Map = mapUuid;
-        }
-
-        /// <summary>
-        /// Extended constructor.
-        /// </summary>
-        /// <param name="diffuseColor"></param>
-        /// <param name="ambientColor"></param>
-        /// <param name="emissionColor"></param>
-        /// <param name="transparency"></param>
-        /// <param name="name"></param>
-        /// <param name="textures"></param>
-        /// <param name="vertexColors"></param>
-        /// <param name="closed"></param>
-        public IrisLambertMaterial(Color? diffuseColor = null, Color? ambientColor = null, Color? emissionColor = null, double transparency = 0, string name = "", Dictionary<string, Guid> textures = null, int vertexColors = 0, bool closed = false)
-            : this()
-        {
-            bool transparent = false;
-            double opacity = 1.0;
-            int side = 2;
-            if (transparency > 0)
-            {
-                transparent = true;
-                opacity = 1 - transparency;
-                if (Math.Abs(opacity) < double.Epsilon) opacity = 0.01;
-                //if (closed)
-                // _side = 0;
-            }
-
-            Guid bitmapId = Guid.Empty;
-            Guid bumpId = Guid.Empty;
-            Guid transparencyId = Guid.Empty;
-            Guid environmentId = Guid.Empty;
-
-            foreach (var texture in textures)
-            {
-                switch (texture.Key)
-                {
-                    case "bitmap":
-                        bitmapId = texture.Value;
-                        break;
-                    case "bump":
-                        bumpId = texture.Value;
-                        break;
-                    case "transparency":
-                        transparencyId = texture.Value;
-                        transparent = true;
-                        //_side = 2;
-                        break;
-                    case "environment":
-                        environmentId = texture.Value;
-                        break;
-                }
-
-            }
-
-            Name = name;
-            Color = IrisMethods.ColorToRGB(diffuseColor.Value);
-            Ambient = IrisMethods.ColorToRGB(ambientColor.Value);
-            Emissive = IrisMethods.ColorToRGB(emissionColor.Value);
-
-            Opacity = opacity;
-
-            Transparent = transparent;
-            Side = side;
-            VertexColors = vertexColors;
-            Map = bitmapId;
-            BumpMap = bumpId;
-            AlphaMap = transparencyId;
-            EnvironmentMap = environmentId;
-        }
-
+        
         /// <summary>
         /// Check if object equals another.
         /// </summary>

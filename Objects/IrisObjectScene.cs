@@ -349,7 +349,7 @@ namespace IrisLib
         {
             Type = "Scene";
 
-            BackgroundColor = IrisMethods.ColorToRGB(System.Drawing.Color.White);
+            BackgroundColor = 16777215;
 
             Children = new List<IIrisElement>();
 

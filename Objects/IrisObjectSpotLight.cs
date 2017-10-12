@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
 namespace IrisLib
@@ -64,7 +63,7 @@ namespace IrisLib
         {
             Type = "SpotLight";
         }
-
+        /*
         /// <summary>
         /// Extended constructor for spotlights.
         /// </summary>
@@ -108,7 +107,7 @@ namespace IrisLib
             Matrix = matrix;
         }
         
-
+    */
     }
 
 }
