@@ -74,6 +74,9 @@ namespace IrisLib
         private IrisLayerCollection layers;
         [JsonIgnore]
         private List<IrisObjectPosition> positions;
+        [JsonIgnore]
+        private List<IrisObjectGroup> groups;
+
 
         /// <summary>
         /// Initialize a new IrisScene.
@@ -98,6 +101,7 @@ namespace IrisLib
             planes = new List<IrisObjectCPlane>();
             layers = new IrisLayerCollection();
             positions = new List<IrisObjectPosition>();
+            groups = new List<IrisObjectGroup>();
         }
 
         /// <summary>
@@ -133,8 +137,8 @@ namespace IrisLib
                 matId = standardMaterialCollection.AddIfNew(material as IrisStandardMaterial);
             else if (material == null)
             {
-                material = new IrisLambertMaterial();
-                matId = lambertMaterialCollection.AddIfNew(material as IrisLambertMaterial);
+                material = new IrisStandardMaterial();
+                matId = standardMaterialCollection.AddIfNew(material as IrisStandardMaterial);
             }
 
             var mesh = new IrisObjectMesh(geometry.Uuid, matId, name, layer.FullPath, userDataObject, userDataAttributes);
@@ -234,7 +238,42 @@ namespace IrisLib
         /// <summary>
         /// 
         /// </summary>
-        public void AddGroupObject() { }
+        public void AddGroupObject(IrisObjectGroup group, IrisLayer layer)
+        {
+            AddLayer(layer);
+            groups.Add(group);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="groupId"></param>
+        public void AddObjectToGroup(IrisElement obj, Guid groupId)
+        {
+            groups.Find(g => g.Uuid == groupId).Children.Add(obj);
+        }
+
+        /// <summary>
+        /// Adds a material to the scene.
+        /// </summary>
+        /// <param name="material"></param>
+        /// <returns></returns>
+        public Guid AddMaterial(IrisMaterial material)
+        {
+            var matId = Guid.Empty;
+
+            if (material is IrisPhongMaterial)
+                matId = phongMaterialCollection.AddIfNew(material as IrisPhongMaterial);
+            else if (material is IrisLambertMaterial)
+                matId = lambertMaterialCollection.AddIfNew(material as IrisLambertMaterial);
+            else if (material is IrisStandardMaterial)
+                matId = standardMaterialCollection.AddIfNew(material as IrisStandardMaterial);
+            else if (material is IrisLineMaterial)
+                matId = lineMaterialCollection.AddIfNew(material as IrisLineMaterial);
+
+            return matId;
+        }
 
         /// <summary>
         /// Adds a Clipping Plane object to the scene.
