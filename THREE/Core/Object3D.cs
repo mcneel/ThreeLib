@@ -104,23 +104,5 @@ namespace IrisLib
         #endregion
 
     }
-
-    internal class ObjectOutput
-    {
-        [JsonProperty("metadata")]
-        internal Metadata @Metadata { get; set; }
-
-        [JsonProperty("geometries")]
-        internal List<IGeometry> Geometries { get; set; }
-
-        [JsonProperty("images")]
-        internal List<Image> Images { get; set; }
-
-        [JsonProperty("textures")]
-        internal List<Texture> Textures { get; set; }
-
-        [JsonProperty("materials")]
-        internal List<IMaterial> Materials { get; set; }
-
-    }
+    
 }

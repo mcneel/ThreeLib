@@ -34,10 +34,27 @@ namespace TestLib
             var mesh = new IrisLib.Mesh
             {
                 Geometry = geometry,
-                Material = material
+                Material = material,
+                Name = "My Mesh"
+            };
+
+            var line = new IrisLib.Line
+            {
+                Geometry = new IrisLib.Geometry(vertices),
+                Material = new IrisLib.LineBasicMaterial { Color = new IrisLib.Color(255,0,0).ToInt() },
+                Name = "My Curves"
+            };
+
+            var points = new IrisLib.Points
+            {
+                Geometry = new IrisLib.Geometry(vertices),
+                Material = new IrisLib.PointsMaterial { Color = new IrisLib.Color(255, 255, 255).ToInt() },
+                Name = "My Points"
             };
 
             scene.Add(mesh);
+            scene.Add(line);
+            scene.Add(points);
 
             Console.WriteLine(scene.ToJSON());
 

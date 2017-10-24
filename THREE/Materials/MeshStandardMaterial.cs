@@ -75,6 +75,9 @@ namespace IrisLib
         [JsonIgnore]
         public Texture BumpMap { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         [JsonProperty("bumpMap")]
         public Guid? BumpMapUuid
         {
@@ -92,7 +95,9 @@ namespace IrisLib
         [JsonIgnore]
         public Texture AlphaMap { get; set; }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
         [JsonProperty("alphaMap")]
         public Guid? AlphaMapUuid
         {

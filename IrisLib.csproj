@@ -79,12 +79,12 @@
     <Compile Include="Objects\IrisObjectTypeEnum.cs" />
     <Compile Include="THREE\Materials\IMaterial.cs" />
     <Compile Include="THREE\Objects\IObject.cs" />
-    <Compile Include="THREE\Objects\IObject3D.cs" />
     <Compile Include="THREE\Objects\Line.cs" />
     <Compile Include="THREE\Materials\Material.cs" />
     <Compile Include="THREE\Objects\Mesh.cs" />
     <Compile Include="THREE\Core\Object3D.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="THREE\Objects\Points.cs" />
     <Compile Include="THREE\Scenes\Metadata.cs" />
     <Compile Include="THREE\Scenes\Scene.cs" />
     <Compile Include="THREE\Textures\Image.cs" />

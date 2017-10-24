@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +13,7 @@ namespace IrisLib
     /// Analogous to https://threejs.org/docs/index.html#api/core/Geometry
     /// Design based on need for Three.js Loaders.
     /// </summary>
-    public class Geometry : Object3D, IGeometry
+    public class Geometry : Object3D, IGeometry, IEquatable<Geometry>
     {
         /// <summary>
         /// Geometry data.
@@ -229,6 +230,29 @@ namespace IrisLib
             return Vertices;
         }
 
+        /// <summary>
+        /// Check if one Geometry equals another.
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
+        public bool Equals(Geometry other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+            else
+            {
+
+                return Type.Equals(other.Type) &&
+                       Data.Colors.SequenceEqual(other.Data.Colors) &&
+                       Data.Faces.SequenceEqual(other.Data.Faces) &&
+                       Data.Normals.SequenceEqual(other.Data.Normals) &&
+                       Data.Uvs.SequenceEqual(other.Data.Uvs) &&
+                       Data.Vertices.SequenceEqual(other.Data.Vertices);
+            }
+        }
+
     }
 
     /// <summary>
@@ -341,6 +365,32 @@ namespace IrisLib
             if (bits.Get(6)) b += 64;
             if (bits.Get(7)) b += 128;
             return b;
+        }
+    }
+
+    public class GeometryCollection: Collection<Geometry>
+    {
+        /// <summary>
+        /// Add a geometry to this collection if it does not already exist.
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        public Guid AddIfNew(Geometry item)
+        {
+            var q = from a in this
+                    where a.Equals(item)
+                    select a.Uuid;
+
+            var enumerable = q as Guid[] ?? q.ToArray();
+            if (!enumerable.Any())
+            {
+                Add(item);
+                return item.Uuid;
+            }
+            else
+            {
+                return enumerable.Single();
+            }
         }
     }
 }

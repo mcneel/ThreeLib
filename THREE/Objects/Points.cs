@@ -7,10 +7,7 @@ using System.Threading.Tasks;
 
 namespace IrisLib
 {
-    /// <summary>
-    /// 
-    /// </summary>
-    public class Line : Object3D
+    public class Points : Object3D
     {
         /// <summary>
         /// The geometry associated with this Mesh.
@@ -36,12 +33,9 @@ namespace IrisLib
         [JsonProperty("material")]
         public Guid MaterialUuid { get { return (Material as Material).Uuid; } }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public Line()
+        public Points()
         {
-            Type = "Line";
+            Type = "Points";
         }
     }
 }
