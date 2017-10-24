@@ -39,6 +39,7 @@ namespace IrisLib
         public IrisObjectGroup()
         {
             Type = "Group";
+            Children = new List<IIrisElement>();
         }
 
         /// <summary>

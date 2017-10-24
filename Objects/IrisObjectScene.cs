@@ -238,9 +238,10 @@ namespace IrisLib
         /// <summary>
         /// 
         /// </summary>
-        public void AddGroupObject(IrisObjectGroup group, IrisLayer layer)
+        public void AddGroupObject(IrisObjectGroup group, IrisLayer layer = null)
         {
-            AddLayer(layer);
+            if(layer != null)
+                AddLayer(layer);
             groups.Add(group);
         }
 
@@ -251,7 +252,9 @@ namespace IrisLib
         /// <param name="groupId"></param>
         public void AddObjectToGroup(IrisElement obj, Guid groupId)
         {
-            groups.Find(g => g.Uuid == groupId).Children.Add(obj);
+            var group = groups.Find(g => g.Uuid == groupId);
+            if(null != group)
+                group.Children.Add(obj);
         }
 
         /// <summary>
@@ -328,6 +331,13 @@ namespace IrisLib
         /// <returns>A Three.js compatible Scene Object Format JSON string.</returns>
         public string ToJSON()
         {
+
+            foreach (var group in groups)
+                if (group.UserData["Scene"].ContainsKey("Layer"))
+                {
+                    @Object.Children.Add(group);
+                }
+                
 
             Materials = new List<IIrisMaterial>();
             Materials.AddRange(lineMaterialCollection);
