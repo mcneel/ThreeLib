@@ -1,9 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace IrisLib
 {
@@ -16,19 +11,19 @@ namespace IrisLib
     public class Metadata
     {
         /// <summary>
-        /// 
+        /// File version.
         /// </summary>
         [JsonProperty("version")]
         public double Version { get; set; }
 
         /// <summary>
-        /// 
+        /// File type.
         /// </summary>
         [JsonProperty("type")]
         public string Type { get; set; }
 
         /// <summary>
-        /// 
+        /// The application which generated this data.
         /// </summary>
         [JsonProperty("generator")]
         public string Generator { get; set; }

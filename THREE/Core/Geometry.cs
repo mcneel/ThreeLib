@@ -3,8 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace IrisLib
 {
@@ -55,7 +53,7 @@ namespace IrisLib
         /// 
         /// </summary>
         [JsonIgnore]
-        public List<object> Normals
+        public List<float> Normals
         {
             get { return Data.Normals; }
             set { Data.Normals = value; }
@@ -88,7 +86,7 @@ namespace IrisLib
         /// <param name="normals"></param>
         /// <param name="colors"></param>
         /// <param name="uvs"></param>
-        public Geometry(List<float> vertices = null, List<int> faces = null,  List<object> normals = null, List<int> colors = null, List<List<float>> uvs = null ) :this()
+        public Geometry(List<float> vertices = null, List<int> faces = null,  List<float> normals = null, List<int> colors = null, List<List<float>> uvs = null ) :this()
         {
 
             if (vertices == null) return;
@@ -231,6 +229,25 @@ namespace IrisLib
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="normals"></param>
+        /// <returns></returns>
+        public static List<float> ProcessNormalArray(List<float[]> normals)
+        {
+            var Normals = new List<float>();
+
+            foreach (var norm in normals)
+            {
+                Normals.Add(norm[0]);
+                Normals.Add(norm[1]);
+                Normals.Add(norm[2]);
+            }
+
+            return Normals;
+        }
+
+        /// <summary>
         /// Check if one Geometry equals another.
         /// </summary>
         /// <param name="other"></param>
@@ -288,14 +305,14 @@ namespace IrisLib
         /// The list of normals associated with this geometry.
         /// </summary>
         [JsonProperty("normals")]
-        internal List<object> Normals { get; set; }
+        internal List<float> Normals { get; set; }
 
         internal GeometryData()
         {
             Vertices = new List<float>();
             Colors = new List<int>();
             Faces = new List<int>();
-            Normals = new List<object>();
+            Normals = new List<float>();
             Uvs = new List<List<float>>();
         }
     }

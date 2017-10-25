@@ -1,11 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace IrisLib
+﻿namespace IrisLib
 {
     /// <summary>
     /// 
@@ -28,11 +21,11 @@ namespace IrisLib
         public byte B { get; set; }
 
         /// <summary>
-        /// 
+        /// Construct a color from r,g,b bytes.
         /// </summary>
-        /// <param name="r"></param>
-        /// <param name="g"></param>
-        /// <param name="b"></param>
+        /// <param name="r">Red channel.</param>
+        /// <param name="g">Green channel.</param>
+        /// <param name="b">Blue channel.</param>
         public Color(byte r, byte g, byte b)
         {
             R = r;
@@ -41,7 +34,7 @@ namespace IrisLib
         }
 
         /// <summary>
-        /// 
+        /// Convert color to 8-bit integer.
         /// </summary>
         /// <returns>An int representation of three byte channels.</returns>
         public static int ToInt(byte r, byte g, byte b)
@@ -50,7 +43,7 @@ namespace IrisLib
         }
 
         /// <summary>
-        /// 
+        /// Convert this color to 8-bit integer.
         /// </summary>
         /// <returns>An int representation of the color.</returns>
         public int ToInt()

@@ -22,13 +22,23 @@ namespace TestLib
                 new float[] { 0, 0, 10 }
             };
 
+            var norms = new List<float[]>
+            {
+                new float[] { 0, 1, 0 },
+                new float[] { 0, 1, 0 },
+                new float[] { 0, 1, 0 },
+                new float[] { 0, 1, 0 }
+            };
+
             var vertices = IrisLib.Geometry.ProcessVertexArray(verts);
+
+            var normals = IrisLib.Geometry.ProcessNormalArray(norms);
 
             var face = new int[] { 0, 1, 2, 3 };
 
             var faces = IrisLib.Geometry.ProcessFaceArray(new List<int[]> { { face } }, false, false);
 
-            var geometry = new IrisLib.Geometry(vertices, faces);
+            var geometry = new IrisLib.Geometry(vertices, faces, normals);
             var material = IrisLib.MeshStandardMaterial.Default();
 
             var mesh = new IrisLib.Mesh
@@ -52,9 +62,18 @@ namespace TestLib
                 Name = "My Points"
             };
 
+            var pointLight = new IrisLib.PointLight
+            {
+                Color = new IrisLib.Color(100, 100, 100).ToInt(),
+                Decay = 1,
+                Intensity = 3,
+                Name = "My PointLight"
+            };
+
             scene.Add(mesh);
             scene.Add(line);
             scene.Add(points);
+            scene.Add(pointLight);
 
             Console.WriteLine(scene.ToJSON());
 

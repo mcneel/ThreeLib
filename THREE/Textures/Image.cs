@@ -1,10 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace IrisLib
 {
@@ -18,7 +14,7 @@ namespace IrisLib
         public Guid Uuid { get; set; }
 
         /// <summary>
-        /// Image url.
+        /// Image url. This can be the path to the image resource (.jpg, .png, etc), or a base64 encoded asset.
         /// </summary>
         [JsonProperty("url")]
         public string Url { get; set; }
@@ -44,18 +40,8 @@ namespace IrisLib
         }
 
         /// <summary>
-        /// Constructor.
-        /// </summary>
-        /// <param name="path"></param>
-        public Image(string path) : this()
-        {
-            OriginalPath = path;
-            //Url = "/img/" + Path.GetFileName(path);
-            Url = GetDataURL(path);
-        }
-
-        /// <summary>
         /// Encode image to base64.
+        /// TODO: consider removing this to the example application.
         /// </summary>
         /// <param name="imgFile"></param>
         /// <returns></returns>

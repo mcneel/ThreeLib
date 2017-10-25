@@ -1,9 +1,5 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace IrisLib
 {
@@ -31,6 +27,9 @@ namespace IrisLib
         [JsonProperty("sizeAttenuation", DefaultValueHandling = DefaultValueHandling.Include)]
         public bool SizeAttenuation { get; set; }
 
+        /// <summary>
+        /// The diffuse map texture.
+        /// </summary>
         [JsonIgnore]
         public Texture Map { get; set; }
 

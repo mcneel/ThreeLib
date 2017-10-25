@@ -1,14 +1,10 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace IrisLib
 {
-    public interface ITexture { }
-    public class Texture : ITexture
+
+    public class Texture
     {
         /// <summary>
         /// Object Id.

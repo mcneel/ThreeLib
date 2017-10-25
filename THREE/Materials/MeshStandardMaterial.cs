@@ -1,14 +1,12 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace IrisLib
 {
     /// <summary>
-    /// 
+    /// Analogous to: https://github.com/mrdoob/three.js/blob/dev/src/materials/MeshStandardMaterial.js
+    /// TODO: Add roughness and metalness maps.
     /// </summary>
     public class MeshStandardMaterial : Material
     {
@@ -56,7 +54,7 @@ namespace IrisLib
         public Texture Map { get; set; }
 
         /// <summary>
-        /// 
+        /// The Uuid of the diffuse map.
         /// </summary>
         [JsonProperty("map")]
         public Guid? MapUuid
@@ -76,7 +74,7 @@ namespace IrisLib
         public Texture BumpMap { get; set; }
 
         /// <summary>
-        /// 
+        /// BumpMap Uuid.
         /// </summary>
         [JsonProperty("bumpMap")]
         public Guid? BumpMapUuid
@@ -96,7 +94,7 @@ namespace IrisLib
         public Texture AlphaMap { get; set; }
 
         /// <summary>
-        /// 
+        /// AlphaMap Uuid.
         /// </summary>
         [JsonProperty("alphaMap")]
         public Guid? AlphaMapUuid
@@ -116,7 +114,7 @@ namespace IrisLib
         public Texture EnvironmentMap { get; set; }
 
         /// <summary>
-        /// 
+        /// Environment map Uuid.
         /// </summary>
         [JsonProperty("envMap")]
         public Guid? EnvironmentMapUuid

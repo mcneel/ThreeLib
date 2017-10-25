@@ -1,10 +1,6 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace IrisLib
 {
@@ -21,7 +17,7 @@ namespace IrisLib
         public int Background { get; set; }
 
         /// <summary>
-        /// 
+        /// Default constructor.
         /// </summary>
         public Scene()
         {
@@ -47,10 +43,15 @@ namespace IrisLib
             foreach (var child in Children)
             {
                 Debug.WriteLine((child as Element).Type, "ThreeLib");
-                
-                var currentGeo = child.GetType().GetProperty("Geometry").GetValue(child, null) as Geometry;
-                var geoId = sceneSerializer.Geometries.AddIfNew(currentGeo);
-                currentGeo.Uuid = geoId;
+
+                if (child.GetType().GetProperty("Geometry") != null)
+                {
+                    if (child.GetType().GetProperty("Geometry").GetValue(child, null) is Geometry currentGeo)
+                    {
+                        var geoId = sceneSerializer.Geometries.AddIfNew(currentGeo);
+                        currentGeo.Uuid = geoId;
+                    }
+                }
 
                 switch ((child as Element).Type)
                 {
@@ -92,8 +93,13 @@ namespace IrisLib
 
                         break;
 
+                    case "PointLight":
+                        var pointLight = child as PointLight;
+                        sceneSerializer.Object.Children.Add(pointLight);
+                        break;
+
                     default:
-                        Debug.WriteLine((child as Element).Type);
+                        Debug.WriteLine((child as Element).Type, "ThreeLib");
                         break;
                 }
             }
@@ -103,6 +109,10 @@ namespace IrisLib
 
     }
 
+    /// <summary>
+    /// Internal class to format Scene object for the Three.js Object Scene Format:
+    /// https://github.com/mrdoob/three.js/wiki/JSON-Object-Scene-format-4
+    /// </summary>
     internal class SceneSerializer
     {
         [JsonProperty("metadata")]
@@ -115,7 +125,7 @@ namespace IrisLib
         internal List<Image> Images { get; set; }
 
         [JsonProperty("textures")]
-        internal List<ITexture> Textures { get; set; }
+        internal List<Texture> Textures { get; set; }
 
         [JsonProperty("materials")]
         internal List<IMaterial> Materials { get; set; }
@@ -131,7 +141,7 @@ namespace IrisLib
             Geometries = new GeometryCollection();
             Materials = new List<IMaterial>();
             Images = new List<Image>();
-            Textures = new List<ITexture>();
+            Textures = new List<Texture>();
             Object = new Object3D()
             {
                 Type = "Scene"

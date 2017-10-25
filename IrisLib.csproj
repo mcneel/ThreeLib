@@ -50,6 +50,8 @@
     <Compile Include="THREE\Core\BufferAttribute.cs" />
     <Compile Include="THREE\Core\BufferGeometry.cs" />
     <Compile Include="THREE\Core\Element.cs" />
+    <Compile Include="THREE\Lights\Light.cs" />
+    <Compile Include="THREE\Lights\PointLight.cs" />
     <Compile Include="THREE\Materials\LineBasicMaterial.cs" />
     <Compile Include="THREE\Materials\MeshStandardMaterial.cs" />
     <Compile Include="THREE\Materials\PointsMaterial.cs" />
@@ -78,7 +80,6 @@
     <Compile Include="Objects\IrisObjectSpotLight.cs" />
     <Compile Include="Objects\IrisObjectTypeEnum.cs" />
     <Compile Include="THREE\Materials\IMaterial.cs" />
-    <Compile Include="THREE\Objects\IObject.cs" />
     <Compile Include="THREE\Objects\Line.cs" />
     <Compile Include="THREE\Materials\Material.cs" />
     <Compile Include="THREE\Objects\Mesh.cs" />
@@ -94,6 +95,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
