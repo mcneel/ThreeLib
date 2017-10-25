@@ -47,6 +47,12 @@ namespace IrisLib
         [JsonProperty("matrix")]
         public IList<float> Matrix { get; set; }
 
+        /// <summary>
+        /// The object's local position.
+        /// </summary>
+        [JsonProperty("position")]
+        public float[] Position { get; set; }
+
         #endregion
 
 #region Constructors

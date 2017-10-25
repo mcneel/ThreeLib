@@ -4,9 +4,11 @@ using System.Collections.Generic;
 namespace IrisLib
 {
     /// <summary>
-    /// 
+    /// Abstract base class for materials.
+    /// Analogous to: https://threejs.org/docs/index.html#api/materials/Material
+    /// Original Source: https://github.com/mrdoob/three.js/blob/master/src/materials/Material.js
     /// </summary>
-    public class Material : Element, IMaterial
+    public abstract class Material : Element, IMaterial
     {
         /// <summary>
         /// 

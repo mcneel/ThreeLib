@@ -8,9 +8,11 @@ namespace IrisLib
     public interface ILight : IElement { }
 
     /// <summary>
-    /// Base object for Light objects. Analogous to: https://github.com/mrdoob/three.js/blob/dev/src/lights/Light.js
+    /// Abstract base class for lights - all other light types inherit the properties and methods described here.
+    /// Analogous to: https://threejs.org/docs/index.html#api/lights/Light
+    /// Original source: https://github.com/mrdoob/three.js/blob/master/src/lights/Light.js
     /// </summary>
-    public class Light : Object3D, ILight
+    public abstract class Light : Object3D, ILight
     {
         /// <summary>
         /// Light color.
