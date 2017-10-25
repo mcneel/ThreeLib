@@ -46,11 +46,9 @@ namespace IrisLib
 
                 if (child.GetType().GetProperty("Geometry") != null)
                 {
-                    if (child.GetType().GetProperty("Geometry").GetValue(child, null) is Geometry currentGeo)
-                    {
-                        var geoId = sceneSerializer.Geometries.AddIfNew(currentGeo);
-                        currentGeo.Uuid = geoId;
-                    }
+                    var currentGeo = child.GetType().GetProperty("Geometry").GetValue(child, null) as Geometry;
+                    var geoId = sceneSerializer.Geometries.AddIfNew(currentGeo);
+                    currentGeo.Uuid = geoId;
                 }
 
                 switch ((child as Element).Type)
