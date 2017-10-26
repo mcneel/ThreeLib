@@ -30,7 +30,7 @@ namespace IrisLib
         /// <returns>JSON String.</returns>
         public override string ToJSON()
         {
-            var sceneSerializer = new SceneSerializer()
+            var sceneSerializer = new SceneSerializer
             {
                 Metadata = new Metadata
                 {
@@ -39,6 +39,9 @@ namespace IrisLib
                     Generator = "ThreeLib"
                 }
             };
+
+            sceneSerializer.Object.Name = Name;
+            sceneSerializer.Object.Background = Background;
 
             foreach (var child in Children)
             {
@@ -92,8 +95,10 @@ namespace IrisLib
                         break;
 
                     case "PointLight":
-                        var pointLight = child as PointLight;
-                        sceneSerializer.Object.Children.Add(pointLight);
+                    case "AmbientLight":
+                    case "SpotLight":
+                    case "DirectionalLight":
+                        sceneSerializer.Object.Children.Add(child);
                         break;
 
                     default:
@@ -129,7 +134,7 @@ namespace IrisLib
         internal List<IMaterial> Materials { get; set; }
 
         [JsonProperty("object")]
-        internal Object3D @Object { get; set; }
+        internal SceneObject @Object { get; set; }
 
         /// <summary>
         /// Default constructor.
@@ -140,11 +145,17 @@ namespace IrisLib
             Materials = new List<IMaterial>();
             Images = new List<Image>();
             Textures = new List<Texture>();
-            Object = new Object3D()
+            Object = new SceneObject()
             {
                 Type = "Scene"
             };
         }
+    }
+
+    internal class SceneObject : Object3D
+    {
+        [JsonProperty("background")]
+        public int Background { get; set; }
     }
 
 

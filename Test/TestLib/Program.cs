@@ -1,9 +1,5 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TestLib
 {
@@ -12,14 +8,18 @@ namespace TestLib
         static void Main(string[] args)
         {
 
-            var scene = new IrisLib.Scene();
+            var scene = new IrisLib.Scene
+            {
+                Background = new IrisLib.Color(255,0,255).ToInt(),
+                Name = "My Scene"
+            };
 
             var verts = new List<float[]>
             {
                 new float[] { 0, 0, 0 },
-                new float[] { 10, 0, 0 },
+                new float[] { 0, 0, 10 },
                 new float[] { 10, 0, 10 },
-                new float[] { 0, 0, 10 }
+                new float[] { 10, 0, 0 }
             };
 
             var norms = new List<float[]>
@@ -48,12 +48,16 @@ namespace TestLib
                 Name = "My Mesh"
             };
 
+            scene.Add(mesh);
+
             var line = new IrisLib.Line
             {
                 Geometry = new IrisLib.Geometry(vertices),
-                Material = new IrisLib.LineBasicMaterial { Color = new IrisLib.Color(255,0,0).ToInt() },
+                Material = new IrisLib.LineBasicMaterial { Color = new IrisLib.Color(255,0,0).ToInt(), LineWidth = 20 },
                 Name = "My Curves"
             };
+
+            scene.Add(line);
 
             var points = new IrisLib.Points
             {
@@ -61,6 +65,10 @@ namespace TestLib
                 Material = new IrisLib.PointsMaterial { Color = new IrisLib.Color(255, 255, 255).ToInt() },
                 Name = "My Points"
             };
+
+            scene.Add(points);
+
+            #region Lights
 
             var pointLight = new IrisLib.PointLight
             {
@@ -70,11 +78,38 @@ namespace TestLib
                 Name = "My PointLight",
                 Position = new IrisLib.Vector3(10, 10, 10)
             };
-        
-            scene.Add(mesh);
-            scene.Add(line);
-            scene.Add(points);
+
             scene.Add(pointLight);
+
+            var ambientLight = new IrisLib.AmbientLight
+            {
+                Color = new IrisLib.Color(255, 0, 255).ToInt(),
+                Intensity = 5,
+                Name = "My AmbientLight"
+            };
+
+            scene.Add(ambientLight);
+
+            var directionalLight = new IrisLib.DirectionalLight
+            {
+                Target = new IrisLib.Object3D { Position = new IrisLib.Vector3(3, 0, 0) },
+                Position = new IrisLib.Vector3(-10,10,5),
+                Name = "My DirectionalLight"
+            };
+
+
+            scene.Add(directionalLight);
+
+            var spotLight = new IrisLib.SpotLight
+            {
+                Target = new IrisLib.Object3D { Position = new IrisLib.Vector3(3, 0, 3) },
+                Position = new IrisLib.Vector3(20,20,0),
+                Name = "My SpotLight"
+            };
+
+            scene.Add(spotLight);
+
+            #endregion
 
             Console.WriteLine(scene.ToJSON());
 
