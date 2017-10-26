@@ -67,6 +67,10 @@
     <Compile Include="THREE\Materials\MeshStandardMaterial.cs" />
     <Compile Include="THREE\Materials\PointsMaterial.cs" />
     <Compile Include="THREE\Math\Color.cs" />
+    <Compile Include="THREE\Math\Euler.cs" />
+    <Compile Include="THREE\Math\Matrix4.cs" />
+    <Compile Include="THREE\Math\Quaternion.cs" />
+    <Compile Include="THREE\Math\Vector3.cs" />
     <Compile Include="THREE\Objects\IGeometry.cs" />
     <Compile Include="THREE\Core\Geometry.cs" />
     <Compile Include="THREE\Objects\Group.cs" />

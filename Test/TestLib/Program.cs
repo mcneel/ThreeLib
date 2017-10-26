@@ -67,9 +67,10 @@ namespace TestLib
                 Color = new IrisLib.Color(100, 100, 100).ToInt(),
                 Decay = 1,
                 Intensity = 3,
-                Name = "My PointLight"
+                Name = "My PointLight",
+                Position = new IrisLib.Vector3(10, 10, 10)
             };
-
+        
             scene.Add(mesh);
             scene.Add(line);
             scene.Add(points);

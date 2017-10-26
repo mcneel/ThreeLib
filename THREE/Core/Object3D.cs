@@ -44,14 +44,26 @@ namespace IrisLib
         /// <summary>
         /// Object matrix.
         /// </summary>
+        [JsonIgnore]
+        public Matrix4 Matrix { get; set; }
+
         [JsonProperty("matrix")]
-        public IList<float> Matrix { get; set; }
+        public float[] MatrixArray { get { return Matrix.ToArray(); } }
 
         /// <summary>
         /// The object's local position.
         /// </summary>
-        [JsonProperty("position")]
-        public float[] Position { get; set; }
+        [JsonIgnore]
+        public Vector3 Position { get { return Position; } set { Matrix.SetPosition(value); } }
+
+        [JsonIgnore]
+        public Euler Rotation { get; set; }
+
+        [JsonIgnore]
+        public Quaternion Quaternion { get; set; }
+
+        [JsonIgnore]
+        public Vector3 Scale { get; set; }
 
         #endregion
 
@@ -64,12 +76,22 @@ namespace IrisLib
         {
             Type = "Object3D";
             Children = new List<IElement>();
-            Matrix = new float[]{ 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1 };
+            Matrix = Matrix4.Identity();
+            Position = new Vector3();
+            Rotation = new Euler();
+            Quaternion = new Quaternion();
+            Scale = new Vector3 { X = 1, Y = 1, Z = 1 };
+            
         }
 
         #endregion
 
 #region Methods
+
+        public void UpdateMatrix()
+        {
+            Matrix.Compose(Matrix.GetPosition(), Quaternion, Scale);
+        }
 
         /// <summary>
         /// 
