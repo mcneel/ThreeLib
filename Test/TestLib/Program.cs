@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace TestLib
@@ -17,7 +18,7 @@ namespace TestLib
             var verts = new List<float[]>
             {
                 new float[] { 0, 0, 0 },
-                new float[] { 0, 0, 10 },
+                new float[] { 0, 0, 10.1234f },
                 new float[] { 10, 0, 10 },
                 new float[] { 10, 0, 0 }
             };
@@ -111,7 +112,9 @@ namespace TestLib
 
             #endregion
 
-            Console.WriteLine(scene.ToJSON());
+            Console.WriteLine(geometry.ToJSON(true));
+
+            //Console.WriteLine(scene.ToJSON(true));
 
             Console.ReadLine();
 

@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace IrisLib
 {
@@ -9,25 +10,25 @@ namespace IrisLib
     public class Object3D : Element
     {
 
-#region Properties
+        #region Properties
 
         /// <summary>
         /// Object visibility.
         /// </summary>
         [JsonProperty("visible")]
-        public bool Visible = true;
+        public bool Visible { get; set; }
 
         /// <summary>
         /// Flag for determining if object casts shadow.
         /// </summary>
         [JsonProperty("castShadow")]
-        public bool CastShadow = false;
+        public bool CastShadow { get; set; }
 
         /// <summary>
         /// Flag for determining if object receives shadow.
         /// </summary>
         [JsonProperty("receiveShadow")]
-        public bool ReceiveShadow = false;
+        public bool ReceiveShadow { get; set; }
 
         /// <summary>
         /// List with object's children.
@@ -65,9 +66,12 @@ namespace IrisLib
         [JsonIgnore]
         public Vector3 Scale { get; set; }
 
+        [JsonIgnore]
+        internal Object3DSerializationAdaptor SerializationAdaptor { get; set; }
+
         #endregion
 
-#region Constructors
+        #region Constructors
 
         /// <summary>
         /// Default constructor. Results in an empty Object3D with new Uuid.
@@ -81,12 +85,11 @@ namespace IrisLib
             Rotation = new Euler();
             Quaternion = new Quaternion();
             Scale = new Vector3 { X = 1, Y = 1, Z = 1 };
-            
         }
 
         #endregion
 
-#region Methods
+        #region Methods
 
         public void UpdateMatrix()
         {
@@ -99,7 +102,7 @@ namespace IrisLib
         /// <returns></returns>
         public bool ShouldSerializeChildren()
         {
-            return (Children.Count > 0);
+            return Children.Count > 0;
         }
 
         /// <summary>
@@ -124,13 +127,109 @@ namespace IrisLib
         /// Convert the object to JSON format. 
         /// </summary>
         /// <returns>A string representation of this object, serialized to JSON.</returns>
-        public virtual string ToJSON()
+        /// <summary>
+        /// Converts this Scene to a compatible JSON format.
+        /// </summary>
+        /// <returns>JSON String.</returns>
+        public virtual string ToJSON(bool format)
         {
-            return JsonConvert.SerializeObject(this);
+
+            SerializationAdaptor = new Object3DSerializationAdaptor();
+            SerializationAdaptor.Object.Name = Name;
+
+            ProcessChildren();
+
+            return JsonConvert.SerializeObject(SerializationAdaptor, format ==true ? Formatting.Indented : Formatting.None, new JsonSerializerSettings { DefaultValueHandling = DefaultValueHandling.Ignore, NullValueHandling = NullValueHandling.Ignore });
         }
-        
+
+        internal void ProcessChildren()
+        {
+            foreach (var child in Children)
+            {
+                Debug.WriteLine((child as Element).Type, "ThreeLib");
+
+                if (child.GetType().GetProperty("Geometry") != null)
+                {
+                    var currentGeo = child.GetType().GetProperty("Geometry").GetValue(child, null) as Geometry;
+                    var geoId = SerializationAdaptor.Geometries.AddIfNew(currentGeo);
+                    currentGeo.Uuid = geoId;
+                }
+
+                switch ((child as Element).Type)
+                {
+                    case "Mesh":
+
+                        var mesh = child as Mesh;
+
+                        if (mesh.Material is MeshStandardMaterial)
+                        {
+                            var material = mesh.Material as MeshStandardMaterial;
+
+                            foreach (var map in material.GetTextures())
+                                if (map != null)
+                                {
+                                    SerializationAdaptor.Images.Add(map.Image);
+                                    SerializationAdaptor.Textures.Add(map);
+                                }
+
+                            SerializationAdaptor.Materials.Add(material);
+                        }
+
+                        SerializationAdaptor.Object.Children.Add(mesh);
+
+                        break;
+
+                    case "Line":
+
+                        var line = child as Line;
+                        SerializationAdaptor.Materials.Add(line.Material as LineBasicMaterial);
+                        SerializationAdaptor.Object.Children.Add(line);
+
+                        break;
+
+                    case "Points":
+
+                        var points = child as Points;
+                        SerializationAdaptor.Materials.Add(points.Material as PointsMaterial);
+                        SerializationAdaptor.Object.Children.Add(points);
+
+                        break;
+
+                    case "PointLight":
+                    case "AmbientLight":
+                    case "SpotLight":
+                    case "DirectionalLight":
+                        SerializationAdaptor.Object.Children.Add(child);
+                        break;
+
+                    default:
+                        Debug.WriteLine((child as Element).Type, "ThreeLib");
+                        break;
+                }
+            }
+        }
+
         #endregion
 
     }
-    
+
+    internal class Object3DSerializationAdaptor : ObjectSerializationAdaptor
+    {
+        [JsonProperty("object", Order = 5)]
+        internal Object3D Object { get; set; }
+
+        /// <summary>
+        /// Default constructor.
+        /// </summary>
+        internal Object3DSerializationAdaptor()
+        {
+            Geometries = new GeometryCollection();
+            Materials = new List<IMaterial>();
+            Images = new List<Image>();
+            Textures = new List<Texture>();
+            Object = new Object3D();
+            Metadata.Generator = "ThreeLib-Object3D.toJSON";
+        }
+    }
+
 }

@@ -270,6 +270,38 @@ namespace IrisLib
             }
         }
 
+        public override string ToJSON(bool format)
+        {
+
+            var serializationAdaptor = new GeometrySerializationAdaptor
+            {
+                Data = Data
+            };
+
+            return JsonConvert.SerializeObject(serializationAdaptor, format == true ? Formatting.Indented : Formatting.None, new JsonSerializerSettings { DefaultValueHandling = DefaultValueHandling.Ignore, NullValueHandling = NullValueHandling.Ignore });
+        }
+
+    }
+
+    internal class GeometrySerializationAdaptor : SerializationAdaptor
+    {
+        /// <summary>
+        /// Geometry data.
+        /// </summary>
+        [JsonProperty("data", Order = 1)]
+        internal GeometryData Data { get; set; }
+
+        internal GeometrySerializationAdaptor()
+        {
+            Metadata = new Metadata
+            {
+                Type = "Geometry",
+                Generator = "ThreeLib-Geometry.toJSON"
+            };
+
+            Data = new GeometryData();
+        }
+
     }
 
     /// <summary>
@@ -280,8 +312,11 @@ namespace IrisLib
         /// <summary>
         /// 
         /// </summary>
-        [JsonProperty("vertices")]
+        [JsonIgnore]
         internal List<float> Vertices { get; set; }
+
+        [JsonProperty("vertices")]
+        internal List<object> _Vertices  { get { return OptimizeFloats(Vertices); } }
 
         /// <summary>
         /// 
@@ -304,8 +339,11 @@ namespace IrisLib
         /// <summary>
         /// The list of normals associated with this geometry.
         /// </summary>
-        [JsonProperty("normals")]
+        [JsonIgnore]
         internal List<float> Normals { get; set; }
+
+        [JsonProperty("normals")]
+        internal List<object> _Normals { get { return OptimizeFloats(Normals); } }
 
         internal GeometryData()
         {
@@ -314,6 +352,25 @@ namespace IrisLib
             Faces = new List<int>();
             Normals = new List<float>();
             Uvs = new List<List<float>>();
+        }
+
+        internal List<object> OptimizeFloats(List<float> floats)
+        {
+            var numbers = new List<object>();
+
+            foreach (float f in floats)
+            {
+                if (Math.Abs(f - Math.Floor(f)) <= float.Epsilon)
+                {
+                    numbers.Add(Convert.ToInt16(f));
+                }
+                else
+                {
+                    numbers.Add(f);
+                }
+            }
+
+            return numbers;
         }
     }
 

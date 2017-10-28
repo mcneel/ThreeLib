@@ -16,6 +16,9 @@ namespace IrisLib
         [JsonProperty("background")]
         public int Background { get; set; }
 
+        [JsonIgnore]
+        internal new SceneSerializationAdaptor SerializationAdaptor { get; set; }
+
         /// <summary>
         /// Default constructor.
         /// </summary>
@@ -28,118 +31,39 @@ namespace IrisLib
         /// Converts this Scene to a compatible JSON format.
         /// </summary>
         /// <returns>JSON String.</returns>
-        public override string ToJSON()
+        public override string ToJSON(bool format)
         {
-            var sceneSerializer = new SceneSerializer
-            {
-                Metadata = new Metadata
-                {
-                    Version = 4.5,
-                    Type = "Object",
-                    Generator = "ThreeLib"
-                }
-            };
+            base.SerializationAdaptor = new Object3DSerializationAdaptor();
 
-            sceneSerializer.Object.Name = Name;
-            sceneSerializer.Object.Background = Background;
+            ProcessChildren();
 
-            foreach (var child in Children)
-            {
-                Debug.WriteLine((child as Element).Type, "ThreeLib");
+            SerializationAdaptor = new SceneSerializationAdaptor();
+            SerializationAdaptor.Object.Name = Name;
+            SerializationAdaptor.Object.Background = Background;
+            SerializationAdaptor.Geometries = base.SerializationAdaptor.Geometries;
+            SerializationAdaptor.Images = base.SerializationAdaptor.Images;
+            SerializationAdaptor.Textures = base.SerializationAdaptor.Textures;
+            SerializationAdaptor.Materials = base.SerializationAdaptor.Materials;
+            SerializationAdaptor.Object.Children = base.SerializationAdaptor.Object.Children;
 
-                if (child.GetType().GetProperty("Geometry") != null)
-                {
-                    var currentGeo = child.GetType().GetProperty("Geometry").GetValue(child, null) as Geometry;
-                    var geoId = sceneSerializer.Geometries.AddIfNew(currentGeo);
-                    currentGeo.Uuid = geoId;
-                }
-
-                switch ((child as Element).Type)
-                {
-                    case "Mesh":
-
-                        var mesh = child as Mesh;
-                            
-                        if (mesh.Material is MeshStandardMaterial)
-                        {
-                            var material = mesh.Material as MeshStandardMaterial;
-
-                            foreach (var map in material.GetTextures())
-                                if (map != null)
-                                {
-                                    sceneSerializer.Images.Add(map.Image);
-                                    sceneSerializer.Textures.Add(map);
-                                }
-
-                            sceneSerializer.Materials.Add(material);
-                        }
-
-                        sceneSerializer.Object.Children.Add(mesh);
-                   
-                        break;
-
-                    case "Line":
-
-                        var line = child as Line;
-                        sceneSerializer.Materials.Add(line.Material as LineBasicMaterial);
-                        sceneSerializer.Object.Children.Add(line);
-
-                        break;
-
-                    case "Points":
-
-                        var points = child as Points;
-                        sceneSerializer.Materials.Add(points.Material as PointsMaterial);
-                        sceneSerializer.Object.Children.Add(points);
-
-                        break;
-
-                    case "PointLight":
-                    case "AmbientLight":
-                    case "SpotLight":
-                    case "DirectionalLight":
-                        sceneSerializer.Object.Children.Add(child);
-                        break;
-
-                    default:
-                        Debug.WriteLine((child as Element).Type, "ThreeLib");
-                        break;
-                }
-            }
-
-            return JsonConvert.SerializeObject(sceneSerializer, Formatting.None, new JsonSerializerSettings { DefaultValueHandling = DefaultValueHandling.Ignore, NullValueHandling = NullValueHandling.Ignore });
+            return JsonConvert.SerializeObject(SerializationAdaptor, format == true ? Formatting.Indented : Formatting.None, new JsonSerializerSettings { DefaultValueHandling = DefaultValueHandling.Ignore, NullValueHandling = NullValueHandling.Ignore });
         }
 
     }
-
     /// <summary>
     /// Internal class to format Scene object for the Three.js Object Scene Format:
     /// https://github.com/mrdoob/three.js/wiki/JSON-Object-Scene-format-4
     /// </summary>
-    internal class SceneSerializer
+    internal class SceneSerializationAdaptor : ObjectSerializationAdaptor
     {
-        [JsonProperty("metadata")]
-        internal Metadata @Metadata { get; set; }
 
-        [JsonProperty("geometries")]
-        internal GeometryCollection Geometries { get; set; }
-
-        [JsonProperty("images")]
-        internal List<Image> Images { get; set; }
-
-        [JsonProperty("textures")]
-        internal List<Texture> Textures { get; set; }
-
-        [JsonProperty("materials")]
-        internal List<IMaterial> Materials { get; set; }
-
-        [JsonProperty("object")]
-        internal SceneObject @Object { get; set; }
+        [JsonProperty("object", Order = 5)]
+        internal SceneObject Object { get; set; }
 
         /// <summary>
         /// Default constructor.
         /// </summary>
-        internal SceneSerializer()
+        internal SceneSerializationAdaptor()
         {
             Geometries = new GeometryCollection();
             Materials = new List<IMaterial>();
@@ -149,15 +73,14 @@ namespace IrisLib
             {
                 Type = "Scene"
             };
+            Metadata.Generator = "ThreeLib-Object3D.toJSON";
+        }
+
+        internal class SceneObject : Object3D
+        {
+            [JsonProperty("background")]
+            public int Background { get; set; }
         }
     }
-
-    internal class SceneObject : Object3D
-    {
-        [JsonProperty("background")]
-        public int Background { get; set; }
-    }
-
-
 
 }
