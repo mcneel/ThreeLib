@@ -316,7 +316,7 @@ namespace IrisLib
         internal List<float> Vertices { get; set; }
 
         [JsonProperty("vertices")]
-        internal List<object> _Vertices  { get { return OptimizeFloats(Vertices); } }
+        internal IEnumerable<object> _Vertices  { get { return Utilities.OptimizeFloats(Vertices); } }
 
         /// <summary>
         /// 
@@ -343,7 +343,7 @@ namespace IrisLib
         internal List<float> Normals { get; set; }
 
         [JsonProperty("normals")]
-        internal List<object> _Normals { get { return OptimizeFloats(Normals); } }
+        internal IEnumerable<object> _Normals { get { return Utilities.OptimizeFloats(Normals); } }
 
         internal GeometryData()
         {
@@ -354,24 +354,6 @@ namespace IrisLib
             Uvs = new List<List<float>>();
         }
 
-        internal List<object> OptimizeFloats(List<float> floats)
-        {
-            var numbers = new List<object>();
-
-            foreach (float f in floats)
-            {
-                if (Math.Abs(f - Math.Floor(f)) <= float.Epsilon)
-                {
-                    numbers.Add(Convert.ToInt16(f));
-                }
-                else
-                {
-                    numbers.Add(f);
-                }
-            }
-
-            return numbers;
-        }
     }
 
     /// <summary>

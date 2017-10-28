@@ -112,9 +112,9 @@ namespace TestLib
 
             #endregion
 
-            Console.WriteLine(geometry.ToJSON(true));
+            //Console.WriteLine(geometry.ToJSON(true));
 
-            //Console.WriteLine(scene.ToJSON(true));
+            Console.WriteLine(scene.ToJSON(true));
 
             Console.ReadLine();
 

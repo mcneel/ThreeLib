@@ -106,6 +106,7 @@
     <Compile Include="THREE\Textures\Image.cs" />
     <Compile Include="THREE\Textures\Texture.cs" />
     <Compile Include="THREE\Utility\SerializationAdapter.cs" />
+    <Compile Include="THREE\Utility\Utilities.cs" />
     <Compile Include="Utility\IrisClasses.cs" />
   </ItemGroup>
   <ItemGroup>

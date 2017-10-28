@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace IrisLib
 {
@@ -103,5 +104,6 @@ namespace IrisLib
         }
 
         public float[] ToArray() { return Elements; }
+        internal IEnumerable<object> ToObjectList() { return Utilities.OptimizeFloats(Elements); }
     }
 }

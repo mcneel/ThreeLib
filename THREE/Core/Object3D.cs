@@ -49,7 +49,7 @@ namespace IrisLib
         public Matrix4 Matrix { get; set; }
 
         [JsonProperty("matrix")]
-        public float[] MatrixArray { get { return Matrix.ToArray(); } }
+        public IEnumerable<object> MatrixArray { get { return Matrix.ToObjectList(); } }
 
         /// <summary>
         /// The object's local position.
