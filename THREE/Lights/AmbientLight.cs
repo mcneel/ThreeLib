@@ -7,12 +7,6 @@
     /// </summary>
     public class AmbientLight : Light
     {
-        /// <summary>
-        /// Default constructor.
-        /// </summary>
-        public AmbientLight()
-        {
-            //Type = "AmbientLight";
-        }
+
     }
 }

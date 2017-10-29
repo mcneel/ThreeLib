@@ -26,12 +26,5 @@ namespace IrisLib
         [JsonProperty("intensity")]
         public float Intensity { get; set; }
 
-        /// <summary>
-        /// Default constructor.
-        /// </summary>
-        public Light()
-        {
-            Type = GetType().Name;
-        }
     }
 }

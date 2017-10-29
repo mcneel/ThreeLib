@@ -47,10 +47,6 @@ namespace IrisLib
         [JsonProperty("userData")]
         public Dictionary<string, Dictionary<string, object>> UserData { get; set; }
 
-        public Material()
-        {
-            Type = GetType().Name;
-        }
     }
 
     /// <summary>

@@ -20,14 +20,6 @@ namespace IrisLib
         internal new SceneSerializationAdaptor SerializationAdaptor { get; set; }
 
         /// <summary>
-        /// Default constructor.
-        /// </summary>
-        public Scene()
-        {
-            Type = GetType().Name;
-        }
-
-        /// <summary>
         /// Converts this Scene to a compatible JSON format.
         /// </summary>
         /// <returns>JSON String.</returns>
