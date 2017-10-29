@@ -33,7 +33,7 @@ namespace IrisLib
         internal List<Texture> Textures { get; set; }
 
         [JsonProperty("materials", Order = 4)]
-        internal List<IMaterial> Materials { get; set; }
+        internal MaterialCollection Materials { get; set; }
 
         internal ObjectSerializationAdaptor()
         {

@@ -172,7 +172,9 @@ namespace IrisLib
                                     SerializationAdaptor.Textures.Add(map);
                                 }
 
-                            SerializationAdaptor.Materials.Add(material);
+                            //SerializationAdaptor.Materials.Add(material);
+                            material.Uuid = SerializationAdaptor.Materials.AddIfNew(material);
+                            
                         }
 
                         SerializationAdaptor.Object.Children.Add(mesh);
@@ -225,7 +227,7 @@ namespace IrisLib
         internal Object3DSerializationAdaptor()
         {
             Geometries = new GeometryCollection();
-            Materials = new List<IMaterial>();
+            Materials = new MaterialCollection();
             Images = new List<Image>();
             Textures = new List<Texture>();
             Object = new Object3D();

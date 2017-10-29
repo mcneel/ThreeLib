@@ -94,7 +94,6 @@
     <Compile Include="Objects\IrisObjectScene.cs" />
     <Compile Include="Objects\IrisObjectSpotLight.cs" />
     <Compile Include="Objects\IrisObjectTypeEnum.cs" />
-    <Compile Include="THREE\Materials\IMaterial.cs" />
     <Compile Include="THREE\Objects\Line.cs" />
     <Compile Include="THREE\Materials\Material.cs" />
     <Compile Include="THREE\Objects\Mesh.cs" />

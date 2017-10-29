@@ -5,7 +5,7 @@ namespace IrisLib
     /// <summary>
     /// 
     /// </summary>
-    public class LineBasicMaterial : Material
+    public class LineBasicMaterial : Material<LineBasicMaterial>
     {
 
         /// <summary>

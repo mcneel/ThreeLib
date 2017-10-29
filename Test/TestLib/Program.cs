@@ -51,6 +51,23 @@ namespace TestLib
 
             scene.Add(mesh);
 
+            var material2 = IrisLib.MeshStandardMaterial.Default();
+            material2.Roughness = 0.25;
+
+            var mesh2 = new IrisLib.Mesh
+            {
+                Geometry = geometry,
+                Material = material2,
+                Position = new IrisLib.Vector3(20,20,20),
+                Name = "My Mesh"
+            };
+
+            
+
+            scene.Add(mesh2);
+
+
+
             var line = new IrisLib.Line
             {
                 Geometry = new IrisLib.Geometry(vertices),
@@ -122,7 +139,7 @@ namespace TestLib
 
             //Console.WriteLine(geometry.ToJSON(true));
 
-            Console.WriteLine(scene.ToJSON(true));
+            Console.WriteLine(scene.ToJSON(false));
 
             Console.ReadLine();
 

@@ -8,7 +8,7 @@ namespace IrisLib
     /// Analogous to: https://github.com/mrdoob/three.js/blob/dev/src/materials/MeshStandardMaterial.js
     /// TODO: Add roughness and metalness maps.
     /// </summary>
-    public class MeshStandardMaterial : Material
+    public class MeshStandardMaterial : Material<MeshStandardMaterial>
     {
 
         /// <summary>
@@ -175,7 +175,7 @@ namespace IrisLib
         /// </summary>
         /// <param name="other">The material to test against.</param>
         /// <returns>True if the object is equal to this one. False, otherwise.</returns>
-        public bool Equals(MeshStandardMaterial other)
+        public new bool Equals(MeshStandardMaterial other)
         {
             if (other == null)
             {

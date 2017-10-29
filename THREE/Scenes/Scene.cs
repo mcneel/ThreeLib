@@ -66,7 +66,7 @@ namespace IrisLib
         internal SceneSerializationAdaptor()
         {
             Geometries = new GeometryCollection();
-            Materials = new List<IMaterial>();
+            Materials = new MaterialCollection();
             Images = new List<Image>();
             Textures = new List<Texture>();
             Object = new SceneObject()

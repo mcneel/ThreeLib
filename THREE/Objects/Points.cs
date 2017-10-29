@@ -27,7 +27,7 @@ namespace IrisLib
         /// This object's material Uuid.
         /// </summary>
         [JsonProperty("material")]
-        public Guid MaterialUuid { get { return (Material as Material).Uuid; } }
+        public Guid MaterialUuid { get { return (Material as MaterialBase).Uuid; } }
 
         public Points()
         {

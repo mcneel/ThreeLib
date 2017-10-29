@@ -6,7 +6,7 @@ namespace IrisLib
     /// <summary>
     /// Analogous to https://github.com/mrdoob/three.js/blob/master/src/materials/PointsMaterial.js
     /// </summary>
-    public class PointsMaterial : Material
+    public class PointsMaterial : Material<PointsMaterial>
     {
 
         /// <summary>
