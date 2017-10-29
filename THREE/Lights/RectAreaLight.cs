@@ -22,12 +22,5 @@ namespace IrisLib
         [JsonProperty("width")]
         public float Width { get; set; }
 
-        /// <summary>
-        /// Default constructor.
-        /// </summary>
-        public RectAreaLight()
-        {
-            Type = "RectAreaLight";
-        }
     }
 }

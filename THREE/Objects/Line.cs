@@ -37,7 +37,7 @@ namespace IrisLib
         /// </summary>
         public Line()
         {
-            Type = "Line";
+            Type = GetType().Name;
         }
     }
 }

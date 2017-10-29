@@ -7,7 +7,7 @@
         /// </summary>
         public OrthographicCamera()
         {
-            Type = "OrthographicCamera";
+            Type = GetType().Name;
         }
     }
 }

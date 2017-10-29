@@ -12,7 +12,7 @@
         /// </summary>
         public AmbientLight()
         {
-            Type = "AmbientLight";
+            //Type = "AmbientLight";
         }
     }
 }

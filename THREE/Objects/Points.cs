@@ -29,9 +29,5 @@ namespace IrisLib
         [JsonProperty("material")]
         public Guid MaterialUuid { get { return (Material as Material).Uuid; } }
 
-        public Points()
-        {
-            Type = "Points";
-        }
     }
 }

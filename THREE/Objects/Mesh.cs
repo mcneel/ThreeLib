@@ -32,14 +32,6 @@ namespace IrisLib
         [JsonProperty("material")]
         public Guid MaterialUuid { get { return (Material as Material).Uuid; } }
 
-        /// <summary>
-        /// Default constructor.
-        /// </summary>
-        public Mesh()
-        {
-            Type = "Mesh";
-        }
-
     }
     
     

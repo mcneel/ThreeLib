@@ -24,7 +24,7 @@ namespace IrisLib
         /// </summary>
         public Scene()
         {
-            Type = "Scene";
+            Type = GetType().Name;
         }
 
         /// <summary>
@@ -65,10 +65,6 @@ namespace IrisLib
         /// </summary>
         internal SceneSerializationAdaptor()
         {
-            Geometries = new GeometryCollection();
-            Materials = new List<IMaterial>();
-            Images = new List<Image>();
-            Textures = new List<Texture>();
             Object = new SceneObject()
             {
                 Type = "Scene"

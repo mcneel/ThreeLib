@@ -22,12 +22,5 @@ namespace IrisLib
         [JsonProperty("skyColor")]
         public int SkyColor { get; set; }
 
-        /// <summary>
-        /// Default constructor.
-        /// </summary>
-        public HemisphereLight()
-        {
-            Type = "HemisphereLight";
-        }
     }
 }

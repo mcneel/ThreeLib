@@ -7,7 +7,7 @@
         /// </summary>
         public PerspectiveCamera()
         {
-            Type = "PerspectiveCamera";
+            Type = GetType().Name;
         }
     }
 }

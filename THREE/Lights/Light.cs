@@ -31,7 +31,7 @@ namespace IrisLib
         /// </summary>
         public Light()
         {
-            Type = "Light";
+            Type = GetType().Name;
         }
     }
 }
