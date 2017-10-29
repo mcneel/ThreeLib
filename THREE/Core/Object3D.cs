@@ -199,6 +199,7 @@ namespace IrisLib
                     case "AmbientLight":
                     case "SpotLight":
                     case "DirectionalLight":
+                    case "HemisphereLight":
                         SerializationAdaptor.Object.Children.Add(child);
                         break;
 

@@ -98,7 +98,6 @@ namespace TestLib
                 Name = "My DirectionalLight"
             };
 
-
             scene.Add(directionalLight);
 
             var spotLight = new IrisLib.SpotLight
@@ -109,6 +108,15 @@ namespace TestLib
             };
 
             scene.Add(spotLight);
+
+            var hemiLight = new IrisLib.HemisphereLight
+            {
+                SkyColor = new IrisLib.Color(0,30,255).ToInt(),
+                GroundColor = new IrisLib.Color(30,30,30).ToInt(),
+                Name = "My HemisphereLight"
+            };
+
+            scene.Add(hemiLight);
 
             #endregion
 
