@@ -12,7 +12,7 @@
         /// </summary>
         public Camera()
         {
-            Type = "Camera";
+            Type = GetType().Name;
         }
     }
 }

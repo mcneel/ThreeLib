@@ -74,7 +74,7 @@ namespace IrisLib
         /// </summary>
         public Geometry()
         {
-            Type = "Geometry";
+            Type = GetType().Name;
             Data = new GeometryData();
         }
 

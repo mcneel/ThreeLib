@@ -30,14 +30,14 @@ namespace IrisLib
         /// This object's material Uuid.
         /// </summary>
         [JsonProperty("material")]
-        public Guid MaterialUuid { get { return (Material as MaterialBase).Uuid; } }
+        public Guid MaterialUuid { get { return (Material as Material).Uuid; } }
 
         /// <summary>
         /// 
         /// </summary>
         public Line()
         {
-            Type = "Line";
+            Type = GetType().Name;
         }
     }
 }

@@ -5,12 +5,6 @@
     /// </summary>
     public class Group : Object3D
     {
-        /// <summary>
-        /// Default constructor.
-        /// </summary>
-        public Group()
-        {
-            Type = "Group";
-        }
+
     }
 }

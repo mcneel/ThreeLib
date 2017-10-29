@@ -78,7 +78,7 @@ namespace IrisLib
         /// </summary>
         public Object3D()
         {
-            Type = "Object3D";
+            Type = GetType().Name;
             Children = new List<IElement>();
             Matrix = Matrix4.Identity();
             Position = new Vector3();
@@ -226,10 +226,6 @@ namespace IrisLib
         /// </summary>
         internal Object3DSerializationAdaptor()
         {
-            Geometries = new GeometryCollection();
-            Materials = new MaterialCollection();
-            Images = new List<Image>();
-            Textures = new List<Texture>();
             Object = new Object3D();
             Metadata.Generator = "ThreeLib-Object3D.toJSON";
         }

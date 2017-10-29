@@ -21,12 +21,5 @@ namespace IrisLib
         [JsonProperty("decay")]
         public float Decay { get; set; }
 
-        /// <summary>
-        /// Default constructor.
-        /// </summary>
-        public PointLight()
-        {
-            Type = "PointLight";
-        }
     }
 }

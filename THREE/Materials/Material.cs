@@ -9,7 +9,7 @@ namespace IrisLib
 {
     public interface IMaterial { }
 
-    public abstract class MaterialBase : Element, IMaterial
+    public abstract class Material : Element, IMaterial
     {
         /// <summary>
         /// 
@@ -47,9 +47,9 @@ namespace IrisLib
         [JsonProperty("userData")]
         public Dictionary<string, Dictionary<string, object>> UserData { get; set; }
 
-        public MaterialBase()
+        public Material()
         {
-            Type = "Material";
+            Type = GetType().Name;
         }
     }
 
@@ -58,7 +58,7 @@ namespace IrisLib
     /// Analogous to: https://threejs.org/docs/index.html#api/materials/Material
     /// Original Source: https://github.com/mrdoob/three.js/blob/master/src/materials/Material.js
     /// </summary>
-    public abstract class Material<T> : MaterialBase, IEquatable<T> where T : Material<T>
+    public abstract class MaterialBase<T> : Material, IEquatable<T> where T : MaterialBase<T>
     {
         
         public bool Equals(T other)
@@ -79,14 +79,14 @@ namespace IrisLib
         }
     }
 
-    public class MaterialCollection: Collection<MaterialBase>
+    public class MaterialCollection: Collection<Material>
     {
         /// <summary>
         /// Add a geometry to this collection if it does not already exist.
         /// </summary>
         /// <param name="item"></param>
         /// <returns></returns>
-        public Guid AddIfNew(MaterialBase item)
+        public Guid AddIfNew(Material item)
         {
             Debug.WriteLine(item.Type,"ThreeLib");
 

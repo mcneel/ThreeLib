@@ -21,12 +21,5 @@ namespace IrisLib
         [JsonProperty("target")]
         public Object3D Target { get; set; }
 
-        /// <summary>
-        /// Default constructor.
-        /// </summary>
-        public DirectionalLight()
-        {
-            Type = "DirectionalLight";
-        }
     }
 }

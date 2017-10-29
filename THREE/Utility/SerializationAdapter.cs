@@ -27,10 +27,10 @@ namespace IrisLib
         internal GeometryCollection Geometries { get; set; }
 
         [JsonProperty("images", Order = 2)]
-        internal List<Image> Images { get; set; }
+        internal ImageCollection Images { get; set; }
 
         [JsonProperty("textures", Order = 3)]
-        internal List<Texture> Textures { get; set; }
+        internal TextureCollection Textures { get; set; }
 
         [JsonProperty("materials", Order = 4)]
         internal MaterialCollection Materials { get; set; }
@@ -38,6 +38,10 @@ namespace IrisLib
         internal ObjectSerializationAdaptor()
         {
             Metadata.Type = "Object";
+            Geometries = new GeometryCollection();
+            Materials = new MaterialCollection();
+            Images = new ImageCollection();
+            Textures = new TextureCollection();
         }
 
         public bool ShouldSerializeImages()

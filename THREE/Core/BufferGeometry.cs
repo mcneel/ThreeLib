@@ -43,7 +43,7 @@ namespace IrisLib
         /// </summary>
         public BufferGeometry()
         {
-            Type = "BufferGeometry";
+            Type = GetType().Name;
             Uuid = Guid.NewGuid();
         }
     }

@@ -53,12 +53,5 @@ namespace IrisLib
         [JsonProperty("shadow")]
         public SpotLightShadow Shadow { get; set; }
 
-        /// <summary>
-        /// Default constructor.
-        /// </summary>
-        public SpotLight()
-        {
-            Type = "SpotLight";
-        }
     }
 }

@@ -8,7 +8,7 @@ namespace IrisLib
     /// Analogous to: https://github.com/mrdoob/three.js/blob/dev/src/materials/MeshStandardMaterial.js
     /// TODO: Add roughness and metalness maps.
     /// </summary>
-    public class MeshStandardMaterial : Material<MeshStandardMaterial>
+    public class MeshStandardMaterial : MaterialBase<MeshStandardMaterial>
     {
 
         /// <summary>
@@ -130,10 +130,7 @@ namespace IrisLib
         /// <summary>
         /// Default constructor.
         /// </summary>
-        public MeshStandardMaterial()
-        {
-            Type = "MeshStandardMaterial";
-        }
+        public MeshStandardMaterial() { }
 
         /// <summary>
         /// Creates a MeshStandardMaterial with some default settings.

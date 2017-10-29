@@ -139,7 +139,7 @@ namespace TestLib
 
             //Console.WriteLine(geometry.ToJSON(true));
 
-            Console.WriteLine(scene.ToJSON(false));
+            Console.WriteLine(scene.ToJSON(true));
 
             Console.ReadLine();
 

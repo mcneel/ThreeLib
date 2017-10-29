@@ -5,7 +5,7 @@ namespace IrisLib
     /// <summary>
     /// 
     /// </summary>
-    public class LineBasicMaterial : Material<LineBasicMaterial>
+    public class LineBasicMaterial : MaterialBase<LineBasicMaterial>
     {
 
         /// <summary>
@@ -32,12 +32,22 @@ namespace IrisLib
         [JsonProperty("linejoin")]
         public string LineJoin { get; set; }
 
-        /// <summary>
-        /// Default constructor.
-        /// </summary>
-        public LineBasicMaterial()
+        public new bool Equals(LineBasicMaterial other)
         {
-            Type = "LineBasicMaterial";
+            if (other == null)
+            {
+                return false;
+            }
+            else
+            {
+                return Color.Equals(other.Color) &&
+                       Opacity.Equals(other.Opacity) &&
+                       Side.Equals(other.Side) &&
+                       VertexColors.Equals(other.VertexColors)&&
+                       LineWidth.Equals(other.LineWidth)&&
+                       LineJoin.Equals(other.LineJoin)&&
+                       LineCap.Equals(other.LineCap);
+            }
         }
     }
 }
