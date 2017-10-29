@@ -35,6 +35,7 @@ namespace IrisLib
         public Element()
         {
             Uuid = Guid.NewGuid();
+            Type = GetType().Name;
         }
 
         /// <summary>

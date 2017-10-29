@@ -7,12 +7,6 @@
     /// </summary>
     public abstract class Camera : Object3D
     {
-        /// <summary>
-        /// Default constructor.
-        /// </summary>
-        public Camera()
-        {
-            Type = GetType().Name;
-        }
+
     }
 }

@@ -78,7 +78,6 @@ namespace IrisLib
         /// </summary>
         public Object3D()
         {
-            Type = GetType().Name;
             Children = new List<IElement>();
             Matrix = Matrix4.Identity();
             Position = new Vector3();
