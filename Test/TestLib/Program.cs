@@ -59,14 +59,22 @@ namespace TestLib
                 Geometry = geometry,
                 Material = material2,
                 Position = new IrisLib.Vector3(20,20,20),
-                Name = "My Mesh"
+                Name = "My Mesh2"
             };
-
-            
 
             scene.Add(mesh2);
 
+            var material3 = IrisLib.MeshStandardMaterial.Default();
 
+            var mesh3 = new IrisLib.Mesh
+            {
+                Geometry = geometry,
+                Material = material3,
+                Position = new IrisLib.Vector3(30, 30, 30),
+                Name = "My Mesh3"
+            };
+
+            scene.Add(mesh3);
 
             var line = new IrisLib.Line
             {

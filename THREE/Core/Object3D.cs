@@ -164,11 +164,11 @@ namespace IrisLib
                         {
                             var material = mesh.Material as MeshStandardMaterial;
 
-                            foreach (var map in material.GetTextures())
-                                if (map != null)
+                            foreach (var kvp in material.GetTextures())
+                                if (kvp.Value != null)
                                 {
-                                    SerializationAdaptor.Images.Add(map.Image);
-                                    SerializationAdaptor.Textures.Add(map);
+                                    SerializationAdaptor.Images.Add(kvp.Value.Image);
+                                    SerializationAdaptor.Textures.Add(kvp.Value);
                                 }
 
                             //SerializationAdaptor.Materials.Add(material);

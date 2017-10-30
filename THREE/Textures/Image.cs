@@ -57,16 +57,38 @@ namespace IrisLib
 
         public bool Equals(Image other)
         {
-            if (other == null)
-            {
-                return false;
-            }
-            else
-            {
-
-                return Url.Equals(other.Url);
-            }
+            if (other == null) return false;
+            else return string.Equals(Url, other.Url);
         }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != GetType()) return false;
+            return Equals(obj as Image);
+        }
+
+        public override int GetHashCode()
+        {
+            return Url.GetHashCode();
+        }
+
+        public static bool operator ==(Image a, Image b)
+        {
+            bool ba, bb;
+            ba = ReferenceEquals(null, a);
+            bb = ReferenceEquals(null, b);
+            if (ba & bb) return true; //they are both null
+            else if (!ba & !bb) return a.Equals(b); //they are both not null
+            else return false;
+        }
+
+        public static bool operator !=(Image a, Image b)
+        {
+            return !(a == b);
+        }
+
     }
 
     public class ImageCollection: Collection<Image>

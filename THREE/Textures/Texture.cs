@@ -62,19 +62,34 @@ namespace IrisLib
 
         public bool Equals(Texture other)
         {
-            if (other == null)
-            {
-                return false;
-            }
-            else
-            {
-
-                return  Mapping.Equals(other.Mapping) &&
-                        Repeat.Equals(other.Repeat) &&
-                        Wrap.Equals(other.Wrap) &&
+            if (other == null) return false;
+            else return Mapping.Equals(other.Mapping) &&
+                        Repeat.SequenceEqual(other.Repeat) &&
+                        Wrap.SequenceEqual(other.Wrap) &&
                         Image.Equals(other.Image);
-            }
         }
+
+        public override int GetHashCode()
+        {
+            return Mapping.GetHashCode() ^ Repeat.GetHashCode() ^ Wrap.GetHashCode() ^ Image.GetHashCode();
+        }
+
+        public static bool operator ==(Texture a, Texture b)
+        {
+            bool ba, bb;
+            ba = ReferenceEquals(null, a);
+            bb = ReferenceEquals(null, b);
+            if (ba & bb) return true; //they are both null
+            else if (!ba & !bb) return a.Equals(b); //they are both not null
+            else return false;
+        }
+
+        public static bool operator !=(Texture a, Texture b)
+        {
+            return !(a == b);
+        }
+
+
     }
 
     public class TextureCollection : Collection<Texture>

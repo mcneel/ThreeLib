@@ -6,7 +6,7 @@ namespace IrisLib
     /// <summary>
     /// Analogous to https://github.com/mrdoob/three.js/blob/master/src/materials/PointsMaterial.js
     /// </summary>
-    public class PointsMaterial : MaterialBase<PointsMaterial>
+    public class PointsMaterial : Material, IEquatable<PointsMaterial>
     {
 
         /// <summary>
@@ -47,23 +47,18 @@ namespace IrisLib
             }
         }
 
-        public new bool Equals(PointsMaterial other)
+        public bool Equals(PointsMaterial other)
         {
-            if (other == null)
-            {
-                return false;
-            }
-            else
-            {
-                return Type.Equals(other.Type) && 
-                       Color.Equals(other.Color) &&
-                       Map.Equals(other.Map) &&
-                       Opacity.Equals(other.Opacity) &&
-                       Side.Equals(other.Side) &&
-                       VertexColors.Equals(other.VertexColors) &&
+            if (other == null) return false;
+            else return Color.Equals(other.Color) &&
                        Size.Equals(other.Size) &&
                        SizeAttenuation.Equals(other.SizeAttenuation);
-            }
+        }
+
+        public override bool Equals(Material other)
+        {
+            if (other.GetType() == typeof(PointsMaterial)) return Equals((PointsMaterial)other) && base.Equals(other);
+            else return false;
         }
     }
 }
