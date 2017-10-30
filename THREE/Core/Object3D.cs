@@ -171,7 +171,6 @@ namespace IrisLib
                                     SerializationAdaptor.Textures.Add(kvp.Value);
                                 }
 
-                            //SerializationAdaptor.Materials.Add(material);
                             material.Uuid = SerializationAdaptor.Materials.AddIfNew(material);
                             
                         }

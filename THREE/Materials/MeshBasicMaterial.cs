@@ -5,6 +5,27 @@ namespace IrisLib
 {
     public class MeshBasicMaterial : Material, IEquatable<MeshBasicMaterial>
     {
+
+        /// <summary>
+        /// Material ao map.
+        /// </summary>
+        [JsonIgnore]
+        public Texture AoMap { get; set; }
+
+        /// <summary>
+        /// ao Uuid.
+        /// </summary>
+        [JsonProperty("aoMap")]
+        public Guid? AoMapUuid
+        {
+            get
+            {
+                if (AoMap != null)
+                    return AoMap.Uuid;
+                else return null;
+            }
+        }
+
         /// <summary>
         /// Material diffuse map.
         /// </summary>
@@ -25,26 +46,7 @@ namespace IrisLib
             }
         }
 
-        /// <summary>
-        /// Material bump map.
-        /// </summary>
-        [JsonIgnore]
-        public Texture BumpMap { get; set; }
-
-        /// <summary>
-        /// BumpMap Uuid.
-        /// </summary>
-        [JsonProperty("bumpMap")]
-        public Guid? BumpMapUuid
-        {
-            get
-            {
-                if (BumpMap != null)
-                    return BumpMap.Uuid;
-                else return null;
-            }
-        }
-
+        
         /// <summary>
         /// Material alpha map.
         /// </summary>
@@ -81,6 +83,46 @@ namespace IrisLib
             {
                 if (EnvironmentMap != null)
                     return EnvironmentMap.Uuid;
+                else return null;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [JsonIgnore]
+        public Texture LightMap { get; set; }
+
+        /// <summary>
+        /// Light map Uuid.
+        /// </summary>
+        [JsonProperty("lightMap")]
+        public Guid? LightMapUuid
+        {
+            get
+            {
+                if (LightMap != null)
+                    return LightMap.Uuid;
+                else return null;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [JsonIgnore]
+        public Texture SpecularMap { get; set; }
+
+        /// <summary>
+        /// Specular map Uuid.
+        /// </summary>
+        [JsonProperty("lightMap")]
+        public Guid? SpecularMapUuid
+        {
+            get
+            {
+                if (SpecularMap != null)
+                    return SpecularMap.Uuid;
                 else return null;
             }
         }

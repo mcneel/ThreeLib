@@ -281,10 +281,9 @@ namespace IrisLib
 
 
         /// <summary>
-        /// Returns material textures as a list in the following order:
-        /// 
+        /// Returns material textures as a dictionary.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Dictionary with the texture type as the key. For example, "AlphaMap" key will have a Texture that contains an Alpha Map image.</returns>
         public Dictionary<string, Texture> GetTextures()
         {
             return new Dictionary<string, Texture>
