@@ -1,4 +1,4 @@
-﻿namespace IrisLib
+﻿namespace ThreeLib
 {
     /// <summary>
     /// This light globally illuminates all objects in the scene equally.

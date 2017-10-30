@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace IrisLib
+namespace ThreeLib
 {
     /// <summary>
     /// Class representing a 3D vector.

@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace IrisLib
+namespace ThreeLib
 {
     /// <summary>
     /// Analogous to https://github.com/mrdoob/three.js/blob/master/src/materials/PointsMaterial.js

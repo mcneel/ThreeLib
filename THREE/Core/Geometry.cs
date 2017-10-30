@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
-namespace IrisLib
+namespace ThreeLib
 {
     /// <summary>
     /// Base class for all geometries. 

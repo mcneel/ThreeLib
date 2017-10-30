@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 
-namespace IrisLib
+namespace ThreeLib
 {
     public class Image: IEquatable<Image>
     {
@@ -61,14 +61,6 @@ namespace IrisLib
             else return string.Equals(Url, other.Url);
         }
 
-        public override bool Equals(object obj)
-        {
-            if (ReferenceEquals(null, obj)) return false;
-            if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != GetType()) return false;
-            return Equals(obj as Image);
-        }
-
         public override int GetHashCode()
         {
             return Url.GetHashCode();
@@ -76,9 +68,8 @@ namespace IrisLib
 
         public static bool operator ==(Image a, Image b)
         {
-            bool ba, bb;
-            ba = ReferenceEquals(null, a);
-            bb = ReferenceEquals(null, b);
+            bool ba = ReferenceEquals(null, a);
+            bool bb = ReferenceEquals(null, b);
             if (ba & bb) return true; //they are both null
             else if (!ba & !bb) return a.Equals(b); //they are both not null
             else return false;

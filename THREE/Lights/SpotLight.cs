@@ -2,7 +2,7 @@
 
 using Newtonsoft.Json;
 
-namespace IrisLib
+namespace ThreeLib
 {
     /// <summary>
     /// his light gets emitted from a single point in one direction, along a cone that increases in size the further from the light it gets.

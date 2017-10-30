@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace IrisLib
+namespace ThreeLib
 {
     public class MeshPhongMaterial : Material, IEquatable<MeshPhongMaterial>
     {

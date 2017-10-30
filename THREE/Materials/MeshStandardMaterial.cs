@@ -1,9 +1,8 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 
-namespace IrisLib
+namespace ThreeLib
 {
     /// <summary>
     /// Analogous to: https://github.com/mrdoob/three.js/blob/dev/src/materials/MeshStandardMaterial.js
@@ -11,6 +10,7 @@ namespace IrisLib
     /// </summary>
     public class MeshStandardMaterial : Material, IEquatable<MeshStandardMaterial>
     {
+        #region Properties
 
         /// <summary>
         /// Material diffuse color.
@@ -262,6 +262,10 @@ namespace IrisLib
             }
         }
 
+        #endregion
+
+        #region Constructors
+
         /// <summary>
         /// Creates a MeshStandardMaterial with some default settings.
         /// </summary>
@@ -279,6 +283,9 @@ namespace IrisLib
             };
         }
 
+        #endregion
+
+        #region Methods
 
         /// <summary>
         /// Returns material textures as a dictionary.
@@ -327,6 +334,8 @@ namespace IrisLib
             if (other.GetType() == typeof(MeshStandardMaterial)) return Equals((MeshStandardMaterial)other) && base.Equals(other);
             else return false;
         }
+
+        #endregion
 
     }
 }

@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace IrisLib
+namespace ThreeLib
 {
     /// <summary>
     /// A class representing a 4x4 matrix.

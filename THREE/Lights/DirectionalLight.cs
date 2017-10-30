@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace IrisLib
+namespace ThreeLib
 {
     /// <summary>
     /// A light that gets emitted in a specific direction.

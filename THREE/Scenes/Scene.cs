@@ -1,8 +1,6 @@
 ﻿using Newtonsoft.Json;
-using System.Collections.Generic;
-using System.Diagnostics;
 
-namespace IrisLib
+namespace ThreeLib
 {
     /// <summary>
     /// Scenes allow you to set up what and where is to be rendered by three.js. This is where you place objects, lights and cameras.
@@ -10,6 +8,9 @@ namespace IrisLib
     /// </summary>
     public class Scene : Object3D
     {
+
+        #region Properties
+
         /// <summary>
         /// Background color for the scene.
         /// </summary>
@@ -18,6 +19,10 @@ namespace IrisLib
 
         [JsonIgnore]
         internal new SceneSerializationAdaptor SerializationAdaptor { get; set; }
+
+        #endregion
+
+        #region Methods
 
         /// <summary>
         /// Converts this Scene to a compatible JSON format.
@@ -40,6 +45,8 @@ namespace IrisLib
 
             return JsonConvert.SerializeObject(SerializationAdaptor, format == true ? Formatting.Indented : Formatting.None, new JsonSerializerSettings { DefaultValueHandling = DefaultValueHandling.Ignore, NullValueHandling = NullValueHandling.Ignore });
         }
+
+        #endregion
 
     }
     /// <summary>

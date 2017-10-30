@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IrisLib
+namespace ThreeLib
 {
     public class Euler
     {

@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace IrisLib
+namespace ThreeLib
 {
     public class MeshBasicMaterial : Material, IEquatable<MeshBasicMaterial>
     {
@@ -46,7 +46,6 @@ namespace IrisLib
             }
         }
 
-        
         /// <summary>
         /// Material alpha map.
         /// </summary>
