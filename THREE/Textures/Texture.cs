@@ -3,7 +3,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 
-namespace ThreeLib
+namespace THREE
 {
 
     public class Texture : IEquatable<Texture>

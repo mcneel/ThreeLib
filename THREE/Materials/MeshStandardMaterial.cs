@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace ThreeLib
+namespace THREE
 {
     /// <summary>
     /// Analogous to: https://github.com/mrdoob/three.js/blob/dev/src/materials/MeshStandardMaterial.js
@@ -211,7 +211,7 @@ namespace ThreeLib
         /// <summary>
         /// The Uuid of the metalness map.
         /// </summary>
-        [JsonProperty("map")]
+        [JsonProperty("metalnessMap")]
         public Guid? MetalnessMapUuid
         {
             get
@@ -251,7 +251,7 @@ namespace ThreeLib
         /// <summary>
         /// The Uuid of the roughness map.
         /// </summary>
-        [JsonProperty("normalMap")]
+        [JsonProperty("roughnessMap")]
         public Guid? RoughnessMapUuid
         {
             get

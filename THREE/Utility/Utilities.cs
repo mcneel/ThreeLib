@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ThreeLib
+namespace THREE
 {
     internal class Utilities
     {
@@ -21,5 +21,17 @@ namespace ThreeLib
             }
             return numbers;
         }
+
+        /// <summary>
+        /// Encode a float to an int.
+        /// </summary>
+        /// <param name="x">The float to encode.</param>
+        /// <returns>An encoded float.</returns>
+        public static int EncodeFloat(float x)
+        {
+            var sum = (x >= 0 ? 0.0 : -1.0);
+            return (int)((x * 127.5) + sum);
+        }
+
     }
 }

@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace ThreeLib
+namespace THREE
 {
     /// <summary>
     /// A light that gets emitted from a single point in all directions. A common use case for this is to replicate the light emitted from a bare lightbulb.

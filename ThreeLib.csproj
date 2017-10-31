@@ -38,15 +38,6 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Materials\IrisBasicMaterial.cs" />
-    <Compile Include="Materials\IrisImage.cs" />
-    <Compile Include="Materials\IrisLambertMaterial.cs" />
-    <Compile Include="Materials\IrisLineMaterial.cs" />
-    <Compile Include="Materials\IrisMaterial.cs" />
-    <Compile Include="Materials\IrisPhongMaterial.cs" />
-    <Compile Include="Materials\IrisPointCloudMaterial.cs" />
-    <Compile Include="Materials\IrisStandardMaterial.cs" />
-    <Compile Include="Materials\IrisTexture.cs" />
     <Compile Include="THREE\Cameras\Camera.cs" />
     <Compile Include="THREE\Cameras\OrthographicCamera.cs" />
     <Compile Include="THREE\Cameras\PerspectiveCamera.cs" />
@@ -77,26 +68,6 @@
     <Compile Include="THREE\Objects\IGeometry.cs" />
     <Compile Include="THREE\Core\Geometry.cs" />
     <Compile Include="THREE\Objects\Group.cs" />
-    <Compile Include="Objects\IrisElement.cs" />
-    <Compile Include="Objects\IrisFont.cs" />
-    <Compile Include="Objects\IrisGeometry.cs" />
-    <Compile Include="Objects\IrisGeometryBuffer.cs" />
-    <Compile Include="Objects\IrisGeometryText.cs" />
-    <Compile Include="Objects\IrisLayer.cs" />
-    <Compile Include="Objects\IrisObjectCPlane.cs" />
-    <Compile Include="Objects\IrisObjectCurve.cs" />
-    <Compile Include="Objects\IrisObjectDirectionalLight.cs" />
-    <Compile Include="Objects\IrisObjectGroup.cs" />
-    <Compile Include="Objects\IrisObjectLight.cs" />
-    <Compile Include="Objects\IrisObjectMesh.cs" />
-    <Compile Include="Objects\IrisObjectOrthographicCamera.cs" />
-    <Compile Include="Objects\IrisObjectPerspectiveCamera.cs" />
-    <Compile Include="Objects\IrisObjectPointLight.cs" />
-    <Compile Include="Objects\IrisObjectPoints.cs" />
-    <Compile Include="Objects\IrisObjectPosition.cs" />
-    <Compile Include="Objects\IrisObjectScene.cs" />
-    <Compile Include="Objects\IrisObjectSpotLight.cs" />
-    <Compile Include="Objects\IrisObjectTypeEnum.cs" />
     <Compile Include="THREE\Objects\Line.cs" />
     <Compile Include="THREE\Materials\Material.cs" />
     <Compile Include="THREE\Objects\Mesh.cs" />
@@ -109,10 +80,11 @@
     <Compile Include="THREE\Textures\Texture.cs" />
     <Compile Include="THREE\Utility\SerializationAdapter.cs" />
     <Compile Include="THREE\Utility\Utilities.cs" />
-    <Compile Include="Utility\IrisClasses.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="appveyor.yml" />
     <None Include="packages.config" />
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

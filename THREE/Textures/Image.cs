@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 
-namespace ThreeLib
+namespace THREE
 {
     public class Image: IEquatable<Image>
     {

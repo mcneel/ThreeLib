@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace ThreeLib
+namespace THREE
 {
     /// <summary>
     /// Base class for all objects. Analogous to https://threejs.org/docs/index.html#api/core/Object3D
