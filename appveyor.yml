@@ -14,6 +14,9 @@ platform: Any CPU
 
 # build Configuration, i.e. Debug, Release, etc.
 configuration: Release
+branches: 
+  only:
+    - master
 
 assembly_info: 
   patch: true 
@@ -23,18 +26,18 @@ assembly_info:
   assembly_informational_version: "{version}"
 
 build:
-  project: IrisLib.csproj
+  project: ThreeLib.csproj
   
 before_build: 
-  - ps: nuget restore IrisLib.csproj -PackagesDirectory .\packages
+  - ps: nuget restore ThreeLib.csproj -PackagesDirectory .\packages
     
 after_build:
-  - ps: nuget pack IrisLib.csproj -Version $env:appveyor_build_version
+  - ps: nuget pack ThreeLib.csproj -Version $env:appveyor_build_version
   
 artifacts:
-  - path: .\bin\Release\IrisLib.dll
-  - path: .\bin\Release\IrisLib.pdb
-  - path: .\bin\Release\IrisLib.xml
+  - path: .\bin\Release\ThreeLib.dll
+  - path: .\bin\Release\ThreeLib.pdb
+  - path: .\bin\Release\ThreeLib.xml
   - path: '*.nupkg'
     name: nugetpackage
   

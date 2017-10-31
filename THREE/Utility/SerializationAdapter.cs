@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace IrisLib
+namespace ThreeLib
 {
     public abstract class SerializationAdaptor
     {

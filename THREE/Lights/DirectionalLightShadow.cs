@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace IrisLib
+namespace ThreeLib
 {
     /// <summary>
     /// Analogous to: https://threejs.org/docs/index.html#api/lights/shadows/DirectionalLightShadow

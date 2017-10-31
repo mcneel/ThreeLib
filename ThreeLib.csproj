@@ -7,8 +7,8 @@
     <ProjectGuid>{47658F27-9658-4941-91CE-E767F8770641}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IrisLib</RootNamespace>
-    <AssemblyName>IrisLib</AssemblyName>
+    <RootNamespace>ThreeLib</RootNamespace>
+    <AssemblyName>ThreeLib</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -29,7 +29,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\IrisLib.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\ThreeLib.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -64,6 +64,9 @@
     <Compile Include="THREE\Lights\SpotLight.cs" />
     <Compile Include="THREE\Lights\SpotLightShadow.cs" />
     <Compile Include="THREE\Materials\LineBasicMaterial.cs" />
+    <Compile Include="THREE\Materials\MeshBasicMaterial.cs" />
+    <Compile Include="THREE\Materials\MeshLambertMaterial.cs" />
+    <Compile Include="THREE\Materials\MeshPhongMaterial.cs" />
     <Compile Include="THREE\Materials\MeshStandardMaterial.cs" />
     <Compile Include="THREE\Materials\PointsMaterial.cs" />
     <Compile Include="THREE\Math\Color.cs" />

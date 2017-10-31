@@ -1,18 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
-        <id>IrisLib</id>
+        <id>ThreeLib</id>
         <version>$version$</version>
-        <title>IrisLib</title>
+        <title>ThreeLib</title>
         <authors>luis.fraguada</authors>
-        <licenseUrl>https://github.com/mcneel/IrisLib/blob/master/LICENSE</licenseUrl>
+        <licenseUrl>https://github.com/mcneel/ThreeLib/blob/master/LICENSE</licenseUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>.net Class Library to create Three.js compatible objects.</description>
         <dependencies>
             <dependency id="Newtonsoft.Json" version="10.0.3" />
         </dependencies>
         <frameworkAssemblies>
-            <frameworkAssembly assemblyName="System.Drawing" targetFramework="" />
             <frameworkAssembly assemblyName="System" targetFramework="" />
         </frameworkAssemblies>
     </metadata>

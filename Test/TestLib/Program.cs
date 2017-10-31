@@ -9,9 +9,9 @@ namespace TestLib
         static void Main(string[] args)
         {
 
-            var scene = new IrisLib.Scene
+            var scene = new ThreeLib.Scene
             {
-                Background = new IrisLib.Color(255,0,255).ToInt(),
+                Background = new ThreeLib.Color(255,0,255).ToInt(),
                 Name = "My Scene"
             };
 
@@ -31,18 +31,18 @@ namespace TestLib
                 new float[] { 0, 1, 0 }
             };
 
-            var vertices = IrisLib.Geometry.ProcessVertexArray(verts);
+            var vertices = ThreeLib.Geometry.ProcessVertexArray(verts);
 
-            var normals = IrisLib.Geometry.ProcessNormalArray(norms);
+            var normals = ThreeLib.Geometry.ProcessNormalArray(norms);
 
             var face = new int[] { 0, 1, 2, 3 };
 
-            var faces = IrisLib.Geometry.ProcessFaceArray(new List<int[]> { { face } }, false, false);
+            var faces = ThreeLib.Geometry.ProcessFaceArray(new List<int[]> { { face } }, false, false);
 
-            var geometry = new IrisLib.Geometry(vertices, faces, normals);
-            var material = IrisLib.MeshStandardMaterial.Default();
+            var geometry = new ThreeLib.Geometry(vertices, faces, normals);
+            var material = ThreeLib.MeshStandardMaterial.Default();
 
-            var mesh = new IrisLib.Mesh
+            var mesh = new ThreeLib.Mesh
             {
                 Geometry = geometry,
                 Material = material,
@@ -51,36 +51,44 @@ namespace TestLib
 
             scene.Add(mesh);
 
-            var material2 = IrisLib.MeshStandardMaterial.Default();
+            var material2 = ThreeLib.MeshStandardMaterial.Default();
             material2.Roughness = 0.25;
 
-            var mesh2 = new IrisLib.Mesh
+            var mesh2 = new ThreeLib.Mesh
             {
                 Geometry = geometry,
                 Material = material2,
-                Position = new IrisLib.Vector3(20,20,20),
-                Name = "My Mesh"
+                Position = new ThreeLib.Vector3(20,20,20),
+                Name = "My Mesh2"
             };
-
-            
 
             scene.Add(mesh2);
 
+            var material3 = ThreeLib.MeshStandardMaterial.Default();
 
-
-            var line = new IrisLib.Line
+            var mesh3 = new ThreeLib.Mesh
             {
-                Geometry = new IrisLib.Geometry(vertices),
-                Material = new IrisLib.LineBasicMaterial { Color = new IrisLib.Color(255,0,0).ToInt(), LineWidth = 20 },
+                Geometry = geometry,
+                Material = material3,
+                Position = new ThreeLib.Vector3(30, 30, 30),
+                Name = "My Mesh3"
+            };
+
+            scene.Add(mesh3);
+
+            var line = new ThreeLib.Line
+            {
+                Geometry = new ThreeLib.Geometry(vertices),
+                Material = new ThreeLib.LineBasicMaterial { Color = new ThreeLib.Color(255,0,0).ToInt(), LineWidth = 20 },
                 Name = "My Curves"
             };
 
             scene.Add(line);
 
-            var points = new IrisLib.Points
+            var points = new ThreeLib.Points
             {
-                Geometry = new IrisLib.Geometry(vertices),
-                Material = new IrisLib.PointsMaterial { Color = new IrisLib.Color(255, 255, 255).ToInt() },
+                Geometry = new ThreeLib.Geometry(vertices),
+                Material = new ThreeLib.PointsMaterial { Color = new ThreeLib.Color(255, 255, 255).ToInt() },
                 Name = "My Points"
             };
 
@@ -88,48 +96,48 @@ namespace TestLib
 
             #region Lights
 
-            var pointLight = new IrisLib.PointLight
+            var pointLight = new ThreeLib.PointLight
             {
-                Color = new IrisLib.Color(100, 100, 100).ToInt(),
+                Color = new ThreeLib.Color(100, 100, 100).ToInt(),
                 Decay = 1,
                 Intensity = 3,
                 Name = "My PointLight",
-                Position = new IrisLib.Vector3(10, 10, 10)
+                Position = new ThreeLib.Vector3(10, 10, 10)
             };
 
             scene.Add(pointLight);
 
-            var ambientLight = new IrisLib.AmbientLight
+            var ambientLight = new ThreeLib.AmbientLight
             {
-                Color = new IrisLib.Color(255, 0, 255).ToInt(),
+                Color = new ThreeLib.Color(255, 0, 255).ToInt(),
                 Intensity = 5,
                 Name = "My AmbientLight"
             };
 
             scene.Add(ambientLight);
 
-            var directionalLight = new IrisLib.DirectionalLight
+            var directionalLight = new ThreeLib.DirectionalLight
             {
-                Target = new IrisLib.Object3D { Position = new IrisLib.Vector3(3, 0, 0) },
-                Position = new IrisLib.Vector3(-10,10,5),
+                Target = new ThreeLib.Object3D { Position = new ThreeLib.Vector3(3, 0, 0) },
+                Position = new ThreeLib.Vector3(-10,10,5),
                 Name = "My DirectionalLight"
             };
 
             scene.Add(directionalLight);
 
-            var spotLight = new IrisLib.SpotLight
+            var spotLight = new ThreeLib.SpotLight
             {
-                Target = new IrisLib.Object3D { Position = new IrisLib.Vector3(3, 0, 3) },
-                Position = new IrisLib.Vector3(20,20,0),
+                Target = new ThreeLib.Object3D { Position = new ThreeLib.Vector3(3, 0, 3) },
+                Position = new ThreeLib.Vector3(20,20,0),
                 Name = "My SpotLight"
             };
 
             scene.Add(spotLight);
 
-            var hemiLight = new IrisLib.HemisphereLight
+            var hemiLight = new ThreeLib.HemisphereLight
             {
-                SkyColor = new IrisLib.Color(0,30,255).ToInt(),
-                GroundColor = new IrisLib.Color(30,30,30).ToInt(),
+                SkyColor = new ThreeLib.Color(0,30,255).ToInt(),
+                GroundColor = new ThreeLib.Color(30,30,30).ToInt(),
                 Name = "My HemisphereLight"
             };
 

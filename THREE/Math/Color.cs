@@ -1,4 +1,4 @@
-﻿namespace IrisLib
+﻿namespace ThreeLib
 {
     /// <summary>
     /// 

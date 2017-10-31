@@ -1,4 +1,4 @@
-﻿namespace IrisLib
+﻿namespace ThreeLib
 {
     /// <summary>
     /// Abstract base class for cameras. This class should always be inherited when you build a new camera. 

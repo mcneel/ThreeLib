@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace IrisLib
+namespace ThreeLib
 {
     public class BufferGeometry : IGeometry
     {

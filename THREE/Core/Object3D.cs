@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace IrisLib
+namespace ThreeLib
 {
     /// <summary>
     /// Base class for all objects. Analogous to https://threejs.org/docs/index.html#api/core/Object3D
@@ -164,14 +164,13 @@ namespace IrisLib
                         {
                             var material = mesh.Material as MeshStandardMaterial;
 
-                            foreach (var map in material.GetTextures())
-                                if (map != null)
+                            foreach (var kvp in material.GetTextures())
+                                if (kvp.Value != null)
                                 {
-                                    SerializationAdaptor.Images.Add(map.Image);
-                                    SerializationAdaptor.Textures.Add(map);
+                                    SerializationAdaptor.Images.Add(kvp.Value.Image);
+                                    SerializationAdaptor.Textures.Add(kvp.Value);
                                 }
 
-                            //SerializationAdaptor.Materials.Add(material);
                             material.Uuid = SerializationAdaptor.Materials.AddIfNew(material);
                             
                         }

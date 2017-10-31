@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace IrisLib
+namespace ThreeLib
 {
     /// <summary>
     /// Base interface for light objects.

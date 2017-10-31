@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace IrisLib
+namespace ThreeLib
 {
     internal class Utilities
     {

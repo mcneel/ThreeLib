@@ -3,11 +3,14 @@ using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 
-namespace IrisLib
+namespace ThreeLib
 {
 
     public class Texture : IEquatable<Texture>
     {
+
+        #region Properties
+
         /// <summary>
         /// Object Id.
         /// </summary>
@@ -52,6 +55,10 @@ namespace IrisLib
         [JsonProperty("repeat")]
         public double[] Repeat { get; set; }
 
+        #endregion
+
+        #region Constructors
+
         /// <summary>
         /// Default constructor.
         /// </summary>
@@ -60,21 +67,46 @@ namespace IrisLib
             Uuid = Guid.NewGuid();
         }
 
+        #endregion
+
+        #region Methods
+
         public bool Equals(Texture other)
         {
-            if (other == null)
-            {
-                return false;
-            }
-            else
-            {
-
-                return  Mapping.Equals(other.Mapping) &&
-                        Repeat.Equals(other.Repeat) &&
-                        Wrap.Equals(other.Wrap) &&
+            if (other == null) return false;
+            else return Mapping.Equals(other.Mapping) &&
+                        Repeat.SequenceEqual(other.Repeat) &&
+                        Wrap.SequenceEqual(other.Wrap) &&
                         Image.Equals(other.Image);
-            }
         }
+
+        public override int GetHashCode()
+        {
+            return Mapping.GetHashCode() ^ Repeat.GetHashCode() ^ Wrap.GetHashCode() ^ Image.GetHashCode();
+        }
+
+        public override bool Equals(object other)
+        {
+            if (other.GetType() == typeof(Texture)) return Equals((Texture)other) && base.Equals(other);
+            else return false;
+        }
+
+        public static bool operator ==(Texture a, Texture b)
+        {
+            bool ba = ReferenceEquals(null, a);
+            bool bb = ReferenceEquals(null, b);
+            if (ba & bb) return true; //they are both null, thus are equal
+            else if (!ba & !bb) return a.Equals(b); //they are both not null, check their contents
+            else return false; //one of them is null, thus they are not equal
+        }
+
+        public static bool operator !=(Texture a, Texture b)
+        {
+            return !(a == b);
+        }
+
+        #endregion
+
     }
 
     public class TextureCollection : Collection<Texture>

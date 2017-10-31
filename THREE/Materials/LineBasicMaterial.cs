@@ -1,11 +1,12 @@
 ﻿using Newtonsoft.Json;
+using System;
 
-namespace IrisLib
+namespace ThreeLib
 {
     /// <summary>
     /// 
     /// </summary>
-    public class LineBasicMaterial : MaterialBase<LineBasicMaterial>
+    public class LineBasicMaterial : Material, IEquatable<LineBasicMaterial>
     {
 
         /// <summary>
@@ -32,7 +33,7 @@ namespace IrisLib
         [JsonProperty("linejoin")]
         public string LineJoin { get; set; }
 
-        public new bool Equals(LineBasicMaterial other)
+        public bool Equals(LineBasicMaterial other)
         {
             if (other == null)
             {
@@ -41,13 +42,16 @@ namespace IrisLib
             else
             {
                 return Color.Equals(other.Color) &&
-                       Opacity.Equals(other.Opacity) &&
-                       Side.Equals(other.Side) &&
-                       VertexColors.Equals(other.VertexColors)&&
                        LineWidth.Equals(other.LineWidth)&&
                        LineJoin.Equals(other.LineJoin)&&
                        LineCap.Equals(other.LineCap);
             }
+        }
+
+        public override bool Equals(Material other)
+        {
+            if (other.GetType() == typeof(LineBasicMaterial)) return Equals((LineBasicMaterial)other) && base.Equals(other);
+            else return false;
         }
     }
 }
