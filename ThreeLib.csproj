@@ -82,7 +82,9 @@
     <Compile Include="THREE\Utility\Utilities.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="appveyor.yml" />
     <None Include="packages.config" />
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
