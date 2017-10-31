@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace ThreeLib
+namespace THREE
 {
     /// <summary>
     /// A light that gets emitted in a specific direction.

@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace ThreeLib
+namespace THREE
 {
     public class MeshLambertMaterial : Material, IEquatable<MeshLambertMaterial>
     {

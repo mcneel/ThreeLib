@@ -1,4 +1,4 @@
-﻿namespace ThreeLib
+﻿namespace THREE
 {
     /// <summary>
     /// This light globally illuminates all objects in the scene equally.

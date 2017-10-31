@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace ThreeLib
+namespace THREE
 {
     /// <summary>
     /// This light gets emitted uniformly across the face a rectangular plane. This can be used to simulate things like bright windows or strip lighting.

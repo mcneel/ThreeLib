@@ -1,6 +1,6 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using THREE;
 
 namespace TestLib
 {
@@ -9,9 +9,9 @@ namespace TestLib
         static void Main(string[] args)
         {
 
-            var scene = new ThreeLib.Scene
+            var scene = new Scene
             {
-                Background = new ThreeLib.Color(255,0,255).ToInt(),
+                Background = new  Color(255,0,255).ToInt(),
                 Name = "My Scene"
             };
 
@@ -31,18 +31,18 @@ namespace TestLib
                 new float[] { 0, 1, 0 }
             };
 
-            var vertices = ThreeLib.Geometry.ProcessVertexArray(verts);
+            var vertices = Geometry.ProcessVertexArray(verts);
 
-            var normals = ThreeLib.Geometry.ProcessNormalArray(norms);
+            var normals = Geometry.ProcessNormalArray(norms);
 
             var face = new int[] { 0, 1, 2, 3 };
 
-            var faces = ThreeLib.Geometry.ProcessFaceArray(new List<int[]> { { face } }, false, false);
+            var faces = Geometry.ProcessFaceArray(new List<int[]> { { face } }, false, false);
 
-            var geometry = new ThreeLib.Geometry(vertices, faces, normals);
-            var material = ThreeLib.MeshStandardMaterial.Default();
+            var geometry = new Geometry(vertices, faces, normals);
+            var material = MeshStandardMaterial.Default();
 
-            var mesh = new ThreeLib.Mesh
+            var mesh = new Mesh
             {
                 Geometry = geometry,
                 Material = material,
@@ -51,44 +51,44 @@ namespace TestLib
 
             scene.Add(mesh);
 
-            var material2 = ThreeLib.MeshStandardMaterial.Default();
+            var material2 = MeshStandardMaterial.Default();
             material2.Roughness = 0.25;
 
-            var mesh2 = new ThreeLib.Mesh
+            var mesh2 = new Mesh
             {
                 Geometry = geometry,
                 Material = material2,
-                Position = new ThreeLib.Vector3(20,20,20),
+                Position = new Vector3(20,20,20),
                 Name = "My Mesh2"
             };
 
             scene.Add(mesh2);
 
-            var material3 = ThreeLib.MeshStandardMaterial.Default();
+            var material3 = MeshStandardMaterial.Default();
 
-            var mesh3 = new ThreeLib.Mesh
+            var mesh3 = new Mesh
             {
                 Geometry = geometry,
                 Material = material3,
-                Position = new ThreeLib.Vector3(30, 30, 30),
+                Position = new Vector3(30, 30, 30),
                 Name = "My Mesh3"
             };
 
             scene.Add(mesh3);
 
-            var line = new ThreeLib.Line
+            var line = new Line
             {
-                Geometry = new ThreeLib.Geometry(vertices),
-                Material = new ThreeLib.LineBasicMaterial { Color = new ThreeLib.Color(255,0,0).ToInt(), LineWidth = 20 },
+                Geometry = new Geometry(vertices),
+                Material = new LineBasicMaterial { Color = new Color(255,0,0).ToInt(), LineWidth = 20 },
                 Name = "My Curves"
             };
 
             scene.Add(line);
 
-            var points = new ThreeLib.Points
+            var points = new Points
             {
-                Geometry = new ThreeLib.Geometry(vertices),
-                Material = new ThreeLib.PointsMaterial { Color = new ThreeLib.Color(255, 255, 255).ToInt() },
+                Geometry = new Geometry(vertices),
+                Material = new PointsMaterial { Color = new Color(255, 255, 255).ToInt() },
                 Name = "My Points"
             };
 
@@ -96,48 +96,48 @@ namespace TestLib
 
             #region Lights
 
-            var pointLight = new ThreeLib.PointLight
+            var pointLight = new PointLight
             {
-                Color = new ThreeLib.Color(100, 100, 100).ToInt(),
+                Color = new Color(100, 100, 100).ToInt(),
                 Decay = 1,
                 Intensity = 3,
                 Name = "My PointLight",
-                Position = new ThreeLib.Vector3(10, 10, 10)
+                Position = new Vector3(10, 10, 10)
             };
 
             scene.Add(pointLight);
 
-            var ambientLight = new ThreeLib.AmbientLight
+            var ambientLight = new AmbientLight
             {
-                Color = new ThreeLib.Color(255, 0, 255).ToInt(),
+                Color = new Color(255, 0, 255).ToInt(),
                 Intensity = 5,
                 Name = "My AmbientLight"
             };
 
             scene.Add(ambientLight);
 
-            var directionalLight = new ThreeLib.DirectionalLight
+            var directionalLight = new DirectionalLight
             {
-                Target = new ThreeLib.Object3D { Position = new ThreeLib.Vector3(3, 0, 0) },
-                Position = new ThreeLib.Vector3(-10,10,5),
+                Target = new Object3D { Position = new Vector3(3, 0, 0) },
+                Position = new Vector3(-10,10,5),
                 Name = "My DirectionalLight"
             };
 
             scene.Add(directionalLight);
 
-            var spotLight = new ThreeLib.SpotLight
+            var spotLight = new SpotLight
             {
-                Target = new ThreeLib.Object3D { Position = new ThreeLib.Vector3(3, 0, 3) },
-                Position = new ThreeLib.Vector3(20,20,0),
+                Target = new Object3D { Position = new Vector3(3, 0, 3) },
+                Position = new Vector3(20,20,0),
                 Name = "My SpotLight"
             };
 
             scene.Add(spotLight);
 
-            var hemiLight = new ThreeLib.HemisphereLight
+            var hemiLight = new HemisphereLight
             {
-                SkyColor = new ThreeLib.Color(0,30,255).ToInt(),
-                GroundColor = new ThreeLib.Color(30,30,30).ToInt(),
+                SkyColor = new Color(0,30,255).ToInt(),
+                GroundColor = new Color(30,30,30).ToInt(),
                 Name = "My HemisphereLight"
             };
 

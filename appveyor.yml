@@ -18,6 +18,8 @@ branches:
   only:
     - master
 
+clone_folder: c:\projects\threelib
+
 assembly_info: 
   patch: true 
   file: AssemblyInfo.* 

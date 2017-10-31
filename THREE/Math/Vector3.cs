@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace ThreeLib
+namespace THREE
 {
     /// <summary>
     /// Class representing a 3D vector.

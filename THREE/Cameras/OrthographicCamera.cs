@@ -1,4 +1,4 @@
-﻿namespace ThreeLib
+﻿namespace THREE
 {
     public class OrthographicCamera : Camera
     {
