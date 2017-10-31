@@ -14,6 +14,9 @@ platform: Any CPU
 
 # build Configuration, i.e. Debug, Release, etc.
 configuration: Release
+branches: 
+  only:
+    - master
 
 assembly_info: 
   patch: true 
