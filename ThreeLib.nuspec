@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
-        <id>IrisLib</id>
+        <id>ThreeLib</id>
         <version>$version$</version>
-        <title>IrisLib</title>
+        <title>ThreeLib</title>
         <authors>luis.fraguada</authors>
         <licenseUrl>https://github.com/mcneel/IrisLib/blob/master/LICENSE</licenseUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
