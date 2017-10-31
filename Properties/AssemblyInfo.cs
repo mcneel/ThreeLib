@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("IrisLib")]
+[assembly: AssemblyTitle("ThreeLib")]
 [assembly: AssemblyDescription(".net Class Library for creating Three.js compatible objects.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Robert McNeel & Associates")]
-[assembly: AssemblyProduct("IrisLib")]
+[assembly: AssemblyProduct("ThreeLib")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

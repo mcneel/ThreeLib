@@ -40,7 +40,7 @@ namespace THREE
         /// Object user data.
         /// </summary>
         [JsonProperty("userData")]
-        public List<Dictionary<string, object>> UserData { get; set; }
+        public Dictionary<string, Dictionary<string, object>> UserData { get; set; }
 
         /// <summary>
         /// Object matrix.
