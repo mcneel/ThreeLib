@@ -200,7 +200,51 @@ namespace THREE
                     case "SpotLight":
                     case "DirectionalLight":
                     case "HemisphereLight":
+                    case "PerspectiveCamera":
+                    case "OrthographicCamera":
                         SerializationAdaptor.Object.Children.Add(child);
+                        break;
+
+                    case "Group":
+                        var group = child as Group;
+                        group.SerializationAdaptor = new Object3DSerializationAdaptor();
+                        group.ProcessChildren();
+
+                        foreach(var o in group.Children)
+                        {
+
+                            if (o.GetType().GetProperty("Geometry") != null)
+                            {
+                                var g = o.GetType().GetProperty("Geometry").GetValue(o, null) as Geometry;
+                                g.Uuid = SerializationAdaptor.Geometries.AddIfNew(g);
+                            }
+
+                            if (o.GetType().GetProperty("Material") != null)
+                            {
+                                var m = o.GetType().GetProperty("Material").GetValue(o, null) as Material;
+
+                                if(m is MeshStandardMaterial)
+                                {
+                                    var msm = m as MeshStandardMaterial;
+                                    foreach (var t in msm.GetTextures())
+                                    {
+                                        if (t.Value != null)
+                                        {
+                                            t.Value.Image.Uuid = SerializationAdaptor.Images.AddIfNew(t.Value.Image);
+                                            t.Value.Uuid = SerializationAdaptor.Textures.AddIfNew(t.Value);
+                                        }
+
+                                    }
+
+                                }
+
+                                m.Uuid = SerializationAdaptor.Materials.AddIfNew(m);
+                              
+                            }
+
+                        }
+                        
+                        SerializationAdaptor.Object.Children.Add(group);
                         break;
 
                     default:
@@ -214,7 +258,7 @@ namespace THREE
 
     }
 
-    internal class Object3DSerializationAdaptor : ObjectSerializationAdaptor
+    internal class Object3DSerializationAdaptor : ObjectSerializationAdaptor, IElement
     {
         [JsonProperty("object", Order = 5)]
         internal Object3D Object { get; set; }

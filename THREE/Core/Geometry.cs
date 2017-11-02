@@ -254,20 +254,38 @@ namespace THREE
         /// <returns></returns>
         public bool Equals(Geometry other)
         {
-            if (other == null)
-            {
-                return false;
-            }
+            if (other == null) return false;
             else
-            {
-
-                return Type.Equals(other.Type) &&
-                       Data.Colors.SequenceEqual(other.Data.Colors) &&
+                return Data.Colors.SequenceEqual(other.Data.Colors) &&
                        Data.Faces.SequenceEqual(other.Data.Faces) &&
                        Data.Normals.SequenceEqual(other.Data.Normals) &&
-                       Data.Uvs.SequenceEqual(other.Data.Uvs) &&
+                       Data.Uvs.Any(a => other.Data.Uvs.Any(b=> a.SequenceEqual(b))) &&
                        Data.Vertices.SequenceEqual(other.Data.Vertices);
-            }
+        }
+
+        public override bool Equals(object other)
+        {
+            if (other.GetType() == typeof(Geometry)) return Equals((Geometry)other) && base.Equals(other);
+            else return false;
+        }
+
+        public static bool operator ==(Geometry a, Geometry b)
+        {
+            bool ba = ReferenceEquals(null, a);
+            bool bb = ReferenceEquals(null, b);
+            if (ba & bb) return true; //they are both null, thus are equal
+            else if (!ba & !bb) return a.Equals((object)b); //they are both not null, check their contents
+            else return false; //one of them is null, thus they are not equal
+        }
+
+        public static bool operator !=(Geometry a, Geometry b)
+        {
+            return !(a == b);
+        }
+
+        public override int GetHashCode()
+        {
+            return Vertices.GetHashCode() ^ Colors.GetHashCode() ^ Faces.GetHashCode() ^ Uvs.GetHashCode() ^ Normals.GetHashCode();
         }
 
         public override string ToJSON(bool format)
