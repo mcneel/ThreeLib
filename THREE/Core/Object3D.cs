@@ -36,6 +36,9 @@ namespace THREE
         [JsonProperty("children")]
         public List<IElement> Children { get; set; }
 
+        [JsonIgnore]
+        public Object3D Parent { get; set; }
+
         /// <summary>
         /// Object user data.
         /// </summary>
@@ -84,6 +87,7 @@ namespace THREE
             Rotation = new Euler();
             Quaternion = new Quaternion();
             Scale = new Vector3 { X = 1, Y = 1, Z = 1 };
+            Parent = null;
         }
 
         #endregion
@@ -110,6 +114,9 @@ namespace THREE
         /// <param name="obj"></param>
         public void Add(IElement obj)
         {
+            if (obj.GetType().IsSubclassOf(typeof(Object3D)))
+                (obj as Object3D).Parent = this;
+            
             Children.Add(obj);
         }
 
@@ -141,116 +148,147 @@ namespace THREE
             return JsonConvert.SerializeObject(SerializationAdaptor, format ==true ? Formatting.Indented : Formatting.None, new JsonSerializerSettings { DefaultValueHandling = DefaultValueHandling.Ignore, NullValueHandling = NullValueHandling.Ignore });
         }
 
-        internal void ProcessChildren()
+        internal void ProcessChildren(Group group = null)
         {
-            foreach (var child in Children)
+            var children = new List<IElement>();
+
+            if (group == null)
+                children = Children;
+            else
+            {
+                children = group.Children;
+                if (!(group.Parent is Group) && group.Parent.Parent == null)
+                {
+                    SerializationAdaptor.Object.Children.Add(group);
+                }
+            }
+
+            foreach (var child in children)
             {
                 Debug.WriteLine((child as Element).Type, "ThreeLib");
 
-                if (child.GetType().GetProperty("Geometry") != null)
+                if (child.GetType() == typeof(Group))
                 {
-                    var currentGeo = child.GetType().GetProperty("Geometry").GetValue(child, null) as Geometry;
-                    var geoId = SerializationAdaptor.Geometries.AddIfNew(currentGeo);
-                    currentGeo.Uuid = geoId;
+                    ProcessChildren(child as Group);
                 }
 
-                switch ((child as Element).Type)
+                else
                 {
-                    case "Mesh":
+                    
 
-                        var mesh = child as Mesh;
+                    if (child.GetType().GetProperty("Geometry") != null)
+                    {
+                        var currentGeo = child.GetType().GetProperty("Geometry").GetValue(child, null) as Geometry;
+                        var geoId = SerializationAdaptor.Geometries.AddIfNew(currentGeo);
+                        currentGeo.Uuid = geoId;
+                    }
 
-                        if (mesh.Material is MeshStandardMaterial)
-                        {
-                            var material = mesh.Material as MeshStandardMaterial;
+                    switch ((child as Element).Type)
+                    {
+                        case "Mesh":
 
-                            foreach (var kvp in material.GetTextures())
-                                if (kvp.Value != null)
-                                {
-                                    SerializationAdaptor.Images.Add(kvp.Value.Image);
-                                    SerializationAdaptor.Textures.Add(kvp.Value);
-                                }
+                            var mesh = child as Mesh;
 
-                            material.Uuid = SerializationAdaptor.Materials.AddIfNew(material);
-                            
-                        }
-
-                        SerializationAdaptor.Object.Children.Add(mesh);
-
-                        break;
-
-                    case "Line":
-
-                        var line = child as Line;
-                        SerializationAdaptor.Materials.Add(line.Material as LineBasicMaterial);
-                        SerializationAdaptor.Object.Children.Add(line);
-
-                        break;
-
-                    case "Points":
-
-                        var points = child as Points;
-                        SerializationAdaptor.Materials.Add(points.Material as PointsMaterial);
-                        SerializationAdaptor.Object.Children.Add(points);
-
-                        break;
-
-                    case "PointLight":
-                    case "AmbientLight":
-                    case "SpotLight":
-                    case "DirectionalLight":
-                    case "HemisphereLight":
-                    case "PerspectiveCamera":
-                    case "OrthographicCamera":
-                        SerializationAdaptor.Object.Children.Add(child);
-                        break;
-
-                    case "Group":
-                        var group = child as Group;
-                        group.SerializationAdaptor = new Object3DSerializationAdaptor();
-                        group.ProcessChildren();
-
-                        foreach(var o in group.Children)
-                        {
-
-                            if (o.GetType().GetProperty("Geometry") != null)
+                            if (mesh.Material is MeshStandardMaterial)
                             {
-                                var g = o.GetType().GetProperty("Geometry").GetValue(o, null) as Geometry;
-                                g.Uuid = SerializationAdaptor.Geometries.AddIfNew(g);
+                                var material = mesh.Material as MeshStandardMaterial;
+
+                                foreach (var kvp in material.GetTextures())
+                                    if (kvp.Value != null)
+                                    {
+                                        SerializationAdaptor.Images.Add(kvp.Value.Image);
+                                        SerializationAdaptor.Textures.Add(kvp.Value);
+                                    }
+
+                                material.Uuid = SerializationAdaptor.Materials.AddIfNew(material);
+
                             }
 
-                            if (o.GetType().GetProperty("Material") != null)
-                            {
-                                var m = o.GetType().GetProperty("Material").GetValue(o, null) as Material;
+                            if(group == null)
+                                SerializationAdaptor.Object.Children.Add(mesh);
 
-                                if(m is MeshStandardMaterial)
+                            break;
+
+                        case "Line":
+
+                            var line = child as Line;
+                            SerializationAdaptor.Materials.Add(line.Material as LineBasicMaterial);
+
+                            if (group == null)
+                                SerializationAdaptor.Object.Children.Add(line);
+
+                            break;
+
+                        case "Points":
+
+                            var points = child as Points;
+                            SerializationAdaptor.Materials.Add(points.Material as PointsMaterial);
+
+                            if (group == null)
+                                SerializationAdaptor.Object.Children.Add(points);
+
+                            break;
+
+                        case "PointLight":
+                        case "AmbientLight":
+                        case "SpotLight":
+                        case "DirectionalLight":
+                        case "HemisphereLight":
+                        case "PerspectiveCamera":
+                        case "OrthographicCamera":
+                            if (group == null)
+                                SerializationAdaptor.Object.Children.Add(child);
+                            break;
+                            /*
+                        case "Group":
+                            var group = child as Group;
+                            group.SerializationAdaptor = new Object3DSerializationAdaptor();
+                            group.ProcessChildren();
+
+                            foreach (var o in group.Children)
+                            {
+
+                                if (o.GetType().GetProperty("Geometry") != null)
                                 {
-                                    var msm = m as MeshStandardMaterial;
-                                    foreach (var t in msm.GetTextures())
+                                    var g = o.GetType().GetProperty("Geometry").GetValue(o, null) as Geometry;
+                                    g.Uuid = SerializationAdaptor.Geometries.AddIfNew(g);
+                                }
+
+                                if (o.GetType().GetProperty("Material") != null)
+                                {
+                                    var m = o.GetType().GetProperty("Material").GetValue(o, null) as Material;
+
+                                    if (m is MeshStandardMaterial)
                                     {
-                                        if (t.Value != null)
+                                        var msm = m as MeshStandardMaterial;
+                                        foreach (var t in msm.GetTextures())
                                         {
-                                            t.Value.Image.Uuid = SerializationAdaptor.Images.AddIfNew(t.Value.Image);
-                                            t.Value.Uuid = SerializationAdaptor.Textures.AddIfNew(t.Value);
+                                            if (t.Value != null)
+                                            {
+                                                t.Value.Image.Uuid = SerializationAdaptor.Images.AddIfNew(t.Value.Image);
+                                                t.Value.Uuid = SerializationAdaptor.Textures.AddIfNew(t.Value);
+                                            }
+
                                         }
 
                                     }
 
+                                    m.Uuid = SerializationAdaptor.Materials.AddIfNew(m);
+
                                 }
 
-                                m.Uuid = SerializationAdaptor.Materials.AddIfNew(m);
-                              
                             }
 
-                        }
-                        
-                        SerializationAdaptor.Object.Children.Add(group);
-                        break;
-
-                    default:
-                        Debug.WriteLine((child as Element).Type, "ThreeLib");
-                        break;
+                            SerializationAdaptor.Object.Children.Add(group);
+                            break;
+                            */
+                        default:
+                            Debug.WriteLine((child as Element).Type, "ThreeLib");
+                            break;
+                    }
                 }
+
+                
             }
         }
 

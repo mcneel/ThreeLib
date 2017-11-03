@@ -249,8 +249,9 @@ namespace THREE
 
         /// <summary>
         /// Check if one Geometry equals another.
+        /// TODO: Check if base.Equals(other)? Object3D would need to be IEquatable.
         /// </summary>
-        /// <param name="other"></param>
+        /// <param name="other">The other object to check.</param>
         /// <returns></returns>
         public bool Equals(Geometry other)
         {
@@ -274,7 +275,7 @@ namespace THREE
             bool ba = ReferenceEquals(null, a);
             bool bb = ReferenceEquals(null, b);
             if (ba & bb) return true; //they are both null, thus are equal
-            else if (!ba & !bb) return a.Equals((object)b); //they are both not null, check their contents
+            else if (!ba & !bb) return a.Equals(b); //they are both not null, check their contents
             else return false; //one of them is null, thus they are not equal
         }
 
