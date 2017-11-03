@@ -28,7 +28,7 @@ assembly_info:
   assembly_informational_version: "{version}"
 
 build:
-  project: src\ThreeLib.csproj
+  project: .\src\ThreeLib.csproj
   
 before_build: 
   - ps: nuget restore ThreeLib.csproj -PackagesDirectory .\packages
@@ -37,9 +37,9 @@ after_build:
   - ps: nuget pack ThreeLib.csproj -Version $env:appveyor_build_version
   
 artifacts:
-  - path: .\bin\Release\ThreeLib.dll
-  - path: .\bin\Release\ThreeLib.pdb
-  - path: .\bin\Release\ThreeLib.xml
+  - path: .\src\bin\Release\ThreeLib.dll
+  - path: .\src\bin\Release\ThreeLib.pdb
+  - path: .\src\bin\Release\ThreeLib.xml
   - path: '*.nupkg'
     name: nugetpackage
   
