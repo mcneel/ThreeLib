@@ -117,14 +117,14 @@ Three.js Objects
 |Other					| Image						 | WIP    |
 
 [Cameras]: THREE/Cameras
-[Core]: THREE/Core
-[Lights]: THREE/Lights
-[Lights/Shadows]:https://github.com/mcneel/ThreeLib/tree/master/THREE/Lights
-[Materials]: https://github.com/mcneel/ThreeLib/tree/master/THREE/Materials
-[Math]: https://github.com/mcneel/ThreeLib/tree/master/THREE/Math
-[Objects]: https://github.com/mcneel/ThreeLib/tree/master/THREE/Objects
-[Scenes]: https://github.com/mcneel/ThreeLib/tree/master/THREE/Scenes
-[Textures]: https://github.com/mcneel/ThreeLib/tree/master/THREE/Textures
+[Core]:https://github.com/mcneel/ThreeLib/blob/master/THREE/Core
+[Lights]: https://github.com/mcneel/ThreeLib/blob/master/THREE/Lights
+[Lights/Shadows]:https://github.com/mcneel/ThreeLib/blob/master/THREE/Lights
+[Materials]: https://github.com/mcneel/ThreeLib/blob/master/THREE/Materials
+[Math]: https://github.com/mcneel/ThreeLib/blob/master/THREE/Math
+[Objects]: https://github.com/mcneel/ThreeLib/blob/master/THREE/Objects
+[Scenes]: https://github.com/mcneel/ThreeLib/blob/master/THREE/Scenes
+[Textures]: https://github.com/mcneel/ThreeLib/blob/master/THREE/Textures
 
 
 
