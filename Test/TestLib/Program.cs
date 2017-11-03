@@ -40,6 +40,7 @@ namespace TestLib
             var faces = Geometry.ProcessFaceArray(new List<int[]> { { face } }, false, false);
 
             var geometry = new Geometry(vertices, faces, normals);
+            var geometry2 = new Geometry(vertices, faces, normals);
             var material = MeshStandardMaterial.Default();
 
             var mesh = new Mesh
@@ -68,7 +69,7 @@ namespace TestLib
 
             var mesh3 = new Mesh
             {
-                Geometry = geometry,
+                Geometry = geometry2,
                 Material = material3,
                 Position = new Vector3(30, 30, 30),
                 Name = "My Mesh3"
@@ -93,6 +94,22 @@ namespace TestLib
             };
 
             scene.Add(points);
+
+            var group = new Group();
+
+            group.Add(mesh3);
+            group.Add(mesh2);
+            group.Add(mesh);
+
+            scene.Add(group);
+
+            var group2 = new Group();
+
+            group2.Add(mesh3);
+            group2.Add(mesh2);
+            group2.Add(mesh);
+
+            scene.Add(group2);
 
             #region Lights
 
@@ -147,7 +164,7 @@ namespace TestLib
 
             //Console.WriteLine(geometry.ToJSON(true));
 
-            Console.WriteLine(scene.ToJSON(true));
+            Console.WriteLine(scene.ToJSON(false));
 
             Console.ReadLine();
 

@@ -46,7 +46,23 @@ namespace THREE
         /// Material ao map.
         /// </summary>
         [JsonIgnore]
-        public Texture AoMap { get; set; }
+        public Texture AoMap
+        {
+            get
+            {
+                if (Textures.ContainsKey("AoMap"))
+                    return Textures["AoMap"];
+                else
+                    return null;
+            }
+            set
+            {
+                if (Textures.ContainsKey("AoMap"))
+                    Textures["AoMap"] = value;
+                else
+                    Textures.Add("AoMap", value);
+            }
+        }
 
         /// <summary>
         /// ao Uuid.
@@ -66,7 +82,23 @@ namespace THREE
         /// Material alpha map.
         /// </summary>
         [JsonIgnore]
-        public Texture AlphaMap { get; set; }
+        public Texture AlphaMap
+        {
+            get
+            {
+                if (Textures.ContainsKey("AlphaMap"))
+                    return Textures["AlphaMap"];
+                else
+                    return null;
+            }
+            set
+            {
+                if (Textures.ContainsKey("AlphaMap"))
+                    Textures["AlphaMap"] = value;
+                else
+                    Textures.Add("AlphaMap", value);
+            }
+        }
 
         /// <summary>
         /// AlphaMap Uuid.
@@ -86,7 +118,23 @@ namespace THREE
         /// Material bump map.
         /// </summary>
         [JsonIgnore]
-        public Texture BumpMap { get; set; }
+        public Texture BumpMap
+        {
+            get
+            {
+                if (Textures.ContainsKey("BumpMap"))
+                    return Textures["BumpMap"];
+                else
+                    return null;
+            }
+            set
+            {
+                if (Textures.ContainsKey("BumpMap"))
+                    Textures["BumpMap"] = value;
+                else
+                    Textures.Add("BumpMap", value);
+            }
+        }
 
         /// <summary>
         /// BumpMap Uuid.
@@ -106,7 +154,23 @@ namespace THREE
         /// The displacement map affects the position of the mesh's vertices. Unlike other maps which only affect the light and shade of the material the displaced vertices can cast shadows, block other objects, and otherwise act as real geometry. The displacement texture is an image where the value of each pixel (white being the highest) is mapped against, and repositions, the vertices of the mesh.
         /// </summary>
         [JsonIgnore]
-        public Texture DisplacementMap { get; set; }
+        public Texture DisplacementMap
+        {
+            get
+            {
+                if (Textures.ContainsKey("DisplacementMap"))
+                    return Textures["DisplacementMap"];
+                else
+                    return null;
+            }
+            set
+            {
+                if (Textures.ContainsKey("DisplacementMap"))
+                    Textures["DisplacementMap"] = value;
+                else
+                    Textures.Add("DisplacementMap", value);
+            }
+        }
 
         /// <summary>
         /// Displacement map Uuid.
@@ -126,7 +190,23 @@ namespace THREE
         /// Material environment map.
         /// </summary>
         [JsonIgnore]
-        public Texture EnvironmentMap { get; set; }
+        public Texture EnvironmentMap
+        {
+            get
+            {
+                if (Textures.ContainsKey("EnvironmentMap"))
+                    return Textures["EnvironmentMap"];
+                else
+                    return null;
+            }
+            set
+            {
+                if (Textures.ContainsKey("EnvironmentMap"))
+                    Textures["EnvironmentMap"] = value;
+                else
+                    Textures.Add("EnvironmentMap", value);
+            }
+        }
 
         /// <summary>
         /// Environment map Uuid.
@@ -146,7 +226,23 @@ namespace THREE
         /// Set emisssive (glow) map. The emissive map color is modulated by the emissive color and the emissive intensity. If you have an emissive map, be sure to set the emissive color to something other than black.
         /// </summary>
         [JsonIgnore]
-        public Texture EmissiveMap { get; set; }
+        public Texture EmissiveMap
+        {
+            get
+            {
+                if (Textures.ContainsKey("EmissiveMap"))
+                    return Textures["EmissiveMap"];
+                else
+                    return null;
+            }
+            set
+            {
+                if (Textures.ContainsKey("EmissiveMap"))
+                    Textures["EmissiveMap"] = value;
+                else
+                    Textures.Add("EmissiveMap", value);
+            }
+        }
 
         /// <summary>
         /// Emissive map Uuid.
@@ -166,7 +262,23 @@ namespace THREE
         /// 
         /// </summary>
         [JsonIgnore]
-        public Texture LightMap { get; set; }
+        public Texture LightMap
+        {
+            get
+            {
+                if (Textures.ContainsKey("LightMap"))
+                    return Textures["LightMap"];
+                else
+                    return null;
+            }
+            set
+            {
+                if (Textures.ContainsKey("LightMap"))
+                    Textures["LightMap"] = value;
+                else
+                    Textures.Add("LightMap", value);
+            }
+        }
 
         /// <summary>
         /// Light map Uuid.
@@ -186,7 +298,23 @@ namespace THREE
         /// Material diffuse map.
         /// </summary>
         [JsonIgnore]
-        public Texture Map { get; set; }
+        public Texture Map
+        {
+            get
+            {
+                if (Textures.ContainsKey("Map"))
+                    return Textures["Map"];
+                else
+                    return null;
+            }
+            set
+            {
+                if (Textures.ContainsKey("Map"))
+                    Textures["Map"] = value;
+                else
+                    Textures.Add("Map", value);
+            }
+        }
 
         /// <summary>
         /// The Uuid of the diffuse map.
@@ -206,7 +334,23 @@ namespace THREE
         /// Material metalness map.
         /// </summary>
         [JsonIgnore]
-        public Texture MetalnessMap { get; set; }
+        public Texture MetalnessMap
+        {
+            get
+            {
+                if (Textures.ContainsKey("MetalnessMap"))
+                    return Textures["MetalnessMap"];
+                else
+                    return null;
+            }
+            set
+            {
+                if (Textures.ContainsKey("MetalnessMap"))
+                    Textures["MetalnessMap"] = value;
+                else
+                    Textures.Add("MetalnessMap", value);
+            }
+        }
 
         /// <summary>
         /// The Uuid of the metalness map.
@@ -226,7 +370,23 @@ namespace THREE
         /// Material normal map.
         /// </summary>
         [JsonIgnore]
-        public Texture NormalMap { get; set; }
+        public Texture NormalMap
+        {
+            get
+            {
+                if (Textures.ContainsKey("NormalMap"))
+                    return Textures["NormalMap"];
+                else
+                    return null;
+            }
+            set
+            {
+                if (Textures.ContainsKey("NormalMap"))
+                    Textures["NormalMap"] = value;
+                else
+                    Textures.Add("NormalMap", value);
+            }
+        }
 
         /// <summary>
         /// The Uuid of the normal map.
@@ -246,7 +406,23 @@ namespace THREE
         /// Material roughness map.
         /// </summary>
         [JsonIgnore]
-        public Texture RoughnessMap { get; set; }
+        public Texture RoughnessMap
+        {
+            get
+            {
+                if (Textures.ContainsKey("RoughnessMap"))
+                    return Textures["RoughnessMap"];
+                else
+                    return null;
+            }
+            set
+            {
+                if (Textures.ContainsKey("RoughnessMap"))
+                    Textures["RoughnessMap"] = value;
+                else
+                    Textures.Add("RoughnessMap", value);
+            }
+        }
 
         /// <summary>
         /// The Uuid of the roughness map.
@@ -262,9 +438,17 @@ namespace THREE
             }
         }
 
+        [JsonIgnore]
+        internal Dictionary<string, Texture> Textures { get; set; }
+
         #endregion
 
         #region Constructors
+
+        public MeshStandardMaterial()
+        {
+            Textures = new Dictionary<string, Texture>();
+        }
 
         /// <summary>
         /// Creates a MeshStandardMaterial with some default settings.
@@ -293,20 +477,7 @@ namespace THREE
         /// <returns>Dictionary with the texture type as the key. For example, "AlphaMap" key will have a Texture that contains an Alpha Map image.</returns>
         public Dictionary<string, Texture> GetTextures()
         {
-            return new Dictionary<string, Texture>
-            {
-                { "AlphaMap", AlphaMap },
-                { "AoMap", AoMap },
-                { "BumpMap", BumpMap },
-                { "DisplacementMap", DisplacementMap },
-                { "EmissiveMap", EmissiveMap },
-                { "EnvironmentMap", EnvironmentMap },
-                { "LightMap", LightMap },
-                { "Map", Map },
-                { "MetalnessMap", MetalnessMap },
-                { "NormalMap", NormalMap },
-                { "RoughnessMap", RoughnessMap }
-            };
+            return Textures;
         }
 
 

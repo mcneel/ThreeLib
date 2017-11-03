@@ -37,6 +37,7 @@ namespace THREE
             SerializationAdaptor = new SceneSerializationAdaptor();
             SerializationAdaptor.Object.Name = Name;
             SerializationAdaptor.Object.Background = Background;
+            SerializationAdaptor.Object.UserData = UserData;
             SerializationAdaptor.Geometries = base.SerializationAdaptor.Geometries;
             SerializationAdaptor.Images = base.SerializationAdaptor.Images;
             SerializationAdaptor.Textures = base.SerializationAdaptor.Textures;

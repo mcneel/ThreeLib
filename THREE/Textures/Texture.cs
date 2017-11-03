@@ -53,7 +53,7 @@ namespace THREE
         /// Texture repetition.
         /// </summary>
         [JsonProperty("repeat")]
-        public double[] Repeat { get; set; }
+        public float[] Repeat { get; set; }
 
         #endregion
 
