@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{EE44C7FC-4FA3-466A-8D79-D4C63B457D0B}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>TestLib</RootNamespace>
-    <AssemblyName>TestLib</AssemblyName>
+    <RootNamespace>Sample</RootNamespace>
+    <AssemblyName>Sample</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
