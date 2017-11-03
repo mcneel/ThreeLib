@@ -116,9 +116,9 @@ Three.js Objects
 |						| VideoTexture				 | -      |
 |Other					| Image						 | WIP    |
 
-[Cameras]: https://github.com/mcneel/ThreeLib/tree/master/THREE/Cameras
-[Core]:https://github.com/mcneel/ThreeLib/tree/master/THREE/Core
-[Lights]: https://github.com/mcneel/ThreeLib/tree/master/THREE/Lights
+[Cameras]: THREE/Cameras
+[Core]: THREE/Core
+[Lights]: THREE/Lights
 [Lights/Shadows]:https://github.com/mcneel/ThreeLib/tree/master/THREE/Lights
 [Materials]: https://github.com/mcneel/ThreeLib/tree/master/THREE/Materials
 [Math]: https://github.com/mcneel/ThreeLib/tree/master/THREE/Math
