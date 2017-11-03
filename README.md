@@ -1,14 +1,19 @@
 # ThreeLib
-.net Class Library for creating [Three.js](https://github.com/mrdoob/three.js) compatible objects.
+.net Class Library written in c# for creating [Three.js](https://github.com/mrdoob/three.js) compatible objects.
 
 [![Build status](https://ci.appveyor.com/api/projects/status/7bh8wx2e74b6krrd?svg=true)](https://ci.appveyor.com/project/fraguada/ThreeLib)
+
+The scope of this project is focused on serialization (and later perhaps deserialization). Therefore the objects to be targeted should be those that can be read through one of the Three.js [Loaders](https://github.com/mrdoob/three.js/tree/master/src/loaders).
+
+This project started as project [Iris](http://mcneel.github.io/Iris/), a Three.js exporter for [Rhino3d](http://www.rhino3d.com/). ThreeLib is essentially the serialization library from that project recreated as an open source project and rewritten to be more like working with Three.js.
 
 ## Dependencies
 - [Json.Net](https://github.com/JamesNK/Newtonsoft.Json)
 
 ## Usage
 You can either clone this repo and build the ThreeLib.csproj or use the published [NuGet package](https://www.nuget.org/packages/ThreeLib/).
-Check out the Sample project to see how some of the API is coming along.
+
+Check out the [Sample project](https://github.com/mcneel/ThreeLib/tree/master/Sample) to see how some of the API is coming along.
 
 ## Docs
 - [LICENSE](https://github.com/mcneel/ThreeLib/blob/master/LICENSE)
