@@ -8,6 +8,7 @@
 
 ## Usage
 You can either clone this repo and build the ThreeLib.csproj or use the published [NuGet package](https://www.nuget.org/packages/ThreeLib/).
+Check out the Sample project to see how some of the API is coming along.
 
 ## Docs
 - [LICENSE](https://github.com/mcneel/ThreeLib/blob/master/LICENSE)

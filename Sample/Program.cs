@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using THREE;
 
-namespace TestLib
+namespace Sample
 {
     class Program
     {
