@@ -23,7 +23,7 @@ Three.js Objects
 |Animation				| -							 | -      |
 |Animation / Tracks		| -							 | -      |
 |Audio					| -							 | -      |
-|[Cameras](Cameras)		| Camera					 | WIP    |
+|[Cameras](https://github.com/mcneel/ThreeLib/tree/master/THREE/Cameras)		| Camera					 | WIP    |
 |						| CubeCamera				 | -      |
 |						| OrthographicCamera		 | WIP    |
 |						| PerspectiveCamera			 | WIP    |
@@ -115,16 +115,6 @@ Three.js Objects
 |						| Texture					 | WIP    |
 |						| VideoTexture				 | -      |
 |Other					| Image						 | WIP    |
-
-[Cameras]: THREE/Cameras
-[Core]:https://github.com/mcneel/ThreeLib/blob/master/THREE/Core
-[Lights]: https://github.com/mcneel/ThreeLib/blob/master/THREE/Lights
-[Lights/Shadows]:https://github.com/mcneel/ThreeLib/blob/master/THREE/Lights
-[Materials]: https://github.com/mcneel/ThreeLib/blob/master/THREE/Materials
-[Math]: https://github.com/mcneel/ThreeLib/blob/master/THREE/Math
-[Objects]: https://github.com/mcneel/ThreeLib/blob/master/THREE/Objects
-[Scenes]: https://github.com/mcneel/ThreeLib/blob/master/THREE/Scenes
-[Textures]: https://github.com/mcneel/ThreeLib/blob/master/THREE/Textures
 
 
 
