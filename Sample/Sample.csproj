@@ -40,8 +40,9 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="ThreeLib">
-      <HintPath>..\..\bin\Debug\ThreeLib.dll</HintPath>
+    <Reference Include="ThreeLib, Version=1.0.6516.24672, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\src\bin\Debug\ThreeLib.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
