@@ -28,7 +28,7 @@ assembly_info:
   assembly_informational_version: "{version}"
 
 build:
-  project: ThreeLib.csproj
+  project: src\ThreeLib.csproj
   
 before_build: 
   - ps: nuget restore ThreeLib.csproj -PackagesDirectory .\packages
