@@ -7,6 +7,11 @@ The scope of this project is focused on serialization (and later perhaps deseria
 
 This project started as project [Iris](http://mcneel.github.io/Iris/), a Three.js exporter for [Rhino3d](http://www.rhino3d.com/). ThreeLib is essentially the serialization library from that project recreated as an open source project and rewritten to be more like working with Three.js.
 
+## Docs
+- [LICENSE](https://github.com/mcneel/ThreeLib/blob/master/LICENSE)
+- [CODE OF CONDUCT](https://github.com/mcneel/ThreeLib/blob/master/CODE_OF_CONDUCT.md)
+- [CONTRIBUTING](https://github.com/mcneel/ThreeLib/blob/master/CONTRIBUTING.md)
+
 ## Dependencies
 - [Json.Net](https://github.com/JamesNK/Newtonsoft.Json)
 
@@ -15,10 +20,100 @@ You can either clone this repo and build the ThreeLib.csproj or use the publishe
 
 Check out the [Sample project](https://github.com/mcneel/ThreeLib/tree/master/Sample) to see how some of the API is coming along.
 
-## Docs
-- [LICENSE](https://github.com/mcneel/ThreeLib/blob/master/LICENSE)
-- [CODE OF CONDUCT](https://github.com/mcneel/ThreeLib/blob/master/CODE_OF_CONDUCT.md)
-- [CONTRIBUTING](https://github.com/mcneel/ThreeLib/blob/master/CONTRIBUTING.md)
+For example:
+```csharp
+var scene = new Scene
+{
+    Background = new  Color(255,0,255).ToInt(),
+    Name = "My Scene"
+};
+
+var verts = new List<float[]>
+{
+    new float[] { 0, 0, 0 },
+    new float[] { 0, 0, 10.1234f },
+    new float[] { 10, 0, 10 },
+    new float[] { 10, 0, 0 }
+};
+
+var norms = new List<float[]>
+{
+    new float[] { 0, 1, 0 },
+    new float[] { 0, 1, 0 },
+    new float[] { 0, 1, 0 },
+    new float[] { 0, 1, 0 }
+};
+
+var vertices = Geometry.ProcessVertexArray(verts); //flattens a List<float[]>
+
+var normals = Geometry.ProcessNormalArray(norms);
+
+var face = new int[] { 0, 1, 2, 3 };
+
+var faces = Geometry.ProcessFaceArray(new List<int[]> { { face } }, false, false);
+
+var geometry = new Geometry(vertices, faces, normals);
+
+var mesh = new Mesh
+{
+    Geometry = geometry,
+    Material = material,
+    Name = "My Mesh"
+};
+
+scene.Add(mesh);
+
+scene.ToJSON(false);
+```
+
+Rsults in:
+```json
+{
+	"metadata" : {
+		"version" : 4.5,
+		"type" : "Object",
+		"generator" : "ThreeLib-Object3D.toJSON"
+	},
+	"geometries" : [{
+			"data" : {
+				"vertices" : [0, 0, 0, 0, 0, 10.1234, 10, 0, 10, 10, 0, 0],
+				"colors" : [],
+				"faces" : [33, 0, 1, 2, 3, 0, 1, 2, 3],
+				"uvs" : [],
+				"normals" : [0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0]
+			},
+			"matrix" : [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+			"uuid" : "7989f47c-5e74-4d1b-830d-880ba402d78d",
+			"type" : "Geometry"
+		}
+	],
+	"materials" : [{
+			"color" : 16777215,
+			"roughness" : 1.0,
+			"metalness" : 0.25,
+			"opacity" : 1.0,
+			"uuid" : "683ae9a3-608a-4982-b301-448bd8a41105",
+			"type" : "MeshStandardMaterial"
+		}
+	],
+	"object" : {
+		"background" : 16711935,
+		"children" : [{
+				"geometry" : "7989f47c-5e74-4d1b-830d-880ba402d78d",
+				"material" : "683ae9a3-608a-4982-b301-448bd8a41105",
+				"matrix" : [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+				"uuid" : "d48d6259-0eb6-466e-b484-65be547b1934",
+				"name" : "My Mesh",
+				"type" : "Mesh"
+			}
+		],
+		"matrix" : [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+		"uuid" : "da0f589a-50d3-4a65-91ed-061b28d961b5",
+		"name" : "My Scene",
+		"type" : "Scene"
+	}
+}
+```
 
 ## Current Status
 
