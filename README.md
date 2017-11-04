@@ -7,6 +7,11 @@ The scope of this project is focused on serialization (and later perhaps deseria
 
 This project started as project [Iris](http://mcneel.github.io/Iris/), a Three.js exporter for [Rhino3d](http://www.rhino3d.com/). ThreeLib is essentially the serialization library from that project recreated as an open source project and rewritten to be more like working with Three.js.
 
+## Docs
+- [LICENSE](https://github.com/mcneel/ThreeLib/blob/master/LICENSE)
+- [CODE OF CONDUCT](https://github.com/mcneel/ThreeLib/blob/master/CODE_OF_CONDUCT.md)
+- [CONTRIBUTING](https://github.com/mcneel/ThreeLib/blob/master/CONTRIBUTING.md)
+
 ## Dependencies
 - [Json.Net](https://github.com/JamesNK/Newtonsoft.Json)
 
@@ -15,6 +20,7 @@ You can either clone this repo and build the ThreeLib.csproj or use the publishe
 
 Check out the [Sample project](https://github.com/mcneel/ThreeLib/tree/master/Sample) to see how some of the API is coming along.
 
+For example:
 ```csharp
 var scene = new Scene
 {
@@ -38,7 +44,7 @@ var norms = new List<float[]>
     new float[] { 0, 1, 0 }
 };
 
-var vertices = Geometry.ProcessVertexArray(verts);
+var vertices = Geometry.ProcessVertexArray(verts); //flattens a List<float[]>
 
 var normals = Geometry.ProcessNormalArray(norms);
 
@@ -60,6 +66,7 @@ scene.Add(mesh);
 scene.ToJSON(false);
 ```
 
+Rsults in:
 ```json
 {
 	"metadata" : {
@@ -107,10 +114,6 @@ scene.ToJSON(false);
 	}
 }
 ```
-## Docs
-- [LICENSE](https://github.com/mcneel/ThreeLib/blob/master/LICENSE)
-- [CODE OF CONDUCT](https://github.com/mcneel/ThreeLib/blob/master/CODE_OF_CONDUCT.md)
-- [CONTRIBUTING](https://github.com/mcneel/ThreeLib/blob/master/CONTRIBUTING.md)
 
 ## Current Status
 
