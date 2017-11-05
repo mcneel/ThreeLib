@@ -61,7 +61,8 @@ namespace THREE
         public Vector3 Position { get { return Position; } set { Matrix.SetPosition(value); } }
 
         [JsonIgnore]
-        public Euler Rotation { get; set; }
+        public Euler Rotation
+        { get; set; }
 
         [JsonIgnore]
         public Quaternion Quaternion { get; set; }

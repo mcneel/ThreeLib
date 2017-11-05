@@ -300,6 +300,11 @@ namespace THREE
             return JsonConvert.SerializeObject(serializationAdaptor, format == true ? Formatting.Indented : Formatting.None, new JsonSerializerSettings { DefaultValueHandling = DefaultValueHandling.Ignore, NullValueHandling = NullValueHandling.Ignore });
         }
 
+        public bool ShouldSerializeData()
+        {
+            return Data.Vertices.Count > 0;
+        }
+
     }
 
     internal class GeometrySerializationAdaptor : SerializationAdaptor

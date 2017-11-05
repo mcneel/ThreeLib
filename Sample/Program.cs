@@ -111,6 +111,27 @@ namespace Sample
 
             scene.Add(group2);
 
+            var sphereGeometry = new SphereGeometry
+            {
+                Radius = 10,
+                WidthSegments = 10,
+                HeightSegments = 5,
+                PhiStart = 0,
+                PhiLength = (float)Math.PI*2,
+                ThetaStart = 0,
+                ThetaLength = (float)Math.PI * 2
+            };
+
+            var sphereMesh = new Mesh
+            {
+                Geometry = sphereGeometry,
+                Material = material,
+                Position = new Vector3(-45,10,45),
+                Name = "My Sphere"
+            };
+
+            scene.Add(sphereMesh);
+
             #region Lights
 
             var pointLight = new PointLight
