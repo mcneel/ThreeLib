@@ -5,9 +5,7 @@
 
 The scope of this project is focused on serialization (and later perhaps deserialization). Therefore the objects to be targeted should be those that can be read through one of the Three.js [Loaders](https://github.com/mrdoob/three.js/tree/master/src/loaders).
 
-This library could be used to develop exporter plugins from 3d modelling software that support mono / .net.
-
-This project started as project [Iris](http://mcneel.github.io/Iris/), a Three.js exporter for [Rhino3d](http://www.rhino3d.com/). ThreeLib is essentially the serialization library from that project recreated as an open source project and rewritten to be more like working with Three.js. ThreeLib is what allows Iris to write Rhino Objects to json.
+This project started as project [Iris](http://mcneel.github.io/Iris/), a Three.js exporter for [Rhino3d](http://www.rhino3d.com/). ThreeLib is essentially the serialization library from that project recreated as an open source project and rewritten to be more like working with Three.js.
 
 ## Docs
 - [LICENSE](https://github.com/mcneel/ThreeLib/blob/master/LICENSE)

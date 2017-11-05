@@ -4,11 +4,8 @@
         <id>ThreeLib</id>
         <version>$version$</version>
         <title>ThreeLib</title>
-        <authors>Robert McNeel and Associates</authors>
-        <copyright>Copyright (c) 2017 Robert McNeel and Associates</copyright>
-        <tags>three.js, csharp, library, rhino3d, json</tags>
+        <authors>luis.fraguada</authors>
         <licenseUrl>https://github.com/mcneel/ThreeLib/blob/master/LICENSE</licenseUrl>
-        <projectUrl>https://github.com/mcneel/ThreeLib</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>.net Class Library to create Three.js compatible objects.</description>
         <dependencies>
