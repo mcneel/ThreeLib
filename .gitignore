@@ -1,5 +1,3 @@
-src/obj/
-.vs/
-packages/
-Sample/
-src/bin/
+_site
+.sass-cache
+.jekyll-metadata
