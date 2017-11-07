@@ -23,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\ThreeLib.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -85,28 +86,14 @@
     <Compile Include="THREE\Utility\Utilities.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="api\index.md" />
-    <None Include="articles\intro.md" />
-    <None Include="articles\toc.md" />
-    <None Include="docfx.json" />
-    <None Include="index.md" />
     <None Include="packages.config" />
-    <None Include="toc.yml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>"$(ProjectDir)docgen\MarkdownGenerator.exe" "$(ProjectDir)bin\Debug\ThreeLib.dll" "$(ProjectDir)docgen\docs"</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
   </PropertyGroup>
-  <Import Project="..\packages\docfx.console.2.26.3\build\docfx.console.targets" Condition="Exists('..\packages\docfx.console.2.26.3\build\docfx.console.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\docfx.console.2.26.3\build\docfx.console.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\docfx.console.2.26.3\build\docfx.console.targets'))" />
-  </Target>
 </Project>
