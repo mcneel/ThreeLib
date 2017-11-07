@@ -17,8 +17,8 @@ title: ThreeLib
 email: luis@mcneel.com
 description: >- # this means to ignore newlines until "baseurl:"
   .net Class Library written in c# for creating Three.js compatible objects.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/ThreeLib" # the subpath of your site, e.g. /blog
+url: "http://mcneel.github.io/ThreeLib" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: luisfraguada
 github_username:  fraguada
 
