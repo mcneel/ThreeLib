@@ -35,7 +35,7 @@ before_build:
     
 after_build:
   - ps: nuget pack .\src\ThreeLib.csproj -Version $env:appveyor_build_version
-  - ps: & c:\projects\threelib\src\docgen\MarkdownGenerator.exe c:\projects\threelib\src\bin\Release\ThreeLib.dll c:\projects\threelib\src\docgen\docs
+  - ps: c:\projects\threelib\src\docgen\MarkdownGenerator.exe c:\projects\threelib\src\bin\Release\ThreeLib.dll c:\projects\threelib\src\docgen\docs
   
 artifacts:
   - path: .\src\bin\Release\ThreeLib.dll
