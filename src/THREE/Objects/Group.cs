@@ -1,4 +1,6 @@
-﻿namespace THREE
+﻿using THREE.Core;
+
+namespace THREE.Objects
 {
     /// <summary>
     /// Class based on Object3D for grouping objects. Analogous to https://threejs.org/docs/index.html#api/objects/Group

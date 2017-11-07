@@ -12,6 +12,8 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -66,7 +68,7 @@
     <Compile Include="THREE\Math\Matrix4.cs" />
     <Compile Include="THREE\Math\Quaternion.cs" />
     <Compile Include="THREE\Math\Vector3.cs" />
-    <Compile Include="THREE\Objects\IGeometry.cs" />
+    <Compile Include="THREE\Core\IGeometry.cs" />
     <Compile Include="THREE\Core\Geometry.cs" />
     <Compile Include="THREE\Objects\Group.cs" />
     <Compile Include="THREE\Objects\Line.cs" />
@@ -83,7 +85,13 @@
     <Compile Include="THREE\Utility\Utilities.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="api\index.md" />
+    <None Include="articles\intro.md" />
+    <None Include="articles\toc.md" />
+    <None Include="docfx.json" />
+    <None Include="index.md" />
     <None Include="packages.config" />
+    <None Include="toc.yml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
@@ -94,4 +102,11 @@
     <PreBuildEvent>
     </PreBuildEvent>
   </PropertyGroup>
+  <Import Project="..\packages\docfx.console.2.26.3\build\docfx.console.targets" Condition="Exists('..\packages\docfx.console.2.26.3\build\docfx.console.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\docfx.console.2.26.3\build\docfx.console.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\docfx.console.2.26.3\build\docfx.console.targets'))" />
+  </Target>
 </Project>

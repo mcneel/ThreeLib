@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace THREE
+namespace THREE.Math
 {
     /// <summary>
     /// Class representing a 3D vector.

@@ -1,4 +1,4 @@
-﻿namespace THREE
+﻿namespace THREE.Core
 {
     /// <summary>
     /// 

@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace THREE
+namespace THREE.Core
 {
 
     public interface IElement { }

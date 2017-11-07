@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
-using System;
 
-namespace THREE
+namespace THREE.Math
 {
     /// <summary>
     /// 
@@ -51,13 +50,13 @@ namespace THREE
             // 	20696-function-to-convert-between-dcm-euler-angles-quaternions-and-euler-vectors/
             //	content/SpinCalc.m
 
-            var c1 = (float)Math.Cos(x / 2);
-            var c2 = (float)Math.Cos(y / 2);
-            var c3 = (float)Math.Cos(z / 2);
+            var c1 = (float)System.Math.Cos(x / 2);
+            var c2 = (float)System.Math.Cos(y / 2);
+            var c3 = (float)System.Math.Cos(z / 2);
 
-            var s1 = (float)Math.Sin(x / 2);
-            var s2 = (float)Math.Sin(y / 2);
-            var s3 = (float)Math.Sin(z / 2);
+            var s1 = (float)System.Math.Sin(x / 2);
+            var s2 = (float)System.Math.Sin(y / 2);
+            var s3 = (float)System.Math.Sin(z / 2);
 
             if (order == Euler.RotationOrders.XYZ)
             {

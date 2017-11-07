@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace THREE
+namespace THREE.Lights
 {
     /// <summary>
     /// A light source positioned directly above the scene, with color fading from the sky color to the ground color.
