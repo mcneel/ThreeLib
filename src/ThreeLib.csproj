@@ -90,7 +90,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if $(ConfigurationName) != Release "$(ProjectDir)docgen\MarkdownGenerator.exe" "$(ProjectDir)bin\Debug\ThreeLib.dll" "$(ProjectDir)docgen\docs"</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>
