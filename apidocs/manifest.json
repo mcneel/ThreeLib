@@ -1,0 +1,858 @@
+{
+  "homepages": [],
+  "source_base_path": "C:/dev/github/mcneel/ThreeLib/src",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "MV4Itpajk74Uc1Chxc92vw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "4wU/LMJyg3EBJm6hRAwYPg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "xVlQaX7Tk85omoiWv3O+Ag=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "rmWcxjQ0EgRXCnpOiSyMag=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Cameras.Camera.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Cameras.Camera.html",
+          "hash": "JLphz0NyeXRn+UbVXfsyxQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Cameras.OrthographicCamera.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Cameras.OrthographicCamera.html",
+          "hash": "huEdFm+827W9OzOU+DtmuA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Cameras.PerspectiveCamera.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Cameras.PerspectiveCamera.html",
+          "hash": "PEnqiumPQyEHl00V7fPpYA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Cameras.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Cameras.html",
+          "hash": "kWm1QH6tJww5pLHA027HuQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Core.BufferAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Core.BufferAttribute.html",
+          "hash": "jyhMm5zNs51ZIx76LZAV0Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Core.BufferGeometry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Core.BufferGeometry.html",
+          "hash": "YNRFNGyHhl/FS6M6jgzLbw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Core.BufferGeometryBoundingSphere.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Core.BufferGeometryBoundingSphere.html",
+          "hash": "P2IQWQcP2ZOq9+51N30Lqg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Core.Element.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Core.Element.html",
+          "hash": "HUMiBZ4A/i1Agql14Pq3xw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Core.Geometry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Core.Geometry.html",
+          "hash": "WjUurFX+nviASxi6I8F+pQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Core.GeometryCollection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Core.GeometryCollection.html",
+          "hash": "Y8e5jIQv67ERykKNjmvB0Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Core.IElement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Core.IElement.html",
+          "hash": "TZiXUpcw4h3TTFDgLKrWBg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Core.IGeometry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Core.IGeometry.html",
+          "hash": "ojqIX5fIeC8siwPskasgRA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Core.Object3D.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Core.Object3D.html",
+          "hash": "sT3/82NgvaPxgWviuBtHjg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Core.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Core.html",
+          "hash": "BCHu0B9rC+pjvelQOE1S+Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Geometries.SphereGeometry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Geometries.SphereGeometry.html",
+          "hash": "ucY4liK9oWmtBd2PZwnEYg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Geometries.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Geometries.html",
+          "hash": "Y6hVKbIb/m0+ClROtrxGqQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Lights.AmbientLight.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Lights.AmbientLight.html",
+          "hash": "OTt6yFMrXPixA8r74BF/XA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Lights.DirectionalLight.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Lights.DirectionalLight.html",
+          "hash": "iyj92gnE0KLB5WqtK1UEZA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Lights.DirectionalLightShadow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Lights.DirectionalLightShadow.html",
+          "hash": "pNpv+016FmyqYOajB3zRvw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Lights.HemisphereLight.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Lights.HemisphereLight.html",
+          "hash": "7cslUKVznE1DH4p4iqQe2g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Lights.ILight.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Lights.ILight.html",
+          "hash": "K1fn9R7ATwFozf3W5p/BDA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Lights.Light.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Lights.Light.html",
+          "hash": "TW9i8uyEQkfUPYZtOLwRRQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Lights.LightShadow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Lights.LightShadow.html",
+          "hash": "ZcnUBUJLHGsfmHB5/eY4GQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Lights.PointLight.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Lights.PointLight.html",
+          "hash": "6mW43bHDI8sF18ekE5EA3w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Lights.RectAreaLight.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Lights.RectAreaLight.html",
+          "hash": "J2edYmM7SXnqLYgbtpg2oA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Lights.SpotLight.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Lights.SpotLight.html",
+          "hash": "240vUvCtohcMXoZx42uZQg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Lights.SpotLightShadow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Lights.SpotLightShadow.html",
+          "hash": "nPJAGhBDAC74a0GYR70EAw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Lights.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Lights.html",
+          "hash": "LDw/Ld7uEnA/IddUi/oSGQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Materials.IMaterial.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Materials.IMaterial.html",
+          "hash": "FoGlFyM5zDNHMKJyu9nGMA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Materials.LineBasicMaterial.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Materials.LineBasicMaterial.html",
+          "hash": "u/Feh3BbAF03Q3Pbcby2XQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Materials.Material.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Materials.Material.html",
+          "hash": "LyQbsJAdyV88e7QWDUUf6w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Materials.MaterialCollection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Materials.MaterialCollection.html",
+          "hash": "iVrfcFhaaqpsrWZzhX6DMg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Materials.MeshBasicMaterial.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Materials.MeshBasicMaterial.html",
+          "hash": "DxZ6VgxIMGbaQ7zoB+ERBA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Materials.MeshLambertMaterial.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Materials.MeshLambertMaterial.html",
+          "hash": "OYhNsDv8jaG5pZUoB0wdAQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Materials.MeshPhongMaterial.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Materials.MeshPhongMaterial.html",
+          "hash": "DKmX5Jj9N/sfoOhtrFVflw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Materials.MeshStandardMaterial.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Materials.MeshStandardMaterial.html",
+          "hash": "tqnN8arnRbTpIGEs8B7DVg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Materials.PointsMaterial.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Materials.PointsMaterial.html",
+          "hash": "86/1BPJ1HsLhE0IE7fpUow=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Materials.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Materials.html",
+          "hash": "PsykTUvtCoiPvF3vyWK45Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Math.Color.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Math.Color.html",
+          "hash": "MR3hMlapebGDWA212NCItw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Math.Euler.RotationOrders.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Math.Euler.RotationOrders.html",
+          "hash": "fI0dB/AuunBZj6baai/tnQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Math.Euler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Math.Euler.html",
+          "hash": "rgXh051C8qKw7rXqtYM49w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Math.Matrix4.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Math.Matrix4.html",
+          "hash": "HDppI1SKjwZ6mmZ8oMZWmg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Math.Quaternion.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Math.Quaternion.html",
+          "hash": "H2xUEZXmrOsBz8KwKhDTbg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Math.Vector3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Math.Vector3.html",
+          "hash": "QvVkg01VcOTdB3+JCaAUKw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Math.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Math.html",
+          "hash": "K2IOw4J3pW2D8gga6ZyS1w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Metadata.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Metadata.html",
+          "hash": "ZFfXBICP8g27w6tXyy8DbQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Objects.Group.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Objects.Group.html",
+          "hash": "V6VdT/OlHIwsVACUVFe0Zw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Objects.Line.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Objects.Line.html",
+          "hash": "2PYYFPvhxpaT6MOM/Bao1A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Objects.Mesh.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Objects.Mesh.html",
+          "hash": "NrZhsAUZ6f9nDWpGhGcgJw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Objects.Points.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Objects.Points.html",
+          "hash": "Mma3JBH9AhkTXChBYKuYsw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Objects.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Objects.html",
+          "hash": "E0P/0jvC30Ked0u1zdoZYw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Scene.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Scene.html",
+          "hash": "1Nc4V9b5VAOa39hOneDy6w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Textures.Image.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Textures.Image.html",
+          "hash": "NuUvgam/UCbWiYCz3H6Ipw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Textures.ImageCollection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Textures.ImageCollection.html",
+          "hash": "PxrvV4ZbYMPIGax/VH7/aQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Textures.Texture.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Textures.Texture.html",
+          "hash": "DV1AM1/B9TX472snDx6lzw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Textures.TextureCollection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Textures.TextureCollection.html",
+          "hash": "Hj40TO6C7z7ifQeJrGhNfg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Textures.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Textures.html",
+          "hash": "m+kHRQQ7p/AurTxvnqv1Uw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Utility.ObjectSerializationAdaptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Utility.ObjectSerializationAdaptor.html",
+          "hash": "kKssHVevPNpSHCmteFKyBQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Utility.SerializationAdaptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Utility.SerializationAdaptor.html",
+          "hash": "Ud+FWYZ9Rs600noH6+BPmw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.Utility.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.Utility.html",
+          "hash": "BKVOdadawXMKWVzWQ7kkYQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/THREE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/THREE.html",
+          "hash": "77ySPYfUTpCJQR11lQfFFg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "obj/api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "eGRK9vhxSikNiykMZJfOPA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "frPdeW5hGroGiyexwMQIhg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": true,
+        "incrementalPhase": "build"
+      },
+      "processors": {
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build"
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build"
+        },
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        },
+        "RestApiDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor RestApiDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
+        "incrementalPhase": "postProcessing"
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

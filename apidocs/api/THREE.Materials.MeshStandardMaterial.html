@@ -1,0 +1,1300 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class MeshStandardMaterial
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class MeshStandardMaterial
+   ">
+    <meta name="generator" content="docfx 2.26.3.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="THREE.Materials.MeshStandardMaterial">
+  
+  
+  <h1 id="THREE_Materials_MeshStandardMaterial" data-uid="THREE.Materials.MeshStandardMaterial" class="text-break">Class MeshStandardMaterial
+  </h1>
+  <div class="markdown level0 summary"><p>Analogous to: <a href="https://github.com/mrdoob/three.js/blob/dev/src/materials/MeshStandardMaterial.js">https://github.com/mrdoob/three.js/blob/dev/src/materials/MeshStandardMaterial.js</a>
+TODO: Add roughness and metalness maps.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="THREE.Core.Element.html">Element</a></div>
+    <div class="level2"><a class="xref" href="THREE.Materials.Material.html">Material</a></div>
+    <div class="level3"><span class="xref">MeshStandardMaterial</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="THREE.Core.IElement.html">IElement</a></div>
+    <div><a class="xref" href="THREE.Materials.IMaterial.html">IMaterial</a></div>
+    <div><span class="xref">System.IEquatable</span>&lt;<a class="xref" href="THREE.Materials.Material.html">Material</a>&gt;</div>
+    <div><span class="xref">System.IEquatable</span>&lt;<a class="xref" href="THREE.Materials.MeshStandardMaterial.html">MeshStandardMaterial</a>&gt;</div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="THREE.Materials.Material.html#THREE_Materials_Material_AlphaTest">Material.AlphaTest</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Materials.Material.html#THREE_Materials_Material_ClipIntersections">Material.ClipIntersections</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Materials.Material.html#THREE_Materials_Material_ClippingPlanes">Material.ClippingPlanes</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Materials.Material.html#THREE_Materials_Material_ClipShadows">Material.ClipShadows</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Materials.Material.html#THREE_Materials_Material_ColorWrite">Material.ColorWrite</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Materials.Material.html#THREE_Materials_Material_DepthTest">Material.DepthTest</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Materials.Material.html#THREE_Materials_Material_DepthWrite">Material.DepthWrite</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Materials.Material.html#THREE_Materials_Material_Dithering">Material.Dithering</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Materials.Material.html#THREE_Materials_Material_Fog">Material.Fog</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Materials.Material.html#THREE_Materials_Material_Lights">Material.Lights</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Materials.Material.html#THREE_Materials_Material_FlatShading">Material.FlatShading</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Materials.Material.html#THREE_Materials_Material_Transparent">Material.Transparent</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Materials.Material.html#THREE_Materials_Material_Visible">Material.Visible</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Materials.Material.html#THREE_Materials_Material_Blending">Material.Blending</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Materials.Material.html#THREE_Materials_Material_VertexColors">Material.VertexColors</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Materials.Material.html#THREE_Materials_Material_Side">Material.Side</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Materials.Material.html#THREE_Materials_Material_Opacity">Material.Opacity</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Materials.Material.html#THREE_Materials_Material_Overdraw">Material.Overdraw</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Materials.Material.html#THREE_Materials_Material_Precision">Material.Precision</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Materials.Material.html#THREE_Materials_Material_PremultipliedAlpha">Material.PremultipliedAlpha</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Materials.Material.html#THREE_Materials_Material_UserData">Material.UserData</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Core.Element.html#THREE_Core_Element_Uuid">Element.Uuid</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Core.Element.html#THREE_Core_Element_Name">Element.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Core.Element.html#THREE_Core_Element_Type">Element.Type</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Core.Element.html#THREE_Core_Element_SetUuid_System_Guid_">Element.SetUuid(Guid)</a>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="THREE.Materials.html">THREE.Materials</a></h6>
+  <h6><strong>Assembly</strong>: ThreeLib.dll</h6>
+  <h5 id="THREE_Materials_MeshStandardMaterial_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class MeshStandardMaterial : Material, IElement, IMaterial, IEquatable&lt;Material&gt;, IEquatable&lt;MeshStandardMaterial&gt;</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Materials_MeshStandardMaterial__ctor.md&amp;value=---%0Auid%3A%20THREE.Materials.MeshStandardMaterial.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Materials/MeshStandardMaterial.cs/#L449">View Source</a>
+  </span>
+  <a id="THREE_Materials_MeshStandardMaterial__ctor_" data-uid="THREE.Materials.MeshStandardMaterial.#ctor*"></a>
+  <h4 id="THREE_Materials_MeshStandardMaterial__ctor" data-uid="THREE.Materials.MeshStandardMaterial.#ctor">MeshStandardMaterial()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MeshStandardMaterial()</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Materials_MeshStandardMaterial_AlphaMap.md&amp;value=---%0Auid%3A%20THREE.Materials.MeshStandardMaterial.AlphaMap%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Materials/MeshStandardMaterial.cs/#L85">View Source</a>
+  </span>
+  <a id="THREE_Materials_MeshStandardMaterial_AlphaMap_" data-uid="THREE.Materials.MeshStandardMaterial.AlphaMap*"></a>
+  <h4 id="THREE_Materials_MeshStandardMaterial_AlphaMap" data-uid="THREE.Materials.MeshStandardMaterial.AlphaMap">AlphaMap</h4>
+  <div class="markdown level1 summary"><p>Material alpha map.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public Texture AlphaMap { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="THREE.Textures.Texture.html">Texture</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Materials_MeshStandardMaterial_AlphaMapUuid.md&amp;value=---%0Auid%3A%20THREE.Materials.MeshStandardMaterial.AlphaMapUuid%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Materials/MeshStandardMaterial.cs/#L107">View Source</a>
+  </span>
+  <a id="THREE_Materials_MeshStandardMaterial_AlphaMapUuid_" data-uid="THREE.Materials.MeshStandardMaterial.AlphaMapUuid*"></a>
+  <h4 id="THREE_Materials_MeshStandardMaterial_AlphaMapUuid" data-uid="THREE.Materials.MeshStandardMaterial.AlphaMapUuid">AlphaMapUuid</h4>
+  <div class="markdown level1 summary"><p>AlphaMap Uuid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;alphaMap&quot;)]
+public Guid? AlphaMapUuid { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Guid</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Materials_MeshStandardMaterial_Ambient.md&amp;value=---%0Auid%3A%20THREE.Materials.MeshStandardMaterial.Ambient%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Materials/MeshStandardMaterial.cs/#L37">View Source</a>
+  </span>
+  <a id="THREE_Materials_MeshStandardMaterial_Ambient_" data-uid="THREE.Materials.MeshStandardMaterial.Ambient*"></a>
+  <h4 id="THREE_Materials_MeshStandardMaterial_Ambient" data-uid="THREE.Materials.MeshStandardMaterial.Ambient">Ambient</h4>
+  <div class="markdown level1 summary"><p>Material ambient color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;ambient&quot;)]
+public int Ambient { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Materials_MeshStandardMaterial_AoMap.md&amp;value=---%0Auid%3A%20THREE.Materials.MeshStandardMaterial.AoMap%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Materials/MeshStandardMaterial.cs/#L49">View Source</a>
+  </span>
+  <a id="THREE_Materials_MeshStandardMaterial_AoMap_" data-uid="THREE.Materials.MeshStandardMaterial.AoMap*"></a>
+  <h4 id="THREE_Materials_MeshStandardMaterial_AoMap" data-uid="THREE.Materials.MeshStandardMaterial.AoMap">AoMap</h4>
+  <div class="markdown level1 summary"><p>Material ao map.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public Texture AoMap { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="THREE.Textures.Texture.html">Texture</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Materials_MeshStandardMaterial_AoMapUuid.md&amp;value=---%0Auid%3A%20THREE.Materials.MeshStandardMaterial.AoMapUuid%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Materials/MeshStandardMaterial.cs/#L71">View Source</a>
+  </span>
+  <a id="THREE_Materials_MeshStandardMaterial_AoMapUuid_" data-uid="THREE.Materials.MeshStandardMaterial.AoMapUuid*"></a>
+  <h4 id="THREE_Materials_MeshStandardMaterial_AoMapUuid" data-uid="THREE.Materials.MeshStandardMaterial.AoMapUuid">AoMapUuid</h4>
+  <div class="markdown level1 summary"><p>ao Uuid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;aoMap&quot;)]
+public Guid? AoMapUuid { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Guid</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Materials_MeshStandardMaterial_BumpMap.md&amp;value=---%0Auid%3A%20THREE.Materials.MeshStandardMaterial.BumpMap%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Materials/MeshStandardMaterial.cs/#L121">View Source</a>
+  </span>
+  <a id="THREE_Materials_MeshStandardMaterial_BumpMap_" data-uid="THREE.Materials.MeshStandardMaterial.BumpMap*"></a>
+  <h4 id="THREE_Materials_MeshStandardMaterial_BumpMap" data-uid="THREE.Materials.MeshStandardMaterial.BumpMap">BumpMap</h4>
+  <div class="markdown level1 summary"><p>Material bump map.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public Texture BumpMap { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="THREE.Textures.Texture.html">Texture</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Materials_MeshStandardMaterial_BumpMapUuid.md&amp;value=---%0Auid%3A%20THREE.Materials.MeshStandardMaterial.BumpMapUuid%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Materials/MeshStandardMaterial.cs/#L143">View Source</a>
+  </span>
+  <a id="THREE_Materials_MeshStandardMaterial_BumpMapUuid_" data-uid="THREE.Materials.MeshStandardMaterial.BumpMapUuid*"></a>
+  <h4 id="THREE_Materials_MeshStandardMaterial_BumpMapUuid" data-uid="THREE.Materials.MeshStandardMaterial.BumpMapUuid">BumpMapUuid</h4>
+  <div class="markdown level1 summary"><p>BumpMap Uuid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;bumpMap&quot;)]
+public Guid? BumpMapUuid { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Guid</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Materials_MeshStandardMaterial_Color.md&amp;value=---%0Auid%3A%20THREE.Materials.MeshStandardMaterial.Color%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Materials/MeshStandardMaterial.cs/#L19">View Source</a>
+  </span>
+  <a id="THREE_Materials_MeshStandardMaterial_Color_" data-uid="THREE.Materials.MeshStandardMaterial.Color*"></a>
+  <h4 id="THREE_Materials_MeshStandardMaterial_Color" data-uid="THREE.Materials.MeshStandardMaterial.Color">Color</h4>
+  <div class="markdown level1 summary"><p>Material diffuse color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;color&quot;, DefaultValueHandling = DefaultValueHandling.Include)]
+public int Color { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Materials_MeshStandardMaterial_DisplacementMap.md&amp;value=---%0Auid%3A%20THREE.Materials.MeshStandardMaterial.DisplacementMap%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Materials/MeshStandardMaterial.cs/#L157">View Source</a>
+  </span>
+  <a id="THREE_Materials_MeshStandardMaterial_DisplacementMap_" data-uid="THREE.Materials.MeshStandardMaterial.DisplacementMap*"></a>
+  <h4 id="THREE_Materials_MeshStandardMaterial_DisplacementMap" data-uid="THREE.Materials.MeshStandardMaterial.DisplacementMap">DisplacementMap</h4>
+  <div class="markdown level1 summary"><p>The displacement map affects the position of the mesh&apos;s vertices. Unlike other maps which only affect the light and shade of the material the displaced vertices can cast shadows, block other objects, and otherwise act as real geometry. The displacement texture is an image where the value of each pixel (white being the highest) is mapped against, and repositions, the vertices of the mesh.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public Texture DisplacementMap { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="THREE.Textures.Texture.html">Texture</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Materials_MeshStandardMaterial_DisplacementMapUuid.md&amp;value=---%0Auid%3A%20THREE.Materials.MeshStandardMaterial.DisplacementMapUuid%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Materials/MeshStandardMaterial.cs/#L179">View Source</a>
+  </span>
+  <a id="THREE_Materials_MeshStandardMaterial_DisplacementMapUuid_" data-uid="THREE.Materials.MeshStandardMaterial.DisplacementMapUuid*"></a>
+  <h4 id="THREE_Materials_MeshStandardMaterial_DisplacementMapUuid" data-uid="THREE.Materials.MeshStandardMaterial.DisplacementMapUuid">DisplacementMapUuid</h4>
+  <div class="markdown level1 summary"><p>Displacement map Uuid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;displacementMap&quot;)]
+public Guid? DisplacementMapUuid { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Guid</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Materials_MeshStandardMaterial_Emissive.md&amp;value=---%0Auid%3A%20THREE.Materials.MeshStandardMaterial.Emissive%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Materials/MeshStandardMaterial.cs/#L43">View Source</a>
+  </span>
+  <a id="THREE_Materials_MeshStandardMaterial_Emissive_" data-uid="THREE.Materials.MeshStandardMaterial.Emissive*"></a>
+  <h4 id="THREE_Materials_MeshStandardMaterial_Emissive" data-uid="THREE.Materials.MeshStandardMaterial.Emissive">Emissive</h4>
+  <div class="markdown level1 summary"><p>Material emissive color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;emissive&quot;)]
+public int Emissive { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Materials_MeshStandardMaterial_EmissiveMap.md&amp;value=---%0Auid%3A%20THREE.Materials.MeshStandardMaterial.EmissiveMap%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Materials/MeshStandardMaterial.cs/#L229">View Source</a>
+  </span>
+  <a id="THREE_Materials_MeshStandardMaterial_EmissiveMap_" data-uid="THREE.Materials.MeshStandardMaterial.EmissiveMap*"></a>
+  <h4 id="THREE_Materials_MeshStandardMaterial_EmissiveMap" data-uid="THREE.Materials.MeshStandardMaterial.EmissiveMap">EmissiveMap</h4>
+  <div class="markdown level1 summary"><p>Set emisssive (glow) map. The emissive map color is modulated by the emissive color and the emissive intensity. If you have an emissive map, be sure to set the emissive color to something other than black.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public Texture EmissiveMap { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="THREE.Textures.Texture.html">Texture</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Materials_MeshStandardMaterial_EmissiveMapUuid.md&amp;value=---%0Auid%3A%20THREE.Materials.MeshStandardMaterial.EmissiveMapUuid%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Materials/MeshStandardMaterial.cs/#L251">View Source</a>
+  </span>
+  <a id="THREE_Materials_MeshStandardMaterial_EmissiveMapUuid_" data-uid="THREE.Materials.MeshStandardMaterial.EmissiveMapUuid*"></a>
+  <h4 id="THREE_Materials_MeshStandardMaterial_EmissiveMapUuid" data-uid="THREE.Materials.MeshStandardMaterial.EmissiveMapUuid">EmissiveMapUuid</h4>
+  <div class="markdown level1 summary"><p>Emissive map Uuid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;emissiveMap&quot;)]
+public Guid? EmissiveMapUuid { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Guid</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Materials_MeshStandardMaterial_EnvironmentMap.md&amp;value=---%0Auid%3A%20THREE.Materials.MeshStandardMaterial.EnvironmentMap%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Materials/MeshStandardMaterial.cs/#L193">View Source</a>
+  </span>
+  <a id="THREE_Materials_MeshStandardMaterial_EnvironmentMap_" data-uid="THREE.Materials.MeshStandardMaterial.EnvironmentMap*"></a>
+  <h4 id="THREE_Materials_MeshStandardMaterial_EnvironmentMap" data-uid="THREE.Materials.MeshStandardMaterial.EnvironmentMap">EnvironmentMap</h4>
+  <div class="markdown level1 summary"><p>Material environment map.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public Texture EnvironmentMap { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="THREE.Textures.Texture.html">Texture</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Materials_MeshStandardMaterial_EnvironmentMapUuid.md&amp;value=---%0Auid%3A%20THREE.Materials.MeshStandardMaterial.EnvironmentMapUuid%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Materials/MeshStandardMaterial.cs/#L215">View Source</a>
+  </span>
+  <a id="THREE_Materials_MeshStandardMaterial_EnvironmentMapUuid_" data-uid="THREE.Materials.MeshStandardMaterial.EnvironmentMapUuid*"></a>
+  <h4 id="THREE_Materials_MeshStandardMaterial_EnvironmentMapUuid" data-uid="THREE.Materials.MeshStandardMaterial.EnvironmentMapUuid">EnvironmentMapUuid</h4>
+  <div class="markdown level1 summary"><p>Environment map Uuid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;envMap&quot;)]
+public Guid? EnvironmentMapUuid { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Guid</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Materials_MeshStandardMaterial_LightMap.md&amp;value=---%0Auid%3A%20THREE.Materials.MeshStandardMaterial.LightMap%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Materials/MeshStandardMaterial.cs/#L265">View Source</a>
+  </span>
+  <a id="THREE_Materials_MeshStandardMaterial_LightMap_" data-uid="THREE.Materials.MeshStandardMaterial.LightMap*"></a>
+  <h4 id="THREE_Materials_MeshStandardMaterial_LightMap" data-uid="THREE.Materials.MeshStandardMaterial.LightMap">LightMap</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public Texture LightMap { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="THREE.Textures.Texture.html">Texture</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Materials_MeshStandardMaterial_LightMapUuid.md&amp;value=---%0Auid%3A%20THREE.Materials.MeshStandardMaterial.LightMapUuid%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Materials/MeshStandardMaterial.cs/#L287">View Source</a>
+  </span>
+  <a id="THREE_Materials_MeshStandardMaterial_LightMapUuid_" data-uid="THREE.Materials.MeshStandardMaterial.LightMapUuid*"></a>
+  <h4 id="THREE_Materials_MeshStandardMaterial_LightMapUuid" data-uid="THREE.Materials.MeshStandardMaterial.LightMapUuid">LightMapUuid</h4>
+  <div class="markdown level1 summary"><p>Light map Uuid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;lightMap&quot;)]
+public Guid? LightMapUuid { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Guid</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Materials_MeshStandardMaterial_Map.md&amp;value=---%0Auid%3A%20THREE.Materials.MeshStandardMaterial.Map%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Materials/MeshStandardMaterial.cs/#L301">View Source</a>
+  </span>
+  <a id="THREE_Materials_MeshStandardMaterial_Map_" data-uid="THREE.Materials.MeshStandardMaterial.Map*"></a>
+  <h4 id="THREE_Materials_MeshStandardMaterial_Map" data-uid="THREE.Materials.MeshStandardMaterial.Map">Map</h4>
+  <div class="markdown level1 summary"><p>Material diffuse map.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public Texture Map { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="THREE.Textures.Texture.html">Texture</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Materials_MeshStandardMaterial_MapUuid.md&amp;value=---%0Auid%3A%20THREE.Materials.MeshStandardMaterial.MapUuid%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Materials/MeshStandardMaterial.cs/#L323">View Source</a>
+  </span>
+  <a id="THREE_Materials_MeshStandardMaterial_MapUuid_" data-uid="THREE.Materials.MeshStandardMaterial.MapUuid*"></a>
+  <h4 id="THREE_Materials_MeshStandardMaterial_MapUuid" data-uid="THREE.Materials.MeshStandardMaterial.MapUuid">MapUuid</h4>
+  <div class="markdown level1 summary"><p>The Uuid of the diffuse map.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;map&quot;)]
+public Guid? MapUuid { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Guid</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Materials_MeshStandardMaterial_Metalness.md&amp;value=---%0Auid%3A%20THREE.Materials.MeshStandardMaterial.Metalness%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Materials/MeshStandardMaterial.cs/#L31">View Source</a>
+  </span>
+  <a id="THREE_Materials_MeshStandardMaterial_Metalness_" data-uid="THREE.Materials.MeshStandardMaterial.Metalness*"></a>
+  <h4 id="THREE_Materials_MeshStandardMaterial_Metalness" data-uid="THREE.Materials.MeshStandardMaterial.Metalness">Metalness</h4>
+  <div class="markdown level1 summary"><p>Material metalness.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;metalness&quot;)]
+public double Metalness { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Materials_MeshStandardMaterial_MetalnessMap.md&amp;value=---%0Auid%3A%20THREE.Materials.MeshStandardMaterial.MetalnessMap%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Materials/MeshStandardMaterial.cs/#L337">View Source</a>
+  </span>
+  <a id="THREE_Materials_MeshStandardMaterial_MetalnessMap_" data-uid="THREE.Materials.MeshStandardMaterial.MetalnessMap*"></a>
+  <h4 id="THREE_Materials_MeshStandardMaterial_MetalnessMap" data-uid="THREE.Materials.MeshStandardMaterial.MetalnessMap">MetalnessMap</h4>
+  <div class="markdown level1 summary"><p>Material metalness map.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public Texture MetalnessMap { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="THREE.Textures.Texture.html">Texture</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Materials_MeshStandardMaterial_MetalnessMapUuid.md&amp;value=---%0Auid%3A%20THREE.Materials.MeshStandardMaterial.MetalnessMapUuid%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Materials/MeshStandardMaterial.cs/#L359">View Source</a>
+  </span>
+  <a id="THREE_Materials_MeshStandardMaterial_MetalnessMapUuid_" data-uid="THREE.Materials.MeshStandardMaterial.MetalnessMapUuid*"></a>
+  <h4 id="THREE_Materials_MeshStandardMaterial_MetalnessMapUuid" data-uid="THREE.Materials.MeshStandardMaterial.MetalnessMapUuid">MetalnessMapUuid</h4>
+  <div class="markdown level1 summary"><p>The Uuid of the metalness map.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;metalnessMap&quot;)]
+public Guid? MetalnessMapUuid { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Guid</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Materials_MeshStandardMaterial_NormalMap.md&amp;value=---%0Auid%3A%20THREE.Materials.MeshStandardMaterial.NormalMap%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Materials/MeshStandardMaterial.cs/#L373">View Source</a>
+  </span>
+  <a id="THREE_Materials_MeshStandardMaterial_NormalMap_" data-uid="THREE.Materials.MeshStandardMaterial.NormalMap*"></a>
+  <h4 id="THREE_Materials_MeshStandardMaterial_NormalMap" data-uid="THREE.Materials.MeshStandardMaterial.NormalMap">NormalMap</h4>
+  <div class="markdown level1 summary"><p>Material normal map.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public Texture NormalMap { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="THREE.Textures.Texture.html">Texture</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Materials_MeshStandardMaterial_NormalMapUuid.md&amp;value=---%0Auid%3A%20THREE.Materials.MeshStandardMaterial.NormalMapUuid%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Materials/MeshStandardMaterial.cs/#L395">View Source</a>
+  </span>
+  <a id="THREE_Materials_MeshStandardMaterial_NormalMapUuid_" data-uid="THREE.Materials.MeshStandardMaterial.NormalMapUuid*"></a>
+  <h4 id="THREE_Materials_MeshStandardMaterial_NormalMapUuid" data-uid="THREE.Materials.MeshStandardMaterial.NormalMapUuid">NormalMapUuid</h4>
+  <div class="markdown level1 summary"><p>The Uuid of the normal map.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;normalMap&quot;)]
+public Guid? NormalMapUuid { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Guid</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Materials_MeshStandardMaterial_Roughness.md&amp;value=---%0Auid%3A%20THREE.Materials.MeshStandardMaterial.Roughness%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Materials/MeshStandardMaterial.cs/#L25">View Source</a>
+  </span>
+  <a id="THREE_Materials_MeshStandardMaterial_Roughness_" data-uid="THREE.Materials.MeshStandardMaterial.Roughness*"></a>
+  <h4 id="THREE_Materials_MeshStandardMaterial_Roughness" data-uid="THREE.Materials.MeshStandardMaterial.Roughness">Roughness</h4>
+  <div class="markdown level1 summary"><p>Material roughness.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;roughness&quot;)]
+public double Roughness { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Materials_MeshStandardMaterial_RoughnessMap.md&amp;value=---%0Auid%3A%20THREE.Materials.MeshStandardMaterial.RoughnessMap%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Materials/MeshStandardMaterial.cs/#L409">View Source</a>
+  </span>
+  <a id="THREE_Materials_MeshStandardMaterial_RoughnessMap_" data-uid="THREE.Materials.MeshStandardMaterial.RoughnessMap*"></a>
+  <h4 id="THREE_Materials_MeshStandardMaterial_RoughnessMap" data-uid="THREE.Materials.MeshStandardMaterial.RoughnessMap">RoughnessMap</h4>
+  <div class="markdown level1 summary"><p>Material roughness map.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public Texture RoughnessMap { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="THREE.Textures.Texture.html">Texture</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Materials_MeshStandardMaterial_RoughnessMapUuid.md&amp;value=---%0Auid%3A%20THREE.Materials.MeshStandardMaterial.RoughnessMapUuid%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Materials/MeshStandardMaterial.cs/#L431">View Source</a>
+  </span>
+  <a id="THREE_Materials_MeshStandardMaterial_RoughnessMapUuid_" data-uid="THREE.Materials.MeshStandardMaterial.RoughnessMapUuid*"></a>
+  <h4 id="THREE_Materials_MeshStandardMaterial_RoughnessMapUuid" data-uid="THREE.Materials.MeshStandardMaterial.RoughnessMapUuid">RoughnessMapUuid</h4>
+  <div class="markdown level1 summary"><p>The Uuid of the roughness map.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;roughnessMap&quot;)]
+public Guid? RoughnessMapUuid { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Guid</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Materials_MeshStandardMaterial_Default.md&amp;value=---%0Auid%3A%20THREE.Materials.MeshStandardMaterial.Default%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Materials/MeshStandardMaterial.cs/#L458">View Source</a>
+  </span>
+  <a id="THREE_Materials_MeshStandardMaterial_Default_" data-uid="THREE.Materials.MeshStandardMaterial.Default*"></a>
+  <h4 id="THREE_Materials_MeshStandardMaterial_Default" data-uid="THREE.Materials.MeshStandardMaterial.Default">Default()</h4>
+  <div class="markdown level1 summary"><p>Creates a MeshStandardMaterial with some default settings.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MeshStandardMaterial Default()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="THREE.Materials.MeshStandardMaterial.html">MeshStandardMaterial</a></td>
+        <td><p>An MeshStandardMaterial with default values.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Materials_MeshStandardMaterial_Equals_THREE_Materials_Material_.md&amp;value=---%0Auid%3A%20THREE.Materials.MeshStandardMaterial.Equals(THREE.Materials.Material)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Materials/MeshStandardMaterial.cs/#L504">View Source</a>
+  </span>
+  <a id="THREE_Materials_MeshStandardMaterial_Equals_" data-uid="THREE.Materials.MeshStandardMaterial.Equals*"></a>
+  <h4 id="THREE_Materials_MeshStandardMaterial_Equals_THREE_Materials_Material_" data-uid="THREE.Materials.MeshStandardMaterial.Equals(THREE.Materials.Material)">Equals(Material)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(Material other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="THREE.Materials.Material.html">Material</a></td>
+        <td><span class="parametername">other</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="THREE.Materials.Material.html#THREE_Materials_Material_Equals_THREE_Materials_Material_">Material.Equals(Material)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Materials_MeshStandardMaterial_Equals_THREE_Materials_MeshStandardMaterial_.md&amp;value=---%0Auid%3A%20THREE.Materials.MeshStandardMaterial.Equals(THREE.Materials.MeshStandardMaterial)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Materials/MeshStandardMaterial.cs/#L490">View Source</a>
+  </span>
+  <a id="THREE_Materials_MeshStandardMaterial_Equals_" data-uid="THREE.Materials.MeshStandardMaterial.Equals*"></a>
+  <h4 id="THREE_Materials_MeshStandardMaterial_Equals_THREE_Materials_MeshStandardMaterial_" data-uid="THREE.Materials.MeshStandardMaterial.Equals(THREE.Materials.MeshStandardMaterial)">Equals(MeshStandardMaterial)</h4>
+  <div class="markdown level1 summary"><p>Test to see if this material is equal to another.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(MeshStandardMaterial other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="THREE.Materials.MeshStandardMaterial.html">MeshStandardMaterial</a></td>
+        <td><span class="parametername">other</span></td>
+        <td><p>The material to test against.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if the object is equal to this one. False, otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Materials_MeshStandardMaterial_GetTextures.md&amp;value=---%0Auid%3A%20THREE.Materials.MeshStandardMaterial.GetTextures%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Materials/MeshStandardMaterial.cs/#L479">View Source</a>
+  </span>
+  <a id="THREE_Materials_MeshStandardMaterial_GetTextures_" data-uid="THREE.Materials.MeshStandardMaterial.GetTextures*"></a>
+  <h4 id="THREE_Materials_MeshStandardMaterial_GetTextures" data-uid="THREE.Materials.MeshStandardMaterial.GetTextures">GetTextures()</h4>
+  <div class="markdown level1 summary"><p>Returns material textures as a dictionary.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Dictionary&lt;string, Texture&gt; GetTextures()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.Dictionary</span>&lt;<span class="xref">System.String</span>, <a class="xref" href="THREE.Textures.Texture.html">Texture</a>&gt;</td>
+        <td><p>Dictionary with the texture type as the key. For example, &quot;AlphaMap&quot; key will have a Texture that contains an Alpha Map image.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="THREE.Core.IElement.html">IElement</a>
+  </div>
+  <div>
+      <a class="xref" href="THREE.Materials.IMaterial.html">IMaterial</a>
+  </div>
+  <div>
+      <span class="xref">System.IEquatable&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.IEquatable&lt;T&gt;</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Materials_MeshStandardMaterial.md&amp;value=---%0Auid%3A%20THREE.Materials.MeshStandardMaterial%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Materials/MeshStandardMaterial.cs/#L12" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2015-2017 Microsoft<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

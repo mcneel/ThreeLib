@@ -1,0 +1,466 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class SpotLight
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class SpotLight
+   ">
+    <meta name="generator" content="docfx 2.26.3.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="THREE.Lights.SpotLight">
+  
+  
+  <h1 id="THREE_Lights_SpotLight" data-uid="THREE.Lights.SpotLight" class="text-break">Class SpotLight
+  </h1>
+  <div class="markdown level0 summary"><p>his light gets emitted from a single point in one direction, along a cone that increases in size the further from the light it gets.
+Analogous to: <a href="https://threejs.org/docs/index.html#api/lights/SpotLight">https://threejs.org/docs/index.html#api/lights/SpotLight</a>
+Original Source: <a href="https://github.com/mrdoob/three.js/blob/master/src/lights/SpotLight.js">https://github.com/mrdoob/three.js/blob/master/src/lights/SpotLight.js</a></p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="THREE.Core.Element.html">Element</a></div>
+    <div class="level2"><a class="xref" href="THREE.Core.Object3D.html">Object3D</a></div>
+    <div class="level3"><a class="xref" href="THREE.Lights.Light.html">Light</a></div>
+    <div class="level4"><span class="xref">SpotLight</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="THREE.Lights.ILight.html">ILight</a></div>
+    <div><a class="xref" href="THREE.Core.IElement.html">IElement</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="THREE.Lights.Light.html#THREE_Lights_Light_Color">Light.Color</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Lights.Light.html#THREE_Lights_Light_Intensity">Light.Intensity</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Core.Object3D.html#THREE_Core_Object3D_Visible">Object3D.Visible</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Core.Object3D.html#THREE_Core_Object3D_CastShadow">Object3D.CastShadow</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Core.Object3D.html#THREE_Core_Object3D_ReceiveShadow">Object3D.ReceiveShadow</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Core.Object3D.html#THREE_Core_Object3D_Children">Object3D.Children</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Core.Object3D.html#THREE_Core_Object3D_Parent">Object3D.Parent</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Core.Object3D.html#THREE_Core_Object3D_UserData">Object3D.UserData</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Core.Object3D.html#THREE_Core_Object3D_Matrix">Object3D.Matrix</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Core.Object3D.html#THREE_Core_Object3D_MatrixArray">Object3D.MatrixArray</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Core.Object3D.html#THREE_Core_Object3D_Position">Object3D.Position</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Core.Object3D.html#THREE_Core_Object3D_Rotation">Object3D.Rotation</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Core.Object3D.html#THREE_Core_Object3D_Quaternion">Object3D.Quaternion</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Core.Object3D.html#THREE_Core_Object3D_Scale">Object3D.Scale</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Core.Object3D.html#THREE_Core_Object3D_UpdateMatrix">Object3D.UpdateMatrix()</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Core.Object3D.html#THREE_Core_Object3D_ShouldSerializeChildren">Object3D.ShouldSerializeChildren()</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Core.Object3D.html#THREE_Core_Object3D_Add_THREE_Core_IElement_">Object3D.Add(IElement)</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Core.Object3D.html#THREE_Core_Object3D_AddRange_System_Collections_Generic_List_THREE_Core_IElement__">Object3D.AddRange(List&lt;IElement&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Core.Object3D.html#THREE_Core_Object3D_ToJSON_System_Boolean_">Object3D.ToJSON(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Core.Element.html#THREE_Core_Element_Uuid">Element.Uuid</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Core.Element.html#THREE_Core_Element_Name">Element.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Core.Element.html#THREE_Core_Element_Type">Element.Type</a>
+    </div>
+    <div>
+      <a class="xref" href="THREE.Core.Element.html#THREE_Core_Element_SetUuid_System_Guid_">Element.SetUuid(Guid)</a>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="THREE.Lights.html">THREE.Lights</a></h6>
+  <h6><strong>Assembly</strong>: ThreeLib.dll</h6>
+  <h5 id="THREE_Lights_SpotLight_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class SpotLight : Light, ILight, IElement</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Lights_SpotLight_Angle.md&amp;value=---%0Auid%3A%20THREE.Lights.SpotLight.Angle%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Lights/SpotLight.cs/#L16">View Source</a>
+  </span>
+  <a id="THREE_Lights_SpotLight_Angle_" data-uid="THREE.Lights.SpotLight.Angle*"></a>
+  <h4 id="THREE_Lights_SpotLight_Angle" data-uid="THREE.Lights.SpotLight.Angle">Angle</h4>
+  <div class="markdown level1 summary"><p>Maximum extent of the spotlight, in radians, from its direction. Should be no more than Math.PI/2. The default is Math.PI/3. </p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;angle&quot;)]
+public float Angle { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Lights_SpotLight_Decay.md&amp;value=---%0Auid%3A%20THREE.Lights.SpotLight.Decay%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Lights/SpotLight.cs/#L28">View Source</a>
+  </span>
+  <a id="THREE_Lights_SpotLight_Decay_" data-uid="THREE.Lights.SpotLight.Decay*"></a>
+  <h4 id="THREE_Lights_SpotLight_Decay" data-uid="THREE.Lights.SpotLight.Decay">Decay</h4>
+  <div class="markdown level1 summary"><p>The amount the light dims along the distance of the light.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;decay&quot;)]
+public float Decay { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Lights_SpotLight_Distance.md&amp;value=---%0Auid%3A%20THREE.Lights.SpotLight.Distance%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Lights/SpotLight.cs/#L22">View Source</a>
+  </span>
+  <a id="THREE_Lights_SpotLight_Distance_" data-uid="THREE.Lights.SpotLight.Distance*"></a>
+  <h4 id="THREE_Lights_SpotLight_Distance" data-uid="THREE.Lights.SpotLight.Distance">Distance</h4>
+  <div class="markdown level1 summary"><p>If non-zero, light will attenuate linearly from maximum intensity at the light&apos;s position down to zero at this distance from the light.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;distance&quot;)]
+public float Distance { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Lights_SpotLight_Penumbra.md&amp;value=---%0Auid%3A%20THREE.Lights.SpotLight.Penumbra%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Lights/SpotLight.cs/#L34">View Source</a>
+  </span>
+  <a id="THREE_Lights_SpotLight_Penumbra_" data-uid="THREE.Lights.SpotLight.Penumbra*"></a>
+  <h4 id="THREE_Lights_SpotLight_Penumbra" data-uid="THREE.Lights.SpotLight.Penumbra">Penumbra</h4>
+  <div class="markdown level1 summary"><p>Percent of the spotlight cone that is attenuated due to penumbra. Takes values between zero and 1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;penumbra&quot;)]
+public float Penumbra { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Lights_SpotLight_Power.md&amp;value=---%0Auid%3A%20THREE.Lights.SpotLight.Power%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Lights/SpotLight.cs/#L40">View Source</a>
+  </span>
+  <a id="THREE_Lights_SpotLight_Power_" data-uid="THREE.Lights.SpotLight.Power*"></a>
+  <h4 id="THREE_Lights_SpotLight_Power" data-uid="THREE.Lights.SpotLight.Power">Power</h4>
+  <div class="markdown level1 summary"><p>The light&apos;s power.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;power&quot;)]
+public float Power { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Lights_SpotLight_Shadow.md&amp;value=---%0Auid%3A%20THREE.Lights.SpotLight.Shadow%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Lights/SpotLight.cs/#L52">View Source</a>
+  </span>
+  <a id="THREE_Lights_SpotLight_Shadow_" data-uid="THREE.Lights.SpotLight.Shadow*"></a>
+  <h4 id="THREE_Lights_SpotLight_Shadow" data-uid="THREE.Lights.SpotLight.Shadow">Shadow</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;shadow&quot;)]
+public SpotLightShadow Shadow { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="THREE.Lights.SpotLightShadow.html">SpotLightShadow</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Lights_SpotLight_Target.md&amp;value=---%0Auid%3A%20THREE.Lights.SpotLight.Target%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Lights/SpotLight.cs/#L46">View Source</a>
+  </span>
+  <a id="THREE_Lights_SpotLight_Target_" data-uid="THREE.Lights.SpotLight.Target*"></a>
+  <h4 id="THREE_Lights_SpotLight_Target" data-uid="THREE.Lights.SpotLight.Target">Target</h4>
+  <div class="markdown level1 summary"><p>The Spotlight points from its position to target.position.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;target&quot;)]
+public Object3D Target { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="THREE.Core.Object3D.html">Object3D</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="THREE.Lights.ILight.html">ILight</a>
+  </div>
+  <div>
+      <a class="xref" href="THREE.Core.IElement.html">IElement</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/mcneel/ThreeLib/new/dev-docfx/apiSpec/new?filename=THREE_Lights_SpotLight.md&amp;value=---%0Auid%3A%20THREE.Lights.SpotLight%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/mcneel/ThreeLib/blob/dev-docfx/src/THREE/Lights/SpotLight.cs/#L11" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2015-2017 Microsoft<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
