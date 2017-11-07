@@ -1,8 +1,9 @@
 ﻿using Newtonsoft.Json;
 using System;
 using THREE;
+using THREE.Core;
 
-namespace THREE
+namespace THREE.Geometries
 {
     /// <summary>
     /// A class for generating sphere geometries.

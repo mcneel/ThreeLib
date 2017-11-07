@@ -1,7 +1,9 @@
 ﻿using Newtonsoft.Json;
 using System;
+using THREE.Core;
+using THREE.Materials;
 
-namespace THREE
+namespace THREE.Objects
 {
     /// <summary>
     /// 

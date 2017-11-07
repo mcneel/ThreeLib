@@ -1,8 +1,7 @@
-﻿
+﻿using Newtonsoft.Json;
+using THREE.Core;
 
-using Newtonsoft.Json;
-
-namespace THREE
+namespace THREE.Lights
 {
     /// <summary>
     /// his light gets emitted from a single point in one direction, along a cone that increases in size the further from the light it gets.

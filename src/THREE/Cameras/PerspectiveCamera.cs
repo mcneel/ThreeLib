@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace THREE
+namespace THREE.Cameras
 {
     /// <summary>
     /// Camera that uses perspective projection.

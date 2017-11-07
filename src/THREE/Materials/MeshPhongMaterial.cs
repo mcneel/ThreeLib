@@ -1,7 +1,8 @@
 ﻿using Newtonsoft.Json;
 using System;
+using THREE.Textures;
 
-namespace THREE
+namespace THREE.Materials
 {
     public class MeshPhongMaterial : Material, IEquatable<MeshPhongMaterial>
     {

@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace THREE
+namespace THREE.Core
 {
     public class BufferGeometry : IGeometry
     {

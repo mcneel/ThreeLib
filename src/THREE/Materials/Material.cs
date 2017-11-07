@@ -3,8 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using THREE.Core;
 
-namespace THREE
+namespace THREE.Materials
 {
     /// <summary>
     /// 

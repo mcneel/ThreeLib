@@ -3,8 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using THREE.Utility;
 
-namespace THREE
+namespace THREE.Core
 {
     /// <summary>
     /// Base class for all geometries. 

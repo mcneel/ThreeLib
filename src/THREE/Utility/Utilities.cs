@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace THREE
+namespace THREE.Utility
 {
     internal class Utilities
     {
@@ -10,7 +10,7 @@ namespace THREE
             var numbers = new List<object>();
             foreach (float f in floats)
             {
-                if (Math.Abs(f - Math.Floor(f)) <= float.Epsilon)
+                if (System.Math.Abs(f - System.Math.Floor(f)) <= float.Epsilon)
                 {
                     numbers.Add(Convert.ToInt16(f));
                 }

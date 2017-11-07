@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 
-namespace THREE
+namespace THREE.Textures
 {
     public class Image: IEquatable<Image>
     {
