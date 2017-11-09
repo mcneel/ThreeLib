@@ -6,7 +6,7 @@
         <title>ThreeLib</title>
         <authors>Robert McNeel and Associates</authors>
         <copyright>Copyright (c) 2017 Robert McNeel and Associates</copyright>
-        <tags>three.js, csharp, library, rhino3d, json</tags>
+        <tags>three.js csharp rhino3d json</tags>
         <licenseUrl>https://github.com/mcneel/ThreeLib/blob/master/LICENSE</licenseUrl>
         <projectUrl>https://github.com/mcneel/ThreeLib</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>

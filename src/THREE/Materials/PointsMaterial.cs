@@ -1,7 +1,8 @@
 ﻿using Newtonsoft.Json;
 using System;
+using THREE.Textures;
 
-namespace THREE
+namespace THREE.Materials
 {
     /// <summary>
     /// Analogous to https://github.com/mrdoob/three.js/blob/master/src/materials/PointsMaterial.js

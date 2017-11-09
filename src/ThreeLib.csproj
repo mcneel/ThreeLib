@@ -7,11 +7,13 @@
     <ProjectGuid>{47658F27-9658-4941-91CE-E767F8770641}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ThreeLib</RootNamespace>
+    <RootNamespace>THREE</RootNamespace>
     <AssemblyName>ThreeLib</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\ThreeLib.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -44,6 +47,7 @@
     <Compile Include="THREE\Core\BufferAttribute.cs" />
     <Compile Include="THREE\Core\BufferGeometry.cs" />
     <Compile Include="THREE\Core\Element.cs" />
+    <Compile Include="THREE\Geometries\SphereGeometry.cs" />
     <Compile Include="THREE\Lights\AmbientLight.cs" />
     <Compile Include="THREE\Lights\DirectionalLight.cs" />
     <Compile Include="THREE\Lights\DirectionalLightShadow.cs" />
@@ -65,7 +69,7 @@
     <Compile Include="THREE\Math\Matrix4.cs" />
     <Compile Include="THREE\Math\Quaternion.cs" />
     <Compile Include="THREE\Math\Vector3.cs" />
-    <Compile Include="THREE\Objects\IGeometry.cs" />
+    <Compile Include="THREE\Core\IGeometry.cs" />
     <Compile Include="THREE\Core\Geometry.cs" />
     <Compile Include="THREE\Objects\Group.cs" />
     <Compile Include="THREE\Objects\Line.cs" />

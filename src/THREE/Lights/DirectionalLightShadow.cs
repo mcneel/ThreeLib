@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
+using THREE.Cameras;
 
-namespace THREE
+namespace THREE.Lights
 {
     /// <summary>
     /// Analogous to: https://threejs.org/docs/index.html#api/lights/shadows/DirectionalLightShadow

@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
+using THREE.Cameras;
 
-namespace THREE
+namespace THREE.Lights
 {
     /// <summary>
     /// 

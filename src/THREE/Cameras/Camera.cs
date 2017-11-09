@@ -1,6 +1,8 @@
 ﻿using Newtonsoft.Json;
+using THREE.Core;
+using THREE.Math;
 
-namespace THREE
+namespace THREE.Cameras
 {
     /// <summary>
     /// Abstract base class for cameras. This class should always be inherited when you build a new camera. 

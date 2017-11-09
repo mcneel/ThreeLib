@@ -1,7 +1,7 @@
-﻿using Newtonsoft.Json;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using THREE.Utility;
 
-namespace THREE
+namespace THREE.Math
 {
     /// <summary>
     /// A class representing a 4x4 matrix.

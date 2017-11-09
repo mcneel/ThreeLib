@@ -1,4 +1,4 @@
-﻿namespace THREE
+﻿namespace THREE.Lights
 {
     /// <summary>
     /// This light globally illuminates all objects in the scene equally.

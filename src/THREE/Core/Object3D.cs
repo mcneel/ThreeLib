@@ -1,8 +1,12 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Diagnostics;
+using THREE.Materials;
+using THREE.Math;
+using THREE.Objects;
+using THREE.Utility;
 
-namespace THREE
+namespace THREE.Core
 {
     /// <summary>
     /// Base class for all objects. Analogous to https://threejs.org/docs/index.html#api/core/Object3D
@@ -61,7 +65,8 @@ namespace THREE
         public Vector3 Position { get { return Position; } set { Matrix.SetPosition(value); } }
 
         [JsonIgnore]
-        public Euler Rotation { get; set; }
+        public Euler Rotation
+        { get; set; }
 
         [JsonIgnore]
         public Quaternion Quaternion { get; set; }

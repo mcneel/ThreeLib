@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
+using THREE.Core;
 
-namespace THREE
+namespace THREE.Lights
 {
     /// <summary>
     /// Base interface for light objects.

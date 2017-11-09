@@ -3,8 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using THREE.Utility;
 
-namespace THREE
+namespace THREE.Core
 {
     /// <summary>
     /// Base class for all geometries. 
@@ -298,6 +299,11 @@ namespace THREE
             };
 
             return JsonConvert.SerializeObject(serializationAdaptor, format == true ? Formatting.Indented : Formatting.None, new JsonSerializerSettings { DefaultValueHandling = DefaultValueHandling.Ignore, NullValueHandling = NullValueHandling.Ignore });
+        }
+
+        public bool ShouldSerializeData()
+        {
+            return Data.Vertices.Count > 0;
         }
 
     }

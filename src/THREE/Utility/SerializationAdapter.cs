@@ -1,7 +1,9 @@
 ﻿using Newtonsoft.Json;
-using System.Collections.Generic;
+using THREE.Core;
+using THREE.Materials;
+using THREE.Textures;
 
-namespace THREE
+namespace THREE.Utility
 {
     public abstract class SerializationAdaptor
     {
