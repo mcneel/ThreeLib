@@ -41,7 +41,8 @@ artifacts:
   - path: .\src\bin\Release\ThreeLib.dll
   - path: .\src\bin\Release\ThreeLib.pdb
   - path: .\src\bin\Release\ThreeLib.xml
-  - path: .\src\docgen\docs
+  - path: .\src\docgen\docs\Home.md
+  - path: .\src\docgen\docs\
     name: docs
   - path: '*.nupkg'
     name: nugetpackage
