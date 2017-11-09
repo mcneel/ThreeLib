@@ -54,7 +54,7 @@ after_deploy:
   - ps: cd docs
   - Start-FileDownload 'https://github.com/mcneel/ThreeLib/releases/download/1.0.170/Home.md'
   - git commit "docs commit"
-  - git push
+  - git push origin gh-pages
 
 on_success:
   - echo Hello on Success
