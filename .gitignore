@@ -6,4 +6,3 @@ obj/
 *.refsignored
 .gitattributes
 *.nupkg
-*.exe
