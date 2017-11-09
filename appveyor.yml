@@ -50,7 +50,7 @@ deploy:
     api_key:
       secure: 7VFQFZaH5AKQsOF9Vsjq19s97afV+/9kq4SAyCoyJP5KnT3gro3f9Vqh2txUB4+X
     artifact: nugetpackage
-  - provider: Github
+  - provider: GitHub
     auth_token:
       secure: fN1gPfV1hJKK/Xe2NqW/YG9xr/QXzURGC60C35jdhPE2vzv++Hg12sGgVjvDL/V7
     artifact: '*.md'
