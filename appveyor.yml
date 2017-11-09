@@ -38,7 +38,10 @@ after_build:
   - '%APPVEYOR_BUILD_FOLDER%\src\docgen\MarkdownGenerator.exe %APPVEYOR_BUILD_FOLDER%\src\bin\%CONFIGURATION%\ThreeLib.dll %APPVEYOR_BUILD_FOLDER%\src\docgen\docs'
 
 after_deploy:
-  - CMD: ECHO %APPVEYOR_BUILD_FOLDER%
+  - echo Hello after deploy
+
+on_success:
+  - echo Hello on Success
   
 artifacts:
   - path: .\src\bin\Release\ThreeLib.dll
