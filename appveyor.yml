@@ -37,8 +37,24 @@ after_build:
   - ps: nuget pack .\src\ThreeLib.csproj -Version $env:appveyor_build_version
   - '%APPVEYOR_BUILD_FOLDER%\src\docgen\MarkdownGenerator.exe %APPVEYOR_BUILD_FOLDER%\src\bin\%CONFIGURATION%\ThreeLib.dll %APPVEYOR_BUILD_FOLDER%\src\docgen\docs'
 
+environment:
+  access_token:
+    secure: fN1gPfV1hJKK/Xe2NqW/YG9xr/QXzURGC60C35jdhPE2vzv++Hg12sGgVjvDL/V7
+  email:
+    secure: TLIb25uvIfWDSHxTCa98IgkTG+JyVHdr0w6YKQDH4fU=
+  name:
+    secure: 4Tmu63pG75CB2ftIrSaD4w==
+
 after_deploy:
-  - echo Hello after deploy
+  - git config --global credential.helper store
+  - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
+  - git config --global user.email "$env:email"
+  - git config --global user.name "$env:name"
+  - git checkout gh-pages
+  - ps: cd docs
+  - Start-FileDownload 'https://github.com/mcneel/ThreeLib/releases/download/1.0.170/Home.md'
+  - git commit "docs commit"
+  - git push
 
 on_success:
   - echo Hello on Success
