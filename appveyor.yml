@@ -53,9 +53,19 @@ after_deploy:
   - git reset --hard origin/master
   - git checkout gh-pages
   - ps: cd docs
-  - ps: Start-FileDownload 'https://github.com/mcneel/ThreeLib/blob/master/src/docgen/docs/Home.md'
+  - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/ThreeLib/artifacts/HOME.md'
+  - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/ThreeLib/artifacts/THREE.Cameras.md'
+  - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/ThreeLib/artifacts/THREE.Core.md'
+  - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/ThreeLib/artifacts/THREE.Geometries.md'
+  - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/ThreeLib/artifacts/THREE.Lights.md'
+  - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/ThreeLib/artifacts/THREE.Materials.md'
+  - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/ThreeLib/artifacts/THREE.Math.md'
+  - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/ThreeLib/artifacts/THREE.Objects.md'
+  - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/ThreeLib/artifacts/THREE.Textures.md'
+  - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/ThreeLib/artifacts/THREE.Utility.md'
+  - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/ThreeLib/artifacts/THREE.md'
   - git add --all
-  - git commit -m "docs commit"
+  - git commit -m "docs commit $(appveyor_build_version)"
   - git push origin gh-pages
 
 on_success:
