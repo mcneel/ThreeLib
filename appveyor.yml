@@ -55,5 +55,5 @@ deploy:
   provider: Github
   auth_token:
     secure: fN1gPfV1hJKK/Xe2NqW/YG9xr/QXzURGC60C35jdhPE2vzv++Hg12sGgVjvDL/V7
-  artifact: *.md
+  artifact: '*.md'
 
