@@ -50,6 +50,7 @@ after_deploy:
   - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
   - git config --global user.email "$env:email"
   - git config --global user.name "$env:name"
+  - git reset --hard origin/master
   - git checkout gh-pages
   - ps: cd docs
   - Start-FileDownload 'https://github.com/mcneel/ThreeLib/releases/download/1.0.170/Home.md'
