@@ -54,7 +54,8 @@ after_deploy:
   - git checkout gh-pages
   - ps: cd docs
   - ps: Start-FileDownload 'https://github.com/mcneel/ThreeLib/blob/master/src/docgen/docs/Home.md'
-  - git commit "docs commit"
+  - git add --all
+  - git commit -m "docs commit"
   - git push origin gh-pages
 
 on_success:
