@@ -44,6 +44,7 @@ environment:
     secure: TLIb25uvIfWDSHxTCa98IgkTG+JyVHdr0w6YKQDH4fU=
   name:
     secure: 4Tmu63pG75CB2ftIrSaD4w==
+  version: "{version}"
 
 after_deploy:
   - git config --global credential.helper store
@@ -65,7 +66,7 @@ after_deploy:
   - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/threelib/artifacts/src/docgen/docs/THREE.Utility.md'
   - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/threelib/artifacts/src/docgen/docs/THREE.md'
   - git add *.md
-  - git commit -m "docs commit $($env:appveyor_build_version)"
+  - git commit -m "docs commit $env:version"
   - git clean -f
   - git push origin gh-pages
 
