@@ -88,11 +88,11 @@ Properties
 
 | Type | Name | Summary | 
 | --- | --- | --- | 
-| `List<Int32>` | Colors |  | 
-| `List<Int32>` | Faces |  | 
-| `List<Single>` | Normals |  | 
+| `List<Int32>` | Colors | List of colors for this geometry. | 
+| `List<Int32>` | Faces | List of faces for this geometry. | 
+| `List<Single>` | Normals | List of normals for this geometry. | 
 | `List<List<Single>>` | Uvs | The list of UVs associated with this geometry. | 
-| `List<Single>` | Vertices |  | 
+| `List<Single>` | Vertices | List of vertices for this geometry. | 
 
 
 Methods
