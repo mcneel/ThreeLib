@@ -21,7 +21,7 @@ namespace THREE.Core
         GeometryData Data { get; set; }
 
         /// <summary>
-        /// 
+        /// List of vertices for this geometry.
         /// </summary>
         [JsonIgnore]
         public List<float> Vertices
@@ -31,7 +31,7 @@ namespace THREE.Core
         }
 
         /// <summary>
-        /// 
+        /// List of colors for this geometry.
         /// </summary>
         [JsonIgnore]
         public List<int> Colors
@@ -41,7 +41,7 @@ namespace THREE.Core
         }
 
         /// <summary>
-        /// 
+        /// List of faces for this geometry.
         /// </summary>
         [JsonIgnore]
         public List<int> Faces
@@ -51,7 +51,7 @@ namespace THREE.Core
         }
 
         /// <summary>
-        /// 
+        /// List of normals for this geometry.
         /// </summary>
         [JsonIgnore]
         public List<float> Normals
