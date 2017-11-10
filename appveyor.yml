@@ -53,6 +53,7 @@ after_deploy:
   - git config --global user.name "$env:name"
   - git reset --hard origin/master
   - git checkout gh-pages
+  - ps: new-item -Name docs -ItemType directory
   - ps: cd docs
   - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/threelib/artifacts/src/docgen/docs/Home.md'
   - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/threelib/artifacts/src/docgen/docs/THREE.Cameras.md'
