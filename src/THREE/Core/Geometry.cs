@@ -8,8 +8,8 @@ using THREE.Utility;
 namespace THREE.Core
 {
     /// <summary>
-    /// Base class for all geometries. 
-    /// Analogous to https://threejs.org/docs/index.html#api/core/Geometry
+    /// Base class for all geometries. \n
+    /// Analogous to https://threejs.org/docs/index.html#api/core/Geometry \n
     /// Design based on need for Three.js Loaders.
     /// </summary>
     public class Geometry : Object3D, IGeometry, IEquatable<Geometry>
@@ -211,10 +211,10 @@ namespace THREE.Core
         }
 
         /// <summary>
-        /// 
+        /// Utility method for flattening a List of float[].
         /// </summary>
-        /// <param name="vertices"></param>
-        /// <returns></returns>
+        /// <param name="vertices">The list to flatten.</param>
+        /// <returns>A list of float.</returns>
         public static List<float> ProcessVertexArray(List<float[]> vertices)
         {
             var Vertices = new List<float>();
@@ -230,10 +230,10 @@ namespace THREE.Core
         }
 
         /// <summary>
-        /// 
+        /// Flatten a List of float[].
         /// </summary>
-        /// <param name="normals"></param>
-        /// <returns></returns>
+        /// <param name="normals">The list to flatten.</param>
+        /// <returns>A list of float.</returns>
         public static List<float> ProcessNormalArray(List<float[]> normals)
         {
             var Normals = new List<float>();
@@ -265,12 +265,23 @@ namespace THREE.Core
                        Data.Vertices.SequenceEqual(other.Data.Vertices);
         }
 
+        /// <summary>
+        /// Check if this geometry equals another comparing them as objects.
+        /// </summary>
+        /// <param name="other">The other object to compare.</param>
+        /// <returns></returns>
         public override bool Equals(object other)
         {
             if (other.GetType() == typeof(Geometry)) return Equals((Geometry)other) && base.Equals(other);
             else return false;
         }
 
+        /// <summary>
+        /// Override of the == operator.
+        /// </summary>
+        /// <param name="a">The first geometry.</param>
+        /// <param name="b">The second geometry.</param>
+        /// <returns>True if geometries are equal, false if not.</returns>
         public static bool operator ==(Geometry a, Geometry b)
         {
             bool ba = ReferenceEquals(null, a);
@@ -280,16 +291,31 @@ namespace THREE.Core
             else return false; //one of them is null, thus they are not equal
         }
 
+        /// <summary>
+        /// Override the != operator.
+        /// </summary>
+        /// <param name="a">The first geometry.</param>
+        /// <param name="b">The second geometry.</param>
+        /// <returns>False if geometries are equal, true if not.</returns>
         public static bool operator !=(Geometry a, Geometry b)
         {
             return !(a == b);
         }
 
+        /// <summary>
+        /// Override of the GetHashCode function.
+        /// </summary>
+        /// <returns>A hashcode of the combined vertices, colors, faces, Uvs, and Normals.</returns>
         public override int GetHashCode()
         {
             return Vertices.GetHashCode() ^ Colors.GetHashCode() ^ Faces.GetHashCode() ^ Uvs.GetHashCode() ^ Normals.GetHashCode();
         }
 
+        /// <summary>
+        /// Convert this geometry to json format.
+        /// </summary>
+        /// <param name="format">True will result in formatted json, false will result in an unformatted json string.</param>
+        /// <returns>The geometry as json.</returns>
         public override string ToJSON(bool format)
         {
 
@@ -301,6 +327,10 @@ namespace THREE.Core
             return JsonConvert.SerializeObject(serializationAdaptor, format == true ? Formatting.Indented : Formatting.None, new JsonSerializerSettings { DefaultValueHandling = DefaultValueHandling.Ignore, NullValueHandling = NullValueHandling.Ignore });
         }
 
+        /// <summary>
+        /// Check to determine whether the Data object on this geometry should be serialized. If the vertices array is empty, then this will not be serialized. This was added to support parameter based geometry such as SphereGeometry.
+        /// </summary>
+        /// <returns>True if Geometry contains vertices, false if not.</returns>
         public bool ShouldSerializeData()
         {
             return Data.Vertices.Count > 0;
