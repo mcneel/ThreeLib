@@ -65,7 +65,7 @@ after_deploy:
   - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/threelib/artifacts/src/docgen/docs/THREE.Utility.md'
   - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/threelib/artifacts/src/docgen/docs/THREE.md'
   - git add --all
-  - git commit -m "docs commit $(appveyor_build_version)"
+  - git commit -m "docs commit $env:appveyor_build_version"
   - git push origin gh-pages
 
 on_success:
