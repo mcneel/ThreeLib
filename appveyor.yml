@@ -44,7 +44,7 @@ environment:
     secure: TLIb25uvIfWDSHxTCa98IgkTG+JyVHdr0w6YKQDH4fU=
   name:
     secure: 4Tmu63pG75CB2ftIrSaD4w==
-  version: "{version}"
+  version: %APPVEYOR_BUILD_VERSION%
 
 after_deploy:
   - git config --global credential.helper store
@@ -63,6 +63,7 @@ after_deploy:
         git commit -m "delete docs"
         git push origin gh-pages -f
       }
+      echo $PWD
   - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/threelib/artifacts/src/docgen/docs/Home.md'
   - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/threelib/artifacts/src/docgen/docs/THREE.Cameras.md'
   - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/threelib/artifacts/src/docgen/docs/THREE.Core.md'
@@ -75,7 +76,7 @@ after_deploy:
   - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/threelib/artifacts/src/docgen/docs/THREE.Utility.md'
   - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/threelib/artifacts/src/docgen/docs/THREE.md'
   - git add *.md
-  - git commit -m "$env:version"
+  - ps: git commit -m "$env:version"
   - git clean -f
   - git push origin gh-pages -f
 
