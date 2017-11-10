@@ -72,7 +72,7 @@ after_deploy:
   - git add *.md
   - git commit -m "$env:version"
   - git clean -f
-  - git push origin gh-pages
+  - git push origin gh-pages -f
 
 on_success:
   - echo Hello on Success
