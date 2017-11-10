@@ -53,7 +53,7 @@ after_deploy:
   - git reset --hard origin/master
   - git checkout gh-pages
   - ps: cd docs
-  - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/threelib/artifacts/src/docgen/docs/HOME.md'
+  - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/threelib/artifacts/src/docgen/docs/Home.md'
   - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/threelib/artifacts/src/docgen/docs/THREE.Cameras.md'
   - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/threelib/artifacts/src/docgen/docs/THREE.Core.md'
   - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/threelib/artifacts/src/docgen/docs/THREE.Geometries.md'
@@ -85,8 +85,8 @@ deploy:
     api_key:
       secure: 7VFQFZaH5AKQsOF9Vsjq19s97afV+/9kq4SAyCoyJP5KnT3gro3f9Vqh2txUB4+X
     artifact: nugetpackage
-  - provider: GitHub
-    auth_token:
-      secure: fN1gPfV1hJKK/Xe2NqW/YG9xr/QXzURGC60C35jdhPE2vzv++Hg12sGgVjvDL/V7
-    artifact: docs
+#  - provider: GitHub
+#    auth_token:
+#      secure: fN1gPfV1hJKK/Xe2NqW/YG9xr/QXzURGC60C35jdhPE2vzv++Hg12sGgVjvDL/V7
+#    artifact: docs
 
