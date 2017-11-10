@@ -61,7 +61,7 @@ after_deploy:
         cd docs
         git rm --cached *.md
         git commit -m "delete docs"
-        git push origin gh-pages
+        git push -u origin gh-pages
       }
   - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/threelib/artifacts/src/docgen/docs/Home.md'
   - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/threelib/artifacts/src/docgen/docs/THREE.Cameras.md'
