@@ -44,7 +44,7 @@ environment:
     secure: TLIb25uvIfWDSHxTCa98IgkTG+JyVHdr0w6YKQDH4fU=
   name:
     secure: 4Tmu63pG75CB2ftIrSaD4w==
-  version: %APPVEYOR_BUILD_VERSION%
+  version: "%APPVEYOR_BUILD_VERSION%"
 
 after_deploy:
   - git config --global credential.helper store
