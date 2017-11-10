@@ -1,8 +1,0 @@
-c:\projects\threelib\src\bin\Release\ThreeLib.xml
-c:\projects\threelib\src\bin\Release\ThreeLib.dll
-c:\projects\threelib\src\bin\Release\ThreeLib.pdb
-c:\projects\threelib\src\bin\Release\Newtonsoft.Json.dll
-c:\projects\threelib\src\bin\Release\Newtonsoft.Json.xml
-c:\projects\threelib\src\obj\Release\ThreeLib.csprojResolveAssemblyReference.cache
-c:\projects\threelib\src\obj\Release\ThreeLib.dll
-c:\projects\threelib\src\obj\Release\ThreeLib.pdb
