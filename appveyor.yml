@@ -44,7 +44,6 @@ environment:
     secure: TLIb25uvIfWDSHxTCa98IgkTG+JyVHdr0w6YKQDH4fU=
   name:
     secure: 4Tmu63pG75CB2ftIrSaD4w==
-  wikirepo: https://github.com/McNeel/threelib.wiki.git
   version: "%APPVEYOR_BUILD_VERSION%"
 
 on_success:
@@ -62,7 +61,7 @@ on_success:
       }
   - git clone https://github.com/McNeel/threelib.wiki.git
   - ps: cd threelib.wiki
-  - git rm --cached *.md
+  - git rm *.md
   - git commit -m "delete docs"
   - git push -u origin master
   - ps: >-
@@ -79,6 +78,7 @@ on_success:
   - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/threelib/artifacts/src/docgen/docs/THREE.Utility.md'
   - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/threelib/artifacts/src/docgen/docs/THREE.md'
   - ps: Rename-Item -Path "Home.md" -NewName "_Sidebar.md"
+  - ps: New-Item "Home.md" -type file -value "Welcome to the ThreeLib Wiki. Navigate the API Reference with the sidebar ->"
   - git add *.md
   - ps: git commit -m "$env:version"
   - git clean -f
