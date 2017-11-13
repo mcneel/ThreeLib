@@ -60,7 +60,7 @@ on_success:
       } Else {
         cd docs
       }
-  - git clone "$env:wikirepo"
+  - git clone https://github.com/McNeel/threelib.wiki.git
   - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/threelib/artifacts/src/docgen/docs/Home.md'
   - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/threelib/artifacts/src/docgen/docs/THREE.Cameras.md'
   - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/threelib/artifacts/src/docgen/docs/THREE.Core.md'
