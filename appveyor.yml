@@ -47,7 +47,7 @@ environment:
   wikirepo: https://github.com/McNeel/threelib.wiki.git
   version: "%APPVEYOR_BUILD_VERSION%"
 
-after_deploy:
+on_success:
   - git config --global credential.helper store
   - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
   - git config --global user.email "$env:email"
@@ -77,8 +77,8 @@ after_deploy:
   - git clean -f
   - git push origin master -f
 
-on_success:
-  - echo Hello on Success
+#on_success:
+#  - echo Hello on Success
   
 artifacts:
   - path: .\src\bin\Release\ThreeLib.dll
