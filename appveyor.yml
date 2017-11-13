@@ -61,8 +61,10 @@ on_success:
         cd docs
       }
   - git clone https://github.com/McNeel/threelib.wiki.git
-  - ps: >-
-      dir -r  | % { if ($_.PsIsContainer) { $_.FullName + "\" } else { $_.FullName } }
+  - ps: cd threelib.wiki
+  - git rm --cached *.md
+  - git commit -m "delete docs"
+  - git push -u origin master
   - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/threelib/artifacts/src/docgen/docs/Home.md'
   - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/threelib/artifacts/src/docgen/docs/THREE.Cameras.md'
   - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/threelib/artifacts/src/docgen/docs/THREE.Core.md'
