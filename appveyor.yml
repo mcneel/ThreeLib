@@ -76,6 +76,7 @@ on_success:
   - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/threelib/artifacts/src/docgen/docs/THREE.Textures.md'
   - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/threelib/artifacts/src/docgen/docs/THREE.Utility.md'
   - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/threelib/artifacts/src/docgen/docs/THREE.md'
+  - ps: Rename-Item -Path "Home.md" -NewName "_Sidebar.md"
   - git add *.md
   - ps: git commit -m "$env:version"
   - git clean -f
