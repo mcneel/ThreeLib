@@ -11,7 +11,7 @@ namespace THREE.Lights
     public class DirectionalLight : Light
     {
         /// <summary>
-        /// 
+        /// The directional light shadow object.
         /// </summary>
         [JsonProperty("shadow")]
         public DirectionalLightShadow Shadow { get; set; }

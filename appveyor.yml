@@ -44,6 +44,7 @@ environment:
     secure: TLIb25uvIfWDSHxTCa98IgkTG+JyVHdr0w6YKQDH4fU=
   name:
     secure: 4Tmu63pG75CB2ftIrSaD4w==
+  wikirepo: https://github.com/McNeel/threelib.wiki.git
   version: "%APPVEYOR_BUILD_VERSION%"
 
 after_deploy:
@@ -52,17 +53,14 @@ after_deploy:
   - git config --global user.email "$env:email"
   - git config --global user.name "$env:name"
   - git reset --hard origin/master
-  - git checkout gh-pages
   - ps: >-
       If(!(Test-Path docs)){
         new-item -Name docs -ItemType directory
         cd docs
       } Else {
         cd docs
-        git rm --cached *.md
-        git commit -m "delete docs"
-        git push -u origin gh-pages
       }
+  - git clone "$env:wikirepo"
   - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/threelib/artifacts/src/docgen/docs/Home.md'
   - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/threelib/artifacts/src/docgen/docs/THREE.Cameras.md'
   - ps: Start-FileDownload 'https://ci.appveyor.com/api/projects/fraguada/threelib/artifacts/src/docgen/docs/THREE.Core.md'
@@ -77,7 +75,7 @@ after_deploy:
   - git add *.md
   - ps: git commit -m "$env:version"
   - git clean -f
-  - git push origin gh-pages -f
+  - git push origin master -f
 
 on_success:
   - echo Hello on Success
@@ -91,11 +89,11 @@ artifacts:
   - path: '*.nupkg'
     name: nugetpackage
   
-deploy:
-  - provider: NuGet
-    api_key:
-      secure: 7VFQFZaH5AKQsOF9Vsjq19s97afV+/9kq4SAyCoyJP5KnT3gro3f9Vqh2txUB4+X
-    artifact: nugetpackage
+#deploy:
+#  - provider: NuGet
+#    api_key:
+#      secure: 7VFQFZaH5AKQsOF9Vsjq19s97afV+/9kq4SAyCoyJP5KnT3gro3f9Vqh2txUB4+X
+#    artifact: nugetpackage
 #  - provider: GitHub
 #    auth_token:
 #      secure: fN1gPfV1hJKK/Xe2NqW/YG9xr/QXzURGC60C35jdhPE2vzv++Hg12sGgVjvDL/V7

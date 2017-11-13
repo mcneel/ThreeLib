@@ -47,7 +47,7 @@ namespace THREE.Lights
         public Object3D Target { get; set; }
 
         /// <summary>
-        /// 
+        /// Spotlight shadow object.
         /// </summary>
         [JsonProperty("shadow")]
         public SpotLightShadow Shadow { get; set; }

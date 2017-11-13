@@ -22,7 +22,7 @@ namespace THREE.Materials
         public float LineWidth { get; set; }
 
         /// <summary>
-        /// 
+        /// The type of capping for the line.
         /// </summary>
         [JsonProperty("linecap")]
         public string LineCap { get; set; }

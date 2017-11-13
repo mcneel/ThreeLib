@@ -38,14 +38,5 @@ namespace THREE.Core
             Type = GetType().Name;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="uuid"></param>
-        public void SetUuid(Guid uuid)
-        {
-            Uuid = uuid;
-        }
-
     }
 }
