@@ -1,6 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using THREE;
+using THREE.Core;
+using THREE.Geometries;
+using THREE.Lights;
+using THREE.Materials;
+using THREE.Math;
+using THREE.Objects;
 
 namespace Sample
 {
