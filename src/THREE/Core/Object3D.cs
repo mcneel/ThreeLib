@@ -153,19 +153,22 @@ namespace THREE.Core
             return JsonConvert.SerializeObject(SerializationAdaptor, format ==true ? Formatting.Indented : Formatting.None, new JsonSerializerSettings { DefaultValueHandling = DefaultValueHandling.Ignore, NullValueHandling = NullValueHandling.Ignore });
         }
 
-        internal void ProcessChildren(Group group = null)
+        internal void ProcessChildren(Object3D obj = null)
         {
             var children = new List<IElement>();
 
-            if (group == null)
+            if (obj == null)
                 children = Children;
             else
             {
-                children = group.Children;
-                if (!(group.Parent is Group) && group.Parent.Parent == null)
-                {
-                    SerializationAdaptor.Object.Children.Add(group);
-                }
+                children = obj.Children;
+
+                if (obj is Group)
+                    if (!(obj.Parent is Group) && obj.Parent.Parent == null)
+                        SerializationAdaptor.Object.Children.Add(obj);
+                else
+                    if (obj.Parent.Parent == null)
+                        SerializationAdaptor.Object.Children.Add(obj);
             }
 
             foreach (var child in children)
@@ -187,9 +190,9 @@ namespace THREE.Core
                         currentGeo.Uuid = geoId;
                     }
 
-                    if(child.GetType().GetProperty("Children") != null)
+                    if (child.GetType().GetProperty("Children").GetValue(child, null) is List<IElement> objChildren && objChildren.Count > 0)
                     {
-                        (child as Object3D).ProcessChildren();
+                        ProcessChildren(child as Object3D);
                     }
 
                     switch ((child as Element).Type)
@@ -205,21 +208,15 @@ namespace THREE.Core
                                 foreach (var kvp in material.GetTextures())
                                     if (kvp.Value != null)
                                     {
-                                        var imageId = SerializationAdaptor.Images.AddIfNew(kvp.Value.Image);
-
-                                        kvp.Value.Image.Uuid = imageId;
-
-                                        var textureId = SerializationAdaptor.Textures.AddIfNew(kvp.Value);
-
-                                        kvp.Value.Uuid = textureId;
-
+                                        kvp.Value.Image.Uuid = SerializationAdaptor.Images.AddIfNew(kvp.Value.Image);
+                                        kvp.Value.Uuid = SerializationAdaptor.Textures.AddIfNew(kvp.Value);
                                     }
 
                                 material.Uuid = SerializationAdaptor.Materials.AddIfNew(material);
 
                             }
 
-                            if(group == null)
+                            if(obj == null)
                                 SerializationAdaptor.Object.Children.Add(mesh);
 
                             break;
@@ -229,7 +226,7 @@ namespace THREE.Core
                             var line = child as Line;
                             SerializationAdaptor.Materials.Add(line.Material as LineBasicMaterial);
 
-                            if (group == null)
+                            if (obj == null)
                                 SerializationAdaptor.Object.Children.Add(line);
 
                             break;
@@ -239,7 +236,7 @@ namespace THREE.Core
                             var points = child as Points;
                             SerializationAdaptor.Materials.Add(points.Material as PointsMaterial);
 
-                            if (group == null)
+                            if (obj == null)
                                 SerializationAdaptor.Object.Children.Add(points);
 
                             break;
@@ -251,7 +248,7 @@ namespace THREE.Core
                         case "HemisphereLight":
                         case "PerspectiveCamera":
                         case "OrthographicCamera":
-                            if (group == null)
+                            if (obj == null)
                                 SerializationAdaptor.Object.Children.Add(child);
                             break;
                             /*

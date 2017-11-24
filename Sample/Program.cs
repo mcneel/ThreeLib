@@ -109,15 +109,26 @@ namespace Sample
                 Name = "My Mesh4"
             };
 
-            var mesh5 = new Mesh
+            var sphereGeoAsChild = new SphereGeometry
             {
-                Geometry = geometry2,
-                Material = material3,
-                Position = new Vector3(30, 30, 30),
-                Name = "My Mesh5"
+                Radius = 3,
+                WidthSegments = 22,
+                HeightSegments = 22,
+                PhiStart = 0,
+                PhiLength = (float)Math.PI * 2,
+                ThetaStart = 0,
+                ThetaLength = (float)Math.PI * 2
             };
 
-            mesh4.Add(mesh5);
+            var sphereMeshAsChild = new Mesh
+            {
+                Geometry = sphereGeoAsChild,
+                Material = material,
+                Position = new Vector3(-45, 10, 45),
+                Name = "My Sphere as a Child"
+            };
+
+            mesh4.Add(sphereMeshAsChild);
             scene.Add(mesh4);
 
             var group = new Group();
