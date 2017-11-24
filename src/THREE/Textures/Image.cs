@@ -106,5 +106,7 @@ namespace THREE.Textures
                 return enumerable.Single();
             }
         }
+
+        
     }
 }

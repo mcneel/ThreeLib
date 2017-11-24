@@ -101,6 +101,25 @@ namespace Sample
 
             scene.Add(points);
 
+            var mesh4 = new Mesh
+            {
+                Geometry = geometry2,
+                Material = material3,
+                Position = new Vector3(30, 30, 30),
+                Name = "My Mesh4"
+            };
+
+            var mesh5 = new Mesh
+            {
+                Geometry = geometry2,
+                Material = material3,
+                Position = new Vector3(30, 30, 30),
+                Name = "My Mesh5"
+            };
+
+            mesh4.Add(mesh5);
+            scene.Add(mesh4);
+
             var group = new Group();
 
             group.Add(mesh3);

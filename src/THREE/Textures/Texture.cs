@@ -35,6 +35,7 @@ namespace THREE.Textures
                     return Image.Uuid;
                 else return null;
             }
+            
         }
 
         /// <summary>

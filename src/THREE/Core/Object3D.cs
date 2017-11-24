@@ -179,13 +179,17 @@ namespace THREE.Core
 
                 else
                 {
-                    
 
                     if (child.GetType().GetProperty("Geometry") != null)
                     {
                         var currentGeo = child.GetType().GetProperty("Geometry").GetValue(child, null) as Geometry;
                         var geoId = SerializationAdaptor.Geometries.AddIfNew(currentGeo);
                         currentGeo.Uuid = geoId;
+                    }
+
+                    if(child.GetType().GetProperty("Children") != null)
+                    {
+                        (child as Object3D).ProcessChildren();
                     }
 
                     switch ((child as Element).Type)
@@ -201,8 +205,14 @@ namespace THREE.Core
                                 foreach (var kvp in material.GetTextures())
                                     if (kvp.Value != null)
                                     {
-                                        SerializationAdaptor.Images.Add(kvp.Value.Image);
-                                        SerializationAdaptor.Textures.Add(kvp.Value);
+                                        var imageId = SerializationAdaptor.Images.AddIfNew(kvp.Value.Image);
+
+                                        kvp.Value.Image.Uuid = imageId;
+
+                                        var textureId = SerializationAdaptor.Textures.AddIfNew(kvp.Value);
+
+                                        kvp.Value.Uuid = textureId;
+
                                     }
 
                                 material.Uuid = SerializationAdaptor.Materials.AddIfNew(material);
