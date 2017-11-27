@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -246,6 +247,26 @@ namespace THREE.Core
             }
 
             return Normals;
+        }
+
+        public static object[] FlattenCollection(IEnumerable<object[]> objects)
+        {
+            var result = new List<object>();
+
+            foreach(var obj in objects)
+                for (int i = 0; i < obj.Length - 1; i++)
+                    result.Add(obj[i]);
+
+            return result.ToArray();
+
+        }
+
+        public static object[] Flatten(IEnumerable<object> source)
+        {
+            Func<IEnumerable<object>, IEnumerable<object>> flatten = null;
+            flatten = s => s.SelectMany(x => x is Array ? flatten(((IEnumerable)x).Cast<object>()) : Enumerable.Repeat(x, 1));
+
+            return flatten(source).ToArray();
         }
 
         /// <summary>

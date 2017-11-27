@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace THREE.Utility
 {
-    internal class Utilities
+    internal static class Utilities
     {
         internal static IEnumerable<object> OptimizeFloats(IEnumerable<float> floats)
         {

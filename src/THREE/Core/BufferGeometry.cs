@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 
 namespace THREE.Core
@@ -68,4 +67,6 @@ namespace THREE.Core
         public float Radius { get; set; }
 
     }
+
+    
 }
