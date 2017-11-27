@@ -479,14 +479,14 @@ namespace THREE.Core
         }
     }
 
-    public class GeometryCollection: Collection<Geometry>
+    public class GeometryCollection: Collection<Element>
     {
         /// <summary>
         /// Add a geometry to this collection if it does not already exist.
         /// </summary>
         /// <param name="item"></param>
         /// <returns></returns>
-        public Guid AddIfNew(Geometry item)
+        public Guid AddIfNew(Element item)
         {
             var q = from a in this
                     where a.Equals(item)

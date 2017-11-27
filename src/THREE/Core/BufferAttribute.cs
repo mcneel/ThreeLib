@@ -12,19 +12,22 @@ namespace THREE.Core
         public string Name { get; set; }
 
         [JsonProperty("itemSize")]
-        int ItemSize { get; set; }
+        public int ItemSize { get; set; }
 
         [JsonProperty("count")]
-        public int Count { get; private set; }
+        public int Count { get; set; }
 
         [JsonProperty("normalized")]
-        bool Normalized { get; set; }
+        public bool Normalized { get; set; }
 
         [JsonProperty("dynamic")]
-        bool Dynamic { get; set; }
+        public bool Dynamic { get; set; }
 
         [JsonProperty("array")]
         public object[] Array { get; set; }
+
+        [JsonProperty("type")]
+        public string Type { get; set; }
 
         public BufferAttribute()
         {

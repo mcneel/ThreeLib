@@ -59,6 +59,7 @@
     <Compile Include="THREE\Lights\SpotLight.cs" />
     <Compile Include="THREE\Lights\SpotLightShadow.cs" />
     <Compile Include="THREE\Materials\LineBasicMaterial.cs" />
+    <Compile Include="THREE\Materials\MaterialEnums.cs" />
     <Compile Include="THREE\Materials\MeshBasicMaterial.cs" />
     <Compile Include="THREE\Materials\MeshLambertMaterial.cs" />
     <Compile Include="THREE\Materials\MeshPhongMaterial.cs" />

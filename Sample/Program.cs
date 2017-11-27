@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using THREE;
 using THREE.Core;
 using THREE.Geometries;
@@ -56,7 +57,7 @@ namespace Sample
                 Name = "My Mesh"
             };
 
-            scene.Add(mesh);
+            //scene.Add(mesh);
 
             var material2 = MeshStandardMaterial.Default();
             material2.Roughness = 0.25;
@@ -69,7 +70,7 @@ namespace Sample
                 Name = "My Mesh2"
             };
 
-            scene.Add(mesh2);
+            //scene.Add(mesh2);
 
             var material3 = MeshStandardMaterial.Default();
 
@@ -81,7 +82,7 @@ namespace Sample
                 Name = "My Mesh3"
             };
 
-            scene.Add(mesh3);
+            //scene.Add(mesh3);
 
             var line = new Line
             {
@@ -90,12 +91,66 @@ namespace Sample
                 Name = "My Curves"
             };
 
-            scene.Add(line);
+            //scene.Add(line);
+
+            var colors = new List<float> 
+            {
+                255,0,0,
+                255,255,0,
+                255,0,255,
+                0,255,0
+            };
+
+            //var pointsGeometry = new BufferGeometry();
+            //var position = new BufferAttribute();
+            //position.Array = vertices.Cast<object>().ToArray();
+            //position.Type = "Float32Array";
+            //position.ItemSize = 3;
+            //pointsGeometry.Attributes.Add("position", position);
+
+            //var color = new BufferAttribute();
+            //color.Array = colors.Cast<object>().ToArray();
+            //color.Type = "Float32Array";
+            //color.ItemSize = 3;
+            //pointsGeometry.Attributes.Add("color", color);
+            //pointsGeometry.BoundingSphere = new BufferGeometryBoundingSphere
+            //{
+            //    Center = new float[]{ 0, 0, 0 },
+            //    Radius = 4
+            //};
+
+            var pointsGeometry = new BufferGeometry
+            {
+                Attributes =
+                {
+                    { "position", new BufferAttribute
+                        {
+                            Array = vertices.Cast<object>().ToArray(),
+                            ItemSize = 3,
+                            Type = "Float32Array"
+                        }
+                    },
+                    { "color", new BufferAttribute
+                        {
+                            Array = colors.Cast<object>().ToArray(),
+                            ItemSize = 3,
+                            Type = "Float32Array"
+                        }
+                    }
+                },
+                BoundingSphere = new BufferGeometryBoundingSphere
+                {
+                    Center = new float[] { 0, 0, 0 },
+                    Radius = 4
+                }
+            };
+
+
 
             var points = new Points
             {
-                Geometry = new Geometry(vertices),
-                Material = new PointsMaterial { Color = new Color(255, 255, 255).ToInt() },
+                Geometry = pointsGeometry,
+                Material = new PointsMaterial { VertexColors = VertexColors.Vertex, Size = 10 },
                 Name = "My Points"
             };
 
@@ -129,7 +184,7 @@ namespace Sample
             };
 
             mesh4.Add(sphereMeshAsChild);
-            scene.Add(mesh4);
+            //scene.Add(mesh4);
 
             var group = new Group();
 
@@ -137,7 +192,7 @@ namespace Sample
             group.Add(mesh2);
             group.Add(mesh);
 
-            scene.Add(group);
+            //scene.Add(group);
 
             var group2 = new Group();
 
@@ -145,7 +200,7 @@ namespace Sample
             group2.Add(mesh2);
             group2.Add(mesh);
 
-            scene.Add(group2);
+            //scene.Add(group2);
 
             var sphereGeometry = new SphereGeometry
             {
@@ -166,7 +221,7 @@ namespace Sample
                 Name = "My Sphere"
             };
 
-            scene.Add(sphereMesh);
+            //scene.Add(sphereMesh);
 
             #region Lights
 
@@ -179,7 +234,7 @@ namespace Sample
                 Position = new Vector3(10, 10, 10)
             };
 
-            scene.Add(pointLight);
+            //scene.Add(pointLight);
 
             var ambientLight = new AmbientLight
             {
@@ -188,7 +243,7 @@ namespace Sample
                 Name = "My AmbientLight"
             };
 
-            scene.Add(ambientLight);
+            //scene.Add(ambientLight);
 
             var directionalLight = new DirectionalLight
             {
@@ -197,7 +252,7 @@ namespace Sample
                 Name = "My DirectionalLight"
             };
 
-            scene.Add(directionalLight);
+            //scene.Add(directionalLight);
 
             var spotLight = new SpotLight
             {
@@ -206,7 +261,7 @@ namespace Sample
                 Name = "My SpotLight"
             };
 
-            scene.Add(spotLight);
+            //scene.Add(spotLight);
 
             var hemiLight = new HemisphereLight
             {
@@ -215,7 +270,7 @@ namespace Sample
                 Name = "My HemisphereLight"
             };
 
-            scene.Add(hemiLight);
+            //scene.Add(hemiLight);
 
             #endregion
 

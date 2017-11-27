@@ -9,7 +9,7 @@ namespace THREE.Core
     /// <summary>
     /// Base class for objects which have a Uuid, Name, and Type.
     /// </summary>
-    public class Element : IElement
+    public class Element : IElement, IEquatable<Element>
     {
         /// <summary>
         /// Unique Guid.
@@ -38,5 +38,10 @@ namespace THREE.Core
             Type = GetType().Name;
         }
 
+        public bool Equals(Element other)
+        {
+            if (other.GetType() == typeof(Element)) return base.Equals(other);
+            else return false;
+        }
     }
 }

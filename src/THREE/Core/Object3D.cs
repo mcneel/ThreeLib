@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using THREE.Materials;
@@ -185,9 +186,21 @@ namespace THREE.Core
 
                     if (child.GetType().GetProperty("Geometry") != null)
                     {
-                        var currentGeo = child.GetType().GetProperty("Geometry").GetValue(child, null) as Geometry;
-                        var geoId = SerializationAdaptor.Geometries.AddIfNew(currentGeo);
-                        currentGeo.Uuid = geoId;
+                        var geoId = Guid.Empty;
+                        var currentGeo = child.GetType().GetProperty("Geometry").GetValue(child, null);
+
+                        switch (currentGeo.GetType().Name)
+                        {
+                            case "BufferGeometry":
+                                geoId = SerializationAdaptor.Geometries.AddIfNew(currentGeo as BufferGeometry);
+                                (currentGeo as BufferGeometry).Uuid = geoId;
+                                break;
+                            case "Geometry":
+                                geoId = SerializationAdaptor.Geometries.AddIfNew(currentGeo as Geometry);
+                                (currentGeo as Geometry).Uuid = geoId;
+                                break;
+                        }
+                        
                     }
 
                     if (child.GetType().GetProperty("Children").GetValue(child, null) is List<IElement> objChildren && objChildren.Count > 0)

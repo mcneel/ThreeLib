@@ -109,7 +109,7 @@ namespace THREE.Materials
         /// Defines whether vertex coloring is used.
         /// </summary>
         [JsonProperty("vertexColors")]
-        public int VertexColors { get; set; }
+        public VertexColors VertexColors { get; set; }
 
         /// <summary>
         /// Defines which side of faces will be rendered - front, back or both.
