@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json;
-
-namespace THREE.Lights
+﻿namespace THREE.Lights
 {
     /// <summary>
     /// This light gets emitted uniformly across the face a rectangular plane. This can be used to simulate things like bright windows or strip lighting.
@@ -13,13 +11,11 @@ namespace THREE.Lights
         /// <summary>
         /// Height of the light.
         /// </summary>
-        [JsonProperty("height")]
         public float Height { get; set; }
 
         /// <summary>
         /// Width of the light.
         /// </summary>
-        [JsonProperty("width")]
         public float Width { get; set; }
 
     }

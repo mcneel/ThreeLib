@@ -12,13 +12,12 @@ namespace THREE.Materials
         /// <summary>
         /// The material color.
         /// </summary>
-        [JsonProperty("color", DefaultValueHandling = DefaultValueHandling.Include)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Include)]
         public int Color { get; set; }
 
         /// <summary>
         /// The curve linewidth.
         /// </summary>
-        [JsonProperty("linewidth")]
         public float LineWidth { get; set; }
 
         /// <summary>

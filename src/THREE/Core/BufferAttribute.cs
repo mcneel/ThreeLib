@@ -1,7 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
-
-namespace THREE.Core
+﻿namespace THREE.Core
 {
     /// <summary>
     /// This class stores data for an attribute (such as vertex positions, face indices, normals, colors, UVs, and any custom attributes ) associated with a BufferGeometry, which allows for more efficient passing of data to the GPU.
@@ -10,25 +7,18 @@ namespace THREE.Core
     public class BufferAttribute
     {
 
-        [JsonProperty("name")]
         public string Name { get; set; }
 
-        [JsonProperty("itemSize")]
         public int ItemSize { get; set; }
 
-        [JsonProperty("count")]
         public int Count { get; set; }
 
-        [JsonProperty("normalized")]
         public bool Normalized { get; set; }
 
-        [JsonProperty("dynamic")]
         public bool Dynamic { get; set; }
 
-        [JsonProperty("array")]
         public object[] Array { get; set; }
 
-        [JsonProperty("type")]
         public string Type { get; set; }
     }
 

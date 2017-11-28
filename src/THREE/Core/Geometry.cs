@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace THREE.Core
         /// <summary>
         /// Geometry data.
         /// </summary>
+        /// 
         [JsonProperty("data")]
         GeometryData Data { get; set; }
 
@@ -345,7 +347,15 @@ namespace THREE.Core
                 Data = Data
             };
 
-            return JsonConvert.SerializeObject(serializationAdaptor, format == true ? Formatting.Indented : Formatting.None, new JsonSerializerSettings { DefaultValueHandling = DefaultValueHandling.Ignore, NullValueHandling = NullValueHandling.Ignore });
+            var serializerSettings = new JsonSerializerSettings
+            {
+                Formatting = format == true ? Formatting.Indented : Formatting.None,
+                DefaultValueHandling = DefaultValueHandling.Ignore,
+                NullValueHandling = NullValueHandling.Ignore,
+                ContractResolver = new CamelCasePropertyNamesContractResolver()
+            };
+
+            return JsonConvert.SerializeObject(serializationAdaptor, serializerSettings);
         }
 
         /// <summary>
@@ -364,7 +374,7 @@ namespace THREE.Core
         /// <summary>
         /// Geometry data.
         /// </summary>
-        [JsonProperty("data", Order = 1)]
+        [JsonProperty("data",Order = 1)]
         internal GeometryData Data { get; set; }
 
         internal GeometrySerializationAdaptor()
@@ -397,19 +407,16 @@ namespace THREE.Core
         /// <summary>
         /// 
         /// </summary>
-        [JsonProperty("colors")]
         internal List<int> Colors { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        [JsonProperty("faces")]
         internal List<int> Faces { get; set; }
 
         /// <summary>
         /// The list of UVs associated with this geometry.
         /// </summary>
-        [JsonProperty("uvs")]
         public List<List<float>> Uvs { get; set; }
 
         /// <summary>

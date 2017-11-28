@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
-using THREE;
+﻿using System;
 using THREE.Core;
 
 namespace THREE.Geometries
@@ -15,43 +13,36 @@ namespace THREE.Geometries
         /// <summary>
         /// Sphere radius.
         /// </summary>
-        [JsonProperty("radius")]
         public float Radius { get; set; }
 
         /// <summary>
         ///  Number of horizontal segments. Minimum value is 3.
         /// </summary>
-        [JsonProperty("widthSegments")]
         public int WidthSegments { get; set; }
 
         /// <summary>
         /// Number of vertical segments. Minimum value is 2.
         /// </summary>
-        [JsonProperty("heightSegments")]
         public int HeightSegments { get; set; }
 
         /// <summary>
         /// Specify horizontal starting angle (in radians).
         /// </summary>
-        [JsonProperty("phiStart")]
         public float PhiStart { get; set; }
 
         /// <summary>
         /// Specify horizontal sweep angle size (in radians).
         /// </summary>
-        [JsonProperty("phiLength")]
         public float PhiLength { get; set; }
 
         /// <summary>
         /// Specify horizontal sweep angle size (in radians).
         /// </summary>
-        [JsonProperty("thetaStart")]
         public float ThetaStart { get; set; }
 
         /// <summary>
         /// Specify vertical sweep angle size (in radians).
         /// </summary>
-        [JsonProperty("thetaLength")]
         public float ThetaLength { get; set; }
 
         /// <summary>

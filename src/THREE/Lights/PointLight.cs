@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json;
-
-namespace THREE.Lights
+﻿namespace THREE.Lights
 {
     /// <summary>
     /// A light that gets emitted from a single point in all directions. A common use case for this is to replicate the light emitted from a bare lightbulb.
@@ -12,13 +10,11 @@ namespace THREE.Lights
         /// <summary>
         /// Light distance.
         /// </summary>
-        [JsonProperty("distance")]
         public float Distance { get; set; }
 
         /// <summary>
         /// Light decay.
         /// </summary>
-        [JsonProperty("decay")]
         public float Decay { get; set; }
 
     }

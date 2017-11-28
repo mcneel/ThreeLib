@@ -12,13 +12,11 @@ namespace THREE.Textures
         /// <summary>
         /// Object Id.
         /// </summary>
-        [JsonProperty("uuid")]
         public Guid Uuid { get; set; }
 
         /// <summary>
         /// Image url. This can be the path to the image resource (.jpg, .png, etc), or a base64 encoded asset.
         /// </summary>
-        [JsonProperty("url")]
         public string Url { get; set; }
 
         /// <summary>

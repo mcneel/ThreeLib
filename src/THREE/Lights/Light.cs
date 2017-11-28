@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using THREE.Core;
+﻿using THREE.Core;
 
 namespace THREE.Lights
 {
@@ -18,13 +17,11 @@ namespace THREE.Lights
         /// <summary>
         /// Light color.
         /// </summary>
-        [JsonProperty("color")]
         public int Color { get; set; }
 
         /// <summary>
         /// Light intensity.
         /// </summary>
-        [JsonProperty("intensity")]
         public float Intensity { get; set; }
 
     }

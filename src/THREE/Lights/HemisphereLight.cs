@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json;
-
-namespace THREE.Lights
+﻿namespace THREE.Lights
 {
     /// <summary>
     /// A light source positioned directly above the scene, with color fading from the sky color to the ground color.
@@ -13,13 +11,11 @@ namespace THREE.Lights
         /// <summary>
         /// Color of the ground.
         /// </summary>
-        [JsonProperty("groundColor")]
         public int GroundColor { get; set; }
 
         /// <summary>
         /// Color of the sky.
         /// </summary>
-        [JsonProperty("skyColor")]
         public int SkyColor { get; set; }
 
     }

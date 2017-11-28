@@ -14,7 +14,6 @@ namespace THREE.Textures
         /// <summary>
         /// Object Id.
         /// </summary>
-        [JsonProperty("uuid")]
         public Guid Uuid { get; set; }
 
         /// <summary>
@@ -41,19 +40,16 @@ namespace THREE.Textures
         /// <summary>
         /// Texture mapping.
         /// </summary>
-        [JsonProperty("mapping")]
         public int Mapping { get; set; }
 
         /// <summary>
         /// Texture wrapping.
         /// </summary>
-        [JsonProperty("wrap")]
         public int[] Wrap { get; set; }
 
         /// <summary>
         /// Texture repetition.
         /// </summary>
-        [JsonProperty("repeat")]
         public float[] Repeat { get; set; }
 
         #endregion

@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -20,25 +21,21 @@ namespace THREE.Core
         /// <summary>
         /// Object visibility.
         /// </summary>
-        [JsonProperty("visible")]
         public bool Visible { get; set; }
 
         /// <summary>
         /// Flag for determining if object casts shadow.
         /// </summary>
-        [JsonProperty("castShadow")]
         public bool CastShadow { get; set; }
 
         /// <summary>
         /// Flag for determining if object receives shadow.
         /// </summary>
-        [JsonProperty("receiveShadow")]
         public bool ReceiveShadow { get; set; }
 
         /// <summary>
         /// List with object's children.
         /// </summary>
-        [JsonProperty("children")]
         public List<IElement> Children { get; set; }
 
         [JsonIgnore]
@@ -47,7 +44,6 @@ namespace THREE.Core
         /// <summary>
         /// Object user data.
         /// </summary>
-        [JsonProperty("userData")]
         public Dictionary<string, Dictionary<string, object>> UserData { get; set; }
 
         /// <summary>
@@ -151,7 +147,15 @@ namespace THREE.Core
 
             ProcessChildren();
 
-            return JsonConvert.SerializeObject(SerializationAdaptor, format ==true ? Formatting.Indented : Formatting.None, new JsonSerializerSettings { DefaultValueHandling = DefaultValueHandling.Ignore, NullValueHandling = NullValueHandling.Ignore });
+            var serializerSettings = new JsonSerializerSettings
+            {
+                Formatting = format == true ? Formatting.Indented : Formatting.None,
+                DefaultValueHandling = DefaultValueHandling.Ignore,
+                NullValueHandling = NullValueHandling.Ignore,
+                ContractResolver = new CamelCasePropertyNamesContractResolver()
+            };
+
+            return JsonConvert.SerializeObject(SerializationAdaptor, serializerSettings);
         }
 
         internal void ProcessChildren(Object3D obj = null)
@@ -323,7 +327,7 @@ namespace THREE.Core
 
     internal class Object3DSerializationAdaptor : ObjectSerializationAdaptor, IElement
     {
-        [JsonProperty("object", Order = 5)]
+        [JsonProperty(Order = 5)]
         internal Object3D Object { get; set; }
 
         /// <summary>

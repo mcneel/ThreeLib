@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using THREE.Core;
+﻿using THREE.Core;
 using THREE.Math;
 
 namespace THREE.Cameras
@@ -11,10 +10,8 @@ namespace THREE.Cameras
     /// </summary>
     public abstract class Camera : Object3D
     {
-        [JsonProperty("matrixWorldInverse")]
         public Matrix4 MatrixWorldInverse { get; set; }
 
-        [JsonProperty("projectionMatrix")]
         public Matrix4 ProjectionMatrix { get; set; }
 
         public Camera()

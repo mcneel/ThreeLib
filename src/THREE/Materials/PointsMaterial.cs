@@ -13,19 +13,17 @@ namespace THREE.Materials
         /// <summary>
         /// Material color.
         /// </summary>
-        [JsonProperty("color")]
         public int Color { get; set; }
 
         /// <summary>
         /// Point size.
         /// </summary>
-        [JsonProperty("size")]
         public double Size { get; set; }
 
         /// <summary>
         /// Size attenuation flag.
         /// </summary>
-        [JsonProperty("sizeAttenuation", DefaultValueHandling = DefaultValueHandling.Include)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Include)]
         public bool SizeAttenuation { get; set; }
 
         /// <summary>

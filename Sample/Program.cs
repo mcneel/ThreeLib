@@ -57,7 +57,7 @@ namespace Sample
                 Name = "My Mesh"
             };
 
-            //scene.Add(mesh);
+            scene.Add(mesh);
 
             var material2 = MeshStandardMaterial.Default();
             material2.Roughness = 0.25;

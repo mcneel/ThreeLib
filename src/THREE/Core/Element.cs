@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 
 namespace THREE.Core
 {
@@ -14,19 +13,16 @@ namespace THREE.Core
         /// <summary>
         /// Unique Guid.
         /// </summary>
-        [JsonProperty("uuid")]
         public Guid Uuid { get; set; }
 
         /// <summary>
         /// Name.
         /// </summary>
-        [JsonProperty("name")]
         public string Name { get; set; }
 
         /// <summary>
         /// Type of object.
         /// </summary>
-        [JsonProperty("type")]
         public string Type { get; set; }
 
         /// <summary>

@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json;
-
-namespace THREE.Math
+﻿namespace THREE.Math
 {
     /// <summary>
     /// Class representing a 3D vector.
@@ -15,19 +13,16 @@ namespace THREE.Math
         /// <summary>
         /// The x value of the vector.
         /// </summary>
-        [JsonProperty("x")]
         public float X { get { return XYZ[0]; } set { XYZ[0] = value; } }
 
         /// <summary>
         /// The y value of the vector.
         /// </summary>
-        [JsonProperty("y")]
         public float Y { get { return XYZ[1]; } set { XYZ[1] = value; } }
 
         /// <summary>
         /// The z value of the vector.
         /// </summary>
-        [JsonProperty("z")]
         public float Z { get { return XYZ[2]; } set { XYZ[2] = value; } }
 
         /// <summary>
