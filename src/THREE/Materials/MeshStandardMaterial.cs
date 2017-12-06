@@ -22,11 +22,13 @@ namespace THREE.Materials
         /// <summary>
         /// Material roughness.
         /// </summary>
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Include)]
         public double Roughness { get; set; }
 
         /// <summary>
         /// Material metalness.
         /// </summary>
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Include)]
         public double Metalness { get; set; }
 
         /// <summary>

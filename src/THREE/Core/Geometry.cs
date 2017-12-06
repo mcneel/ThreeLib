@@ -350,6 +350,7 @@ namespace THREE.Core
         /// <summary>
         /// 
         /// </summary>
+        [JsonProperty("colors")]
         internal List<int> Colors { get; set; }
 
         /// <summary>
