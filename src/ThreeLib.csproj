@@ -81,6 +81,7 @@
     <Compile Include="THREE\Objects\Points.cs" />
     <Compile Include="THREE\Scenes\Metadata.cs" />
     <Compile Include="THREE\Scenes\Scene.cs" />
+    <Compile Include="THREE\Serialization\CamelCaseCustomResolver.cs" />
     <Compile Include="THREE\Textures\Image.cs" />
     <Compile Include="THREE\Textures\Texture.cs" />
     <Compile Include="THREE\Utility\SerializationAdapter.cs" />

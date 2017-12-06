@@ -3,9 +3,11 @@ using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using THREE.Geometries;
 using THREE.Materials;
 using THREE.Math;
 using THREE.Objects;
+using THREE.Serialization;
 using THREE.Utility;
 
 namespace THREE.Core
@@ -152,7 +154,7 @@ namespace THREE.Core
                 Formatting = format == true ? Formatting.Indented : Formatting.None,
                 DefaultValueHandling = DefaultValueHandling.Ignore,
                 NullValueHandling = NullValueHandling.Ignore,
-                ContractResolver = new CamelCasePropertyNamesContractResolver()
+                ContractResolver = new CamelCaseCustomResolver()
             };
 
             return JsonConvert.SerializeObject(SerializationAdaptor, serializerSettings);
@@ -196,12 +198,17 @@ namespace THREE.Core
                         switch (currentGeo.GetType().Name)
                         {
                             case "BufferGeometry":
-                                geoId = SerializationAdaptor.Geometries.AddIfNew(currentGeo as BufferGeometry);
-                                (currentGeo as BufferGeometry).Uuid = geoId;
+                                (currentGeo as BufferGeometry).Uuid = SerializationAdaptor.BufferGeometries.AddIfNew(currentGeo as BufferGeometry);
                                 break;
                             case "Geometry":
-                                geoId = SerializationAdaptor.Geometries.AddIfNew(currentGeo as Geometry);
-                                (currentGeo as Geometry).Uuid = geoId;
+                                (currentGeo as Geometry).Uuid = SerializationAdaptor.Geometries.AddIfNew(currentGeo as Geometry);
+                                break;
+                            case "SphereBufferGeometry":
+                                (currentGeo as SphereBufferGeometry).Uuid = SerializationAdaptor.Geometries.AddIfNew(currentGeo as SphereBufferGeometry);
+                                break;
+                            default:
+                                //other derivatives of Geometry
+                                //geoId = SerializationAdaptor.Geometries.AddIfNew(currentGeo as Geometry);
                                 break;
                         }
                         
@@ -241,7 +248,7 @@ namespace THREE.Core
                         case "Line":
 
                             var line = child as Line;
-                            SerializationAdaptor.Materials.Add(line.Material as LineBasicMaterial);
+                            (line.Material as LineBasicMaterial).Uuid = SerializationAdaptor.Materials.AddIfNew(line.Material as LineBasicMaterial);
 
                             if (obj == null)
                                 SerializationAdaptor.Object.Children.Add(line);
@@ -251,7 +258,7 @@ namespace THREE.Core
                         case "Points":
 
                             var points = child as Points;
-                            SerializationAdaptor.Materials.Add(points.Material as PointsMaterial);
+                            (points.Material as PointsMaterial).Uuid = SerializationAdaptor.Materials.AddIfNew(points.Material as PointsMaterial);
 
                             if (obj == null)
                                 SerializationAdaptor.Object.Children.Add(points);
@@ -268,49 +275,7 @@ namespace THREE.Core
                             if (obj == null)
                                 SerializationAdaptor.Object.Children.Add(child);
                             break;
-                            /*
-                        case "Group":
-                            var group = child as Group;
-                            group.SerializationAdaptor = new Object3DSerializationAdaptor();
-                            group.ProcessChildren();
-
-                            foreach (var o in group.Children)
-                            {
-
-                                if (o.GetType().GetProperty("Geometry") != null)
-                                {
-                                    var g = o.GetType().GetProperty("Geometry").GetValue(o, null) as Geometry;
-                                    g.Uuid = SerializationAdaptor.Geometries.AddIfNew(g);
-                                }
-
-                                if (o.GetType().GetProperty("Material") != null)
-                                {
-                                    var m = o.GetType().GetProperty("Material").GetValue(o, null) as Material;
-
-                                    if (m is MeshStandardMaterial)
-                                    {
-                                        var msm = m as MeshStandardMaterial;
-                                        foreach (var t in msm.GetTextures())
-                                        {
-                                            if (t.Value != null)
-                                            {
-                                                t.Value.Image.Uuid = SerializationAdaptor.Images.AddIfNew(t.Value.Image);
-                                                t.Value.Uuid = SerializationAdaptor.Textures.AddIfNew(t.Value);
-                                            }
-
-                                        }
-
-                                    }
-
-                                    m.Uuid = SerializationAdaptor.Materials.AddIfNew(m);
-
-                                }
-
-                            }
-
-                            SerializationAdaptor.Object.Children.Add(group);
-                            break;
-                            */
+                           
                         default:
                             Debug.WriteLine((child as Element).Type, "ThreeLib");
                             break;
@@ -319,6 +284,9 @@ namespace THREE.Core
 
                 
             }
+
+            SerializationAdaptor.Elements.AddRange(SerializationAdaptor.BufferGeometries);
+            SerializationAdaptor.Elements.AddRange(SerializationAdaptor.Geometries);
         }
 
         #endregion

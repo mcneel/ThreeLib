@@ -8,6 +8,7 @@ using THREE.Lights;
 using THREE.Materials;
 using THREE.Math;
 using THREE.Objects;
+using THREE.Utility;
 
 namespace Sample
 {
@@ -38,13 +39,14 @@ namespace Sample
                 new float[] { 0, 1, 0 }
             };
 
-            var vertices = Geometry.ProcessVertexArray(verts);
+            var vertices = Utilities.Flatten(verts).Cast<float>().ToList();//Geometry.ProcessVertexArray(verts);
 
-            var normals = Geometry.ProcessNormalArray(norms);
+            var normals = Utilities.Flatten(norms).Cast<float>().ToList();
 
-            var face = new int[] { 0, 1, 2, 3 };
+            var face1 = new int[] { 0, 1, 2 };
+            var face2 = new int[] { 0, 2, 3 };
 
-            var faces = Geometry.ProcessFaceArray(new List<int[]> { { face } }, false, false);
+            var faces = Geometry.ProcessFaceArray(new List<int[]> { { face1 }, { face2} }, false, false);
 
             var geometry = new Geometry(vertices, faces, normals);
             var geometry2 = new Geometry(vertices, faces, normals);
@@ -52,7 +54,7 @@ namespace Sample
 
             var mesh = new Mesh
             {
-                Geometry = geometry,
+                Geometry = geometry2,
                 Material = material,
                 Name = "My Mesh"
             };
@@ -134,7 +136,16 @@ namespace Sample
                 Name = "My Points"
             };
 
-            //scene.Add(points);
+            scene.Add(points);
+
+            var points2 = new Points
+            {
+                Geometry = pointsGeometry,
+                Material = new PointsMaterial { VertexColors = VertexColors.Vertex, Size = 10 },
+                Name = "My Points2"
+            };
+
+            scene.Add(points2);
 
             var verts2 = new List<float[]>
             {
@@ -177,35 +188,34 @@ namespace Sample
                 new float[] { 1, 0.5f }
             };
 
-
             var meshBG = new BufferGeometry
             {
                 Attributes =
                 {
                     { "position", new BufferAttribute
                         {
-                            Array = Geometry.Flatten(verts2),
+                            Array = Utilities.OptimizeFloats(Utilities.Flatten(verts2).Cast<float>()).ToArray(),
                             ItemSize = 3,
                             Type = BufferAttributeType.Float32Array.ToString()
                         }
                     },
                     { "normal", new BufferAttribute
                         {
-                            Array = Geometry.Flatten(norms2),
+                            Array = Utilities.Flatten(norms2),
                             ItemSize = 3,
                             Type = BufferAttributeType.Float32Array.ToString()
                         }
                     },
                     { "uv", new BufferAttribute
                         {
-                            Array = Geometry.Flatten(uv2),
+                            Array = Utilities.Flatten(uv2),
                             ItemSize = 2,
                             Type = BufferAttributeType.Float32Array.ToString()
                         }
                     },
                     { "color", new BufferAttribute
                         {
-                            Array = Geometry.Flatten(color2),
+                            Array = Utilities.Flatten(color2),
                             ItemSize = 3,
                             Type = BufferAttributeType.Float32Array.ToString()
                         }
@@ -229,7 +239,107 @@ namespace Sample
 
             (mesh6.Material as MeshStandardMaterial).VertexColors = VertexColors.Vertex;
 
-            scene.Add(mesh6);
+            //scene.Add(mesh6);
+
+            var verts3 = new object[]
+            {
+                0, 0, 0 ,
+                0, 0, 10 ,
+                10, 0, 10 ,
+                10, 0, 0 
+            };
+
+            var indexes = new object[] { 0, 1, 2, 0, 2, 3 };
+
+            var norms3 = new object[]
+            {
+                0, 1, 0,
+                0, 1, 0,
+                0, 1, 0,
+                0, 1, 0,
+                0, 1, 0,
+                0, 1, 0
+            };
+
+            var color3 = new object[]
+            {
+                0, 0, 255,
+                0, 0, 255,
+                0, 0, 255,
+                255, 0, 0,
+                255, 0, 0,
+                255, 0, 0,
+            };
+
+            var uv3 = new object[]
+            {
+                0, 0,
+                1, 0.5,
+                1, 0,
+                0, 0,
+                0.5, 1 ,
+                1, 0.5 
+            };    
+
+            var meshIBG = new BufferGeometry
+            {
+                Attributes =
+                {
+                    { "position", new BufferAttribute
+                        {
+                            Array = verts3,
+                            ItemSize = 3,
+                            Type = BufferAttributeType.Float32Array.ToString()
+                        }
+                    },
+                    { "index", new BufferAttribute
+                        {
+                            Array = indexes,
+                            ItemSize = 1,
+                            Type = BufferAttributeType.Int8Array.ToString()
+                        }
+                    },
+                    { "normal", new BufferAttribute
+                        {
+                            Array = norms3,
+                            ItemSize = 3,
+                            Type = BufferAttributeType.Float32Array.ToString()
+                        }
+                    },
+                    { "uv", new BufferAttribute
+                        {
+                            Array = uv3,
+                            ItemSize = 2,
+                            Type = BufferAttributeType.Float32Array.ToString()
+                        }
+                    },
+                    { "color", new BufferAttribute
+                        {
+                            Array = color3,
+                            ItemSize = 3,
+                            Type = BufferAttributeType.Float32Array.ToString()
+                        }
+                    }
+
+
+                },
+                BoundingSphere = new BufferGeometryBoundingSphere
+                {
+                    Center = new float[] { 0, 0, 0 },
+                    Radius = 5
+                }
+            };
+
+            var mesh7 = new Mesh
+            {
+                Geometry = meshIBG,
+                Material = MeshStandardMaterial.Default(),
+                Name = "MeshfromIndexedBufferGeo"
+            };
+
+            (mesh7.Material as MeshStandardMaterial).VertexColors = VertexColors.Vertex;
+
+            //scene.Add(mesh7);
 
             var mesh4 = new Mesh
             {
@@ -239,7 +349,7 @@ namespace Sample
                 Name = "My Mesh4"
             };
 
-            var sphereGeoAsChild = new SphereGeometry
+            var sphereGeoAsChild = new SphereBufferGeometry
             {
                 Radius = 3,
                 WidthSegments = 22,
@@ -277,7 +387,7 @@ namespace Sample
 
             //scene.Add(group2);
 
-            var sphereGeometry = new SphereGeometry
+            var sphereGeometry = new SphereBufferGeometry
             {
                 Radius = 10,
                 WidthSegments = 10,

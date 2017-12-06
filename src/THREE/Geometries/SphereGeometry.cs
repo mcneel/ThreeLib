@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using THREE.Core;
 
 namespace THREE.Geometries
@@ -8,7 +9,7 @@ namespace THREE.Geometries
     /// Analagous to: https://threejs.org/docs/index.html#api/geometries/SphereGeometry
     /// JS Source: https://github.com/mrdoob/three.js/blob/master/src/geometries/SphereGeometry.js
     /// </summary>
-    public class SphereGeometry : Geometry, IEquatable<SphereGeometry>
+    public class SphereBufferGeometry : Geometry, IEquatable<SphereBufferGeometry>
     {
         /// <summary>
         /// Sphere radius.
@@ -28,6 +29,7 @@ namespace THREE.Geometries
         /// <summary>
         /// Specify horizontal starting angle (in radians).
         /// </summary>
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Include)]
         public float PhiStart { get; set; }
 
         /// <summary>
@@ -38,6 +40,7 @@ namespace THREE.Geometries
         /// <summary>
         /// Specify horizontal sweep angle size (in radians).
         /// </summary>
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Include)]
         public float ThetaStart { get; set; }
 
         /// <summary>
@@ -50,7 +53,7 @@ namespace THREE.Geometries
         /// </summary>
         /// <param name="other">Other geometry.</param>
         /// <returns>True if the geometries contain the same property values. False if otherwise.</returns>
-        public bool Equals(SphereGeometry other)
+        public bool Equals(SphereBufferGeometry other)
         {
             if (other == null) return false;
             else
