@@ -419,7 +419,7 @@ namespace Sample
                 Position = new Vector3(10, 10, 10)
             };
 
-            //scene.Add(pointLight);
+            scene.Add(pointLight);
 
             var ambientLight = new AmbientLight
             {

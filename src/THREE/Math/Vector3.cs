@@ -54,5 +54,54 @@
         /// </summary>
         /// <returns>An array where x is index 0, y is index 1, and z is index 2.</returns>
         public float[] ToArray() { return XYZ; }
+
+        public void SubVectors(Vector3 a, Vector3 b)
+        {
+            X = a.X - b.X;
+            Y = a.Y - b.Y;
+            Z = a.Z - b.Z;
+        }
+
+        public float LengthSq()
+        {
+            return X * X + Y * Y + Z * Z;
+        }
+
+        public void MultiplyScalar(float scalar)
+        {
+            X *= scalar;
+            Y *= scalar;
+            Y *= scalar;
+        }
+
+        public void DivideScalar(float scalar)
+        {
+            MultiplyScalar(1 / scalar);
+        }
+
+        public float Length()
+        {
+            return (float)System.Math.Sqrt(X*X + Y*Y + Z*Z);
+        }
+
+        public void Normalize()
+        {
+            DivideScalar(Length());
+        }
+
+        public void CrossVectors(Vector3 a, Vector3 b)
+        {
+            var ax = a.X;
+            var ay = a.Y;
+            var az = a.Z;
+
+            var bx = b.X;
+            var by = b.Y;
+            var bz = b.Z;
+
+            X = ay * bz - az * by;
+            Y = az * bx - ax * bz;
+            Z = ax * by - ay * bx;
+        }
     }
 }

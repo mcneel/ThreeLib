@@ -15,7 +15,7 @@ namespace THREE.Lights
         public DirectionalLightShadow Shadow { get; set; }
 
         /// <summary>
-        /// The Spotlight points from its position to target.position.
+        /// The directional light points from its position to target.position.
         /// </summary>
         public Object3D Target { get; set; }
 

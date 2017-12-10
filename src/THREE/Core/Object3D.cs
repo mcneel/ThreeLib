@@ -118,7 +118,7 @@ namespace THREE.Core
         /// <param name="obj"></param>
         public void Add(IElement obj)
         {
-            if (obj.GetType().IsSubclassOf(typeof(Object3D)))
+            if (obj!=null && obj.GetType().IsSubclassOf(typeof(Object3D)))
                 (obj as Object3D).Parent = this;
             
             Children.Add(obj);
@@ -269,6 +269,7 @@ namespace THREE.Core
                         case "AmbientLight":
                         case "SpotLight":
                         case "DirectionalLight":
+                        case "RectAreaLight":
                         case "HemisphereLight":
                         case "PerspectiveCamera":
                         case "OrthographicCamera":
@@ -277,7 +278,7 @@ namespace THREE.Core
                             break;
                            
                         default:
-                            Debug.WriteLine((child as Element).Type, "ThreeLib");
+                            Debug.WriteLine((child as Element).Type + "Not supported.", "ThreeLib");
                             break;
                     }
                 }
