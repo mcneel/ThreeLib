@@ -19,5 +19,10 @@ namespace THREE.Lights
         /// </summary>
         public Object3D Target { get; set; }
 
+        public DirectionalLight()
+        {
+            Shadow = new DirectionalLightShadow();
+        }
+
     }
 }
