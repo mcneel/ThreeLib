@@ -59,7 +59,7 @@ namespace Sample
                 Name = "My Mesh"
             };
 
-            scene.Add(mesh);
+            //scene.Add(mesh);
 
             var material2 = MeshStandardMaterial.Default();
             material2.Roughness = 0.25;
@@ -136,7 +136,7 @@ namespace Sample
                 Name = "My Points"
             };
 
-            scene.Add(points);
+            //scene.Add(points);
 
             var points2 = new Points
             {
@@ -145,7 +145,7 @@ namespace Sample
                 Name = "My Points2"
             };
 
-            scene.Add(points2);
+            //scene.Add(points2);
 
             var verts2 = new List<float[]>
             {
@@ -419,7 +419,7 @@ namespace Sample
                 Position = new Vector3(10, 10, 10)
             };
 
-            scene.Add(pointLight);
+            //scene.Add(pointLight);
 
             var ambientLight = new AmbientLight
             {
@@ -430,14 +430,17 @@ namespace Sample
 
             //scene.Add(ambientLight);
 
+            var targetObject = new Object3D { Position = new Vector3(3, 0, 0) };
+            scene.Add(targetObject);
+
             var directionalLight = new DirectionalLight
             {
-                Target = new Object3D { Position = new Vector3(3, 0, 0) },
+                Target = targetObject,
                 Position = new Vector3(-10,10,5),
                 Name = "My DirectionalLight"
             };
 
-            //scene.Add(directionalLight);
+            scene.Add(directionalLight);
 
             var spotLight = new SpotLight
             {

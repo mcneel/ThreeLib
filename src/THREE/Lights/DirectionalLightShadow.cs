@@ -12,5 +12,10 @@ namespace THREE.Lights
         /// 
         /// </summary>
         public new OrthographicCamera Camera { get; set; }
+
+        public DirectionalLightShadow()
+        {
+            Camera = new OrthographicCamera();
+        }
     }
 }

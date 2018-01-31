@@ -53,6 +53,7 @@
         public OrthographicCamera()
         {
             Type = GetType().Name;
+            Matrix.LookAt(new Math.Vector3(), new Math.Vector3(), new Math.Vector3(0,1,0));
         }
     }
 }
