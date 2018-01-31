@@ -10,7 +10,7 @@ using THREE.Math;
 using THREE.Objects;
 using THREE.Utility;
 
-namespace Sample
+namespace ThreeLibExample
 {
     class Program
     {
