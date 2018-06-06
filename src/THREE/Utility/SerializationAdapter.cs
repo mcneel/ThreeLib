@@ -10,7 +10,7 @@ namespace THREE.Utility
         /// <summary>
         /// 
         /// </summary>
-        [JsonProperty("metadata", Order = 0)]
+        [JsonProperty(Order = 0)]
         public Metadata Metadata { get; set; }
 
         internal SerializationAdaptor()
@@ -26,21 +26,29 @@ namespace THREE.Utility
     public abstract class ObjectSerializationAdaptor: SerializationAdaptor
     {
         [JsonProperty("geometries", Order = 1)]
+        internal ElementCollection Elements { get; set; }
+
+        [JsonIgnore]
+        internal BufferGeometryCollection BufferGeometries { get; set; }
+
+        [JsonIgnore]
         internal GeometryCollection Geometries { get; set; }
 
-        [JsonProperty("images", Order = 2)]
+        [JsonProperty(Order = 2)]
         internal ImageCollection Images { get; set; }
 
-        [JsonProperty("textures", Order = 3)]
+        [JsonProperty(Order = 3)]
         internal TextureCollection Textures { get; set; }
 
-        [JsonProperty("materials", Order = 4)]
+        [JsonProperty(Order = 4)]
         internal MaterialCollection Materials { get; set; }
 
         internal ObjectSerializationAdaptor()
         {
             Metadata.Type = "Object";
+            Elements = new ElementCollection();
             Geometries = new GeometryCollection();
+            BufferGeometries = new BufferGeometryCollection();
             Materials = new MaterialCollection();
             Images = new ImageCollection();
             Textures = new TextureCollection();

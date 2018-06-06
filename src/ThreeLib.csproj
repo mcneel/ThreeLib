@@ -35,9 +35,6 @@
     <DocumentationFile>bin\Release\ThreeLib.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
@@ -59,6 +56,7 @@
     <Compile Include="THREE\Lights\SpotLight.cs" />
     <Compile Include="THREE\Lights\SpotLightShadow.cs" />
     <Compile Include="THREE\Materials\LineBasicMaterial.cs" />
+    <Compile Include="THREE\Materials\MaterialEnums.cs" />
     <Compile Include="THREE\Materials\MeshBasicMaterial.cs" />
     <Compile Include="THREE\Materials\MeshLambertMaterial.cs" />
     <Compile Include="THREE\Materials\MeshPhongMaterial.cs" />
@@ -80,13 +78,16 @@
     <Compile Include="THREE\Objects\Points.cs" />
     <Compile Include="THREE\Scenes\Metadata.cs" />
     <Compile Include="THREE\Scenes\Scene.cs" />
+    <Compile Include="THREE\Serialization\CamelCaseCustomResolver.cs" />
     <Compile Include="THREE\Textures\Image.cs" />
     <Compile Include="THREE\Textures\Texture.cs" />
     <Compile Include="THREE\Utility\SerializationAdapter.cs" />
     <Compile Include="THREE\Utility\Utilities.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>10.0.3</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using THREE.Core;
+﻿using THREE.Core;
 
 namespace THREE.Lights
 {
@@ -13,18 +12,16 @@ namespace THREE.Lights
     /// Analogous to: https://threejs.org/docs/index.html#api/lights/Light
     /// Original source: https://github.com/mrdoob/three.js/blob/master/src/lights/Light.js
     /// </summary>
-    public abstract class Light : Object3D, ILight
+    public abstract class Light : Object3D
     {
         /// <summary>
         /// Light color.
         /// </summary>
-        [JsonProperty("color")]
         public int Color { get; set; }
 
         /// <summary>
         /// Light intensity.
         /// </summary>
-        [JsonProperty("intensity")]
         public float Intensity { get; set; }
 
     }

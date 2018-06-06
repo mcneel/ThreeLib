@@ -1,0 +1,72 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\src\THREE\Cameras\Camera.cs" Link="THREE\Cameras\Camera.cs" />
+    <Compile Include="..\src\THREE\Cameras\OrthographicCamera.cs" Link="THREE\Cameras\OrthographicCamera.cs" />
+    <Compile Include="..\src\THREE\Cameras\PerspectiveCamera.cs" Link="THREE\Cameras\PerspectiveCamera.cs" />
+    <Compile Include="..\src\THREE\Core\BufferAttribute.cs" Link="THREE\Core\BufferAttribute.cs" />
+    <Compile Include="..\src\THREE\Core\BufferGeometry.cs" Link="THREE\Core\BufferGeometry.cs" />
+    <Compile Include="..\src\THREE\Core\Element.cs" Link="THREE\Core\Element.cs" />
+    <Compile Include="..\src\THREE\Core\Geometry.cs" Link="THREE\Core\Geometry.cs" />
+    <Compile Include="..\src\THREE\Core\IGeometry.cs" Link="THREE\Core\IGeometry.cs" />
+    <Compile Include="..\src\THREE\Core\Object3D.cs" Link="THREE\Core\Object3D.cs" />
+    <Compile Include="..\src\THREE\Geometries\SphereGeometry.cs" Link="THREE\Geometries\SphereGeometry.cs" />
+    <Compile Include="..\src\THREE\Lights\AmbientLight.cs" Link="THREE\Lights\AmbientLight.cs" />
+    <Compile Include="..\src\THREE\Lights\DirectionalLight.cs" Link="THREE\Lights\DirectionalLight.cs" />
+    <Compile Include="..\src\THREE\Lights\DirectionalLightShadow.cs" Link="THREE\Lights\DirectionalLightShadow.cs" />
+    <Compile Include="..\src\THREE\Lights\HemisphereLight.cs" Link="THREE\Lights\HemisphereLight.cs" />
+    <Compile Include="..\src\THREE\Lights\Light.cs" Link="THREE\Lights\Light.cs" />
+    <Compile Include="..\src\THREE\Lights\LightShadow.cs" Link="THREE\Lights\LightShadow.cs" />
+    <Compile Include="..\src\THREE\Lights\PointLight.cs" Link="THREE\Lights\PointLight.cs" />
+    <Compile Include="..\src\THREE\Lights\RectAreaLight.cs" Link="THREE\Lights\RectAreaLight.cs" />
+    <Compile Include="..\src\THREE\Lights\SpotLight.cs" Link="THREE\Lights\SpotLight.cs" />
+    <Compile Include="..\src\THREE\Lights\SpotLightShadow.cs" Link="THREE\Lights\SpotLightShadow.cs" />
+    <Compile Include="..\src\THREE\Materials\LineBasicMaterial.cs" Link="THREE\Materials\LineBasicMaterial.cs" />
+    <Compile Include="..\src\THREE\Materials\Material.cs" Link="THREE\Materials\Material.cs" />
+    <Compile Include="..\src\THREE\Materials\MaterialEnums.cs" Link="THREE\Materials\MaterialEnums.cs" />
+    <Compile Include="..\src\THREE\Materials\MeshBasicMaterial.cs" Link="THREE\Materials\MeshBasicMaterial.cs" />
+    <Compile Include="..\src\THREE\Materials\MeshLambertMaterial.cs" Link="THREE\Materials\MeshLambertMaterial.cs" />
+    <Compile Include="..\src\THREE\Materials\MeshPhongMaterial.cs" Link="THREE\Materials\MeshPhongMaterial.cs" />
+    <Compile Include="..\src\THREE\Materials\MeshStandardMaterial.cs" Link="THREE\Materials\MeshStandardMaterial.cs" />
+    <Compile Include="..\src\THREE\Materials\PointsMaterial.cs" Link="THREE\Materials\PointsMaterial.cs" />
+    <Compile Include="..\src\THREE\Math\Color.cs" Link="THREE\Math\Color.cs" />
+    <Compile Include="..\src\THREE\Math\Euler.cs" Link="THREE\Math\Euler.cs" />
+    <Compile Include="..\src\THREE\Math\Matrix4.cs" Link="THREE\Math\Matrix4.cs" />
+    <Compile Include="..\src\THREE\Math\Quaternion.cs" Link="THREE\Math\Quaternion.cs" />
+    <Compile Include="..\src\THREE\Math\Vector3.cs" Link="THREE\Math\Vector3.cs" />
+    <Compile Include="..\src\THREE\Objects\Group.cs" Link="THREE\Objects\Group.cs" />
+    <Compile Include="..\src\THREE\Objects\Line.cs" Link="THREE\Objects\Line.cs" />
+    <Compile Include="..\src\THREE\Objects\Mesh.cs" Link="THREE\Objects\Mesh.cs" />
+    <Compile Include="..\src\THREE\Objects\Points.cs" Link="THREE\Objects\Points.cs" />
+    <Compile Include="..\src\THREE\Scenes\Metadata.cs" Link="THREE\Scenes\Metadata.cs" />
+    <Compile Include="..\src\THREE\Scenes\Scene.cs" Link="THREE\Scenes\Scene.cs" />
+    <Compile Include="..\src\THREE\Serialization\CamelCaseCustomResolver.cs" Link="THREE\Serialization\CamelCaseCustomResolver.cs" />
+    <Compile Include="..\src\THREE\Textures\Image.cs" Link="THREE\Textures\Image.cs" />
+    <Compile Include="..\src\THREE\Textures\Texture.cs" Link="THREE\Textures\Texture.cs" />
+    <Compile Include="..\src\THREE\Utility\SerializationAdapter.cs" Link="THREE\Utility\SerializationAdapter.cs" />
+    <Compile Include="..\src\THREE\Utility\Utilities.cs" Link="THREE\Utility\Utilities.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="THREE\Cameras\" />
+    <Folder Include="THREE\Core\" />
+    <Folder Include="THREE\Geometries\" />
+    <Folder Include="THREE\Lights\" />
+    <Folder Include="THREE\Materials\" />
+    <Folder Include="THREE\Math\" />
+    <Folder Include="THREE\Objects\" />
+    <Folder Include="THREE\Scenes\" />
+    <Folder Include="THREE\Serialization\" />
+    <Folder Include="THREE\Textures\" />
+    <Folder Include="THREE\Utility\" />
+  </ItemGroup>
+
+</Project>

@@ -116,7 +116,7 @@ namespace THREE.Materials
         /// <summary>
         /// Specular map Uuid.
         /// </summary>
-        [JsonProperty("lightMap")]
+        [JsonProperty("specularMap")]
         public Guid? SpecularMapUuid
         {
             get

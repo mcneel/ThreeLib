@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using THREE.Cameras;
+﻿using THREE.Cameras;
 
 namespace THREE.Lights
 {
@@ -13,7 +12,6 @@ namespace THREE.Lights
         /// <summary>
         /// 
         /// </summary>
-        [JsonProperty("camera")]
         public new PerspectiveCamera Camera { get; set; }
     }
 }

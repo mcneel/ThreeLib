@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using THREE.Cameras;
+﻿using THREE.Cameras;
 
 namespace THREE.Lights
 {
@@ -12,7 +11,11 @@ namespace THREE.Lights
         /// <summary>
         /// 
         /// </summary>
-        [JsonProperty("camera")]
         public new OrthographicCamera Camera { get; set; }
+
+        public DirectionalLightShadow()
+        {
+            Camera = new OrthographicCamera();
+        }
     }
 }

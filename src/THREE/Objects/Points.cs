@@ -17,7 +17,7 @@ namespace THREE.Objects
         /// Uuid of this geometry.
         /// </summary>
         [JsonProperty("geometry")]
-        public Guid GeometryUuid { get { return (Geometry as Geometry).Uuid; } }
+        public Guid GeometryUuid { get { return (Geometry as Element).Uuid; } }
 
         /// <summary>
         /// The material associated with this mesh.

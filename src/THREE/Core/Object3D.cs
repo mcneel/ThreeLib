@@ -1,9 +1,13 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using THREE.Geometries;
 using THREE.Materials;
 using THREE.Math;
 using THREE.Objects;
+using THREE.Serialization;
 using THREE.Utility;
 
 namespace THREE.Core
@@ -19,25 +23,21 @@ namespace THREE.Core
         /// <summary>
         /// Object visibility.
         /// </summary>
-        [JsonProperty("visible")]
         public bool Visible { get; set; }
 
         /// <summary>
         /// Flag for determining if object casts shadow.
         /// </summary>
-        [JsonProperty("castShadow")]
         public bool CastShadow { get; set; }
 
         /// <summary>
         /// Flag for determining if object receives shadow.
         /// </summary>
-        [JsonProperty("receiveShadow")]
         public bool ReceiveShadow { get; set; }
 
         /// <summary>
         /// List with object's children.
         /// </summary>
-        [JsonProperty("children")]
         public List<IElement> Children { get; set; }
 
         [JsonIgnore]
@@ -46,7 +46,6 @@ namespace THREE.Core
         /// <summary>
         /// Object user data.
         /// </summary>
-        [JsonProperty("userData")]
         public Dictionary<string, Dictionary<string, object>> UserData { get; set; }
 
         /// <summary>
@@ -119,7 +118,7 @@ namespace THREE.Core
         /// <param name="obj"></param>
         public void Add(IElement obj)
         {
-            if (obj.GetType().IsSubclassOf(typeof(Object3D)))
+            if (obj!=null && obj.GetType().IsSubclassOf(typeof(Object3D)))
                 (obj as Object3D).Parent = this;
             
             Children.Add(obj);
@@ -150,22 +149,33 @@ namespace THREE.Core
 
             ProcessChildren();
 
-            return JsonConvert.SerializeObject(SerializationAdaptor, format ==true ? Formatting.Indented : Formatting.None, new JsonSerializerSettings { DefaultValueHandling = DefaultValueHandling.Ignore, NullValueHandling = NullValueHandling.Ignore });
+            var serializerSettings = new JsonSerializerSettings
+            {
+                Formatting = format == true ? Formatting.Indented : Formatting.None,
+                DefaultValueHandling = DefaultValueHandling.Ignore,
+                NullValueHandling = NullValueHandling.Ignore,
+                ContractResolver = new CamelCaseCustomResolver()
+            };
+
+            return JsonConvert.SerializeObject(SerializationAdaptor, serializerSettings);
         }
 
-        internal void ProcessChildren(Group group = null)
+        internal void ProcessChildren(Object3D obj = null)
         {
             var children = new List<IElement>();
 
-            if (group == null)
+            if (obj == null)
                 children = Children;
             else
             {
-                children = group.Children;
-                if (!(group.Parent is Group) && group.Parent.Parent == null)
-                {
-                    SerializationAdaptor.Object.Children.Add(group);
-                }
+                children = obj.Children;
+
+                if (obj is Group)
+                    if (!(obj.Parent is Group) && obj.Parent.Parent == null)
+                        SerializationAdaptor.Object.Children.Add(obj);
+                else
+                    if (obj.Parent.Parent == null)
+                        SerializationAdaptor.Object.Children.Add(obj);
             }
 
             foreach (var child in children)
@@ -179,13 +189,34 @@ namespace THREE.Core
 
                 else
                 {
-                    
 
                     if (child.GetType().GetProperty("Geometry") != null)
                     {
-                        var currentGeo = child.GetType().GetProperty("Geometry").GetValue(child, null) as Geometry;
-                        var geoId = SerializationAdaptor.Geometries.AddIfNew(currentGeo);
-                        currentGeo.Uuid = geoId;
+                        var geoId = Guid.Empty;
+                        var currentGeo = child.GetType().GetProperty("Geometry").GetValue(child, null);
+
+                        switch (currentGeo.GetType().Name)
+                        {
+                            case "BufferGeometry":
+                                (currentGeo as BufferGeometry).Uuid = SerializationAdaptor.BufferGeometries.AddIfNew(currentGeo as BufferGeometry);
+                                break;
+                            case "Geometry":
+                                (currentGeo as Geometry).Uuid = SerializationAdaptor.Geometries.AddIfNew(currentGeo as Geometry);
+                                break;
+                            case "SphereBufferGeometry":
+                                (currentGeo as SphereBufferGeometry).Uuid = SerializationAdaptor.Geometries.AddIfNew(currentGeo as SphereBufferGeometry);
+                                break;
+                            default:
+                                //other derivatives of Geometry
+                                //geoId = SerializationAdaptor.Geometries.AddIfNew(currentGeo as Geometry);
+                                break;
+                        }
+                        
+                    }
+
+                    if (child.GetType().GetProperty("Children").GetValue(child, null) is List<IElement> objChildren && objChildren.Count > 0)
+                    {
+                        ProcessChildren(child as Object3D);
                     }
 
                     switch ((child as Element).Type)
@@ -201,15 +232,15 @@ namespace THREE.Core
                                 foreach (var kvp in material.GetTextures())
                                     if (kvp.Value != null)
                                     {
-                                        SerializationAdaptor.Images.Add(kvp.Value.Image);
-                                        SerializationAdaptor.Textures.Add(kvp.Value);
+                                        kvp.Value.Image.Uuid = SerializationAdaptor.Images.AddIfNew(kvp.Value.Image);
+                                        kvp.Value.Uuid = SerializationAdaptor.Textures.AddIfNew(kvp.Value);
                                     }
 
                                 material.Uuid = SerializationAdaptor.Materials.AddIfNew(material);
 
                             }
 
-                            if(group == null)
+                            if(obj == null)
                                 SerializationAdaptor.Object.Children.Add(mesh);
 
                             break;
@@ -217,9 +248,9 @@ namespace THREE.Core
                         case "Line":
 
                             var line = child as Line;
-                            SerializationAdaptor.Materials.Add(line.Material as LineBasicMaterial);
+                            (line.Material as LineBasicMaterial).Uuid = SerializationAdaptor.Materials.AddIfNew(line.Material as LineBasicMaterial);
 
-                            if (group == null)
+                            if (obj == null)
                                 SerializationAdaptor.Object.Children.Add(line);
 
                             break;
@@ -227,9 +258,9 @@ namespace THREE.Core
                         case "Points":
 
                             var points = child as Points;
-                            SerializationAdaptor.Materials.Add(points.Material as PointsMaterial);
+                            (points.Material as PointsMaterial).Uuid = SerializationAdaptor.Materials.AddIfNew(points.Material as PointsMaterial);
 
-                            if (group == null)
+                            if (obj == null)
                                 SerializationAdaptor.Object.Children.Add(points);
 
                             break;
@@ -238,63 +269,25 @@ namespace THREE.Core
                         case "AmbientLight":
                         case "SpotLight":
                         case "DirectionalLight":
+                        case "RectAreaLight":
                         case "HemisphereLight":
                         case "PerspectiveCamera":
                         case "OrthographicCamera":
-                            if (group == null)
+                            if (obj == null)
                                 SerializationAdaptor.Object.Children.Add(child);
                             break;
-                            /*
-                        case "Group":
-                            var group = child as Group;
-                            group.SerializationAdaptor = new Object3DSerializationAdaptor();
-                            group.ProcessChildren();
-
-                            foreach (var o in group.Children)
-                            {
-
-                                if (o.GetType().GetProperty("Geometry") != null)
-                                {
-                                    var g = o.GetType().GetProperty("Geometry").GetValue(o, null) as Geometry;
-                                    g.Uuid = SerializationAdaptor.Geometries.AddIfNew(g);
-                                }
-
-                                if (o.GetType().GetProperty("Material") != null)
-                                {
-                                    var m = o.GetType().GetProperty("Material").GetValue(o, null) as Material;
-
-                                    if (m is MeshStandardMaterial)
-                                    {
-                                        var msm = m as MeshStandardMaterial;
-                                        foreach (var t in msm.GetTextures())
-                                        {
-                                            if (t.Value != null)
-                                            {
-                                                t.Value.Image.Uuid = SerializationAdaptor.Images.AddIfNew(t.Value.Image);
-                                                t.Value.Uuid = SerializationAdaptor.Textures.AddIfNew(t.Value);
-                                            }
-
-                                        }
-
-                                    }
-
-                                    m.Uuid = SerializationAdaptor.Materials.AddIfNew(m);
-
-                                }
-
-                            }
-
-                            SerializationAdaptor.Object.Children.Add(group);
-                            break;
-                            */
+                           
                         default:
-                            Debug.WriteLine((child as Element).Type, "ThreeLib");
+                            Debug.WriteLine((child as Element).Type + "Not supported.", "ThreeLib");
                             break;
                     }
                 }
 
                 
             }
+
+            SerializationAdaptor.Elements.AddRange(SerializationAdaptor.BufferGeometries);
+            SerializationAdaptor.Elements.AddRange(SerializationAdaptor.Geometries);
         }
 
         #endregion
@@ -303,7 +296,7 @@ namespace THREE.Core
 
     internal class Object3DSerializationAdaptor : ObjectSerializationAdaptor, IElement
     {
-        [JsonProperty("object", Order = 5)]
+        [JsonProperty(Order = 5)]
         internal Object3D Object { get; set; }
 
         /// <summary>

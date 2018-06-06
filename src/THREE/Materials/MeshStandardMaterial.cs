@@ -16,31 +16,29 @@ namespace THREE.Materials
         /// <summary>
         /// Material diffuse color.
         /// </summary>
-        [JsonProperty("color", DefaultValueHandling = DefaultValueHandling.Include)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Include)]
         public int Color { get; set; }
 
         /// <summary>
         /// Material roughness.
         /// </summary>
-        [JsonProperty("roughness")]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Include)]
         public double Roughness { get; set; }
 
         /// <summary>
         /// Material metalness.
         /// </summary>
-        [JsonProperty("metalness")]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Include)]
         public double Metalness { get; set; }
 
         /// <summary>
         /// Material ambient color.
         /// </summary>
-        [JsonProperty("ambient")]
         public int Ambient { get; set; }
 
         /// <summary>
         /// Material emissive color.
         /// </summary>
-        [JsonProperty("emissive")]
         public int Emissive { get; set; }
 
         /// <summary>

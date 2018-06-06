@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json;
-
-namespace THREE.Math
+﻿namespace THREE.Math
 {
     public class Euler
     {
@@ -9,19 +7,16 @@ namespace THREE.Math
         /// <summary>
         /// The x value of the Euler.
         /// </summary>
-        [JsonProperty("x")]
         public float X { get { return XYZ[0]; } set { XYZ[0] = value; } }
 
         /// <summary>
         /// The y value of the Euler.
         /// </summary>
-        [JsonProperty("y")]
         public float Y { get { return XYZ[1]; } set { XYZ[1] = value; } }
 
         /// <summary>
         /// The z value of the Euler.
         /// </summary>
-        [JsonProperty("z")]
         public float Z { get { return XYZ[2]; } set { XYZ[2] = value; } }
 
         public RotationOrders Order { get; set; }

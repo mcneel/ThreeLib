@@ -1,8 +1,11 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using THREE.Serialization;
 using THREE.Utility;
 
 namespace THREE.Core
@@ -17,6 +20,7 @@ namespace THREE.Core
         /// <summary>
         /// Geometry data.
         /// </summary>
+        /// 
         [JsonProperty("data")]
         GeometryData Data { get; set; }
 
@@ -211,44 +215,6 @@ namespace THREE.Core
         }
 
         /// <summary>
-        /// Utility method for flattening a List of float[].
-        /// </summary>
-        /// <param name="vertices">The list to flatten.</param>
-        /// <returns>A list of float.</returns>
-        public static List<float> ProcessVertexArray(List<float[]> vertices)
-        {
-            var Vertices = new List<float>();
-
-            foreach (var vert in vertices)
-            {
-                Vertices.Add(vert[0]);
-                Vertices.Add(vert[1]);
-                Vertices.Add(vert[2]);
-            }
-
-            return Vertices;
-        }
-
-        /// <summary>
-        /// Flatten a List of float[].
-        /// </summary>
-        /// <param name="normals">The list to flatten.</param>
-        /// <returns>A list of float.</returns>
-        public static List<float> ProcessNormalArray(List<float[]> normals)
-        {
-            var Normals = new List<float>();
-
-            foreach (var norm in normals)
-            {
-                Normals.Add(norm[0]);
-                Normals.Add(norm[1]);
-                Normals.Add(norm[2]);
-            }
-
-            return Normals;
-        }
-
-        /// <summary>
         /// Check if one Geometry equals another.
         /// TODO: Check if base.Equals(other)? Object3D would need to be IEquatable.
         /// </summary>
@@ -284,8 +250,8 @@ namespace THREE.Core
         /// <returns>True if geometries are equal, false if not.</returns>
         public static bool operator ==(Geometry a, Geometry b)
         {
-            bool ba = ReferenceEquals(null, a);
-            bool bb = ReferenceEquals(null, b);
+            bool ba = a is null;
+            bool bb = b is null;
             if (ba & bb) return true; //they are both null, thus are equal
             else if (!ba & !bb) return a.Equals(b); //they are both not null, check their contents
             else return false; //one of them is null, thus they are not equal
@@ -324,7 +290,15 @@ namespace THREE.Core
                 Data = Data
             };
 
-            return JsonConvert.SerializeObject(serializationAdaptor, format == true ? Formatting.Indented : Formatting.None, new JsonSerializerSettings { DefaultValueHandling = DefaultValueHandling.Ignore, NullValueHandling = NullValueHandling.Ignore });
+            var serializerSettings = new JsonSerializerSettings
+            {
+                Formatting = format == true ? Formatting.Indented : Formatting.None,
+                DefaultValueHandling = DefaultValueHandling.Ignore,
+                NullValueHandling = NullValueHandling.Ignore,
+                ContractResolver = new CamelCaseCustomResolver()
+            };
+
+            return JsonConvert.SerializeObject(serializationAdaptor, serializerSettings);
         }
 
         /// <summary>
@@ -343,7 +317,7 @@ namespace THREE.Core
         /// <summary>
         /// Geometry data.
         /// </summary>
-        [JsonProperty("data", Order = 1)]
+        [JsonProperty("data",Order = 1)]
         internal GeometryData Data { get; set; }
 
         internal GeometrySerializationAdaptor()
@@ -382,13 +356,13 @@ namespace THREE.Core
         /// <summary>
         /// 
         /// </summary>
+        /// 
         [JsonProperty("faces")]
         internal List<int> Faces { get; set; }
 
         /// <summary>
         /// The list of UVs associated with this geometry.
         /// </summary>
-        [JsonProperty("uvs")]
         public List<List<float>> Uvs { get; set; }
 
         /// <summary>

@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json;
-
-namespace THREE.Cameras
+﻿namespace THREE.Cameras
 {
     /// <summary>
     /// Camera that uses orthographic projection.
@@ -15,45 +13,38 @@ namespace THREE.Cameras
         /// <summary>
         /// Camera frustum bottom plane.
         /// </summary>
-        [JsonProperty("bottom")]
         public float Bottom { get; set; }
 
         /// <summary>
         /// Camera frustum far plane. 
         /// The valid range is between the current value of the near plane and infinity.
         /// </summary>
-        [JsonProperty("far")]
         public float Far { get; set; }
 
         /// <summary>
         /// Camera frustum left plane.
         /// </summary>
-        [JsonProperty("left")]
         public float Left { get; set; }
 
         /// <summary>
         /// Camera frustum near plane.
         /// The valid range is between 0 and the current value of the far plane.Note that, unlike for the PerspectiveCamera, 0 is a valid value for an OrthographicCamera's near plane. 
         /// </summary>
-        [JsonProperty("near")]
         public float Near { get; set; }
 
         /// <summary>
         /// Camera frustum right plane.
         /// </summary>
-        [JsonProperty("right")]
         public float Right { get; set; }
 
         /// <summary>
         /// Camera frustum top plane.
         /// </summary>
-        [JsonProperty("top")]
         public float Top { get; set; }
 
         /// <summary>
         /// Gets or sets the zoom factor of the camera.
         /// </summary>
-        [JsonProperty("zoom")]
         public float Zoom { get; set; }
 
         /// <summary>
@@ -62,6 +53,7 @@ namespace THREE.Cameras
         public OrthographicCamera()
         {
             Type = GetType().Name;
+            Matrix.LookAt(new Math.Vector3(), new Math.Vector3(), new Math.Vector3(0,1,0));
         }
     }
 }

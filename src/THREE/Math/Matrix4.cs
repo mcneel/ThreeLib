@@ -103,6 +103,34 @@ namespace THREE.Math
             SetPosition(position);
         }
 
+        public void LookAt(Vector3 eye, Vector3 target, Vector3 up)
+        {
+            var x = new Vector3();
+            var y = new Vector3();
+            var z = new Vector3();
+
+            var te = this.Elements;
+
+            z.SubVectors(eye, target);
+
+            if (z.LengthSq() == 0)
+            {
+
+                // eye and target are in the same position
+
+                z.Z = 1;
+
+            }
+
+            z.Normalize();
+            x.CrossVectors(up, z);
+
+            te[0] = x.X; te[4] = y.X; te[8] = z.X;
+            te[1] = x.Y; te[5] = y.Y; te[9] = z.Y;
+            te[2] = x.Z; te[6] = y.Z; te[10] = z.Z;
+
+        }
+
         public float[] ToArray() { return Elements; }
         internal IEnumerable<object> ToObjectList() { return Utilities.OptimizeFloats(Elements); }
     }

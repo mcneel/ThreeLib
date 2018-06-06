@@ -1,5 +1,7 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using THREE.Core;
+using THREE.Serialization;
 using THREE.Utility;
 
 namespace THREE
@@ -27,7 +29,6 @@ namespace THREE
         /// <summary>
         /// Background color for the scene.
         /// </summary>
-        [JsonProperty("background")]
         public int Background { get; set; }
 
         [JsonIgnore]
@@ -51,13 +52,22 @@ namespace THREE
             SerializationAdaptor.Object.Name = Name;
             SerializationAdaptor.Object.Background = Background;
             SerializationAdaptor.Object.UserData = UserData;
-            SerializationAdaptor.Geometries = base.SerializationAdaptor.Geometries;
+            SerializationAdaptor.Elements.AddRange(base.SerializationAdaptor.Geometries);
+            SerializationAdaptor.Elements.AddRange(base.SerializationAdaptor.BufferGeometries);
             SerializationAdaptor.Images = base.SerializationAdaptor.Images;
             SerializationAdaptor.Textures = base.SerializationAdaptor.Textures;
             SerializationAdaptor.Materials = base.SerializationAdaptor.Materials;
             SerializationAdaptor.Object.Children = base.SerializationAdaptor.Object.Children;
 
-            return JsonConvert.SerializeObject(SerializationAdaptor, format == true ? Formatting.Indented : Formatting.None, new JsonSerializerSettings { DefaultValueHandling = DefaultValueHandling.Ignore, NullValueHandling = NullValueHandling.Ignore });
+            var serializerSettings = new JsonSerializerSettings
+            {
+                Formatting = format == true ? Formatting.Indented : Formatting.None,
+                DefaultValueHandling = DefaultValueHandling.Ignore,
+                NullValueHandling = NullValueHandling.Ignore,
+                ContractResolver = new CamelCaseCustomResolver()
+            };
+
+            return JsonConvert.SerializeObject(SerializationAdaptor, serializerSettings);
         }
 
         #endregion
@@ -70,7 +80,7 @@ namespace THREE
     internal class SceneSerializationAdaptor : ObjectSerializationAdaptor
     {
 
-        [JsonProperty("object", Order = 5)]
+        [JsonProperty(Order = 5)]
         internal SceneObject Object { get; set; }
 
         /// <summary>
@@ -87,7 +97,6 @@ namespace THREE
 
         internal class SceneObject : Object3D
         {
-            [JsonProperty("background")]
             public int Background { get; set; }
         }
     }

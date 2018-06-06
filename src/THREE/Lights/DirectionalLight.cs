@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using THREE.Core;
+﻿using THREE.Core;
 
 namespace THREE.Lights
 {
@@ -13,14 +12,17 @@ namespace THREE.Lights
         /// <summary>
         /// The directional light shadow object.
         /// </summary>
-        [JsonProperty("shadow")]
         public DirectionalLightShadow Shadow { get; set; }
 
         /// <summary>
-        /// The Spotlight points from its position to target.position.
+        /// The directional light points from its position to target.position.
         /// </summary>
-        [JsonProperty("target")]
         public Object3D Target { get; set; }
+
+        public DirectionalLight()
+        {
+            Shadow = new DirectionalLightShadow();
+        }
 
     }
 }
