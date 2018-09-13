@@ -41,9 +41,9 @@ namespace THREE.Materials
             else
             {
                 return Color.Equals(other.Color) &&
-                       LineWidth.Equals(other.LineWidth)&&
-                       LineJoin.Equals(other.LineJoin)&&
-                       LineCap.Equals(other.LineCap);
+                       LineWidth.Equals(other.LineWidth); //&&
+                       //LineJoin.Equals(other.LineJoin)&&
+                       //LineCap.Equals(other.LineCap);
             }
         }
 
