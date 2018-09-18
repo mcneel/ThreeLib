@@ -1,11 +1,20 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using THREE.Textures;
 
 namespace THREE.Materials
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class MeshBasicMaterial : Material, IEquatable<MeshBasicMaterial>
     {
+        /// <summary>
+        /// Material diffuse color.
+        /// </summary>
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Include)]
+        public int Color { get; set; }
 
         /// <summary>
         /// Material ao map.
@@ -125,6 +134,23 @@ namespace THREE.Materials
                     return SpecularMap.Uuid;
                 else return null;
             }
+        }
+
+        [JsonIgnore]
+        internal Dictionary<string, Texture> Textures { get; set; }
+
+        /// <summary>
+        /// Returns material textures as a dictionary.
+        /// </summary>
+        /// <returns>Dictionary with the texture type as the key. For example, "AlphaMap" key will have a Texture that contains an Alpha Map image.</returns>
+        internal Dictionary<string, Texture> GetTextures()
+        {
+            return Textures;
+        }
+
+        public MeshBasicMaterial()
+        {
+            Textures = new Dictionary<string, Texture>();
         }
 
         public bool Equals(MeshBasicMaterial other)

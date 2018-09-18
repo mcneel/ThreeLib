@@ -57,6 +57,7 @@ namespace THREE
             SerializationAdaptor.Images = base.SerializationAdaptor.Images;
             SerializationAdaptor.Textures = base.SerializationAdaptor.Textures;
             SerializationAdaptor.Materials = base.SerializationAdaptor.Materials;
+            SerializationAdaptor.Fonts = base.SerializationAdaptor.Fonts;
             SerializationAdaptor.Object.Children = base.SerializationAdaptor.Object.Children;
 
             var serializerSettings = new JsonSerializerSettings

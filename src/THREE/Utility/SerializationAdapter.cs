@@ -43,6 +43,9 @@ namespace THREE.Utility
         [JsonProperty(Order = 4)]
         internal MaterialCollection Materials { get; set; }
 
+        [JsonProperty(Order = 5)]
+        internal FontDataCollection Fonts { get; set; }
+
         internal ObjectSerializationAdaptor()
         {
             Metadata.Type = "Object";
@@ -50,6 +53,7 @@ namespace THREE.Utility
             Geometries = new GeometryCollection();
             BufferGeometries = new BufferGeometryCollection();
             Materials = new MaterialCollection();
+            Fonts = new FontDataCollection();
             Images = new ImageCollection();
             Textures = new TextureCollection();
         }

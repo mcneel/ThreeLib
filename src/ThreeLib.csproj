@@ -35,6 +35,7 @@
     <DocumentationFile>bin\Release\ThreeLib.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
@@ -44,7 +45,9 @@
     <Compile Include="THREE\Core\BufferAttribute.cs" />
     <Compile Include="THREE\Core\BufferGeometry.cs" />
     <Compile Include="THREE\Core\Element.cs" />
+    <Compile Include="THREE\Core\Font.cs" />
     <Compile Include="THREE\Geometries\SphereGeometry.cs" />
+    <Compile Include="THREE\Geometries\TextGeometry.cs" />
     <Compile Include="THREE\Lights\AmbientLight.cs" />
     <Compile Include="THREE\Lights\DirectionalLight.cs" />
     <Compile Include="THREE\Lights\DirectionalLightShadow.cs" />
@@ -88,6 +91,18 @@
     <PackageReference Include="Newtonsoft.Json">
       <Version>10.0.3</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="THREE\Font\Arial_Regular.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="THREE\Font\Lucida Console_Regular.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="THREE\Font\Times New Roman_Regular.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

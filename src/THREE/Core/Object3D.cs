@@ -206,6 +206,12 @@ namespace THREE.Core
                             case "SphereBufferGeometry":
                                 (currentGeo as SphereBufferGeometry).Uuid = SerializationAdaptor.Geometries.AddIfNew(currentGeo as SphereBufferGeometry);
                                 break;
+                            case "TextBufferGeometry":
+                                var font = SerializationAdaptor.Fonts.AddIfNew((currentGeo as TextBufferGeometry).Parameters.Font.FontData);
+
+                                (currentGeo as TextBufferGeometry).Parameters.Font.Data = font;
+                                (currentGeo as TextBufferGeometry).Uuid = SerializationAdaptor.Geometries.AddIfNew(currentGeo as TextBufferGeometry);
+                                break;
                             default:
                                 //other derivatives of Geometry
                                 //geoId = SerializationAdaptor.Geometries.AddIfNew(currentGeo as Geometry);
@@ -225,20 +231,26 @@ namespace THREE.Core
 
                             var mesh = child as Mesh;
 
+                            dynamic material = new Material();
+
                             if (mesh.Material is MeshStandardMaterial)
                             {
-                                var material = mesh.Material as MeshStandardMaterial;
-
-                                foreach (var kvp in material.GetTextures())
-                                    if (kvp.Value != null)
-                                    {
-                                        kvp.Value.Image.Uuid = SerializationAdaptor.Images.AddIfNew(kvp.Value.Image);
-                                        kvp.Value.Uuid = SerializationAdaptor.Textures.AddIfNew(kvp.Value);
-                                    }
-
-                                material.Uuid = SerializationAdaptor.Materials.AddIfNew(material);
+                                material = mesh.Material as MeshStandardMaterial;
 
                             }
+                            else if (mesh.Material is MeshBasicMaterial)
+                            {
+                                material = mesh.Material as MeshBasicMaterial;
+                            }
+
+                            foreach (var kvp in material.GetTextures())
+                                if (kvp.Value != null)
+                                {
+                                    kvp.Value.Image.Uuid = SerializationAdaptor.Images.AddIfNew(kvp.Value.Image);
+                                    kvp.Value.Uuid = SerializationAdaptor.Textures.AddIfNew(kvp.Value);
+                                }
+
+                            material.Uuid = SerializationAdaptor.Materials.AddIfNew(material);
 
                             if(obj == null)
                                 SerializationAdaptor.Object.Children.Add(mesh);

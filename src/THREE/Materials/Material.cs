@@ -171,7 +171,7 @@ namespace THREE.Materials
     public class MaterialCollection: Collection<Material>
     {
         /// <summary>
-        /// Add a geometry to this collection if it does not already exist.
+        /// Add a material to this collection if it does not already exist.
         /// </summary>
         /// <param name="item"></param>
         /// <returns></returns>
