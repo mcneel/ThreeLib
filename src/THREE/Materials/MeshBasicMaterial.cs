@@ -155,7 +155,13 @@ namespace THREE.Materials
 
         public bool Equals(MeshBasicMaterial other)
         {
-            throw new NotImplementedException();
+            if (other == null) return false;
+            return Color.Equals(other.Color) &&
+                   AoMap == other.AoMap &&
+                   Map == other.Map &&
+                   LightMap == other.LightMap &&
+                   AlphaMap == other.AlphaMap &&
+                   EnvironmentMap == other.EnvironmentMap;
         }
 
         public override bool Equals(Material other)

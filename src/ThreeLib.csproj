@@ -84,6 +84,7 @@
     <Compile Include="THREE\Serialization\CamelCaseCustomResolver.cs" />
     <Compile Include="THREE\Textures\Image.cs" />
     <Compile Include="THREE\Textures\Texture.cs" />
+    <Compile Include="THREE\Utility\ExtensionMethods.cs" />
     <Compile Include="THREE\Utility\SerializationAdapter.cs" />
     <Compile Include="THREE\Utility\Utilities.cs" />
   </ItemGroup>

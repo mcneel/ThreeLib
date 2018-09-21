@@ -249,7 +249,7 @@ namespace THREE.Core
                                     kvp.Value.Image.Uuid = SerializationAdaptor.Images.AddIfNew(kvp.Value.Image);
                                     kvp.Value.Uuid = SerializationAdaptor.Textures.AddIfNew(kvp.Value);
                                 }
-
+                            
                             material.Uuid = SerializationAdaptor.Materials.AddIfNew(material);
 
                             if(obj == null)

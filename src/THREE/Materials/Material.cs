@@ -177,6 +177,7 @@ namespace THREE.Materials
         /// <returns></returns>
         public Guid AddIfNew(Material item)
         {
+          
             var q = from a in this
                     where a.Equals(item)
                     select a.Uuid;

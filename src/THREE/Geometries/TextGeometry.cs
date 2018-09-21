@@ -20,7 +20,7 @@ namespace THREE.Geometries
         /// <summary>
         /// 
         /// </summary>
-        public class TextBufferGeometryParameters
+        public class TextBufferGeometryParameters :IEquatable<TextBufferGeometryParameters>
         {
             /// <summary>
             /// An instance of THREE.Font.
@@ -62,11 +62,26 @@ namespace THREE.Geometries
             /// </summary>
             public int BevelSegments { get; set; }
 
+            public bool Equals(TextBufferGeometryParameters other)
+            {
+                if (other == null) return false;
+                else
+                    return BevelEnabled.Equals(other.BevelEnabled) &&
+                           BevelSegments.Equals(other.BevelSegments) &&
+                           BevelSize.Equals(other.BevelSize) &&
+                           BevelThickness.Equals(other.BevelThickness) &&
+                           CurveSegments.Equals(other.CurveSegments) &&
+                           Font.Equals(other.Font) &&
+                           Height.Equals(other.Height) &&
+                           Size.Equals(other.Size);
+            }
         }
 
         bool IEquatable<TextBufferGeometry>.Equals(TextBufferGeometry other)
         {
-            throw new NotImplementedException();
+            if (other == null) return false;
+            else
+                return Parameters.Equals(other.Parameters);
         }
     }
 

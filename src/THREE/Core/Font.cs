@@ -1,6 +1,9 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 
 namespace THREE.Core
@@ -39,7 +42,11 @@ namespace THREE.Core
                     return FontData.Uuid;
                 else return null;
             }
-            set { }
+            set
+            {
+                if(FontData != null)
+                    FontData.Uuid = value.Value;
+            }
         }
 
         /// <summary>
@@ -103,7 +110,35 @@ namespace THREE.Core
         public virtual bool Equals(FontData other)
         {
             if (other == null) return false;
-            return Data.Equals(other.Data);
+
+            var name = ((JObject)Data).Property("familyName").Value.ToString();
+            var nameOther = ((JObject)other.Data).Property("familyName").Value.ToString();
+
+            
+
+            
+            //var name = (((JObject)Data).Children().
+           //     var nameOther = (((JObject)other.Data)["familyName"] as JProperty).Value;
+/*
+            foreach (JToken token in jData.Children())
+            {
+                if (token is JProperty)
+                {
+                    var prop = token as JProperty;
+                    Debug.WriteLine("{0}={1}", prop.Name, prop.Value);
+                }
+            }
+            */
+
+            //var familyName = this.Data.GetType().GetProperty("familyName").GetValue(this.Data, null).ToString();
+
+            //var familyNameOther = other.Data.GetType().GetProperty("familyName").GetValue(other.Data, null).ToString();
+
+            //var jObjThis
+
+            return name == nameOther;
         }
+
+        
     }
 }
