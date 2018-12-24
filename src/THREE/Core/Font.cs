@@ -114,28 +114,6 @@ namespace THREE.Core
             var name = ((JObject)Data).Property("familyName").Value.ToString();
             var nameOther = ((JObject)other.Data).Property("familyName").Value.ToString();
 
-            
-
-            
-            //var name = (((JObject)Data).Children().
-           //     var nameOther = (((JObject)other.Data)["familyName"] as JProperty).Value;
-/*
-            foreach (JToken token in jData.Children())
-            {
-                if (token is JProperty)
-                {
-                    var prop = token as JProperty;
-                    Debug.WriteLine("{0}={1}", prop.Name, prop.Value);
-                }
-            }
-            */
-
-            //var familyName = this.Data.GetType().GetProperty("familyName").GetValue(this.Data, null).ToString();
-
-            //var familyNameOther = other.Data.GetType().GetProperty("familyName").GetValue(other.Data, null).ToString();
-
-            //var jObjThis
-
             return name == nameOther;
         }
 

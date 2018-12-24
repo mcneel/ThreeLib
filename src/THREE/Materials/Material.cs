@@ -96,7 +96,7 @@ namespace THREE.Materials
         public VertexColors VertexColors { get; set; }
 
         /// <summary>
-        /// Defines which side of faces will be rendered - front, back or both.
+        /// Defines which side of faces will be rendered - front (0), back (1) or both (2).
         /// </summary>
         public int Side { get; set; }
 
