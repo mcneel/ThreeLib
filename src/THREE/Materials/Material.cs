@@ -98,7 +98,7 @@ namespace THREE.Materials
         /// <summary>
         /// Defines which side of faces will be rendered - front (0), back (1) or both (2).
         /// </summary>
-        public int Side { get; set; }
+        public MaterialSide Side { get; set; }
 
         /// <summary>
         /// Float in the range of 0.0 - 1.0 indicating how transparent the material is. A value of 0.0 indicates fully transparent, 1.0 is fully opaque.

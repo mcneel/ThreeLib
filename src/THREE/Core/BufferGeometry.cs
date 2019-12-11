@@ -18,6 +18,13 @@ namespace THREE.Core
         [JsonProperty("data")]
         BufferGeometryData Data { get; set; }
 
+        [JsonProperty("index")]
+        public BufferAttribute Index 
+        {
+            get { return Data.Index; }
+            set { Data.Index = value; }
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -48,6 +55,11 @@ namespace THREE.Core
             BoundingSphere = new BufferGeometryBoundingSphere();
         }
 
+        public void SetIndex(BufferAttribute index)
+        {
+            Data.Index = index;
+        }
+
         public string ToJSON(bool format)
         {
             var serializerSettings = new JsonSerializerSettings
@@ -66,7 +78,8 @@ namespace THREE.Core
             if (other == null) return false;
             else
                 return Data.Attributes.SequenceEqual(other.Data.Attributes)&&
-                       Data.BoundingSphere.Equals(other.BoundingSphere);
+                       Data.BoundingSphere.Equals(other.BoundingSphere)&&
+                       Data.Index.Equals(other.Data.Index);
         }
 
         public override bool Equals(object other)
@@ -107,7 +120,7 @@ namespace THREE.Core
         /// <returns>A hashcode of the combined data.</returns>
         public override int GetHashCode()
         {
-            return Data.Attributes.GetHashCode() ^ Data.BoundingSphere.GetHashCode();
+            return Data.Attributes.GetHashCode() ^ Data.BoundingSphere.GetHashCode() ^ Data.Index.GetHashCode();
         }
 
     }
@@ -119,6 +132,9 @@ namespace THREE.Core
 
         [JsonProperty("boundingSphere")]
         internal BufferGeometryBoundingSphere BoundingSphere { get; set; }
+
+        [JsonProperty("index")]
+        internal BufferAttribute Index { get; set; }
     }
 
     /// <summary>
