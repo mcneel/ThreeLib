@@ -1,11 +1,26 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using THREE.Textures;
 
 namespace THREE.Materials
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class MeshPhongMaterial : Material, IEquatable<MeshPhongMaterial>
     {
+        /// <summary>
+        /// Material diffuse color.
+        /// </summary>
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Include)]
+        public int Color { get; set; }
+
+        /// <summary>
+        /// Material emissive color.
+        /// </summary>
+        public int Emissive { get; set; }
+
         /// <summary>
         /// Material diffuse map.
         /// </summary>
@@ -85,6 +100,27 @@ namespace THREE.Materials
                 else return null;
             }
         }
+
+        [JsonIgnore]
+        internal Dictionary<string, Texture> Textures { get; set; }
+
+        public MeshPhongMaterial() 
+        {
+            Textures = new Dictionary<string, Texture>();
+        }
+
+        public static MeshPhongMaterial Default() 
+        {
+            return new MeshPhongMaterial()
+            {
+                Color = 16777215,
+                Transparent = false,
+                Opacity = 1,
+                Emissive = 0,
+                Side = MaterialSide.Front
+            };
+        }
+
 
         public bool Equals(MeshPhongMaterial other)
         {

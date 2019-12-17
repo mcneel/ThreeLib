@@ -41,6 +41,9 @@ namespace THREE.Materials
         /// </summary>
         public int Emissive { get; set; }
 
+        #endregion
+
+        #region Texture Maps
         /// <summary>
         /// Material ao map.
         /// </summary>
@@ -458,11 +461,12 @@ namespace THREE.Materials
             return new MeshStandardMaterial()
             {
                 Color = 16777215,
-                Roughness = 1.00,
+                Roughness = 1,
                 Metalness = 0.25,
                 Transparent = false,
                 Opacity = 1,
-                Emissive = 0
+                Emissive = 0,
+                Side = MaterialSide.Front
             };
         }
 
