@@ -46,6 +46,7 @@
     <Compile Include="THREE\Core\BufferGeometry.cs" />
     <Compile Include="THREE\Core\Element.cs" />
     <Compile Include="THREE\Core\Font.cs" />
+    <Compile Include="THREE\Geometries\ExtrudeGeometry.cs" />
     <Compile Include="THREE\Geometries\SphereGeometry.cs" />
     <Compile Include="THREE\Geometries\TextGeometry.cs" />
     <Compile Include="THREE\Lights\AmbientLight.cs" />
@@ -95,13 +96,13 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <None Include="THREE\Font\Arial_Regular.json">
+    <None Include="THREE\Examples\Fonts\Arial_Regular.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="THREE\Font\Lucida Console_Regular.json">
+    <None Include="THREE\Examples\Fonts\Lucida Console_Regular.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="THREE\Font\Times New Roman_Regular.json">
+    <None Include="THREE\Examples\Fonts\Times New Roman_Regular.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

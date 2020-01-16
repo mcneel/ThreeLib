@@ -11,5 +11,6 @@ namespace THREE.Geometries
     /// </summary>
     public class ExtrudeGeometry
     {
+        // TODO: https://github.com/mrdoob/three.js/blob/dev/src/geometries/ExtrudeGeometry.js
     }
 }
