@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Reflection;
 using System.CodeDom;
 using System.CodeDom.Compiler;
+using System.ComponentModel;
 
 namespace CodeGen
 {
@@ -56,8 +57,6 @@ namespace CodeGen
             var rootPath = Directory.GetParent(exePath).Parent.Parent.FullName;
             var libPath = Path.Combine(rootPath, "THREE", "src");
 
-            //outputDirectory = libPath;
-
             Console.WriteLine("THREE Lib Path: {0}", libPath);
 
             if (args == null || args.Length == 0) args = new string[] { libPath };
@@ -90,7 +89,7 @@ namespace CodeGen
         // that are found, and process the files they contain.
         public static void ProcessDirectory(string targetDirectory)
         {
-
+            // omit loaders and renderers for now
             if (targetDirectory.Contains("loaders") || targetDirectory.Contains("renderers")) return;
 
             // Process the list of files found in the directory.
@@ -131,6 +130,7 @@ namespace CodeGen
                     string[] lines = code.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
 
                     #region Imports
+                    /*
                     var imports = lines.Where(l => l.StartsWith("import")).ToList();
 
                     foreach (var i in imports) 
@@ -141,7 +141,7 @@ namespace CodeGen
                         
                         codeNameSpace.Imports.Add(new CodeNamespaceImport(importName));
                     }
-
+                    */
                     #endregion
 
                     #region Interface Declarations
@@ -267,9 +267,14 @@ namespace CodeGen
                         if (!importFound && line.Contains(importText) && line.Contains(';'))
                         {
                             textInBetween.Clear();
-                            //importFound = true;
-                            textInBetween.Add(line);
                             // Process Import line
+
+                            var startI = line.IndexOf("{ ") + 2;
+                            var importName = line.Substring(startI);
+                            importName = importName.Substring(0, importName.IndexOf(' '));
+
+                            codeNameSpace.Imports.Add(new CodeNamespaceImport(importName));
+
                         } else if (line.Contains(importText) && !line.Contains(';'))
                         {
                             textInBetween.Clear();
@@ -283,8 +288,22 @@ namespace CodeGen
                         } else if (importFound && line.Contains(';')) 
                         {
                             importFound = false;
-                            textInBetween.Add(line);
-                            // Process Import line
+                            if (!line.Contains("constants"))
+                            {
+                                //textInBetween.Add(line);
+                                // Process Import lines
+                                textInBetween.RemoveAt(0);
+                                //textInBetween.RemoveAt(textInBetween.Count - 1);
+
+                                foreach(var text in textInBetween)
+                                {
+                                    var iName = text.Trim();
+                                    iName = iName.TrimEnd(',');
+                                    codeNameSpace.Imports.Add(new CodeNamespaceImport(iName));
+                                }
+                                
+                            }
+
                         }
 
                         #endregion
@@ -316,9 +335,85 @@ namespace CodeGen
                         else if (interfaceFound && line.Contains('}') && !line.Contains(';'))
                         {
                             interfaceFound = false;
-                            textInBetween.Add(line);
+                            //textInBetween.Add(line);
 
                             // Process interface
+
+                            var startInt = textInBetween[0].IndexOf(interfaceText) + interfaceText.Length;
+                            var interfaceName = textInBetween[0].Substring(startInt);
+                            if (interfaceName.IndexOf(' ') > 0)
+                                interfaceName = interfaceName.Substring(0, interfaceName.IndexOf(' '));
+
+                            var theInterface = new CodeTypeDeclaration(interfaceName)
+                            {
+                                // IsClass = true,
+                                TypeAttributes = TypeAttributes.Public,
+                                IsInterface = true
+
+                            };
+
+                            textInBetween.RemoveAt(0);
+
+                            foreach (var property in textInBetween)
+                            {
+                                if (property.Contains('(')) continue;
+                                var propertyText = property.Trim();
+                                propertyText = propertyText.TrimEnd(';');
+                                var props = propertyText.Split(':');
+                                props[1] = props[1].Trim();
+
+                                var fieldName = props[0];
+                                var fieldTypeName = props[1].Contains('[') ? "array" : props[1];
+
+                                var fieldType = new CodeTypeReference();
+                                
+
+                                switch (fieldTypeName)
+                                {
+                                    case "string":
+                                        fieldType = new CodeTypeReference(typeof(System.String));
+                                        break;
+
+                                    case "any":
+                                        fieldType = new CodeTypeReference(typeof(System.Object));
+                                        break;
+
+                                    case "array":
+                                        fieldType = new CodeTypeReference(typeof(System.Array));
+                                        fieldType.ArrayElementType = new CodeTypeReference(props[1]);
+                                        break;
+
+                                    case "number":
+                                        fieldType = new CodeTypeReference(typeof(System.Single));
+                                        break;
+
+                                    case "boolean":
+                                        fieldType = new CodeTypeReference(typeof(System.Boolean));
+                                        break;
+
+                                    default:
+                                        fieldType = new CodeTypeReference(fieldTypeName);
+                                        break;
+                                }
+
+                                
+
+                                var field = new CodeMemberField
+                                {
+                                    Attributes = MemberAttributes.Public,
+                                    Name = fieldName,
+                                    Type = fieldType
+                                };
+                                
+                                theInterface.Members.Add(field);
+
+                            }
+
+
+
+                            codeNameSpace.Types.Add(theInterface);
+
+
                         }
 
                         #endregion
@@ -400,6 +495,12 @@ namespace CodeGen
                     */
                 }
             }
+        }
+
+        public static T GetTfromString<T>(string mystring)
+        {
+            var foo = TypeDescriptor.GetConverter(typeof(T));
+            return (T)(foo.ConvertFromInvariantString(mystring));
         }
 
         public static void GenerateCSharpCode(CodeCompileUnit target, string fileName)
