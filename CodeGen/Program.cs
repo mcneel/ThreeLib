@@ -106,6 +106,11 @@ namespace CodeGen
         // Insert logic for processing found files here.
         public static void ProcessFile(string path)
         {
+
+            if (path.Contains("ShaderMaterial") ||
+                path.Contains("Raycaster") ||
+                path.Contains("AnimationObjectGroup")) return;
+
             // parse
             var classText = "export class ";
             var interfaceText = "export interface ";
@@ -148,19 +153,19 @@ namespace CodeGen
 
                     var interfaces = lines.Where(l => l.Contains(interfaceText)).ToList();
 
-                    foreach (var inter in interfaces) 
+                    foreach (var inter in interfaces)
                     {
                         var startInt = inter.IndexOf(interfaceText) + interfaceText.Length;
                         var interfaceName = inter.Substring(startInt);
-                        if(interfaceName.IndexOf(' ') > 0)
+                        if (interfaceName.IndexOf(' ') > 0)
                             interfaceName = interfaceName.Substring(0, interfaceName.IndexOf(' '));
 
-                        var theInterface= new CodeTypeDeclaration(interfaceName)
+                        var theInterface = new CodeTypeDeclaration(interfaceName)
                         {
                             // IsClass = true,
                             TypeAttributes = TypeAttributes.Public,
                             IsInterface = true
-                      
+
                         };
 
                         codeNameSpace.Types.Add(theInterface);
@@ -173,7 +178,7 @@ namespace CodeGen
 
                     var classes = lines.Where(l => l.Contains(classText)).ToList();
 
-                    foreach (var c in classes) 
+                    foreach (var c in classes)
                     {
                         var startC = c.IndexOf(classText) + classText.Length;
                         var className = c.Substring(startC);
@@ -217,7 +222,7 @@ namespace CodeGen
 
                     #endregion
 
-                    
+
 
                     #region Write File
 
@@ -256,7 +261,7 @@ namespace CodeGen
 
                     var textInBetween = new List<string>();
 
-                    while (!streamReader.EndOfStream) 
+                    while (!streamReader.EndOfStream)
                     {
                         var line = streamReader.ReadLine();
                         if (String.IsNullOrEmpty(line))
@@ -275,17 +280,20 @@ namespace CodeGen
 
                             codeNameSpace.Imports.Add(new CodeNamespaceImport(importName));
 
-                        } else if (line.Contains(importText) && !line.Contains(';'))
+                        }
+                        else if (line.Contains(importText) && !line.Contains(';'))
                         {
                             textInBetween.Clear();
                             importFound = true;
                             textInBetween.Add(line);
                             continue;
-                        } else if (importFound && !line.Contains(';'))
+                        }
+                        else if (importFound && !line.Contains(';'))
                         {
                             textInBetween.Add(line);
                             continue;
-                        } else if (importFound && line.Contains(';')) 
+                        }
+                        else if (importFound && line.Contains(';'))
                         {
                             importFound = false;
                             if (!line.Contains("constants"))
@@ -295,13 +303,13 @@ namespace CodeGen
                                 textInBetween.RemoveAt(0);
                                 //textInBetween.RemoveAt(textInBetween.Count - 1);
 
-                                foreach(var text in textInBetween)
+                                foreach (var text in textInBetween)
                                 {
                                     var iName = text.Trim();
                                     iName = iName.TrimEnd(',');
                                     codeNameSpace.Imports.Add(new CodeNamespaceImport(iName));
                                 }
-                                
+
                             }
 
                         }
@@ -315,7 +323,8 @@ namespace CodeGen
                             textInBetween.Clear();
                             textInBetween.Add(line);
                             // Process interface
-                        } else if (!interfaceFound && line.Contains(interfaceText) && !line.Contains('}'))
+                        }
+                        else if (!interfaceFound && line.Contains(interfaceText) && !line.Contains('}'))
                         {
                             textInBetween.Clear();
                             interfaceFound = true;
@@ -354,62 +363,107 @@ namespace CodeGen
 
                             textInBetween.RemoveAt(0);
 
-                            foreach (var property in textInBetween)
+                            if (textInBetween[0].Contains(extendsText))
                             {
-                                if (property.Contains('(')) continue;
-                                var propertyText = property.Trim();
-                                propertyText = propertyText.TrimEnd(';');
-                                var props = propertyText.Split(':');
-                                props[1] = props[1].Trim();
+                                var startEx = textInBetween[0].IndexOf(extendsText) + extendsText.Length;
+                                var baseClassName = textInBetween[0].Substring(startEx);
+                                if (baseClassName.IndexOf(' ') > 0)
+                                    baseClassName = baseClassName.Substring(0, baseClassName.IndexOf(' '));
 
-                                var fieldName = props[0];
-                                var fieldTypeName = props[1].Contains('[') ? "array" : props[1];
-
-                                var fieldType = new CodeTypeReference();
-                                
-
-                                switch (fieldTypeName)
-                                {
-                                    case "string":
-                                        fieldType = new CodeTypeReference(typeof(System.String));
-                                        break;
-
-                                    case "any":
-                                        fieldType = new CodeTypeReference(typeof(System.Object));
-                                        break;
-
-                                    case "array":
-                                        fieldType = new CodeTypeReference(typeof(System.Array));
-                                        fieldType.ArrayElementType = new CodeTypeReference(props[1]);
-                                        break;
-
-                                    case "number":
-                                        fieldType = new CodeTypeReference(typeof(System.Single));
-                                        break;
-
-                                    case "boolean":
-                                        fieldType = new CodeTypeReference(typeof(System.Boolean));
-                                        break;
-
-                                    default:
-                                        fieldType = new CodeTypeReference(fieldTypeName);
-                                        break;
-                                }
-
-                                
-
-                                var field = new CodeMemberField
-                                {
-                                    Attributes = MemberAttributes.Public,
-                                    Name = fieldName,
-                                    Type = fieldType
-                                };
-                                
-                                theInterface.Members.Add(field);
-
+                                theInterface.BaseTypes.Add(baseClassName);
                             }
 
+                            textInBetween.RemoveAt(0);
 
+                            foreach (var property in textInBetween)
+                            {
+                                // this is a method
+                                // TODO: Do something with methods
+                                if (property.Contains('(')) continue;
+
+                                // this is a comment, good to support them later
+                                // TODO: Support property comments
+                                if (property.Contains("*")) continue;
+
+                                var propertyText = property.Trim();
+                                propertyText = propertyText.TrimEnd(';');
+
+                                var props = propertyText.Split(':');
+
+                                if (props.Length > 2)
+                                {
+                                    if (props[0].Contains('[') && props[1].Contains(']'))
+                                    {
+                                        // dictionary
+
+                                        props[0] = props[0].TrimStart('['); // name of dictionary property
+                                        props[1] = props[1].TrimEnd(']'); // type of dictionary key
+
+                                        var thistype = ParseType(props[2]);
+
+                                        Type myType = typeof(System.Collections.Generic.Dictionary<string, object>);
+                                        string dictionaryTypeName = myType.FullName;
+                                        var dictionaryType = new CodeTypeReference(dictionaryTypeName);
+
+                                        var field = new CodeMemberField
+                                        {
+                                            Attributes = MemberAttributes.Public,
+                                            Name = props[0],
+                                            Type = dictionaryType
+                                        };
+
+                                        theInterface.Members.Add(field);
+
+                                    }
+                                    else if (props[1].Contains('{') && props[2].Contains('}'))
+                                    {
+                                        // some object as the type
+                                    }
+
+                                }
+                                else
+                                {
+
+                                    //name
+                                    var fieldName = props[0];
+                                    fieldName = fieldName.Contains('?') ? fieldName.TrimEnd('?') : fieldName;
+
+                                    //type
+                                    props[1] = props[1].Trim();
+
+
+                                    var fieldTypeName = props[1].Contains('[') ? "array" : props[1];
+
+                                    var fieldType = new CodeTypeReference();
+
+                                    if (fieldTypeName == "array")
+                                    {
+                                        fieldType = new CodeTypeReference(typeof(System.Array))
+                                        {
+                                            ArrayElementType = new CodeTypeReference(props[1])
+                                        };
+                                    }
+                                    else
+                                    {
+                                        var t = ParseType(fieldTypeName);
+                                        if(t == null)
+                                            fieldType = new CodeTypeReference(fieldTypeName);
+                                        else
+                                            fieldType = new CodeTypeReference(t);
+
+                                    }
+
+                                    var field = new CodeMemberField
+                                    {
+                                        Attributes = MemberAttributes.Public,
+                                        Name = fieldName,
+                                        Type = fieldType
+                                    };
+
+                                    theInterface.Members.Add(field);
+                                }
+
+                            }
 
                             codeNameSpace.Types.Add(theInterface);
 
@@ -432,11 +486,13 @@ namespace CodeGen
                             classFound = true;
                             textInBetween.Add(line);
                             continue;
-                        } else if (classFound && !line.Contains('}'))
+                        }
+                        else if (classFound && !line.Contains('}'))
                         {
                             textInBetween.Add(line);
                             continue;
-                        } else if (classFound && line.Contains('}') && line.Contains(';')) 
+                        }
+                        else if (classFound && line.Contains('}') && line.Contains(';'))
                         {
                             textInBetween.Add(line);
                             continue;
@@ -444,57 +500,242 @@ namespace CodeGen
                         else if (classFound && line.Contains('}') && !line.Contains(';'))
                         {
                             classFound = false;
-                            textInBetween.Add(line);
+                            //textInBetween.Add(line);
 
                             // Process class
-                        }
 
-                        #endregion
+                            var startClass = textInBetween[0].IndexOf(classText) + classText.Length;
+                            var className = textInBetween[0].Substring(startClass);
+                            if (className.IndexOf(' ') > 0)
+                                className = className.Substring(0, className.IndexOf(' '));
 
-                    }
-
-                    /*
-                    String line;
-
-                    while ((line = streamReader.ReadLine()) != null)
-                    {
-
-
-                        if (line.Contains(exportText))
-                        {
-                            var start = line.IndexOf(exportText) + exportText.Length;
-                            var className = line.Substring(start);
-
-                            var nextBreak = className.IndexOf(' ');
-                            if(className.Contains('<')) nextBreak = className.IndexOf('<');
-
-                            className = className.Substring(0, nextBreak);
-
-                            // Console.WriteLine("Processed file '{0}'.", path);
-                            // Console.WriteLine(className);
-
-                            threeClass = new CodeTypeDeclaration(className)
+                            var theClass = new CodeTypeDeclaration(className)
                             {
                                 IsClass = true,
-                                TypeAttributes = TypeAttributes.Public
+                                TypeAttributes = TypeAttributes.Public,
                             };
 
-                            if (line.Contains(extendsText))
+                            if (textInBetween[0].Contains(extendsText))
                             {
-                                start = line.IndexOf(extendsText) + extendsText.Length;
-                                var baseClassName = line.Substring(start);
-                                baseClassName = baseClassName.Substring(0, baseClassName.IndexOf(' '));
-                                threeClass.BaseTypes.Add(baseClassName);
+                                var startEx = textInBetween[0].IndexOf(extendsText) + extendsText.Length;
+                                var baseClassName = textInBetween[0].Substring(startEx);
+                                if (baseClassName.IndexOf(' ') > 0)
+                                    baseClassName = baseClassName.Substring(0, baseClassName.IndexOf(' '));
+
+                                theClass.BaseTypes.Add(baseClassName);
                             }
 
+                            textInBetween.RemoveAt(0);
 
+                            // constructor
+                            // TODO: Complete
+                            if (textInBetween[0].Contains("constructor"))
+                            {
+
+
+                                //find end of ctor
+                                if (!textInBetween[0].Contains(";"))
+                                {
+                                    var ctorArgs = new List<string>();
+                                    //ctor line is not the same as the end, so find the end
+                                    foreach(var txt in textInBetween)
+                                    {
+                                        if (!txt.Contains(";"))
+                                        {
+                                            ctorArgs.Add(txt);
+                                        }
+                                    }
+                                    //
+                                    textInBetween.RemoveRange(0, ctorArgs.Count+1);
+
+                                }
+                                else
+                                {
+
+                                    var ctorArgsStart = textInBetween[0].IndexOf('(') + 1;
+                                    var ctorArgsText = textInBetween[0].Substring(ctorArgsStart);
+                                    ctorArgsText = ctorArgsText.Substring(0, ctorArgsText.IndexOf(')'));
+                                    ctorArgsText = ctorArgsText.Replace(" ", "");
+
+                                    var args = ctorArgsText.Split(',');
+
+                                    // Declare the constructor
+                                    CodeConstructor constructor = new CodeConstructor
+                                    {
+                                        Attributes = MemberAttributes.Public
+                                    };
+
+                                    textInBetween.RemoveAt(0);
+                           
+                                }
+
+
+                            }
+
+                            //textInBetween.RemoveAt(0);
+                            if(textInBetween.Count > 0)
+                            foreach (var property in textInBetween)
+                            {
+                                // this is a method
+                                // TODO: Do something with methods
+                                if (property.Contains('(')) continue;
+
+                                // this is a comment, good to support them later
+                                // TODO: Support property comments
+                                if (property.Contains("*")) continue;
+
+                                var propertyText = property.Trim();
+                                propertyText = propertyText.TrimEnd(';');
+
+                                var props = propertyText.Split(':');
+
+                                if (props.Length > 2)
+                                {
+                                    if (props[0].Contains('[') && props[1].Contains(']'))
+                                    {
+                                        // dictionary
+
+                                        props[0] = props[0].TrimStart('['); // name of dictionary property
+                                        props[1] = props[1].TrimEnd(']'); // type of dictionary key
+
+                                        var thistype = ParseType(props[2]);
+
+                                        Type myType = typeof(System.Collections.Generic.Dictionary<string, object>);
+                                        string dictionaryTypeName = myType.FullName;
+                                        var dictionaryType = new CodeTypeReference(dictionaryTypeName);
+
+                                        var field = new CodeMemberField
+                                        {
+                                            Attributes = MemberAttributes.Public,
+                                            Name = props[0],
+                                            Type = dictionaryType
+                                        };
+
+                                        theClass.Members.Add(field);
+
+                                    }
+                                    else if (props[1].Contains('{') && props[2].Contains('}'))
+                                    {
+                                        // some object as the type
+                                    }
+                                }
+                                else
+                                {
+                                    //name
+                                    var fieldName = props[0];
+                                    fieldName = fieldName.Contains('?') ? fieldName.TrimEnd('?') : fieldName;
+
+                                    //type
+                                    props[1] = props[1].Trim();
+
+
+                                    var fieldTypeName = props[1].Contains('[') ? "array" : props[1];
+
+                                    var fieldType = new CodeTypeReference();
+
+                                    if (fieldTypeName == "array")
+                                    {
+                                        fieldType = new CodeTypeReference(typeof(System.Array))
+                                        {
+                                            ArrayElementType = new CodeTypeReference(props[1])
+                                        };
+                                    }
+                                    else
+                                    {
+                                        var t = ParseType(fieldTypeName);
+                                        if (t == null)
+                                            fieldType = new CodeTypeReference(fieldTypeName);
+                                        else
+                                            fieldType = new CodeTypeReference(t);
+
+                                    }
+
+                                    var field = new CodeMemberField
+                                    {
+                                        Attributes = MemberAttributes.Public,
+                                        Name = fieldName,
+                                        Type = fieldType
+                                    };
+
+                                    theClass.Members.Add(field);
+                                }
+
+
+                            }
+
+                            #endregion
 
                         }
 
+                        /*
+                        String line;
+
+                        while ((line = streamReader.ReadLine()) != null)
+                        {
+
+
+                            if (line.Contains(exportText))
+                            {
+                                var start = line.IndexOf(exportText) + exportText.Length;
+                                var className = line.Substring(start);
+
+                                var nextBreak = className.IndexOf(' ');
+                                if(className.Contains('<')) nextBreak = className.IndexOf('<');
+
+                                className = className.Substring(0, nextBreak);
+
+                                // Console.WriteLine("Processed file '{0}'.", path);
+                                // Console.WriteLine(className);
+
+                                threeClass = new CodeTypeDeclaration(className)
+                                {
+                                    IsClass = true,
+                                    TypeAttributes = TypeAttributes.Public
+                                };
+
+                                if (line.Contains(extendsText))
+                                {
+                                    start = line.IndexOf(extendsText) + extendsText.Length;
+                                    var baseClassName = line.Substring(start);
+                                    baseClassName = baseClassName.Substring(0, baseClassName.IndexOf(' '));
+                                    threeClass.BaseTypes.Add(baseClassName);
+                                }
+
+
+
+                            }
+
+                        }
+                        */
                     }
-                    */
                 }
             }
+        }
+
+        public static Type ParseType(string type)
+        {
+            switch (type)
+            {
+                case "string":
+                    return typeof(System.String);
+
+                case "any":
+                    return typeof(System.Object);
+
+                case "number":
+                    return typeof(System.Single);
+
+                case "boolean":
+                    return typeof(System.Boolean);
+
+                default:
+                    return null;
+            }
+        }
+
+        public static CodeTypeReference ProcessCodeBlock(List<string> codeBlock)
+        {
+            return null;
         }
 
         public static T GetTfromString<T>(string mystring)
